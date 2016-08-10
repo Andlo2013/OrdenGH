@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 17.875" name="linq">
+  <DataContextMoniker Name="/linqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="876fe6b9-0b56-47b1-965a-86e7db1bc2c5" absoluteBounds="2.875, 0.5, 2, 9.4629541015625">
+      <DataClassMoniker Name="/linqDataContext/pr_OrdenCAB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2725a7dd-d332-47c4-a631-51cf3cc1ee70" absoluteBounds="2.89, 0.96, 1.9700000000000002, 8.9029541015625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6c9d8113-a306-407d-b15d-5754f142b8eb" absoluteBounds="0.5, 0.5, 2, 17.155011393229167">
+      <DataClassMoniker Name="/linqDataContext/ItmMae" />
+      <nestedChildShapes>
+        <elementListCompartment Id="61025757-f63e-4ec1-8bee-87002013a202" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 16.595011393229164" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="82b24dd7-5b69-4640-8734-f2a4aa47df43" absoluteBounds="5.25, 0.5, 2, 16.193504231770834">
+      <DataClassMoniker Name="/linqDataContext/climae" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d8274bf9-7b2b-421e-b067-17b2ac7f0ff3" absoluteBounds="5.265, 0.96, 1.9700000000000002, 15.633504231770832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

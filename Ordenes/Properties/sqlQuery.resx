@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="cmb_CargaCMB" xml:space="preserve">
+    <value>SELECT id AS Codigo, Descripcion FROM pr_OrdenOpcionesCMB WHERE CodCategoria=@Categoria AND EstReg='True'</value>
+    <comment>Carga los combos</comment>
+  </data>
+  <data name="cmb_CargaCMBDEP" xml:space="preserve">
+    <value>SELECT id AS Codigo, Descripcion FROM pr_OrdenOpcionesCMB WHERE NodoPadre=@NodoPadre AND EstReg='True'</value>
+    <comment>Carga los combos</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="iconAPP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bin\Debug\iconAPP.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ord_BuscaMaterial" xml:space="preserve">
+    <value>SELECT ItmCod AS Código,ItmDsc AS Descripción FROM	dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción</value>
+    <comment>Busca los materiales</comment>
+  </data>
+  <data name="ord_BuscaORD" xml:space="preserve">
+    <value>SELECT TOP 20 dbo.pr_Orden.id, dbo.pr_Orden.orden AS Orden, dbo.pr_Orden.CodCli AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,''))) AS Cliente,dbo.pr_Orden.ItmCod AS CoidgoITM,dbo.ItmMae.ItmDsc AS Item, dbo.pr_Orden.FecIni AS FechaINI, dbo.pr_Orden.FecFin AS FechaFIN, dbo.pr_Orden.FecEnt AS FechaENT,ISNULL(dbo.pr_Orden.EplCod,0) AS CodigoEPL,  ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.EplCod),'') AS NombreEPL,dbo.pr_Orden.FecEntPP AS FechaENTPP, dbo.pr_Orden.TipoOffset AS TipoOFF, dbo.pr_Orden.FecFac AS FechaFAC, dbo.pr_Orden.OpcCant AS Cantidad, dbo.pr_Orden.PreUnitario, dbo.pr_Orden.Subtotal, dbo.pr_Orden.IVA, dbo.pr_Orden.Total, dbo.pr_Orden.Abono, dbo.pr_Orden.Saldo, dbo.pr_Orden.Guillo_FechaENT AS FechaENTGuillo, ISNULL(dbo.pr_Orden.Guillo_EplResponsable,0) AS CodigoEPLGuillo, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Guillo_EplResponsable),'') AS NombreEPLRESP_Guillo,ISNULL(dbo.pr_Orden.Guillo_EplRecibeMAT,0) AS CodigoEPLMAT, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Guillo_EplRecibeMAT),'') AS NombreEPLRECMAT_Guillo,ISNULL(dbo.pr_Orden.Dis_EplDisena,0) AS CodigoEPLDIS, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Dis_EplDisena),'') AS NombreEPLDisena,dbo.pr_Orden.Dis_FechaINI AS FechaINIDIS, dbo.pr_Orden.Dis_FechaFIN AS FechaFINDIS, ISNULL(dbo.pr_Orden.Dis_ArchivoPerfil,0) AS dis_ArchivoPerfil, ISNULL(dbo.pr_Orden.Dis_PruebaColor,0) AS dis_PruebaColor, 
+ISNULL(dbo.pr_Orden.Dis_Machote,0) AS dis_Machote FROM dbo.pr_Orden INNER JOIN dbo.climae ON dbo.pr_Orden.EmpCod = dbo.climae.EmpCod AND dbo.pr_Orden.CodCli = dbo.climae.Clisec INNER JOIN dbo.ItmMae ON dbo.pr_Orden.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_Orden.ItmCod = dbo.ItmMae.ItmCod WHERE (dbo.pr_Orden.EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra AND (dbo.pr_Orden.EstReg = 'True')</value>
+    <comment>Busca las órdenes por filtros</comment>
+  </data>
+  <data name="ord_CargaAcabado" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenAcabado.CmbTipoAcabado AS TipoAcabado, dbo.pr_OrdenOpcionesCMB.Descripcion AS Acabado, dbo.pr_OrdenAcabado.UnLado, dbo.pr_OrdenAcabado.DosLados, dbo.pr_OrdenAcabado.Paginas, dbo.pr_OrdenAcabado.NumPaginas FROM dbo.pr_OrdenAcabado INNER JOIN dbo.pr_OrdenOpcionesCMB ON dbo.pr_OrdenAcabado.CmbTipoAcabado = dbo.pr_OrdenOpcionesCMB.id WHERE (dbo.pr_OrdenAcabado.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenAcabado.OrdenId = @ordenID) AND (dbo.pr_OrdenAcabado.EstReg = 'True')</value>
+    <comment>Carga los acabados de la orden</comment>
+  </data>
+  <data name="ord_DisenoCargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenEgresoMAT.CmbSeccion AS CodigoSEC, dbo.pr_OrdenEgresoMAT.CodMaterial AS CodigoMAT, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenEgresoMAT.CntComponente AS CntPliego, dbo.pr_OrdenEgresoMAT.Extras AS CntExtra, dbo.pr_OrdenEgresoMAT.CntTamano, dbo.pr_OrdenEgresoMAT.ArmadoAlto AS Alto, dbo.pr_OrdenEgresoMAT.ArmadoAncho AS Ancho, dbo.pr_OrdenEgresoMAT.PlacaMQ AS CodigoMAQ, dbo.pr_OrdenEgresoMAT.CntPlaca FROM dbo.pr_OrdenEgresoMAT INNER JOIN dbo.ItmMae ON dbo.pr_OrdenEgresoMAT.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenEgresoMAT.CodMaterial = dbo.ItmMae.ItmCod WHERE (dbo.pr_OrdenEgresoMAT.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenEgresoMAT.OrdenId = @ordenID) AND (dbo.pr_OrdenEgresoMAT.EstReg = 'True')</value>
+    <comment>Carga el detalle de egreso de materiales</comment>
+  </data>
+  <data name="ord_GeneralCargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenGeneral.CmbTrabajo AS Trabajo, dbo.pr_OrdenGeneral.Tiraje, dbo.pr_OrdenGeneral.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenGeneral.CmbTamano AS TipoTamano, dbo.pr_OrdenGeneral.Ancho, dbo.pr_OrdenGeneral.Alto, dbo.pr_OrdenGeneral.CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenGeneral.Gramos, dbo.pr_OrdenGeneral.CmbTipoTroquel AS TipoTroquel, dbo.pr_OrdenGeneral.OrdenTroquel, dbo.pr_OrdenGeneral.CmbColorTiro AS ColorTiro, dbo.pr_OrdenGeneral.CmbColorRetiro AS ColorRetiro, dbo.pr_OrdenGeneral.Pantones FROM dbo.pr_OrdenGeneral INNER JOIN dbo.ItmMae ON dbo.pr_OrdenGeneral.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenGeneral.CodMaterial = dbo.ItmMae.ItmCod WHERE (dbo.pr_OrdenGeneral.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenGeneral.OrdenId = @OrdenID) AND (dbo.pr_OrdenGeneral.EstReg = 'True')</value>
+    <comment>Carga los datos de la pestana general</comment>
+  </data>
+  <data name="ord_LibroCargaColor" xml:space="preserve">
+    <value>SELECT CmbColor AS Codigo, Paginas FROM dbo.pr_OrdenLibroENC_Color WHERE (EmpCod = @CodEmpresa) AND (ordenId = @ordenID) AND (EstReg = 'True')</value>
+    <comment>Carga los colores del encuadernado del libro</comment>
+  </data>
+</root>
