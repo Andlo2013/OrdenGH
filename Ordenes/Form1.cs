@@ -1,4 +1,5 @@
 ﻿using AutomatizerSQL.Core;
+using Ordenes.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ namespace Ordenes
     public partial class Form1 : Automatizer.Core.Win32.Gui.RibbonForm
     {
         private static Sesion session;
-
+        private static _SQLServer objSQLServer;
         public Form1()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace Ordenes
             session = this.Sesion;
             if (session.Estado)
             {
-                AgregarVentana(new Controles.ctlOrden(), "Actualizar Inventario", global::Ordenes.Properties.sqlQuery.iconAPP);
+
             }
         }
 
@@ -32,11 +33,27 @@ namespace Ordenes
             {
                 this.Close();
             }
+            else
+            {
+                objSQLServer = new _SQLServer();
+            }
         }
+
+        public static _SQLServer getSQLServer {get{ return objSQLServer; }}
 
         public static Sesion getSession
         {
             get { return session; }
+        }
+
+        private void bbiOrden_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AgregarVentana(new Controles.ctlOrden(), "Órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
+        }
+
+        private void bbiDiseno_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AgregarVentana(new Controles.ctlDiseno(), "Diseñar órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
         }
     }
 }

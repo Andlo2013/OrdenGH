@@ -12,8 +12,7 @@ namespace Ordenes.Clases
         {
             TrabajoGEN = 1,
             TrabajoTipo=2,
-            TipoLibro=3,
-            TipoForma=4,
+            LibroTipo=3,
             Acabado=5,
             LibroForma = 6,
             TipoTamano = 7,
@@ -24,7 +23,10 @@ namespace Ordenes.Clases
             LibroEncuadernado=12,
             Color=13,
             EgrMat_Seccion=14,
-            EgrMat_Maquina=15
+            EgrMat_Maquina=15,
+            DisenoChkGH=16,
+            DisenoChkORI=17,
+            DisenoChkCTP=18
     }
 
     

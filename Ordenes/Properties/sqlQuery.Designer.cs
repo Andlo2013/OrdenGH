@@ -89,7 +89,25 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT ItmCod AS Código,ItmDsc AS Descripción FROM	dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción.
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenBlock.CmbNumCopias AS NumCopias, dbo.pr_OrdenBlock.Juego, dbo.pr_OrdenBlock.CmbTipoEmblocado AS TipoEmblocado, dbo.pr_OrdenBlock.Serie, dbo.pr_OrdenBlock.Inicia, dbo.pr_OrdenBlock.Termina, dbo.pr_OrdenBlock.CmbAcabado AS TipoAcabado, dbo.pr_OrdenBlock.CmbTamano AS TipoTamano, dbo.pr_OrdenBlock.Ancho, dbo.pr_OrdenBlock.Alto, dbo.pr_OrdenBlock.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenBlock.Gramos, dbo.pr_OrdenBlock.Tiraje, dbo.pr_OrdenBlock.CmbTroquel AS Tipo [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ord_BlockCargaDET {
+            get {
+                return ResourceManager.GetString("ord_BlockCargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO pr_OrdenBlock  VALUES(@CodEmpresa,@ordenID,@NumCopias,@Juego,@TipoEmblocado,@Serie,@Inicia,@Termina,@Acabado,@Tamano,@Ancho,@Alto,@ItmSecuencial,@Gramos,@Tiraje,@CmbTroquel,@OrdenTroquel,@Color,@Pantones,&apos;True&apos;).
+        /// </summary>
+        internal static string ord_BlockGuarda {
+            get {
+                return ResourceManager.GetString("ord_BlockGuarda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT ItmCod AS Código,ItmDsc AS Descripción,Secuencial FROM dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción.
         /// </summary>
         internal static string ord_BuscaMaterial {
             get {
@@ -98,11 +116,29 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT TOP 20 dbo.pr_Orden.id, dbo.pr_Orden.orden AS Orden, dbo.pr_Orden.CodCli AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,&apos;&apos;)+&apos; &apos;+ISNULL(dbo.climae.CliNom,&apos;&apos;))) AS Cliente,dbo.pr_Orden.ItmCod AS CoidgoITM,dbo.ItmMae.ItmDsc AS Item, dbo.pr_Orden.FecIni AS FechaINI, dbo.pr_Orden.FecFin AS FechaFIN, dbo.pr_Orden.FecEnt AS FechaENT,ISNULL(dbo.pr_Orden.EplCod,0) AS CodigoEPL,  ISNULL((SELECT LTRIM(RTRIM((EplApl+&apos; &apos;+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.EplCod),&apos;&apos; [resto de la cadena truncado]&quot;;.
+        ///   Busca una cadena traducida similar a SELECT TOP 20 dbo.pr_Orden.id, dbo.pr_Orden.orden AS Orden, ISNULL(pr_Orden.NumCotiza,&apos;&apos;) AS NumCotiza,ISNULL(pr_Orden.FecCotiza,&apos;1900-01-01T00:00:00&apos;) AS FecCotiza, dbo.pr_Orden.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,&apos;&apos;)+&apos; &apos;+ISNULL(dbo.climae.CliNom,&apos;&apos;))) AS Cliente,dbo.pr_Orden.ItmSecuencial AS CodigoITM,dbo.ItmMae.ItmDsc AS Item, dbo.pr_Orden.FecIni AS FechaINI, dbo.pr_Orden.FecFin AS FechaFIN, dbo.pr_Orden.FecEnt AS FechaENT,ISNULL(dbo.pr_Orden.EplCod,0) AS CodigoEPL, ISNULL((SELECT L [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static string ord_BuscaORD {
+        internal static string ord_cabBuscaORD {
             get {
-                return ResourceManager.GetString("ord_BuscaORD", resourceCulture);
+                return ResourceManager.GetString("ord_cabBuscaORD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a DELETE FROM pr_Orden WHERE EmpCod=@CodEmpresa AND id=@ordenID; DELETE FROM pr_OrdenGeneral WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenBlock WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenLibroENC WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenLibroENC_Color WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenLibroPOR WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;.
+        /// </summary>
+        internal static string ord_cabEliminaG {
+            get {
+                return ResourceManager.GetString("ord_cabEliminaG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO pr_Orden VALUES (@CodEmpresa,@ordenID,@numeroORD,@NumCotiza,@FecCotiza,@CodCliente,@FechaINI,@FechaFIN,@CodigoEPL,@ItemSecuencial,@FechaENT,@FechaENTPP,@TipoOFFSET,@FechaFAC,@AdjuntaLIS,@Cantidad,@PrecioUNI,@Subtotal,@IVA,@Total,@Abono,@Saldo,@FechaENT_GUILLO,@EplRespondeGUILLO,@EplRecibeMATGUILLO,@UUID,@Observacion,&apos;True&apos;).
+        /// </summary>
+        internal static string ord_cabGuardaORD {
+            get {
+                return ResourceManager.GetString("ord_cabGuardaORD", resourceCulture);
             }
         }
         
@@ -116,20 +152,101 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenEgresoMAT.CmbSeccion AS CodigoSEC, dbo.pr_OrdenEgresoMAT.CodMaterial AS CodigoMAT, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenEgresoMAT.CntComponente AS CntPliego, dbo.pr_OrdenEgresoMAT.Extras AS CntExtra, dbo.pr_OrdenEgresoMAT.CntTamano, dbo.pr_OrdenEgresoMAT.ArmadoAlto AS Alto, dbo.pr_OrdenEgresoMAT.ArmadoAncho AS Ancho, dbo.pr_OrdenEgresoMAT.PlacaMQ AS CodigoMAQ, dbo.pr_OrdenEgresoMAT.CntPlaca FROM dbo.pr_OrdenEgresoMAT INNER JOIN dbo.ItmMae ON dbo.pr_OrdenEgresoMAT.EmpCod = dbo.ItmMae [resto de la cadena truncado]&quot;;.
+        ///   Busca una cadena traducida similar a SELECT dbo.CliSuc.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, LTRIM(RTRIM((ISNULL(dbo.CliSuc.CliDirPri,&apos;&apos;) +&apos; &apos; + ISNULL(dbo.CliSuc.CliDirNum,&apos;&apos;)+&apos; &apos;+ISNULL(dbo.CliSuc.CliDirSec,&apos;&apos;)))) AS Dirección FROM dbo.CliSuc INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod WHERE (dbo.CliSuc.EmpCod = @CodEmpresa) AND (dbo.CliSuc.CliSec = @CodigoCLI).
         /// </summary>
-        internal static string ord_DisenoCargaDET {
+        internal static string ord_CLIAgregaSUC {
             get {
-                return ResourceManager.GetString("ord_DisenoCargaDET", resourceCulture);
+                return ResourceManager.GetString("ord_CLIAgregaSUC", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenGeneral.CmbTrabajo AS Trabajo, dbo.pr_OrdenGeneral.Tiraje, dbo.pr_OrdenGeneral.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenGeneral.CmbTamano AS TipoTamano, dbo.pr_OrdenGeneral.Ancho, dbo.pr_OrdenGeneral.Alto, dbo.pr_OrdenGeneral.CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenGeneral.Gramos, dbo.pr_OrdenGeneral.CmbTipoTroquel AS TipoTroquel, dbo.pr_OrdenGeneral.OrdenTroquel, dbo.pr_OrdenGeneral.CmbColorTiro AS ColorTiro, dbo.pr_OrdenGeneral.CmbColorRetiro AS ColorRetiro, dbo.pr_OrdenGe [resto de la cadena truncado]&quot;;.
+        ///   Busca una cadena traducida similar a SELECT TOP 20 Clisec AS Código, Clicedruc AS CIRUC, LTRIM(RTRIM(ISNULL(CliApl,&apos;&apos;)+&apos; &apos;+ISNULL(CliNom,&apos;&apos;))) AS Cliente FROM dbo.climae WHERE (EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra ORDER BY Cliente ASC.
+        /// </summary>
+        internal static string ord_CLIBuscar {
+            get {
+                return ResourceManager.GetString("ord_CLIBuscar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT NomCon AS Contacto, Numero FROM dbo.CliComunic WHERE (EmpCod = @CodEmpresa) AND (CliSec = @CodigoCLI).
+        /// </summary>
+        internal static string ord_CLICargaTelefono {
+            get {
+                return ResourceManager.GetString("ord_CLICargaTelefono", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestin [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ord_ClienteCargaDestino {
+            get {
+                return ResourceManager.GetString("ord_ClienteCargaDestino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT SecArmado AS Secuencial, CmbSeccion, Tamano, Ancho, Alto, Maquina FROM dbo.pr_OrdenDisenoArmado WHERE (EmpCod = @CodEmpresa) AND (ordenId = @ordenID) AND (EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string ord_DisCargaArmados {
+            get {
+                return ResourceManager.GetString("ord_DisCargaArmados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenDiseno.EplSec AS CodDisenador, LTRIM(RTRIM(ISNULL(dbo.EplMae.EplApl,&apos;&apos;)+&apos; &apos;+ISNULL(dbo.EplMae.EplNom,&apos;&apos;))) AS Disenador, ISNULL(dbo.pr_OrdenDiseno.FecInicia,&apos;1900-01-01T00:00:00&apos;) AS FecInicia, ISNULL(dbo.pr_OrdenDiseno.FecTermina,&apos;1900-01-01T00:00:00&apos;) AS FecTermina FROM dbo.pr_OrdenDiseno INNER JOIN dbo.EplMae ON dbo.pr_OrdenDiseno.EmpCod = dbo.EplMae.EmpCod AND dbo.pr_OrdenDiseno.EplSec = dbo.EplMae.EplSec WHERE (dbo.pr_OrdenDiseno.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenDiseno.ordenID  [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ord_DisCargaCAB {
+            get {
+                return ResourceManager.GetString("ord_DisCargaCAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT CodOpc AS Opcion FROM dbo.pr_OrdenDisenoOPC WHERE (EmpCod = @CodEmpresa) AND (ordenID = @ordenID) AND (EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string ord_DisCargaCheckedList {
+            get {
+                return ResourceManager.GetString("ord_DisCargaCheckedList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_ordenDisenoMaterialCLI.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_ordenDisenoMaterialCLI.CantMaterial AS Cantidad FROM dbo.pr_ordenDisenoMaterialCLI INNER JOIN dbo.ItmMae ON dbo.pr_ordenDisenoMaterialCLI.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_ordenDisenoMaterialCLI.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.pr_ordenDisenoMaterialCLI.EmpCod = @CodEmpresa) AND (dbo.pr_ordenDisenoMaterialCLI.ordenId = @ordenID) AND (dbo.pr_ordenDisenoMaterialCLI.EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string ord_DisCargaMaterialCLI {
+            get {
+                return ResourceManager.GetString("ord_DisCargaMaterialCLI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenEgresoMAT.CmbSeccion AS CodigoSEC, dbo.pr_OrdenEgresoMAT.ItmSecuencial AS CodMaterial,dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenEgresoMAT.CntComponente AS CntPliego, dbo.pr_OrdenEgresoMAT.Extras AS CntExtra, dbo.pr_OrdenEgresoMAT.CntTamano, dbo.pr_OrdenEgresoMAT.ArmadoAlto AS Alto, dbo.pr_OrdenEgresoMAT.ArmadoAncho AS Ancho, dbo.pr_OrdenEgresoMAT.PlacaMQ AS CodigoMAQ, dbo.pr_OrdenEgresoMAT.CntPlaca FROM dbo.pr_OrdenEgresoMAT INNER JOIN dbo.ItmMae ON dbo.pr_OrdenEgresoMAT.EmpCod = dbo.Itm [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ord_EgrMatCargaDET {
+            get {
+                return ResourceManager.GetString("ord_EgrMatCargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenGeneral.CmbTrabajo AS Trabajo, dbo.pr_OrdenGeneral.Tiraje, dbo.pr_OrdenGeneral.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenGeneral.CmbTamano AS TipoTamano, dbo.pr_OrdenGeneral.Ancho, dbo.pr_OrdenGeneral.Alto, dbo.pr_OrdenGeneral.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenGeneral.Gramos, dbo.pr_OrdenGeneral.CmbTipoTroquel AS TipoTroquel, dbo.pr_OrdenGeneral.OrdenTroquel, dbo.pr_OrdenGeneral.CmbColorTiro AS ColorTiro, dbo.pr_OrdenGeneral.CmbColorRetiro AS ColorRetir [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string ord_GeneralCargaDET {
             get {
                 return ResourceManager.GetString("ord_GeneralCargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO pr_OrdenGeneral VALUES (@CodEmpresa,@ordenID,@Trabajo,@Tiraje,@TipoTrabajo,@Tamano,@Ancho,@Alto,@ItmSecuencial,@Gramos,@TipoTroquel,@OrdenTroquel,@ColorTiro,@ColorRetiro,@Pantones,&apos;True&apos;).
+        /// </summary>
+        internal static string ord_GeneralGuarda {
+            get {
+                return ResourceManager.GetString("ord_GeneralGuarda", resourceCulture);
             }
         }
         
@@ -139,6 +256,51 @@ namespace Ordenes.Properties {
         internal static string ord_LibroCargaColor {
             get {
                 return ResourceManager.GetString("ord_LibroCargaColor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_OrdenLibroENC.CmbTipoLibro AS TipoLibro, dbo.pr_OrdenLibroENC.CmbFormaLibro AS FormaLibro, dbo.pr_OrdenLibroENC.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenLibroENC.CmbTamano AS TamanoTrabajo, dbo.pr_OrdenLibroENC.Ancho, dbo.pr_OrdenLibroENC.Alto, dbo.pr_OrdenLibroENC.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenLibroENC.Gramos, dbo.pr_OrdenLibroENC.NumPaginas FROM dbo.ItmMae INNER JOIN dbo.pr_OrdenLibroENC ON dbo.ItmMae.EmpCod = dbo.pr_OrdenLibroENC.EmpCod AND dbo.ItmMa [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ord_LibroENCCargaDET {
+            get {
+                return ResourceManager.GetString("ord_LibroENCCargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO pr_OrdenLibroENC VALUES (@CodEmpresa,@ordenID,@TipoLibro,@FormaLibro,@TipoTrabajo,@TipoTamano,@Ancho,@Alto,@CodMaterial,@Gramos,@NumPaginas,&apos;True&apos;).
+        /// </summary>
+        internal static string ord_LibroENCGuarda {
+            get {
+                return ResourceManager.GetString("ord_LibroENCGuarda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT CmbTamano AS TipoTamano, Ancho, Alto, ItmSecuencial AS CodMaterial,ISNULL((SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_OrdenLibroPOR.ItmSecuencial)),&apos;&apos;) AS Material, Gramos, CmbTiroColor AS TiroColor, CmbTiroGuarda AS TiroGuarda, CmbTiroCubierta AS TiroCubierta, CmbRetiroColor AS RetiroColor, CmbRetiroGuarda AS RetiroGuarda, CmbRetiroCubierta AS RetiroCubierta, ColorPantone, ItmSecGuarda AS CodGuardaMAT,ISNULL((SELECT ItmDsc FROM dbo.ItmMae AS ItmMae_2 WHERE (E [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string ord_LibroPORCargaDET {
+            get {
+                return ResourceManager.GetString("ord_LibroPORCargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a INSERT INTO pr_OrdenLibroPOR VALUES (@CodEmpresa,@ordenID,@TipoTamano,@Ancho,@Alto,@CodMaterial,@Gramos,@TiroColor,@TiroGuarda,@TiroCubierta,@RetiroColor,@RetiroGuarda,@RetiroCubierta,@ColorPantone,@CodGuardaMAT,@CodCubiertaMAT,@TipoTroquel,@ordenTroquel,&apos;True&apos;).
+        /// </summary>
+        internal static string ord_LibroPORGuarda {
+            get {
+                return ResourceManager.GetString("ord_LibroPORGuarda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a SELECT Pelicula, PeliculaCosto, Troquel, TroquelCosto, Clishe, ClisheCosto, Cocido, Reservado, Termosellado, Transporte, ValijaSeguro, Plastificado, ISNULL(Resina,&apos;False&apos;) AS Resina, IsNull(Metalico,&apos;False&apos;) AS Metalico FROM dbo.pr_OrdenServicioExterno WHERE (EmpCod = @CodEmpresa) AND (OrdenId = @ordenID) AND (EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string ord_ServicioEXTCaregaDET {
+            get {
+                return ResourceManager.GetString("ord_ServicioEXTCaregaDET", resourceCulture);
             }
         }
     }

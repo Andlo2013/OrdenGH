@@ -129,29 +129,100 @@
   <data name="iconAPP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bin\Debug\iconAPP.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ord_BlockCargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenBlock.CmbNumCopias AS NumCopias, dbo.pr_OrdenBlock.Juego, dbo.pr_OrdenBlock.CmbTipoEmblocado AS TipoEmblocado, dbo.pr_OrdenBlock.Serie, dbo.pr_OrdenBlock.Inicia, dbo.pr_OrdenBlock.Termina, dbo.pr_OrdenBlock.CmbAcabado AS TipoAcabado, dbo.pr_OrdenBlock.CmbTamano AS TipoTamano, dbo.pr_OrdenBlock.Ancho, dbo.pr_OrdenBlock.Alto, dbo.pr_OrdenBlock.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenBlock.Gramos, dbo.pr_OrdenBlock.Tiraje, dbo.pr_OrdenBlock.CmbTroquel AS TipoTroquel, dbo.pr_OrdenBlock.OrdenTroquel, dbo.pr_OrdenBlock.CmbColor AS Color, dbo.pr_OrdenBlock.Pantones FROM dbo.pr_OrdenBlock INNER JOIN dbo.ItmMae ON dbo.pr_OrdenBlock.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenBlock.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.pr_OrdenBlock.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenBlock.ordenId = @ordenId) AND (dbo.pr_OrdenBlock.EstReg = 'True')</value>
+    <comment>Carga el detalle de los blocks</comment>
+  </data>
   <data name="ord_BuscaMaterial" xml:space="preserve">
-    <value>SELECT ItmCod AS Código,ItmDsc AS Descripción FROM	dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción</value>
+    <value>SELECT ItmCod AS Código,ItmDsc AS Descripción,Secuencial FROM dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción</value>
     <comment>Busca los materiales</comment>
   </data>
-  <data name="ord_BuscaORD" xml:space="preserve">
-    <value>SELECT TOP 20 dbo.pr_Orden.id, dbo.pr_Orden.orden AS Orden, dbo.pr_Orden.CodCli AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,''))) AS Cliente,dbo.pr_Orden.ItmCod AS CoidgoITM,dbo.ItmMae.ItmDsc AS Item, dbo.pr_Orden.FecIni AS FechaINI, dbo.pr_Orden.FecFin AS FechaFIN, dbo.pr_Orden.FecEnt AS FechaENT,ISNULL(dbo.pr_Orden.EplCod,0) AS CodigoEPL,  ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.EplCod),'') AS NombreEPL,dbo.pr_Orden.FecEntPP AS FechaENTPP, dbo.pr_Orden.TipoOffset AS TipoOFF, dbo.pr_Orden.FecFac AS FechaFAC, dbo.pr_Orden.OpcCant AS Cantidad, dbo.pr_Orden.PreUnitario, dbo.pr_Orden.Subtotal, dbo.pr_Orden.IVA, dbo.pr_Orden.Total, dbo.pr_Orden.Abono, dbo.pr_Orden.Saldo, dbo.pr_Orden.Guillo_FechaENT AS FechaENTGuillo, ISNULL(dbo.pr_Orden.Guillo_EplResponsable,0) AS CodigoEPLGuillo, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Guillo_EplResponsable),'') AS NombreEPLRESP_Guillo,ISNULL(dbo.pr_Orden.Guillo_EplRecibeMAT,0) AS CodigoEPLMAT, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Guillo_EplRecibeMAT),'') AS NombreEPLRECMAT_Guillo,ISNULL(dbo.pr_Orden.Dis_EplDisena,0) AS CodigoEPLDIS, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Dis_EplDisena),'') AS NombreEPLDisena,dbo.pr_Orden.Dis_FechaINI AS FechaINIDIS, dbo.pr_Orden.Dis_FechaFIN AS FechaFINDIS, ISNULL(dbo.pr_Orden.Dis_ArchivoPerfil,0) AS dis_ArchivoPerfil, ISNULL(dbo.pr_Orden.Dis_PruebaColor,0) AS dis_PruebaColor, 
-ISNULL(dbo.pr_Orden.Dis_Machote,0) AS dis_Machote FROM dbo.pr_Orden INNER JOIN dbo.climae ON dbo.pr_Orden.EmpCod = dbo.climae.EmpCod AND dbo.pr_Orden.CodCli = dbo.climae.Clisec INNER JOIN dbo.ItmMae ON dbo.pr_Orden.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_Orden.ItmCod = dbo.ItmMae.ItmCod WHERE (dbo.pr_Orden.EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra AND (dbo.pr_Orden.EstReg = 'True')</value>
+  <data name="ord_cabBuscaORD" xml:space="preserve">
+    <value>SELECT TOP 20 dbo.pr_Orden.id, dbo.pr_Orden.orden AS Orden, ISNULL(pr_Orden.NumCotiza,'') AS NumCotiza,ISNULL(pr_Orden.FecCotiza,'1900-01-01T00:00:00') AS FecCotiza, dbo.pr_Orden.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,''))) AS Cliente,dbo.pr_Orden.ItmSecuencial AS CodigoITM,dbo.ItmMae.ItmDsc AS Item, dbo.pr_Orden.FecIni AS FechaINI, dbo.pr_Orden.FecFin AS FechaFIN, dbo.pr_Orden.FecEnt AS FechaENT,ISNULL(dbo.pr_Orden.EplCod,0) AS CodigoEPL, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.EplCod),'') AS NombreEPL,dbo.pr_Orden.FecEntPP AS FechaENTPP, dbo.pr_Orden.TipoOffset AS TipoOFF, dbo.pr_Orden.FecFac AS FechaFAC, dbo.pr_Orden.OpcCant AS Cantidad, dbo.pr_Orden.PreUnitario, dbo.pr_Orden.Subtotal, dbo.pr_Orden.IVA, dbo.pr_Orden.Total, dbo.pr_Orden.Abono, dbo.pr_Orden.Saldo, dbo.pr_Orden.Guillo_FechaENT AS FechaENTGuillo, ISNULL(dbo.pr_Orden.Guillo_EplResponsable,0) AS CodigoEPLGuillo, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Guillo_EplResponsable),'') AS NombreEPLRESP_Guillo,ISNULL(dbo.pr_Orden.Guillo_EplRecibeMAT,0) AS CodigoEPLRECMAT, ISNULL((SELECT LTRIM(RTRIM((EplApl+' '+EplNom))) FROM EplMae WHERE EmpCod=dbo.pr_Orden.EmpCod AND EplSec=dbo.pr_Orden.Guillo_EplRecibeMAT),'') AS NombreEPLRECMAT_Guillo,AdjListaENT ,UUID,dbo.pr_Orden.Obs AS Observaciones FROM dbo.pr_Orden INNER JOIN dbo.climae ON dbo.pr_Orden.EmpCod = dbo.climae.EmpCod AND dbo.pr_Orden.CliSec = dbo.climae.Clisec INNER JOIN dbo.ItmMae ON dbo.pr_Orden.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_Orden.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.pr_Orden.EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra AND (dbo.pr_Orden.EstReg = 'True')</value>
     <comment>Busca las órdenes por filtros</comment>
   </data>
   <data name="ord_CargaAcabado" xml:space="preserve">
     <value>SELECT dbo.pr_OrdenAcabado.CmbTipoAcabado AS TipoAcabado, dbo.pr_OrdenOpcionesCMB.Descripcion AS Acabado, dbo.pr_OrdenAcabado.UnLado, dbo.pr_OrdenAcabado.DosLados, dbo.pr_OrdenAcabado.Paginas, dbo.pr_OrdenAcabado.NumPaginas FROM dbo.pr_OrdenAcabado INNER JOIN dbo.pr_OrdenOpcionesCMB ON dbo.pr_OrdenAcabado.CmbTipoAcabado = dbo.pr_OrdenOpcionesCMB.id WHERE (dbo.pr_OrdenAcabado.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenAcabado.OrdenId = @ordenID) AND (dbo.pr_OrdenAcabado.EstReg = 'True')</value>
     <comment>Carga los acabados de la orden</comment>
   </data>
-  <data name="ord_DisenoCargaDET" xml:space="preserve">
-    <value>SELECT dbo.pr_OrdenEgresoMAT.CmbSeccion AS CodigoSEC, dbo.pr_OrdenEgresoMAT.CodMaterial AS CodigoMAT, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenEgresoMAT.CntComponente AS CntPliego, dbo.pr_OrdenEgresoMAT.Extras AS CntExtra, dbo.pr_OrdenEgresoMAT.CntTamano, dbo.pr_OrdenEgresoMAT.ArmadoAlto AS Alto, dbo.pr_OrdenEgresoMAT.ArmadoAncho AS Ancho, dbo.pr_OrdenEgresoMAT.PlacaMQ AS CodigoMAQ, dbo.pr_OrdenEgresoMAT.CntPlaca FROM dbo.pr_OrdenEgresoMAT INNER JOIN dbo.ItmMae ON dbo.pr_OrdenEgresoMAT.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenEgresoMAT.CodMaterial = dbo.ItmMae.ItmCod WHERE (dbo.pr_OrdenEgresoMAT.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenEgresoMAT.OrdenId = @ordenID) AND (dbo.pr_OrdenEgresoMAT.EstReg = 'True')</value>
+  <data name="ord_CLIBuscar" xml:space="preserve">
+    <value>SELECT TOP 20 Clisec AS Código, Clicedruc AS CIRUC, LTRIM(RTRIM(ISNULL(CliApl,'')+' '+ISNULL(CliNom,''))) AS Cliente FROM dbo.climae WHERE (EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra ORDER BY Cliente ASC</value>
+    <comment>Permite buscar los clientes para asginar a la orden</comment>
+  </data>
+  <data name="ord_CLICargaTelefono" xml:space="preserve">
+    <value>SELECT NomCon AS Contacto, Numero FROM dbo.CliComunic WHERE (EmpCod = @CodEmpresa) AND (CliSec = @CodigoCLI)</value>
+    <comment>Carga los teléfonos de un cliente</comment>
+  </data>
+  <data name="ord_EgrMatCargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenEgresoMAT.CmbSeccion AS CodigoSEC, dbo.pr_OrdenEgresoMAT.ItmSecuencial AS CodMaterial,dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenEgresoMAT.CntComponente AS CntPliego, dbo.pr_OrdenEgresoMAT.Extras AS CntExtra, dbo.pr_OrdenEgresoMAT.CntTamano, dbo.pr_OrdenEgresoMAT.ArmadoAlto AS Alto, dbo.pr_OrdenEgresoMAT.ArmadoAncho AS Ancho, dbo.pr_OrdenEgresoMAT.PlacaMQ AS CodigoMAQ, dbo.pr_OrdenEgresoMAT.CntPlaca FROM dbo.pr_OrdenEgresoMAT INNER JOIN dbo.ItmMae ON dbo.pr_OrdenEgresoMAT.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenEgresoMAT.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.pr_OrdenEgresoMAT.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenEgresoMAT.OrdenId = @ordenID) AND (dbo.pr_OrdenEgresoMAT.EstReg = 'True')</value>
     <comment>Carga el detalle de egreso de materiales</comment>
   </data>
   <data name="ord_GeneralCargaDET" xml:space="preserve">
-    <value>SELECT dbo.pr_OrdenGeneral.CmbTrabajo AS Trabajo, dbo.pr_OrdenGeneral.Tiraje, dbo.pr_OrdenGeneral.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenGeneral.CmbTamano AS TipoTamano, dbo.pr_OrdenGeneral.Ancho, dbo.pr_OrdenGeneral.Alto, dbo.pr_OrdenGeneral.CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenGeneral.Gramos, dbo.pr_OrdenGeneral.CmbTipoTroquel AS TipoTroquel, dbo.pr_OrdenGeneral.OrdenTroquel, dbo.pr_OrdenGeneral.CmbColorTiro AS ColorTiro, dbo.pr_OrdenGeneral.CmbColorRetiro AS ColorRetiro, dbo.pr_OrdenGeneral.Pantones FROM dbo.pr_OrdenGeneral INNER JOIN dbo.ItmMae ON dbo.pr_OrdenGeneral.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenGeneral.CodMaterial = dbo.ItmMae.ItmCod WHERE (dbo.pr_OrdenGeneral.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenGeneral.OrdenId = @OrdenID) AND (dbo.pr_OrdenGeneral.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_OrdenGeneral.CmbTrabajo AS Trabajo, dbo.pr_OrdenGeneral.Tiraje, dbo.pr_OrdenGeneral.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenGeneral.CmbTamano AS TipoTamano, dbo.pr_OrdenGeneral.Ancho, dbo.pr_OrdenGeneral.Alto, dbo.pr_OrdenGeneral.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenGeneral.Gramos, dbo.pr_OrdenGeneral.CmbTipoTroquel AS TipoTroquel, dbo.pr_OrdenGeneral.OrdenTroquel, dbo.pr_OrdenGeneral.CmbColorTiro AS ColorTiro, dbo.pr_OrdenGeneral.CmbColorRetiro AS ColorRetiro, dbo.pr_OrdenGeneral.Pantones FROM dbo.pr_OrdenGeneral INNER JOIN dbo.ItmMae ON dbo.pr_OrdenGeneral.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_OrdenGeneral.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.pr_OrdenGeneral.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenGeneral.OrdenId = @OrdenID) AND (dbo.pr_OrdenGeneral.EstReg = 'True')</value>
     <comment>Carga los datos de la pestana general</comment>
   </data>
   <data name="ord_LibroCargaColor" xml:space="preserve">
     <value>SELECT CmbColor AS Codigo, Paginas FROM dbo.pr_OrdenLibroENC_Color WHERE (EmpCod = @CodEmpresa) AND (ordenId = @ordenID) AND (EstReg = 'True')</value>
     <comment>Carga los colores del encuadernado del libro</comment>
+  </data>
+  <data name="ord_LibroENCCargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenLibroENC.CmbTipoLibro AS TipoLibro, dbo.pr_OrdenLibroENC.CmbFormaLibro AS FormaLibro, dbo.pr_OrdenLibroENC.CmbTipoTRA AS TipoTrabajo, dbo.pr_OrdenLibroENC.CmbTamano AS TamanoTrabajo, dbo.pr_OrdenLibroENC.Ancho, dbo.pr_OrdenLibroENC.Alto, dbo.pr_OrdenLibroENC.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_OrdenLibroENC.Gramos, dbo.pr_OrdenLibroENC.NumPaginas FROM dbo.ItmMae INNER JOIN dbo.pr_OrdenLibroENC ON dbo.ItmMae.EmpCod = dbo.pr_OrdenLibroENC.EmpCod AND dbo.ItmMae.Secuencial = dbo.pr_OrdenLibroENC.ItmSecuencial WHERE (dbo.pr_OrdenLibroENC.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenLibroENC.ordenId = @OrdenID) AND (dbo.pr_OrdenLibroENC.EstReg = 'True')</value>
+    <comment>Carga el detalle del encuadernado del libro</comment>
+  </data>
+  <data name="ord_LibroPORCargaDET" xml:space="preserve">
+    <value>SELECT CmbTamano AS TipoTamano, Ancho, Alto, ItmSecuencial AS CodMaterial,ISNULL((SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_OrdenLibroPOR.ItmSecuencial)),'') AS Material, Gramos, CmbTiroColor AS TiroColor, CmbTiroGuarda AS TiroGuarda, CmbTiroCubierta AS TiroCubierta, CmbRetiroColor AS RetiroColor, CmbRetiroGuarda AS RetiroGuarda, CmbRetiroCubierta AS RetiroCubierta, ColorPantone, ItmSecGuarda AS CodGuardaMAT,ISNULL((SELECT ItmDsc FROM dbo.ItmMae AS ItmMae_2 WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_OrdenLibroPOR.ItmSecGuarda)),'') AS GuardaMAT, ItmSecCubierta AS CodCubiertaMAT, ISNULL((SELECT ItmDsc FROM dbo.ItmMae AS ItmMae_1 WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_OrdenLibroPOR.ItmSecCubierta)),'') AS CubiertaMAT, CmbTipoTroquel AS TipoTroquel, OrdenTroquel FROM dbo.pr_OrdenLibroPOR WHERE (EmpCod = @CodEmpresa) AND (OrdenId = @ordenID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de la portada del libro</comment>
+  </data>
+  <data name="ord_ServicioEXTCaregaDET" xml:space="preserve">
+    <value>SELECT Pelicula, PeliculaCosto, Troquel, TroquelCosto, Clishe, ClisheCosto, Cocido, Reservado, Termosellado, Transporte, ValijaSeguro, Plastificado, ISNULL(Resina,'False') AS Resina, IsNull(Metalico,'False') AS Metalico FROM dbo.pr_OrdenServicioExterno WHERE (EmpCod = @CodEmpresa) AND (OrdenId = @ordenID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de servicio externo</comment>
+  </data>
+  <data name="ord_ClienteCargaDestino" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestino.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenDestino.OrdenId = @OrdenID) AND (dbo.pr_OrdenDestino.EstReg = 'True')</value>
+    <comment>Carga los destinos del cliente</comment>
+  </data>
+  <data name="ord_DisCargaArmados" xml:space="preserve">
+    <value>SELECT SecArmado AS Secuencial, CmbSeccion, Tamano, Ancho, Alto, Maquina FROM dbo.pr_OrdenDisenoArmado WHERE (EmpCod = @CodEmpresa) AND (ordenId = @ordenID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de armados del diseño</comment>
+  </data>
+  <data name="ord_DisCargaCAB" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenDiseno.EplSec AS CodDisenador, LTRIM(RTRIM(ISNULL(dbo.EplMae.EplApl,'')+' '+ISNULL(dbo.EplMae.EplNom,''))) AS Disenador, ISNULL(dbo.pr_OrdenDiseno.FecInicia,'1900-01-01T00:00:00') AS FecInicia, ISNULL(dbo.pr_OrdenDiseno.FecTermina,'1900-01-01T00:00:00') AS FecTermina FROM dbo.pr_OrdenDiseno INNER JOIN dbo.EplMae ON dbo.pr_OrdenDiseno.EmpCod = dbo.EplMae.EmpCod AND dbo.pr_OrdenDiseno.EplSec = dbo.EplMae.EplSec WHERE (dbo.pr_OrdenDiseno.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenDiseno.ordenID = @ordenID) AND (dbo.pr_OrdenDiseno.EstReg = 'True')</value>
+    <comment>Carga la cabecera del diseño</comment>
+  </data>
+  <data name="ord_DisCargaMaterialCLI" xml:space="preserve">
+    <value>SELECT dbo.pr_ordenDisenoMaterialCLI.ItmSecuencial AS CodMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_ordenDisenoMaterialCLI.CantMaterial AS Cantidad FROM dbo.pr_ordenDisenoMaterialCLI INNER JOIN dbo.ItmMae ON dbo.pr_ordenDisenoMaterialCLI.EmpCod = dbo.ItmMae.EmpCod AND dbo.pr_ordenDisenoMaterialCLI.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.pr_ordenDisenoMaterialCLI.EmpCod = @CodEmpresa) AND (dbo.pr_ordenDisenoMaterialCLI.ordenId = @ordenID) AND (dbo.pr_ordenDisenoMaterialCLI.EstReg = 'True')</value>
+    <comment>Carga el detalle de materiales que deja el cliente</comment>
+  </data>
+  <data name="ord_DisCargaCheckedList" xml:space="preserve">
+    <value>SELECT CodOpc AS Opcion FROM dbo.pr_OrdenDisenoOPC WHERE (EmpCod = @CodEmpresa) AND (ordenID = @ordenID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de checked seleccionados</comment>
+  </data>
+  <data name="ord_CLIAgregaSUC" xml:space="preserve">
+    <value>SELECT dbo.CliSuc.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, LTRIM(RTRIM((ISNULL(dbo.CliSuc.CliDirPri,'') +' ' + ISNULL(dbo.CliSuc.CliDirNum,'')+' '+ISNULL(dbo.CliSuc.CliDirSec,'')))) AS Dirección FROM dbo.CliSuc INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod WHERE (dbo.CliSuc.EmpCod = @CodEmpresa) AND (dbo.CliSuc.CliSec = @CodigoCLI)</value>
+    <comment>Permite agregar destinos en la pestaña cliente</comment>
+  </data>
+  <data name="ord_cabEliminaG" xml:space="preserve">
+    <value>DELETE FROM pr_Orden WHERE EmpCod=@CodEmpresa AND id=@ordenID; DELETE FROM pr_OrdenGeneral WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenBlock WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenLibroENC WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenLibroENC_Color WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;DELETE FROM pr_OrdenLibroPOR WHERE EmpCod=@CodEmpresa AND OrdenId=@ordenID;</value>
+    <comment>Elimina el registro para volver a insertar</comment>
+  </data>
+  <data name="ord_cabGuardaORD" xml:space="preserve">
+    <value>INSERT INTO pr_Orden VALUES (@CodEmpresa,@ordenID,@numeroORD,@NumCotiza,@FecCotiza,@CodCliente,@FechaINI,@FechaFIN,@CodigoEPL,@ItemSecuencial,@FechaENT,@FechaENTPP,@TipoOFFSET,@FechaFAC,@AdjuntaLIS,@Cantidad,@PrecioUNI,@Subtotal,@IVA,@Total,@Abono,@Saldo,@FechaENT_GUILLO,@EplRespondeGUILLO,@EplRecibeMATGUILLO,@UUID,@Observacion,'True')</value>
+    <comment>Guarda la cabecera de la orden</comment>
+  </data>
+  <data name="ord_BlockGuarda" xml:space="preserve">
+    <value>INSERT INTO pr_OrdenBlock  VALUES(@CodEmpresa,@ordenID,@NumCopias,@Juego,@TipoEmblocado,@Serie,@Inicia,@Termina,@Acabado,@Tamano,@Ancho,@Alto,@ItmSecuencial,@Gramos,@Tiraje,@CmbTroquel,@OrdenTroquel,@Color,@Pantones,'True')</value>
+    <comment>Guarda la pestaña block</comment>
+  </data>
+  <data name="ord_GeneralGuarda" xml:space="preserve">
+    <value>INSERT INTO pr_OrdenGeneral VALUES (@CodEmpresa,@ordenID,@Trabajo,@Tiraje,@TipoTrabajo,@Tamano,@Ancho,@Alto,@ItmSecuencial,@Gramos,@TipoTroquel,@OrdenTroquel,@ColorTiro,@ColorRetiro,@Pantones,'True')</value>
+    <comment>Guarda la pestaña general</comment>
+  </data>
+  <data name="ord_LibroENCGuarda" xml:space="preserve">
+    <value>INSERT INTO pr_OrdenLibroENC VALUES (@CodEmpresa,@ordenID,@TipoLibro,@FormaLibro,@TipoTrabajo,@TipoTamano,@Ancho,@Alto,@CodMaterial,@Gramos,@NumPaginas,'True')</value>
+    <comment>Guarda el encuadernado del libro</comment>
+  </data>
+  <data name="ord_LibroPORGuarda" xml:space="preserve">
+    <value>INSERT INTO pr_OrdenLibroPOR VALUES (@CodEmpresa,@ordenID,@TipoTamano,@Ancho,@Alto,@CodMaterial,@Gramos,@TiroColor,@TiroGuarda,@TiroCubierta,@RetiroColor,@RetiroGuarda,@RetiroCubierta,@ColorPantone,@CodGuardaMAT,@CodCubiertaMAT,@TipoTroquel,@ordenTroquel,'True')</value>
+    <comment>Guarda la portada del libro</comment>
   </data>
 </root>

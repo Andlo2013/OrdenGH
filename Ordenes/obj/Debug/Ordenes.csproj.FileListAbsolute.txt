@@ -126,7 +126,6 @@ D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraLayout.v1
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraLayout.v15.2.resources.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraLayout.v15.2.resources.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraLayout.v15.2.resources.dll
-D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlOrden.resources
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form1.resources
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form2.resources
@@ -139,3 +138,5 @@ D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\dllBuscar.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\dllMensaje.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\dllBuscar.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\dllMensaje.pdb
+D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
+D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlDiseno.resources

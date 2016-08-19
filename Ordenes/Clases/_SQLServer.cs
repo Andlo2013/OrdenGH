@@ -85,6 +85,7 @@ namespace Ordenes.Clases
                 parametrosSQL = new SqlParameter[strNombres.Length];
                 for (int i = 0; i < strNombres.Length; i++)
                 {
+                    objValores[i] = objValores[i] == null ? DBNull.Value : objValores[i];
                     parametrosSQL[i] = new SqlParameter(strNombres[i], objValores[i]);
                 }
             }
