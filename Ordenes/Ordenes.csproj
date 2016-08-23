@@ -77,6 +77,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\clsVentas.cs" />
+    <Compile Include="Controles\ctlCotizacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ctlCotizacion.Designer.cs">
+      <DependentUpon>ctlCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frmCortes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frmCortes.Designer.cs">
+      <DependentUpon>frmCortes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\blockMOD.cs" />
     <Compile Include="Modelos\libroEncMOD.cs" />
     <Compile Include="Modelos\libroPorMOD.cs" />
@@ -111,6 +123,9 @@
     <Compile Include="Modelos\trabajoGenMOD.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controles\ctlCotizacion.resx">
+      <DependentUpon>ctlCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controles\ctlDiseno.resx">
       <DependentUpon>ctlDiseno.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frmCortes.resx">
+      <DependentUpon>frmCortes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\sqlQuery.resx">

@@ -1,6 +1,6 @@
 ﻿namespace Ordenes.Controles
 {
-    partial class ctlOrden
+    partial class ctlCotizacion
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -28,77 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.barraStandar = new dllStandardTool.StandardTool();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelControl87 = new DevExpress.XtraEditors.LabelControl();
-            this.txtItemORD = new DevExpress.XtraEditors.TextEdit();
-            this.xtcResumen = new DevExpress.XtraTab.XtraTabControl();
-            this.xtpAcabados = new DevExpress.XtraTab.XtraTabPage();
-            this.gcAcabados = new DevExpress.XtraGrid.GridControl();
-            this.cmAcabados = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuAgregaAcabado = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuQuitaAcabado = new System.Windows.Forms.ToolStripMenuItem();
-            this.gvAcabados = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gcColTipoAcabado = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcColLadoUno = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.riceUnLado = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gcColLadoDos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.riceDosLados = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-            this.gcColPáginas = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcColNumerosPAG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.xtpTotales = new DevExpress.XtraTab.XtraTabPage();
-            this.seSaldo = new DevExpress.XtraEditors.SpinEdit();
-            this.seAbono = new DevExpress.XtraEditors.SpinEdit();
-            this.seTotal = new DevExpress.XtraEditors.SpinEdit();
-            this.seIVA = new DevExpress.XtraEditors.SpinEdit();
-            this.seSubtotal = new DevExpress.XtraEditors.SpinEdit();
-            this.sePrecioUNI = new DevExpress.XtraEditors.SpinEdit();
-            this.seCantidad = new DevExpress.XtraEditors.SpinEdit();
-            this.labelControl43 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl48 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl74 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl77 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl73 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl76 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl75 = new DevExpress.XtraEditors.LabelControl();
-            this.xtpObservaciones = new DevExpress.XtraTab.XtraTabPage();
-            this.meObservacionesORD = new DevExpress.XtraEditors.MemoEdit();
+            this.btnVistaPRV = new DevExpress.XtraEditors.SimpleButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.xtcPestanas = new DevExpress.XtraTab.XtraTabControl();
             this.xtpGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
             this.gen_lueColorRetiro = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl79 = new DevExpress.XtraEditors.LabelControl();
-            this.gen_txtOrdenTroquel = new DevExpress.XtraEditors.TextEdit();
             this.gen_lueTipoTrabajo = new DevExpress.XtraEditors.LookUpEdit();
             this.gen_lueTrabajo = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
-            this.gen_lueTroquel = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.gen_txtPantones = new DevExpress.XtraEditors.TextEdit();
             this.gen_lueColorTiro = new DevExpress.XtraEditors.LookUpEdit();
             this.gen_txtTiraje = new DevExpress.XtraEditors.TextEdit();
-            this.xtpOrden = new DevExpress.XtraTab.XtraTabPage();
-            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.deFechaCOT = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.deFechaPP = new DevExpress.XtraEditors.DateEdit();
-            this.deFechaENT = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl88 = new DevExpress.XtraEditors.LabelControl();
-            this.deFechaFAC = new DevExpress.XtraEditors.DateEdit();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.deFechaINI = new DevExpress.XtraEditors.DateEdit();
             this.xtpDatosCLI = new DevExpress.XtraTab.XtraTabPage();
             this.cli_gcDestinos = new DevExpress.XtraGrid.GridControl();
-            this.cmSucursalCLI = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuAgregarDestino = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuQuitarDestino = new System.Windows.Forms.ToolStripMenuItem();
             this.cli_gvDestino = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.cli_gcColSecuencial = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cli_gcColCodCiudad = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -108,10 +57,10 @@
             this.gvContactos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gcColContacto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcColNumero = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtNombreCLI = new DevExpress.XtraEditors.TextEdit();
+            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
             this.beBuscaCLI = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.xtpBlocks = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl41 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl40 = new DevExpress.XtraEditors.LabelControl();
@@ -134,7 +83,7 @@
             this.blo_txtJuegos = new DevExpress.XtraEditors.TextEdit();
             this.blo_lueNumCopias = new DevExpress.XtraEditors.LookUpEdit();
             this.xtpLibros = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.lib_lueForma = new DevExpress.XtraEditors.LookUpEdit();
             this.xtcLibrosDET = new DevExpress.XtraTab.XtraTabControl();
             this.xtpLibroENC = new DevExpress.XtraTab.XtraTabPage();
@@ -209,9 +158,6 @@
             this.dis_gcColMaquina = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpMaterialCLI = new DevExpress.XtraTab.XtraTabPage();
             this.dis_gcMaterialCLI = new DevExpress.XtraGrid.GridControl();
-            this.cmMaterialCLI = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuAgregaMaterialCLI = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuQuitaMaterialCLI = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_gvMaterialCLI = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dis_gcColMaterialCLI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColCantidadCLI = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -249,69 +195,53 @@
             this.prd_gcColFecInicia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_gcColFecTermina = new DevExpress.XtraGrid.Columns.GridColumn();
             this.prd_gcColObservacion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
             this.prd_lueProceso = new DevExpress.XtraEditors.LookUpEdit();
             this.xtpTerminaTercero = new DevExpress.XtraTab.XtraTabPage();
-            this.xtpDespachoCLI = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.rdgTipoOFF = new DevExpress.XtraEditors.RadioGroup();
-            this.chkEstadoORD = new DevExpress.XtraEditors.CheckEdit();
-            this.txtCodigoORD = new DevExpress.XtraEditors.TextEdit();
-            this.txtNumeroCOT = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl79 = new DevExpress.XtraEditors.LabelControl();
+            this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+            this.gen_txtOrdenTroquel = new DevExpress.XtraEditors.TextEdit();
+            this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
+            this.gen_lueTroquel = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.beOrden = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.txtCotizaID = new DevExpress.XtraEditors.TextEdit();
+            this.seAlto = new DevExpress.XtraEditors.SpinEdit();
+            this.seAncho = new DevExpress.XtraEditors.SpinEdit();
+            this.chkEstadoCOT = new DevExpress.XtraEditors.CheckEdit();
+            this.deFechaCOT = new DevExpress.XtraEditors.DateEdit();
+            this.txtDescripcionITM = new DevExpress.XtraEditors.TextEdit();
+            this.txtCIRUCCLI = new DevExpress.XtraEditors.TextEdit();
+            this.txtNombreCLI = new DevExpress.XtraEditors.ButtonEdit();
+            this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItemORD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtcResumen)).BeginInit();
-            this.xtcResumen.SuspendLayout();
-            this.xtpAcabados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcAcabados)).BeginInit();
-            this.cmAcabados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvAcabados)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riceUnLado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riceDosLados)).BeginInit();
-            this.xtpTotales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seSaldo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seAbono.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seTotal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seIVA.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seSubtotal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sePrecioUNI.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seCantidad.Properties)).BeginInit();
-            this.xtpObservaciones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.meObservacionesORD.Properties)).BeginInit();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcPestanas)).BeginInit();
             this.xtcPestanas.SuspendLayout();
             this.xtpGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueColorRetiro.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gen_txtOrdenTroquel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueTipoTrabajo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueTrabajo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gen_lueTroquel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_txtPantones.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueColorTiro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_txtTiraje.Properties)).BeginInit();
-            this.xtpOrden.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
-            this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaPP.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaPP.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaFAC.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaFAC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaINI.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaINI.Properties)).BeginInit();
             this.xtpDatosCLI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cli_gcDestinos)).BeginInit();
-            this.cmSucursalCLI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cli_gvDestino)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcContactos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvContactos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombreCLI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beBuscaCLI.Properties)).BeginInit();
             this.xtpBlocks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blo_txtPantones.Properties)).BeginInit();
@@ -375,7 +305,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueSeccionARM)).BeginInit();
             this.dis_xtpMaterialCLI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcMaterialCLI)).BeginInit();
-            this.cmMaterialCLI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvMaterialCLI)).BeginInit();
             this.xtpServiciosEXT.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sext_chkMetalico.Properties)).BeginInit();
@@ -396,11 +325,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.prd_gcDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prd_gvDetalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prd_lueProceso.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdgTipoOFF.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoORD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoORD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroCOT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.beOrden.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen_txtOrdenTroquel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen_lueTroquel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCotizaID.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seAlto.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seAncho.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoCOT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionITM.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCIRUCCLI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombreCLI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beNumeroCOT.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // barraStandar
@@ -408,469 +347,73 @@
             this.barraStandar.Dock = System.Windows.Forms.DockStyle.Top;
             this.barraStandar.Location = new System.Drawing.Point(0, 0);
             this.barraStandar.Name = "barraStandar";
-            this.barraStandar.Size = new System.Drawing.Size(834, 24);
-            this.barraStandar.TabIndex = 0;
-            this.barraStandar.onNew += new dllStandardTool.StandardTool.delegateNew(this.barraStandar_onNew);
-            this.barraStandar.onSave += new dllStandardTool.StandardTool.delegateSave(this.barraStandar_onSave);
-            this.barraStandar.onEdit += new dllStandardTool.StandardTool.delegateEdit(this.barraStandar_onEdit);
-            this.barraStandar.onDelete += new dllStandardTool.StandardTool.delegateDelete(this.barraStandar_onDelete);
-            this.barraStandar.onUndo += new dllStandardTool.StandardTool.delegateUndo(this.barraStandar_onUndo);
+            this.barraStandar.Size = new System.Drawing.Size(833, 24);
+            this.barraStandar.TabIndex = 2;
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.labelControl87);
-            this.panel1.Controls.Add(this.txtItemORD);
-            this.panel1.Controls.Add(this.xtcResumen);
-            this.panel1.Controls.Add(this.xtcPestanas);
-            this.panel1.Controls.Add(this.labelControl13);
-            this.panel1.Controls.Add(this.rdgTipoOFF);
-            this.panel1.Controls.Add(this.chkEstadoORD);
-            this.panel1.Controls.Add(this.txtCodigoORD);
-            this.panel1.Controls.Add(this.txtNumeroCOT);
-            this.panel1.Controls.Add(this.labelControl9);
+            this.panel1.Controls.Add(this.btnVistaPRV);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.labelControl8);
-            this.panel1.Controls.Add(this.beOrden);
+            this.panel1.Controls.Add(this.labelControl7);
+            this.panel1.Controls.Add(this.labelControl6);
+            this.panel1.Controls.Add(this.labelControl5);
+            this.panel1.Controls.Add(this.labelControl4);
+            this.panel1.Controls.Add(this.labelControl3);
+            this.panel1.Controls.Add(this.labelControl2);
+            this.panel1.Controls.Add(this.labelControl1);
+            this.panel1.Controls.Add(this.txtCotizaID);
+            this.panel1.Controls.Add(this.seAlto);
+            this.panel1.Controls.Add(this.seAncho);
+            this.panel1.Controls.Add(this.chkEstadoCOT);
+            this.panel1.Controls.Add(this.deFechaCOT);
+            this.panel1.Controls.Add(this.txtDescripcionITM);
+            this.panel1.Controls.Add(this.txtCIRUCCLI);
+            this.panel1.Controls.Add(this.txtNombreCLI);
+            this.panel1.Controls.Add(this.beNumeroCOT);
             this.panel1.Location = new System.Drawing.Point(3, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(825, 453);
-            this.panel1.TabIndex = 1;
-            // 
-            // labelControl87
-            // 
-            this.labelControl87.Location = new System.Drawing.Point(11, 29);
-            this.labelControl87.Name = "labelControl87";
-            this.labelControl87.Size = new System.Drawing.Size(26, 13);
-            this.labelControl87.TabIndex = 23;
-            this.labelControl87.Text = "Item:";
-            // 
-            // txtItemORD
-            // 
-            this.txtItemORD.Location = new System.Drawing.Point(85, 26);
-            this.txtItemORD.Name = "txtItemORD";
-            this.txtItemORD.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.txtItemORD.Properties.MaxLength = 150;
-            this.txtItemORD.Properties.ReadOnly = true;
-            this.txtItemORD.Size = new System.Drawing.Size(382, 20);
-            this.txtItemORD.TabIndex = 22;
-            // 
-            // xtcResumen
-            // 
-            this.xtcResumen.Location = new System.Drawing.Point(7, 312);
-            this.xtcResumen.Name = "xtcResumen";
-            this.xtcResumen.SelectedTabPage = this.xtpAcabados;
-            this.xtcResumen.Size = new System.Drawing.Size(799, 138);
-            this.xtcResumen.TabIndex = 21;
-            this.xtcResumen.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtpAcabados,
-            this.xtpTotales,
-            this.xtpObservaciones});
-            // 
-            // xtpAcabados
-            // 
-            this.xtpAcabados.Controls.Add(this.gcAcabados);
-            this.xtpAcabados.Name = "xtpAcabados";
-            this.xtpAcabados.Size = new System.Drawing.Size(793, 110);
-            this.xtpAcabados.Text = "Acabados";
-            // 
-            // gcAcabados
-            // 
-            this.gcAcabados.ContextMenuStrip = this.cmAcabados;
-            this.gcAcabados.Location = new System.Drawing.Point(3, 3);
-            this.gcAcabados.MainView = this.gvAcabados;
-            this.gcAcabados.Name = "gcAcabados";
-            this.gcAcabados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.riceUnLado,
-            this.riceDosLados});
-            this.gcAcabados.Size = new System.Drawing.Size(787, 104);
-            this.gcAcabados.TabIndex = 0;
-            this.gcAcabados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvAcabados});
-            // 
-            // cmAcabados
-            // 
-            this.cmAcabados.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAgregaAcabado,
-            this.mnuQuitaAcabado});
-            this.cmAcabados.Name = "cmAcabados";
-            this.cmAcabados.Size = new System.Drawing.Size(167, 48);
-            // 
-            // mnuAgregaAcabado
-            // 
-            this.mnuAgregaAcabado.Name = "mnuAgregaAcabado";
-            this.mnuAgregaAcabado.Size = new System.Drawing.Size(166, 22);
-            this.mnuAgregaAcabado.Text = "Agregar Acabado";
-            this.mnuAgregaAcabado.Click += new System.EventHandler(this.mnuAgregaAcabado_Click);
-            // 
-            // mnuQuitaAcabado
-            // 
-            this.mnuQuitaAcabado.Name = "mnuQuitaAcabado";
-            this.mnuQuitaAcabado.Size = new System.Drawing.Size(166, 22);
-            this.mnuQuitaAcabado.Text = "Quitar Acabado";
-            this.mnuQuitaAcabado.Click += new System.EventHandler(this.mnuQuitaAcabado_Click);
-            // 
-            // gvAcabados
-            // 
-            this.gvAcabados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gcColTipoAcabado,
-            this.gcColLadoUno,
-            this.gcColLadoDos,
-            this.gcColPáginas,
-            this.gcColNumerosPAG});
-            this.gvAcabados.GridControl = this.gcAcabados;
-            this.gvAcabados.Name = "gvAcabados";
-            this.gvAcabados.OptionsView.ShowGroupPanel = false;
-            // 
-            // gcColTipoAcabado
-            // 
-            this.gcColTipoAcabado.Caption = "Acabado";
-            this.gcColTipoAcabado.FieldName = "Acabado";
-            this.gcColTipoAcabado.Name = "gcColTipoAcabado";
-            this.gcColTipoAcabado.OptionsColumn.AllowEdit = false;
-            this.gcColTipoAcabado.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColTipoAcabado.OptionsColumn.AllowIncrementalSearch = false;
-            this.gcColTipoAcabado.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColTipoAcabado.OptionsColumn.AllowMove = false;
-            this.gcColTipoAcabado.Visible = true;
-            this.gcColTipoAcabado.VisibleIndex = 0;
-            this.gcColTipoAcabado.Width = 217;
-            // 
-            // gcColLadoUno
-            // 
-            this.gcColLadoUno.Caption = "1 Lado";
-            this.gcColLadoUno.ColumnEdit = this.riceUnLado;
-            this.gcColLadoUno.FieldName = "UnLado";
-            this.gcColLadoUno.Name = "gcColLadoUno";
-            this.gcColLadoUno.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColLadoUno.OptionsColumn.AllowIncrementalSearch = false;
-            this.gcColLadoUno.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColLadoUno.OptionsColumn.AllowMove = false;
-            this.gcColLadoUno.Visible = true;
-            this.gcColLadoUno.VisibleIndex = 1;
-            this.gcColLadoUno.Width = 82;
-            // 
-            // riceUnLado
-            // 
-            this.riceUnLado.AutoHeight = false;
-            this.riceUnLado.Name = "riceUnLado";
-            this.riceUnLado.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            // 
-            // gcColLadoDos
-            // 
-            this.gcColLadoDos.Caption = "2 Lados";
-            this.gcColLadoDos.ColumnEdit = this.riceDosLados;
-            this.gcColLadoDos.FieldName = "DosLados";
-            this.gcColLadoDos.Name = "gcColLadoDos";
-            this.gcColLadoDos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColLadoDos.OptionsColumn.AllowIncrementalSearch = false;
-            this.gcColLadoDos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColLadoDos.OptionsColumn.AllowMove = false;
-            this.gcColLadoDos.Visible = true;
-            this.gcColLadoDos.VisibleIndex = 2;
-            this.gcColLadoDos.Width = 93;
-            // 
-            // riceDosLados
-            // 
-            this.riceDosLados.AutoHeight = false;
-            this.riceDosLados.Name = "riceDosLados";
-            this.riceDosLados.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-            // 
-            // gcColPáginas
-            // 
-            this.gcColPáginas.Caption = "Páginas";
-            this.gcColPáginas.FieldName = "Paginas";
-            this.gcColPáginas.Name = "gcColPáginas";
-            this.gcColPáginas.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColPáginas.OptionsColumn.AllowIncrementalSearch = false;
-            this.gcColPáginas.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColPáginas.OptionsColumn.AllowMove = false;
-            this.gcColPáginas.Visible = true;
-            this.gcColPáginas.VisibleIndex = 3;
-            this.gcColPáginas.Width = 153;
-            // 
-            // gcColNumerosPAG
-            // 
-            this.gcColNumerosPAG.Caption = "Nros. Página";
-            this.gcColNumerosPAG.FieldName = "NumPaginas";
-            this.gcColNumerosPAG.Name = "gcColNumerosPAG";
-            this.gcColNumerosPAG.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColNumerosPAG.OptionsColumn.AllowIncrementalSearch = false;
-            this.gcColNumerosPAG.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.gcColNumerosPAG.OptionsColumn.AllowMove = false;
-            this.gcColNumerosPAG.Visible = true;
-            this.gcColNumerosPAG.VisibleIndex = 4;
-            this.gcColNumerosPAG.Width = 224;
-            // 
-            // xtpTotales
-            // 
-            this.xtpTotales.Controls.Add(this.seSaldo);
-            this.xtpTotales.Controls.Add(this.seAbono);
-            this.xtpTotales.Controls.Add(this.seTotal);
-            this.xtpTotales.Controls.Add(this.seIVA);
-            this.xtpTotales.Controls.Add(this.seSubtotal);
-            this.xtpTotales.Controls.Add(this.sePrecioUNI);
-            this.xtpTotales.Controls.Add(this.seCantidad);
-            this.xtpTotales.Controls.Add(this.labelControl43);
-            this.xtpTotales.Controls.Add(this.labelControl48);
-            this.xtpTotales.Controls.Add(this.labelControl74);
-            this.xtpTotales.Controls.Add(this.labelControl77);
-            this.xtpTotales.Controls.Add(this.labelControl73);
-            this.xtpTotales.Controls.Add(this.labelControl76);
-            this.xtpTotales.Controls.Add(this.labelControl75);
-            this.xtpTotales.Name = "xtpTotales";
-            this.xtpTotales.Size = new System.Drawing.Size(793, 110);
-            this.xtpTotales.Text = "Totales";
-            // 
-            // seSaldo
-            // 
-            this.seSaldo.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seSaldo.Location = new System.Drawing.Point(686, 73);
-            this.seSaldo.Name = "seSaldo";
-            this.seSaldo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seSaldo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seSaldo.Properties.DisplayFormat.FormatString = "N2";
-            this.seSaldo.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seSaldo.Properties.EditFormat.FormatString = "N2";
-            this.seSaldo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seSaldo.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seSaldo.Properties.Mask.EditMask = "N2";
-            this.seSaldo.Properties.ReadOnly = true;
-            this.seSaldo.Size = new System.Drawing.Size(100, 20);
-            this.seSaldo.TabIndex = 41;
-            // 
-            // seAbono
-            // 
-            this.seAbono.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seAbono.Location = new System.Drawing.Point(686, 50);
-            this.seAbono.Name = "seAbono";
-            this.seAbono.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seAbono.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seAbono.Properties.DisplayFormat.FormatString = "N2";
-            this.seAbono.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seAbono.Properties.EditFormat.FormatString = "N2";
-            this.seAbono.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seAbono.Properties.Mask.EditMask = "N2";
-            this.seAbono.Size = new System.Drawing.Size(100, 20);
-            this.seAbono.TabIndex = 40;
-            // 
-            // seTotal
-            // 
-            this.seTotal.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seTotal.Location = new System.Drawing.Point(686, 28);
-            this.seTotal.Name = "seTotal";
-            this.seTotal.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seTotal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seTotal.Properties.DisplayFormat.FormatString = "N2";
-            this.seTotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seTotal.Properties.EditFormat.FormatString = "N2";
-            this.seTotal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seTotal.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seTotal.Properties.Mask.EditMask = "N2";
-            this.seTotal.Properties.ReadOnly = true;
-            this.seTotal.Size = new System.Drawing.Size(100, 20);
-            this.seTotal.TabIndex = 39;
-            // 
-            // seIVA
-            // 
-            this.seIVA.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seIVA.Location = new System.Drawing.Point(529, 28);
-            this.seIVA.Name = "seIVA";
-            this.seIVA.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seIVA.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seIVA.Properties.DisplayFormat.FormatString = "N2";
-            this.seIVA.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seIVA.Properties.EditFormat.FormatString = "N2";
-            this.seIVA.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seIVA.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seIVA.Properties.Mask.EditMask = "N2";
-            this.seIVA.Properties.ReadOnly = true;
-            this.seIVA.Size = new System.Drawing.Size(62, 20);
-            this.seIVA.TabIndex = 38;
-            // 
-            // seSubtotal
-            // 
-            this.seSubtotal.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seSubtotal.Location = new System.Drawing.Point(423, 27);
-            this.seSubtotal.Name = "seSubtotal";
-            this.seSubtotal.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seSubtotal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seSubtotal.Properties.DisplayFormat.FormatString = "N2";
-            this.seSubtotal.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seSubtotal.Properties.EditFormat.FormatString = "N2";
-            this.seSubtotal.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seSubtotal.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seSubtotal.Properties.Mask.EditMask = "N2";
-            this.seSubtotal.Properties.ReadOnly = true;
-            this.seSubtotal.Size = new System.Drawing.Size(89, 20);
-            this.seSubtotal.TabIndex = 37;
-            // 
-            // sePrecioUNI
-            // 
-            this.sePrecioUNI.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.sePrecioUNI.Location = new System.Drawing.Point(317, 27);
-            this.sePrecioUNI.Name = "sePrecioUNI";
-            this.sePrecioUNI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.sePrecioUNI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sePrecioUNI.Properties.DisplayFormat.FormatString = "N2";
-            this.sePrecioUNI.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.sePrecioUNI.Properties.EditFormat.FormatString = "N2";
-            this.sePrecioUNI.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.sePrecioUNI.Properties.Mask.EditMask = "N2";
-            this.sePrecioUNI.Size = new System.Drawing.Size(89, 20);
-            this.sePrecioUNI.TabIndex = 36;
-            // 
-            // seCantidad
-            // 
-            this.seCantidad.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.seCantidad.Location = new System.Drawing.Point(225, 28);
-            this.seCantidad.Name = "seCantidad";
-            this.seCantidad.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.seCantidad.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.seCantidad.Properties.DisplayFormat.FormatString = "N0";
-            this.seCantidad.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seCantidad.Properties.EditFormat.FormatString = "N0";
-            this.seCantidad.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.seCantidad.Properties.Mask.EditMask = "N0";
-            this.seCantidad.Size = new System.Drawing.Size(75, 20);
-            this.seCantidad.TabIndex = 35;
-            // 
-            // labelControl43
-            // 
-            this.labelControl43.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl43.Location = new System.Drawing.Point(621, 79);
-            this.labelControl43.Name = "labelControl43";
-            this.labelControl43.Size = new System.Drawing.Size(42, 14);
-            this.labelControl43.TabIndex = 28;
-            this.labelControl43.Text = "SALDO";
-            // 
-            // labelControl48
-            // 
-            this.labelControl48.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl48.Location = new System.Drawing.Point(621, 53);
-            this.labelControl48.Name = "labelControl48";
-            this.labelControl48.Size = new System.Drawing.Size(43, 14);
-            this.labelControl48.TabIndex = 29;
-            this.labelControl48.Text = "ABONO";
-            // 
-            // labelControl74
-            // 
-            this.labelControl74.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl74.Location = new System.Drawing.Point(568, 8);
-            this.labelControl74.Name = "labelControl74";
-            this.labelControl74.Size = new System.Drawing.Size(23, 14);
-            this.labelControl74.TabIndex = 31;
-            this.labelControl74.Text = "IVA";
-            // 
-            // labelControl77
-            // 
-            this.labelControl77.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl77.Location = new System.Drawing.Point(236, 8);
-            this.labelControl77.Name = "labelControl77";
-            this.labelControl77.Size = new System.Drawing.Size(64, 14);
-            this.labelControl77.TabIndex = 34;
-            this.labelControl77.Text = "CANTIDAD";
-            // 
-            // labelControl73
-            // 
-            this.labelControl73.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl73.Location = new System.Drawing.Point(621, 30);
-            this.labelControl73.Name = "labelControl73";
-            this.labelControl73.Size = new System.Drawing.Size(39, 14);
-            this.labelControl73.TabIndex = 30;
-            this.labelControl73.Text = "TOTAL";
-            // 
-            // labelControl76
-            // 
-            this.labelControl76.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl76.Location = new System.Drawing.Point(330, 8);
-            this.labelControl76.Name = "labelControl76";
-            this.labelControl76.Size = new System.Drawing.Size(76, 14);
-            this.labelControl76.TabIndex = 33;
-            this.labelControl76.Text = "P. UNITARIO";
-            // 
-            // labelControl75
-            // 
-            this.labelControl75.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl75.Location = new System.Drawing.Point(449, 8);
-            this.labelControl75.Name = "labelControl75";
-            this.labelControl75.Size = new System.Drawing.Size(63, 14);
-            this.labelControl75.TabIndex = 32;
-            this.labelControl75.Text = "SUBTOTAL";
-            // 
-            // xtpObservaciones
-            // 
-            this.xtpObservaciones.Controls.Add(this.meObservacionesORD);
-            this.xtpObservaciones.Name = "xtpObservaciones";
-            this.xtpObservaciones.Size = new System.Drawing.Size(793, 110);
-            this.xtpObservaciones.Text = "Observaciones";
-            // 
-            // meObservacionesORD
-            // 
-            this.meObservacionesORD.Location = new System.Drawing.Point(3, 3);
-            this.meObservacionesORD.Name = "meObservacionesORD";
-            this.meObservacionesORD.Size = new System.Drawing.Size(787, 104);
-            this.meObservacionesORD.TabIndex = 0;
+            this.panel1.Size = new System.Drawing.Size(818, 463);
+            this.panel1.TabIndex = 3;
+            // 
+            // btnVistaPRV
+            // 
+            this.btnVistaPRV.Location = new System.Drawing.Point(607, 64);
+            this.btnVistaPRV.Name = "btnVistaPRV";
+            this.btnVistaPRV.Size = new System.Drawing.Size(109, 23);
+            this.btnVistaPRV.TabIndex = 7;
+            this.btnVistaPRV.Text = "Vista Previa";
+            this.btnVistaPRV.Click += new System.EventHandler(this.btnVistaPRV_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.labelControl11);
+            this.groupBox3.Controls.Add(this.labelControl10);
+            this.groupBox3.Controls.Add(this.labelControl9);
+            this.groupBox3.Controls.Add(this.xtcPestanas);
+            this.groupBox3.Controls.Add(this.lookUpEdit3);
+            this.groupBox3.Controls.Add(this.labelControl79);
+            this.groupBox3.Controls.Add(this.lookUpEdit1);
+            this.groupBox3.Controls.Add(this.gen_txtOrdenTroquel);
+            this.groupBox3.Controls.Add(this.lookUpEdit2);
+            this.groupBox3.Controls.Add(this.labelControl32);
+            this.groupBox3.Controls.Add(this.gen_lueTroquel);
+            this.groupBox3.Location = new System.Drawing.Point(4, 86);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(802, 372);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
             // 
             // xtcPestanas
             // 
-            this.xtcPestanas.Location = new System.Drawing.Point(7, 52);
+            this.xtcPestanas.Location = new System.Drawing.Point(1, 97);
             this.xtcPestanas.Name = "xtcPestanas";
             this.xtcPestanas.SelectedTabPage = this.xtpGeneral;
             this.xtcPestanas.Size = new System.Drawing.Size(808, 254);
-            this.xtcPestanas.TabIndex = 20;
+            this.xtcPestanas.TabIndex = 21;
             this.xtcPestanas.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
-            this.xtpOrden,
             this.xtpDatosCLI,
             this.xtpGeneral,
             this.xtpBlocks,
@@ -879,21 +422,16 @@
             this.xtpDiseno,
             this.xtpServiciosEXT,
             this.xtpControlPRD,
-            this.xtpTerminaTercero,
-            this.xtpDespachoCLI});
+            this.xtpTerminaTercero});
             // 
             // xtpGeneral
             // 
             this.xtpGeneral.Controls.Add(this.labelControl23);
             this.xtpGeneral.Controls.Add(this.gen_lueColorRetiro);
-            this.xtpGeneral.Controls.Add(this.labelControl79);
-            this.xtpGeneral.Controls.Add(this.gen_txtOrdenTroquel);
             this.xtpGeneral.Controls.Add(this.gen_lueTipoTrabajo);
             this.xtpGeneral.Controls.Add(this.gen_lueTrabajo);
             this.xtpGeneral.Controls.Add(this.labelControl16);
             this.xtpGeneral.Controls.Add(this.labelControl15);
-            this.xtpGeneral.Controls.Add(this.labelControl32);
-            this.xtpGeneral.Controls.Add(this.gen_lueTroquel);
             this.xtpGeneral.Controls.Add(this.labelControl20);
             this.xtpGeneral.Controls.Add(this.labelControl19);
             this.xtpGeneral.Controls.Add(this.labelControl18);
@@ -906,7 +444,7 @@
             // 
             // labelControl23
             // 
-            this.labelControl23.Location = new System.Drawing.Point(523, 99);
+            this.labelControl23.Location = new System.Drawing.Point(26, 35);
             this.labelControl23.Name = "labelControl23";
             this.labelControl23.Size = new System.Drawing.Size(61, 13);
             this.labelControl23.TabIndex = 68;
@@ -914,7 +452,7 @@
             // 
             // gen_lueColorRetiro
             // 
-            this.gen_lueColorRetiro.Location = new System.Drawing.Point(600, 96);
+            this.gen_lueColorRetiro.Location = new System.Drawing.Point(103, 32);
             this.gen_lueColorRetiro.Name = "gen_lueColorRetiro";
             this.gen_lueColorRetiro.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gen_lueColorRetiro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -927,28 +465,9 @@
             this.gen_lueColorRetiro.Size = new System.Drawing.Size(142, 20);
             this.gen_lueColorRetiro.TabIndex = 67;
             // 
-            // labelControl79
-            // 
-            this.labelControl79.Location = new System.Drawing.Point(523, 55);
-            this.labelControl79.Name = "labelControl79";
-            this.labelControl79.Size = new System.Drawing.Size(34, 13);
-            this.labelControl79.TabIndex = 66;
-            this.labelControl79.Text = "Orden:";
-            // 
-            // gen_txtOrdenTroquel
-            // 
-            this.gen_txtOrdenTroquel.Location = new System.Drawing.Point(600, 52);
-            this.gen_txtOrdenTroquel.Name = "gen_txtOrdenTroquel";
-            this.gen_txtOrdenTroquel.Properties.Appearance.Options.UseTextOptions = true;
-            this.gen_txtOrdenTroquel.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.gen_txtOrdenTroquel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.gen_txtOrdenTroquel.Properties.MaxLength = 8;
-            this.gen_txtOrdenTroquel.Size = new System.Drawing.Size(142, 20);
-            this.gen_txtOrdenTroquel.TabIndex = 65;
-            // 
             // gen_lueTipoTrabajo
             // 
-            this.gen_lueTipoTrabajo.Location = new System.Drawing.Point(108, 51);
+            this.gen_lueTipoTrabajo.Location = new System.Drawing.Point(103, 174);
             this.gen_lueTipoTrabajo.Name = "gen_lueTipoTrabajo";
             this.gen_lueTipoTrabajo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gen_lueTipoTrabajo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -963,7 +482,7 @@
             // 
             // gen_lueTrabajo
             // 
-            this.gen_lueTrabajo.Location = new System.Drawing.Point(108, 29);
+            this.gen_lueTrabajo.Location = new System.Drawing.Point(103, 152);
             this.gen_lueTrabajo.Name = "gen_lueTrabajo";
             this.gen_lueTrabajo.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gen_lueTrabajo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -976,11 +495,11 @@
             this.gen_lueTrabajo.Properties.ValueMember = "Codigo";
             this.gen_lueTrabajo.Size = new System.Drawing.Size(196, 20);
             this.gen_lueTrabajo.TabIndex = 58;
-            this.gen_lueTrabajo.EditValueChanged += new System.EventHandler(this.gen_lueTrabajo_EditValueChanged);
             // 
             // labelControl16
             // 
-            this.labelControl16.Location = new System.Drawing.Point(17, 54);
+            this.labelControl16.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl16.Location = new System.Drawing.Point(12, 177);
             this.labelControl16.Name = "labelControl16";
             this.labelControl16.Size = new System.Drawing.Size(77, 13);
             this.labelControl16.TabIndex = 8;
@@ -988,38 +507,16 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(17, 32);
+            this.labelControl15.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl15.Location = new System.Drawing.Point(12, 155);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(41, 13);
             this.labelControl15.TabIndex = 7;
             this.labelControl15.Text = "Trabajo:";
             // 
-            // labelControl32
-            // 
-            this.labelControl32.Location = new System.Drawing.Point(523, 32);
-            this.labelControl32.Name = "labelControl32";
-            this.labelControl32.Size = new System.Drawing.Size(40, 13);
-            this.labelControl32.TabIndex = 38;
-            this.labelControl32.Text = "Troquel:";
-            // 
-            // gen_lueTroquel
-            // 
-            this.gen_lueTroquel.Location = new System.Drawing.Point(600, 29);
-            this.gen_lueTroquel.Name = "gen_lueTroquel";
-            this.gen_lueTroquel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.gen_lueTroquel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.gen_lueTroquel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Troquel")});
-            this.gen_lueTroquel.Properties.DisplayMember = "Descripcion";
-            this.gen_lueTroquel.Properties.NullText = "";
-            this.gen_lueTroquel.Properties.ValueMember = "Codigo";
-            this.gen_lueTroquel.Size = new System.Drawing.Size(142, 20);
-            this.gen_lueTroquel.TabIndex = 29;
-            // 
             // labelControl20
             // 
-            this.labelControl20.Location = new System.Drawing.Point(523, 121);
+            this.labelControl20.Location = new System.Drawing.Point(26, 57);
             this.labelControl20.Name = "labelControl20";
             this.labelControl20.Size = new System.Drawing.Size(49, 13);
             this.labelControl20.TabIndex = 12;
@@ -1027,7 +524,7 @@
             // 
             // labelControl19
             // 
-            this.labelControl19.Location = new System.Drawing.Point(523, 77);
+            this.labelControl19.Location = new System.Drawing.Point(26, 13);
             this.labelControl19.Name = "labelControl19";
             this.labelControl19.Size = new System.Drawing.Size(50, 13);
             this.labelControl19.TabIndex = 11;
@@ -1035,7 +532,8 @@
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(366, 32);
+            this.labelControl18.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl18.Location = new System.Drawing.Point(361, 155);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(31, 13);
             this.labelControl18.TabIndex = 10;
@@ -1043,7 +541,7 @@
             // 
             // gen_txtPantones
             // 
-            this.gen_txtPantones.Location = new System.Drawing.Point(600, 118);
+            this.gen_txtPantones.Location = new System.Drawing.Point(103, 54);
             this.gen_txtPantones.Name = "gen_txtPantones";
             this.gen_txtPantones.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gen_txtPantones.Size = new System.Drawing.Size(142, 20);
@@ -1051,7 +549,7 @@
             // 
             // gen_lueColorTiro
             // 
-            this.gen_lueColorTiro.Location = new System.Drawing.Point(600, 74);
+            this.gen_lueColorTiro.Location = new System.Drawing.Point(103, 10);
             this.gen_lueColorTiro.Name = "gen_lueColorTiro";
             this.gen_lueColorTiro.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.gen_lueColorTiro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1067,7 +565,7 @@
             // gen_txtTiraje
             // 
             this.gen_txtTiraje.EditValue = "";
-            this.gen_txtTiraje.Location = new System.Drawing.Point(403, 29);
+            this.gen_txtTiraje.Location = new System.Drawing.Point(398, 152);
             this.gen_txtTiraje.Name = "gen_txtTiraje";
             this.gen_txtTiraje.Properties.Appearance.Options.UseTextOptions = true;
             this.gen_txtTiraje.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -1076,176 +574,20 @@
             this.gen_txtTiraje.Size = new System.Drawing.Size(77, 20);
             this.gen_txtTiraje.TabIndex = 1;
             // 
-            // xtpOrden
-            // 
-            this.xtpOrden.Controls.Add(this.groupControl1);
-            this.xtpOrden.Name = "xtpOrden";
-            this.xtpOrden.Size = new System.Drawing.Size(802, 226);
-            this.xtpOrden.Text = "Orden";
-            // 
-            // groupControl1
-            // 
-            this.groupControl1.Controls.Add(this.deFechaCOT);
-            this.groupControl1.Controls.Add(this.labelControl11);
-            this.groupControl1.Controls.Add(this.labelControl10);
-            this.groupControl1.Controls.Add(this.labelControl12);
-            this.groupControl1.Controls.Add(this.deFechaPP);
-            this.groupControl1.Controls.Add(this.deFechaENT);
-            this.groupControl1.Controls.Add(this.labelControl88);
-            this.groupControl1.Controls.Add(this.deFechaFAC);
-            this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Controls.Add(this.deFechaINI);
-            this.groupControl1.Location = new System.Drawing.Point(20, 31);
-            this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(693, 99);
-            this.groupControl1.TabIndex = 22;
-            this.groupControl1.Text = "Fechas";
-            // 
-            // deFechaCOT
-            // 
-            this.deFechaCOT.EditValue = null;
-            this.deFechaCOT.Location = new System.Drawing.Point(126, 23);
-            this.deFechaCOT.Name = "deFechaCOT";
-            this.deFechaCOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.deFechaCOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaCOT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaCOT.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaCOT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaCOT.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaCOT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaCOT.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaCOT.Size = new System.Drawing.Size(187, 20);
-            this.deFechaCOT.TabIndex = 20;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(363, 48);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(74, 13);
-            this.labelControl11.TabIndex = 16;
-            this.labelControl11.Text = "Fecha Entrega:";
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(363, 26);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(81, 13);
-            this.labelControl10.TabIndex = 15;
-            this.labelControl10.Text = "Fecha Prepensa:";
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(5, 70);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(73, 13);
-            this.labelControl12.TabIndex = 17;
-            this.labelControl12.Text = "Fecha Factura:";
-            // 
-            // deFechaPP
-            // 
-            this.deFechaPP.EditValue = null;
-            this.deFechaPP.Location = new System.Drawing.Point(476, 23);
-            this.deFechaPP.Name = "deFechaPP";
-            this.deFechaPP.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.deFechaPP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaPP.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaPP.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaPP.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaPP.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaPP.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaPP.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaPP.Size = new System.Drawing.Size(187, 20);
-            this.deFechaPP.TabIndex = 10;
-            // 
-            // deFechaENT
-            // 
-            this.deFechaENT.EditValue = null;
-            this.deFechaENT.Location = new System.Drawing.Point(476, 45);
-            this.deFechaENT.Name = "deFechaENT";
-            this.deFechaENT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.deFechaENT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaENT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaENT.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaENT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaENT.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaENT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaENT.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaENT.Size = new System.Drawing.Size(187, 20);
-            this.deFechaENT.TabIndex = 11;
-            // 
-            // labelControl88
-            // 
-            this.labelControl88.Location = new System.Drawing.Point(5, 48);
-            this.labelControl88.Name = "labelControl88";
-            this.labelControl88.Size = new System.Drawing.Size(61, 13);
-            this.labelControl88.TabIndex = 19;
-            this.labelControl88.Text = "Fecha Inicia:";
-            // 
-            // deFechaFAC
-            // 
-            this.deFechaFAC.EditValue = null;
-            this.deFechaFAC.Location = new System.Drawing.Point(126, 67);
-            this.deFechaFAC.Name = "deFechaFAC";
-            this.deFechaFAC.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.deFechaFAC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaFAC.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaFAC.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaFAC.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaFAC.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaFAC.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaFAC.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaFAC.Size = new System.Drawing.Size(187, 20);
-            this.deFechaFAC.TabIndex = 12;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(5, 23);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(85, 13);
-            this.labelControl5.TabIndex = 21;
-            this.labelControl5.Text = "Fecha Cotización:";
-            // 
-            // deFechaINI
-            // 
-            this.deFechaINI.EditValue = null;
-            this.deFechaINI.Location = new System.Drawing.Point(126, 45);
-            this.deFechaINI.Name = "deFechaINI";
-            this.deFechaINI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.deFechaINI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaINI.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deFechaINI.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaINI.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaINI.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaINI.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.deFechaINI.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm:ss";
-            this.deFechaINI.Size = new System.Drawing.Size(187, 20);
-            this.deFechaINI.TabIndex = 18;
-            // 
             // xtpDatosCLI
             // 
             this.xtpDatosCLI.Controls.Add(this.cli_gcDestinos);
             this.xtpDatosCLI.Controls.Add(this.gcContactos);
-            this.xtpDatosCLI.Controls.Add(this.txtNombreCLI);
+            this.xtpDatosCLI.Controls.Add(this.textEdit1);
             this.xtpDatosCLI.Controls.Add(this.beBuscaCLI);
-            this.xtpDatosCLI.Controls.Add(this.labelControl1);
-            this.xtpDatosCLI.Controls.Add(this.labelControl2);
+            this.xtpDatosCLI.Controls.Add(this.labelControl13);
+            this.xtpDatosCLI.Controls.Add(this.labelControl14);
             this.xtpDatosCLI.Name = "xtpDatosCLI";
             this.xtpDatosCLI.Size = new System.Drawing.Size(802, 226);
             this.xtpDatosCLI.Text = "Cliente";
             // 
             // cli_gcDestinos
             // 
-            this.cli_gcDestinos.ContextMenuStrip = this.cmSucursalCLI;
             this.cli_gcDestinos.Location = new System.Drawing.Point(18, 34);
             this.cli_gcDestinos.MainView = this.cli_gvDestino;
             this.cli_gcDestinos.Name = "cli_gcDestinos";
@@ -1253,30 +595,6 @@
             this.cli_gcDestinos.TabIndex = 18;
             this.cli_gcDestinos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.cli_gvDestino});
-            // 
-            // cmSucursalCLI
-            // 
-            this.cmSucursalCLI.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAgregarDestino,
-            this.mnuQuitarDestino});
-            this.cmSucursalCLI.Name = "cmSucursalCLI";
-            this.cmSucursalCLI.Size = new System.Drawing.Size(228, 48);
-            // 
-            // mnuAgregarDestino
-            // 
-            this.mnuAgregarDestino.Name = "mnuAgregarDestino";
-            this.mnuAgregarDestino.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregarDestino.Size = new System.Drawing.Size(227, 22);
-            this.mnuAgregarDestino.Text = "Agregar Destino";
-            this.mnuAgregarDestino.Click += new System.EventHandler(this.mnuAgregarDestino_Click);
-            // 
-            // mnuQuitarDestino
-            // 
-            this.mnuQuitarDestino.Name = "mnuQuitarDestino";
-            this.mnuQuitarDestino.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuQuitarDestino.Size = new System.Drawing.Size(227, 22);
-            this.mnuQuitarDestino.Text = "Quitar Destino";
-            this.mnuQuitarDestino.Click += new System.EventHandler(this.mnuQuitarDestino_Click);
             // 
             // cli_gvDestino
             // 
@@ -1388,14 +706,14 @@
             this.gcColNumero.VisibleIndex = 1;
             this.gcColNumero.Width = 426;
             // 
-            // txtNombreCLI
+            // textEdit1
             // 
-            this.txtNombreCLI.Location = new System.Drawing.Point(432, 8);
-            this.txtNombreCLI.Name = "txtNombreCLI";
-            this.txtNombreCLI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.txtNombreCLI.Properties.ReadOnly = true;
-            this.txtNombreCLI.Size = new System.Drawing.Size(358, 20);
-            this.txtNombreCLI.TabIndex = 1;
+            this.textEdit1.Location = new System.Drawing.Point(432, 8);
+            this.textEdit1.Name = "textEdit1";
+            this.textEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.textEdit1.Properties.ReadOnly = true;
+            this.textEdit1.Size = new System.Drawing.Size(358, 20);
+            this.textEdit1.TabIndex = 1;
             // 
             // beBuscaCLI
             // 
@@ -1410,23 +728,22 @@
             this.beBuscaCLI.Properties.ReadOnly = true;
             this.beBuscaCLI.Size = new System.Drawing.Size(88, 20);
             this.beBuscaCLI.TabIndex = 2;
-            this.beBuscaCLI.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beBuscaCLI_ButtonClick);
             // 
-            // labelControl1
+            // labelControl13
             // 
-            this.labelControl1.Location = new System.Drawing.Point(18, 11);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(37, 13);
-            this.labelControl1.TabIndex = 7;
-            this.labelControl1.Text = "Código:";
+            this.labelControl13.Location = new System.Drawing.Point(18, 11);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(37, 13);
+            this.labelControl13.TabIndex = 7;
+            this.labelControl13.Text = "Código:";
             // 
-            // labelControl2
+            // labelControl14
             // 
-            this.labelControl2.Location = new System.Drawing.Point(385, 11);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(41, 13);
-            this.labelControl2.TabIndex = 8;
-            this.labelControl2.Text = "Nombre:";
+            this.labelControl14.Location = new System.Drawing.Point(385, 11);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(41, 13);
+            this.labelControl14.TabIndex = 8;
+            this.labelControl14.Text = "Nombre:";
             // 
             // xtpBlocks
             // 
@@ -1456,7 +773,8 @@
             // 
             // labelControl41
             // 
-            this.labelControl41.Location = new System.Drawing.Point(609, 72);
+            this.labelControl41.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl41.Location = new System.Drawing.Point(213, 167);
             this.labelControl41.Name = "labelControl41";
             this.labelControl41.Size = new System.Drawing.Size(49, 13);
             this.labelControl41.TabIndex = 33;
@@ -1464,7 +782,8 @@
             // 
             // labelControl40
             // 
-            this.labelControl40.Location = new System.Drawing.Point(425, 72);
+            this.labelControl40.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl40.Location = new System.Drawing.Point(29, 167);
             this.labelControl40.Name = "labelControl40";
             this.labelControl40.Size = new System.Drawing.Size(29, 13);
             this.labelControl40.TabIndex = 32;
@@ -1472,7 +791,8 @@
             // 
             // labelControl37
             // 
-            this.labelControl37.Location = new System.Drawing.Point(425, 27);
+            this.labelControl37.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl37.Location = new System.Drawing.Point(29, 141);
             this.labelControl37.Name = "labelControl37";
             this.labelControl37.Size = new System.Drawing.Size(31, 13);
             this.labelControl37.TabIndex = 29;
@@ -1480,7 +800,7 @@
             // 
             // blo_txtPantones
             // 
-            this.blo_txtPantones.Location = new System.Drawing.Point(664, 69);
+            this.blo_txtPantones.Location = new System.Drawing.Point(268, 164);
             this.blo_txtPantones.Name = "blo_txtPantones";
             this.blo_txtPantones.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.blo_txtPantones.Size = new System.Drawing.Size(108, 20);
@@ -1488,7 +808,7 @@
             // 
             // blo_lueColor
             // 
-            this.blo_lueColor.Location = new System.Drawing.Point(491, 69);
+            this.blo_lueColor.Location = new System.Drawing.Point(95, 164);
             this.blo_lueColor.Name = "blo_lueColor";
             this.blo_lueColor.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.blo_lueColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1503,7 +823,7 @@
             // 
             // blo_txtTiraje
             // 
-            this.blo_txtTiraje.Location = new System.Drawing.Point(491, 24);
+            this.blo_txtTiraje.Location = new System.Drawing.Point(95, 138);
             this.blo_txtTiraje.Name = "blo_txtTiraje";
             this.blo_txtTiraje.Properties.Appearance.Options.UseTextOptions = true;
             this.blo_txtTiraje.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -1655,26 +975,22 @@
             // 
             // xtpLibros
             // 
-            this.xtpLibros.Controls.Add(this.labelControl4);
-            this.xtpLibros.Controls.Add(this.lib_lueForma);
             this.xtpLibros.Controls.Add(this.xtcLibrosDET);
-            this.xtpLibros.Controls.Add(this.labelControl72);
-            this.xtpLibros.Controls.Add(this.lib_lueTipoLibro);
             this.xtpLibros.Name = "xtpLibros";
             this.xtpLibros.Size = new System.Drawing.Size(802, 226);
             this.xtpLibros.Text = "Libros";
             // 
-            // labelControl4
+            // labelControl17
             // 
-            this.labelControl4.Location = new System.Drawing.Point(490, 9);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(34, 13);
-            this.labelControl4.TabIndex = 20;
-            this.labelControl4.Text = "Forma:";
+            this.labelControl17.Location = new System.Drawing.Point(5, 3);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(34, 13);
+            this.labelControl17.TabIndex = 20;
+            this.labelControl17.Text = "Forma:";
             // 
             // lib_lueForma
             // 
-            this.lib_lueForma.Location = new System.Drawing.Point(530, 6);
+            this.lib_lueForma.Location = new System.Drawing.Point(96, 3);
             this.lib_lueForma.Name = "lib_lueForma";
             this.lib_lueForma.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.lib_lueForma.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1689,10 +1005,10 @@
             // 
             // xtcLibrosDET
             // 
-            this.xtcLibrosDET.Location = new System.Drawing.Point(6, 31);
+            this.xtcLibrosDET.Location = new System.Drawing.Point(4, 3);
             this.xtcLibrosDET.Name = "xtcLibrosDET";
             this.xtcLibrosDET.SelectedTabPage = this.xtpLibroENC;
-            this.xtcLibrosDET.Size = new System.Drawing.Size(793, 188);
+            this.xtcLibrosDET.Size = new System.Drawing.Size(793, 220);
             this.xtcLibrosDET.TabIndex = 18;
             this.xtcLibrosDET.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpLibroENC,
@@ -1701,17 +1017,22 @@
             // xtpLibroENC
             // 
             this.xtpLibroENC.Controls.Add(this.labelControl56);
+            this.xtpLibroENC.Controls.Add(this.labelControl72);
             this.xtpLibroENC.Controls.Add(this.lib_gcColoresENC);
+            this.xtpLibroENC.Controls.Add(this.lib_lueTipoLibro);
             this.xtpLibroENC.Controls.Add(this.lib_TipoTrabajoENC);
+            this.xtpLibroENC.Controls.Add(this.lib_lueForma);
+            this.xtpLibroENC.Controls.Add(this.labelControl17);
             this.xtpLibroENC.Controls.Add(this.lib_txtNumPaginasENC);
             this.xtpLibroENC.Controls.Add(this.labelControl47);
             this.xtpLibroENC.Name = "xtpLibroENC";
-            this.xtpLibroENC.Size = new System.Drawing.Size(787, 160);
+            this.xtpLibroENC.Size = new System.Drawing.Size(787, 192);
             this.xtpLibroENC.Text = "Encuadernado";
             // 
             // labelControl56
             // 
-            this.labelControl56.Location = new System.Drawing.Point(13, 22);
+            this.labelControl56.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl56.Location = new System.Drawing.Point(3, 172);
             this.labelControl56.Name = "labelControl56";
             this.labelControl56.Size = new System.Drawing.Size(64, 13);
             this.labelControl56.TabIndex = 28;
@@ -1719,12 +1040,12 @@
             // 
             // lib_gcColoresENC
             // 
-            this.lib_gcColoresENC.Location = new System.Drawing.Point(364, 19);
+            this.lib_gcColoresENC.Location = new System.Drawing.Point(5, 29);
             this.lib_gcColoresENC.MainView = this.lib_gvColoresENC;
             this.lib_gcColoresENC.Name = "lib_gcColoresENC";
             this.lib_gcColoresENC.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rilue_gridColorENC});
-            this.lib_gcColoresENC.Size = new System.Drawing.Size(408, 110);
+            this.lib_gcColoresENC.Size = new System.Drawing.Size(491, 110);
             this.lib_gcColoresENC.TabIndex = 27;
             this.lib_gcColoresENC.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.lib_gvColoresENC});
@@ -1772,7 +1093,7 @@
             // 
             // lib_TipoTrabajoENC
             // 
-            this.lib_TipoTrabajoENC.Location = new System.Drawing.Point(96, 19);
+            this.lib_TipoTrabajoENC.Location = new System.Drawing.Point(96, 169);
             this.lib_TipoTrabajoENC.Name = "lib_TipoTrabajoENC";
             this.lib_TipoTrabajoENC.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.lib_TipoTrabajoENC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -1782,12 +1103,12 @@
             this.lib_TipoTrabajoENC.Properties.DisplayMember = "Descripcion";
             this.lib_TipoTrabajoENC.Properties.NullText = "";
             this.lib_TipoTrabajoENC.Properties.ValueMember = "Codigo";
-            this.lib_TipoTrabajoENC.Size = new System.Drawing.Size(242, 20);
+            this.lib_TipoTrabajoENC.Size = new System.Drawing.Size(233, 20);
             this.lib_TipoTrabajoENC.TabIndex = 2;
             // 
             // lib_txtNumPaginasENC
             // 
-            this.lib_txtNumPaginasENC.Location = new System.Drawing.Point(96, 89);
+            this.lib_txtNumPaginasENC.Location = new System.Drawing.Point(433, 3);
             this.lib_txtNumPaginasENC.Name = "lib_txtNumPaginasENC";
             this.lib_txtNumPaginasENC.Properties.Appearance.Options.UseTextOptions = true;
             this.lib_txtNumPaginasENC.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -1798,7 +1119,7 @@
             // 
             // labelControl47
             // 
-            this.labelControl47.Location = new System.Drawing.Point(13, 92);
+            this.labelControl47.Location = new System.Drawing.Point(362, 6);
             this.labelControl47.Name = "labelControl47";
             this.labelControl47.Size = new System.Drawing.Size(65, 13);
             this.labelControl47.TabIndex = 17;
@@ -1822,7 +1143,7 @@
             this.xtpLibroPOR.Controls.Add(this.lib_lueTiroGuardaPOR);
             this.xtpLibroPOR.Controls.Add(this.lib_lueTiroColorPOR);
             this.xtpLibroPOR.Name = "xtpLibroPOR";
-            this.xtpLibroPOR.Size = new System.Drawing.Size(787, 160);
+            this.xtpLibroPOR.Size = new System.Drawing.Size(787, 192);
             this.xtpLibroPOR.Text = "Portada";
             // 
             // lib_txtColorPantonePOR
@@ -1851,7 +1172,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.lib_beMaterialCubiertaPOR.Size = new System.Drawing.Size(255, 20);
             this.lib_beMaterialCubiertaPOR.TabIndex = 89;
-            this.lib_beMaterialCubiertaPOR.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lib_beMaterialCubiertaPOR_ButtonClick);
             // 
             // lib_beMaterialGuardaPOR
             // 
@@ -1863,7 +1183,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.lib_beMaterialGuardaPOR.Size = new System.Drawing.Size(255, 20);
             this.lib_beMaterialGuardaPOR.TabIndex = 88;
-            this.lib_beMaterialGuardaPOR.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.lib_beMaterialGuardaPOR_ButtonClick);
             // 
             // labelControl54
             // 
@@ -1985,7 +1304,8 @@
             // 
             // labelControl72
             // 
-            this.labelControl72.Location = new System.Drawing.Point(6, 9);
+            this.labelControl72.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.labelControl72.Location = new System.Drawing.Point(3, 148);
             this.labelControl72.Name = "labelControl72";
             this.labelControl72.Size = new System.Drawing.Size(62, 13);
             this.labelControl72.TabIndex = 17;
@@ -1993,7 +1313,7 @@
             // 
             // lib_lueTipoLibro
             // 
-            this.lib_lueTipoLibro.Location = new System.Drawing.Point(96, 6);
+            this.lib_lueTipoLibro.Location = new System.Drawing.Point(96, 145);
             this.lib_lueTipoLibro.Name = "lib_lueTipoLibro";
             this.lib_lueTipoLibro.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.lib_lueTipoLibro.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -2003,7 +1323,7 @@
             this.lib_lueTipoLibro.Properties.DisplayMember = "Descripcion";
             this.lib_lueTipoLibro.Properties.NullText = "";
             this.lib_lueTipoLibro.Properties.ValueMember = "Codigo";
-            this.lib_lueTipoLibro.Size = new System.Drawing.Size(249, 20);
+            this.lib_lueTipoLibro.Size = new System.Drawing.Size(233, 20);
             this.lib_lueTipoLibro.TabIndex = 16;
             // 
             // xtpMateriales
@@ -2093,7 +1413,6 @@
             this.em_ribeBuscaMAT.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.em_ribeBuscaMAT.Name = "em_ribeBuscaMAT";
-            this.em_ribeBuscaMAT.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.dis_ribeBuscaMAT_ButtonClick);
             // 
             // em_gcColCantPliego
             // 
@@ -2489,7 +1808,6 @@
             // 
             // dis_gcMaterialCLI
             // 
-            this.dis_gcMaterialCLI.ContextMenuStrip = this.cmMaterialCLI;
             this.dis_gcMaterialCLI.Location = new System.Drawing.Point(4, 4);
             this.dis_gcMaterialCLI.MainView = this.dis_gvMaterialCLI;
             this.dis_gcMaterialCLI.Name = "dis_gcMaterialCLI";
@@ -2497,30 +1815,6 @@
             this.dis_gcMaterialCLI.TabIndex = 0;
             this.dis_gcMaterialCLI.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dis_gvMaterialCLI});
-            // 
-            // cmMaterialCLI
-            // 
-            this.cmMaterialCLI.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAgregaMaterialCLI,
-            this.mnuQuitaMaterialCLI});
-            this.cmMaterialCLI.Name = "cmMaterialCLI";
-            this.cmMaterialCLI.Size = new System.Drawing.Size(231, 48);
-            // 
-            // mnuAgregaMaterialCLI
-            // 
-            this.mnuAgregaMaterialCLI.Name = "mnuAgregaMaterialCLI";
-            this.mnuAgregaMaterialCLI.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregaMaterialCLI.Size = new System.Drawing.Size(230, 22);
-            this.mnuAgregaMaterialCLI.Text = "Agregar Material";
-            this.mnuAgregaMaterialCLI.Click += new System.EventHandler(this.mnuAgregaMaterialCLI_Click);
-            // 
-            // mnuQuitaMaterialCLI
-            // 
-            this.mnuQuitaMaterialCLI.Name = "mnuQuitaMaterialCLI";
-            this.mnuQuitaMaterialCLI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuQuitaMaterialCLI.Size = new System.Drawing.Size(230, 22);
-            this.mnuQuitaMaterialCLI.Text = "Quitar Material";
-            this.mnuQuitaMaterialCLI.Click += new System.EventHandler(this.mnuQuitaMaterialCLI_Click);
             // 
             // dis_gvMaterialCLI
             // 
@@ -2898,7 +2192,7 @@
             // xtpControlPRD
             // 
             this.xtpControlPRD.Controls.Add(this.prd_gcDetalle);
-            this.xtpControlPRD.Controls.Add(this.labelControl6);
+            this.xtpControlPRD.Controls.Add(this.labelControl21);
             this.xtpControlPRD.Controls.Add(this.prd_lueProceso);
             this.xtpControlPRD.Name = "xtpControlPRD";
             this.xtpControlPRD.Size = new System.Drawing.Size(802, 226);
@@ -2981,13 +2275,13 @@
             this.prd_gcColObservacion.VisibleIndex = 3;
             this.prd_gcColObservacion.Width = 585;
             // 
-            // labelControl6
+            // labelControl21
             // 
-            this.labelControl6.Location = new System.Drawing.Point(18, 9);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(42, 13);
-            this.labelControl6.TabIndex = 1;
-            this.labelControl6.Text = "Proceso:";
+            this.labelControl21.Location = new System.Drawing.Point(18, 9);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(42, 13);
+            this.labelControl21.TabIndex = 1;
+            this.labelControl21.Text = "Proceso:";
             // 
             // prd_lueProceso
             // 
@@ -3003,7 +2297,6 @@
             this.prd_lueProceso.Properties.ValueMember = "Codigo";
             this.prd_lueProceso.Size = new System.Drawing.Size(175, 20);
             this.prd_lueProceso.TabIndex = 0;
-            this.prd_lueProceso.EditValueChanged += new System.EventHandler(this.prd_lueProceso_EditValueChanged);
             // 
             // xtpTerminaTercero
             // 
@@ -3011,160 +2304,330 @@
             this.xtpTerminaTercero.Size = new System.Drawing.Size(802, 226);
             this.xtpTerminaTercero.Text = "Terciarizado";
             // 
-            // xtpDespachoCLI
+            // lookUpEdit3
             // 
-            this.xtpDespachoCLI.Name = "xtpDespachoCLI";
-            this.xtpDespachoCLI.Size = new System.Drawing.Size(802, 226);
-            this.xtpDespachoCLI.Text = "Despacho";
+            this.lookUpEdit3.Location = new System.Drawing.Point(112, 71);
+            this.lookUpEdit3.Name = "lookUpEdit3";
+            this.lookUpEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit3.Size = new System.Drawing.Size(224, 20);
+            this.lookUpEdit3.TabIndex = 20;
             // 
-            // labelControl13
+            // labelControl79
             // 
-            this.labelControl13.Location = new System.Drawing.Point(718, 29);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(15, 13);
-            this.labelControl13.TabIndex = 19;
-            this.labelControl13.Text = "ID:";
+            this.labelControl79.Location = new System.Drawing.Point(535, 48);
+            this.labelControl79.Name = "labelControl79";
+            this.labelControl79.Size = new System.Drawing.Size(34, 13);
+            this.labelControl79.TabIndex = 66;
+            this.labelControl79.Text = "Orden:";
             // 
-            // rdgTipoOFF
+            // lookUpEdit1
             // 
-            this.rdgTipoOFF.Location = new System.Drawing.Point(573, 3);
-            this.rdgTipoOFF.Name = "rdgTipoOFF";
-            this.rdgTipoOFF.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.rdgTipoOFF.Properties.Columns = 1;
-            this.rdgTipoOFF.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("OFF", "Offset"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("DIG", "Digital")});
-            this.rdgTipoOFF.Size = new System.Drawing.Size(84, 43);
-            this.rdgTipoOFF.TabIndex = 18;
+            this.lookUpEdit1.Location = new System.Drawing.Point(112, 19);
+            this.lookUpEdit1.Name = "lookUpEdit1";
+            this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit1.Size = new System.Drawing.Size(224, 20);
+            this.lookUpEdit1.TabIndex = 18;
             // 
-            // chkEstadoORD
+            // gen_txtOrdenTroquel
             // 
-            this.chkEstadoORD.Location = new System.Drawing.Point(748, 3);
-            this.chkEstadoORD.Name = "chkEstadoORD";
-            this.chkEstadoORD.Properties.Caption = "Activo";
-            this.chkEstadoORD.Properties.ReadOnly = true;
-            this.chkEstadoORD.Size = new System.Drawing.Size(58, 19);
-            this.chkEstadoORD.TabIndex = 14;
+            this.gen_txtOrdenTroquel.Location = new System.Drawing.Point(625, 42);
+            this.gen_txtOrdenTroquel.Name = "gen_txtOrdenTroquel";
+            this.gen_txtOrdenTroquel.Properties.Appearance.Options.UseTextOptions = true;
+            this.gen_txtOrdenTroquel.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.gen_txtOrdenTroquel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.gen_txtOrdenTroquel.Properties.MaxLength = 8;
+            this.gen_txtOrdenTroquel.Size = new System.Drawing.Size(142, 20);
+            this.gen_txtOrdenTroquel.TabIndex = 65;
             // 
-            // txtCodigoORD
+            // lookUpEdit2
             // 
-            this.txtCodigoORD.EditValue = "";
-            this.txtCodigoORD.Location = new System.Drawing.Point(748, 26);
-            this.txtCodigoORD.Name = "txtCodigoORD";
-            this.txtCodigoORD.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtCodigoORD.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtCodigoORD.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.txtCodigoORD.Properties.MaxLength = 8;
-            this.txtCodigoORD.Properties.ReadOnly = true;
-            this.txtCodigoORD.Size = new System.Drawing.Size(53, 20);
-            this.txtCodigoORD.TabIndex = 13;
+            this.lookUpEdit2.Location = new System.Drawing.Point(112, 45);
+            this.lookUpEdit2.Name = "lookUpEdit2";
+            this.lookUpEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEdit2.Size = new System.Drawing.Size(224, 20);
+            this.lookUpEdit2.TabIndex = 19;
             // 
-            // txtNumeroCOT
+            // labelControl32
             // 
-            this.txtNumeroCOT.Location = new System.Drawing.Point(344, 4);
-            this.txtNumeroCOT.Name = "txtNumeroCOT";
-            this.txtNumeroCOT.Properties.Appearance.Options.UseTextOptions = true;
-            this.txtNumeroCOT.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.txtNumeroCOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.txtNumeroCOT.Properties.MaxLength = 10;
-            this.txtNumeroCOT.Size = new System.Drawing.Size(123, 20);
-            this.txtNumeroCOT.TabIndex = 9;
+            this.labelControl32.Location = new System.Drawing.Point(535, 19);
+            this.labelControl32.Name = "labelControl32";
+            this.labelControl32.Size = new System.Drawing.Size(40, 13);
+            this.labelControl32.TabIndex = 38;
+            this.labelControl32.Text = "Troquel:";
             // 
-            // labelControl9
+            // gen_lueTroquel
             // 
-            this.labelControl9.Location = new System.Drawing.Point(273, 8);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(53, 13);
-            this.labelControl9.TabIndex = 8;
-            this.labelControl9.Text = "Cotización:";
+            this.gen_lueTroquel.Location = new System.Drawing.Point(625, 16);
+            this.gen_lueTroquel.Name = "gen_lueTroquel";
+            this.gen_lueTroquel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.gen_lueTroquel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.gen_lueTroquel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Troquel")});
+            this.gen_lueTroquel.Properties.DisplayMember = "Descripcion";
+            this.gen_lueTroquel.Properties.NullText = "";
+            this.gen_lueTroquel.Properties.ValueMember = "Codigo";
+            this.gen_lueTroquel.Size = new System.Drawing.Size(142, 20);
+            this.gen_lueTroquel.TabIndex = 29;
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(10, 7);
+            this.labelControl8.Location = new System.Drawing.Point(722, 63);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(58, 13);
-            this.labelControl8.TabIndex = 7;
-            this.labelControl8.Text = "Nro. Órden:";
+            this.labelControl8.Size = new System.Drawing.Size(15, 13);
+            this.labelControl8.TabIndex = 16;
+            this.labelControl8.Text = "ID:";
             // 
-            // beOrden
+            // labelControl7
             // 
-            this.beOrden.Location = new System.Drawing.Point(85, 4);
-            this.beOrden.Name = "beOrden";
-            this.beOrden.Properties.Appearance.Options.UseTextOptions = true;
-            this.beOrden.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.beOrden.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.beOrden.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.labelControl7.Location = new System.Drawing.Point(654, 41);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(33, 13);
+            this.labelControl7.TabIndex = 15;
+            this.labelControl7.Text = "Fecha:";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(475, 63);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(23, 13);
+            this.labelControl6.TabIndex = 14;
+            this.labelControl6.Text = "Alto:";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(475, 41);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(34, 13);
+            this.labelControl5.TabIndex = 13;
+            this.labelControl5.Text = "Ancho:";
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(18, 63);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(58, 13);
+            this.labelControl4.TabIndex = 12;
+            this.labelControl4.Text = "Descripción:";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Location = new System.Drawing.Point(18, 41);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(37, 13);
+            this.labelControl3.TabIndex = 11;
+            this.labelControl3.Text = "Cliente:";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(289, 19);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(36, 13);
+            this.labelControl2.TabIndex = 10;
+            this.labelControl2.Text = "CIRUC:";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(18, 19);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(53, 13);
+            this.labelControl1.TabIndex = 9;
+            this.labelControl1.Text = "Cotización:";
+            // 
+            // txtCotizaID
+            // 
+            this.txtCotizaID.EditValue = "";
+            this.txtCotizaID.Location = new System.Drawing.Point(743, 60);
+            this.txtCotizaID.Name = "txtCotizaID";
+            this.txtCotizaID.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtCotizaID.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.txtCotizaID.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtCotizaID.Properties.MaxLength = 9;
+            this.txtCotizaID.Properties.ReadOnly = true;
+            this.txtCotizaID.Size = new System.Drawing.Size(63, 20);
+            this.txtCotizaID.TabIndex = 8;
+            // 
+            // seAlto
+            // 
+            this.seAlto.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seAlto.Location = new System.Drawing.Point(522, 60);
+            this.seAlto.Name = "seAlto";
+            this.seAlto.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.seAlto.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seAlto.Properties.DisplayFormat.FormatString = "N2";
+            this.seAlto.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seAlto.Properties.EditFormat.FormatString = "N2";
+            this.seAlto.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seAlto.Properties.Mask.EditMask = "N2";
+            this.seAlto.Properties.MaxValue = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            131072});
+            this.seAlto.Size = new System.Drawing.Size(79, 20);
+            this.seAlto.TabIndex = 7;
+            // 
+            // seAncho
+            // 
+            this.seAncho.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.seAncho.Location = new System.Drawing.Point(522, 38);
+            this.seAncho.Name = "seAncho";
+            this.seAncho.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.seAncho.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.seAncho.Properties.DisplayFormat.FormatString = "N2";
+            this.seAncho.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seAncho.Properties.EditFormat.FormatString = "N2";
+            this.seAncho.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.seAncho.Properties.Mask.EditMask = "N2";
+            this.seAncho.Properties.MaxValue = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            131072});
+            this.seAncho.Size = new System.Drawing.Size(79, 20);
+            this.seAncho.TabIndex = 6;
+            // 
+            // chkEstadoCOT
+            // 
+            this.chkEstadoCOT.Location = new System.Drawing.Point(752, 17);
+            this.chkEstadoCOT.Name = "chkEstadoCOT";
+            this.chkEstadoCOT.Properties.Caption = "Activo";
+            this.chkEstadoCOT.Properties.ReadOnly = true;
+            this.chkEstadoCOT.Size = new System.Drawing.Size(54, 19);
+            this.chkEstadoCOT.TabIndex = 5;
+            // 
+            // deFechaCOT
+            // 
+            this.deFechaCOT.EditValue = null;
+            this.deFechaCOT.Location = new System.Drawing.Point(693, 38);
+            this.deFechaCOT.Name = "deFechaCOT";
+            this.deFechaCOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.deFechaCOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaCOT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deFechaCOT.Properties.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm";
+            this.deFechaCOT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.deFechaCOT.Properties.EditFormat.FormatString = "yyyy-MM-dd HH:mm";
+            this.deFechaCOT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.deFechaCOT.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm";
+            this.deFechaCOT.Properties.NullDate = "";
+            this.deFechaCOT.Size = new System.Drawing.Size(113, 20);
+            this.deFechaCOT.TabIndex = 4;
+            // 
+            // txtDescripcionITM
+            // 
+            this.txtDescripcionITM.Location = new System.Drawing.Point(101, 60);
+            this.txtDescripcionITM.Name = "txtDescripcionITM";
+            this.txtDescripcionITM.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtDescripcionITM.Properties.MaxLength = 150;
+            this.txtDescripcionITM.Size = new System.Drawing.Size(342, 20);
+            this.txtDescripcionITM.TabIndex = 3;
+            // 
+            // txtCIRUCCLI
+            // 
+            this.txtCIRUCCLI.EditValue = "";
+            this.txtCIRUCCLI.Location = new System.Drawing.Point(336, 16);
+            this.txtCIRUCCLI.Name = "txtCIRUCCLI";
+            this.txtCIRUCCLI.Properties.Appearance.Options.UseTextOptions = true;
+            this.txtCIRUCCLI.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.txtCIRUCCLI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtCIRUCCLI.Properties.MaxLength = 13;
+            this.txtCIRUCCLI.Properties.ReadOnly = true;
+            this.txtCIRUCCLI.Size = new System.Drawing.Size(107, 20);
+            this.txtCIRUCCLI.TabIndex = 2;
+            // 
+            // txtNombreCLI
+            // 
+            this.txtNombreCLI.Location = new System.Drawing.Point(101, 38);
+            this.txtNombreCLI.Name = "txtNombreCLI";
+            this.txtNombreCLI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.txtNombreCLI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.beOrden.Properties.MaxLength = 8;
-            this.beOrden.Size = new System.Drawing.Size(123, 20);
-            this.beOrden.TabIndex = 0;
-            this.beOrden.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beOrden_ButtonClick);
+            this.txtNombreCLI.Properties.ReadOnly = true;
+            this.txtNombreCLI.Size = new System.Drawing.Size(342, 20);
+            this.txtNombreCLI.TabIndex = 1;
             // 
-            // ctlOrden
+            // beNumeroCOT
+            // 
+            this.beNumeroCOT.EditValue = "";
+            this.beNumeroCOT.Location = new System.Drawing.Point(101, 16);
+            this.beNumeroCOT.Name = "beNumeroCOT";
+            this.beNumeroCOT.Properties.Appearance.Options.UseTextOptions = true;
+            this.beNumeroCOT.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.beNumeroCOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.beNumeroCOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.beNumeroCOT.Properties.MaxLength = 9;
+            this.beNumeroCOT.Size = new System.Drawing.Size(79, 20);
+            this.beNumeroCOT.TabIndex = 0;
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(16, 19);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(33, 13);
+            this.labelControl9.TabIndex = 67;
+            this.labelControl9.Text = "Grupo:";
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(16, 48);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(46, 13);
+            this.labelControl10.TabIndex = 68;
+            this.labelControl10.Text = "Subgrupo";
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(16, 74);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(26, 13);
+            this.labelControl11.TabIndex = 69;
+            this.labelControl11.Text = "Item:";
+            // 
+            // ctlCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.barraStandar);
-            this.Name = "ctlOrden";
-            this.Size = new System.Drawing.Size(834, 488);
-            this.Load += new System.EventHandler(this.ctlOrden_Load);
+            this.Name = "ctlCotizacion";
+            this.Size = new System.Drawing.Size(833, 496);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtItemORD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xtcResumen)).EndInit();
-            this.xtcResumen.ResumeLayout(false);
-            this.xtpAcabados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcAcabados)).EndInit();
-            this.cmAcabados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvAcabados)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riceUnLado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.riceDosLados)).EndInit();
-            this.xtpTotales.ResumeLayout(false);
-            this.xtpTotales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.seSaldo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seAbono.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seTotal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seIVA.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seSubtotal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sePrecioUNI.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.seCantidad.Properties)).EndInit();
-            this.xtpObservaciones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.meObservacionesORD.Properties)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcPestanas)).EndInit();
             this.xtcPestanas.ResumeLayout(false);
             this.xtpGeneral.ResumeLayout(false);
             this.xtpGeneral.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueColorRetiro.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gen_txtOrdenTroquel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueTipoTrabajo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueTrabajo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gen_lueTroquel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_txtPantones.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_lueColorTiro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gen_txtTiraje.Properties)).EndInit();
-            this.xtpOrden.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
-            this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaPP.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaPP.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaFAC.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaFAC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaINI.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deFechaINI.Properties)).EndInit();
             this.xtpDatosCLI.ResumeLayout(false);
             this.xtpDatosCLI.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cli_gcDestinos)).EndInit();
-            this.cmSucursalCLI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cli_gvDestino)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcContactos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvContactos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombreCLI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beBuscaCLI.Properties)).EndInit();
             this.xtpBlocks.ResumeLayout(false);
             this.xtpBlocks.PerformLayout();
@@ -3179,7 +2642,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.blo_txtJuegos.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blo_lueNumCopias.Properties)).EndInit();
             this.xtpLibros.ResumeLayout(false);
-            this.xtpLibros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lib_lueForma.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtcLibrosDET)).EndInit();
             this.xtcLibrosDET.ResumeLayout(false);
@@ -3233,7 +2695,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueSeccionARM)).EndInit();
             this.dis_xtpMaterialCLI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcMaterialCLI)).EndInit();
-            this.cmMaterialCLI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvMaterialCLI)).EndInit();
             this.xtpServiciosEXT.ResumeLayout(false);
             this.xtpServiciosEXT.PerformLayout();
@@ -3256,11 +2717,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.prd_gcDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prd_gvDetalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prd_lueProceso.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdgTipoOFF.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoORD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCodigoORD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumeroCOT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.beOrden.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen_txtOrdenTroquel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen_lueTroquel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCotizaID.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seAlto.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.seAncho.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoCOT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDescripcionITM.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCIRUCCLI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNombreCLI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beNumeroCOT.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3269,72 +2740,56 @@
 
         private dllStandardTool.StandardTool barraStandar;
         private System.Windows.Forms.Panel panel1;
-        private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.RadioGroup rdgTipoOFF;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.CheckEdit chkEstadoORD;
-        private DevExpress.XtraEditors.TextEdit txtCodigoORD;
-        private DevExpress.XtraEditors.DateEdit deFechaFAC;
-        private DevExpress.XtraEditors.DateEdit deFechaENT;
-        private DevExpress.XtraEditors.DateEdit deFechaPP;
-        private DevExpress.XtraEditors.TextEdit txtNumeroCOT;
-        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.TextEdit txtCotizaID;
+        private DevExpress.XtraEditors.SpinEdit seAlto;
+        private DevExpress.XtraEditors.SpinEdit seAncho;
+        private DevExpress.XtraEditors.CheckEdit chkEstadoCOT;
+        private DevExpress.XtraEditors.DateEdit deFechaCOT;
+        private DevExpress.XtraEditors.TextEdit txtDescripcionITM;
+        private DevExpress.XtraEditors.TextEdit txtCIRUCCLI;
+        private DevExpress.XtraEditors.ButtonEdit txtNombreCLI;
+        private DevExpress.XtraEditors.ButtonEdit beNumeroCOT;
         private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.ButtonEdit beBuscaCLI;
-        private DevExpress.XtraEditors.TextEdit txtNombreCLI;
-        private DevExpress.XtraEditors.ButtonEdit beOrden;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit3;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit2;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+        private DevExpress.XtraEditors.SimpleButton btnVistaPRV;
+        private System.Windows.Forms.GroupBox groupBox3;
         private DevExpress.XtraTab.XtraTabControl xtcPestanas;
         private DevExpress.XtraTab.XtraTabPage xtpGeneral;
-        private DevExpress.XtraEditors.LabelControl labelControl19;
-        private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.LookUpEdit gen_lueColorRetiro;
+        private DevExpress.XtraEditors.LookUpEdit gen_lueTipoTrabajo;
+        private DevExpress.XtraEditors.LookUpEdit gen_lueTrabajo;
         private DevExpress.XtraEditors.LabelControl labelControl16;
         private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl20;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.TextEdit gen_txtPantones;
         private DevExpress.XtraEditors.LookUpEdit gen_lueColorTiro;
         private DevExpress.XtraEditors.TextEdit gen_txtTiraje;
-        private DevExpress.XtraTab.XtraTabPage xtpLibros;
-        private DevExpress.XtraEditors.LabelControl labelControl20;
-        private DevExpress.XtraEditors.LabelControl labelControl32;
-        private DevExpress.XtraEditors.LookUpEdit gen_lueTroquel;
-        private DevExpress.XtraEditors.LabelControl labelControl47;
-        private DevExpress.XtraEditors.LookUpEdit lib_TipoTrabajoENC;
-        private DevExpress.XtraEditors.TextEdit lib_txtNumPaginasENC;
-        private DevExpress.XtraEditors.LabelControl labelControl72;
-        private DevExpress.XtraEditors.LookUpEdit lib_lueTipoLibro;
-        private DevExpress.XtraTab.XtraTabPage xtpMateriales;
-        private DevExpress.XtraGrid.GridControl em_gcDetalleEGR;
-        private DevExpress.XtraGrid.Views.Grid.GridView em_gvDetalleEGR;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColSeccion;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColMaterial;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCantPliego;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColExtras;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCantTamano;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColAncho;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColAlto;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColPlacasMQ;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCntPlacas;
-        private DevExpress.XtraEditors.LabelControl labelControl77;
-        private DevExpress.XtraEditors.LabelControl labelControl76;
-        private DevExpress.XtraEditors.LabelControl labelControl75;
-        private DevExpress.XtraEditors.LabelControl labelControl74;
-        private DevExpress.XtraEditors.LabelControl labelControl73;
-        private DevExpress.XtraEditors.LabelControl labelControl43;
         private DevExpress.XtraTab.XtraTabPage xtpDatosCLI;
-        private DevExpress.XtraTab.XtraTabPage xtpServiciosEXT;
-        private DevExpress.XtraEditors.LabelControl labelControl48;
-        private DevExpress.XtraTab.XtraTabPage xtpBlocks;
+        private DevExpress.XtraGrid.GridControl cli_gcDestinos;
+        private DevExpress.XtraGrid.Views.Grid.GridView cli_gvDestino;
+        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColSecuencial;
+        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColCodCiudad;
+        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColDireccion;
+        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColCantidad;
         private DevExpress.XtraGrid.GridControl gcContactos;
         private DevExpress.XtraGrid.Views.Grid.GridView gvContactos;
-        private DevExpress.XtraEditors.LookUpEdit gen_lueTipoTrabajo;
-        private DevExpress.XtraEditors.LookUpEdit gen_lueTrabajo;
-        private DevExpress.XtraEditors.LabelControl labelControl79;
-        private DevExpress.XtraEditors.TextEdit gen_txtOrdenTroquel;
-        private DevExpress.XtraEditors.LookUpEdit gen_lueColorRetiro;
-        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraGrid.Columns.GridColumn gcColContacto;
+        private DevExpress.XtraGrid.Columns.GridColumn gcColNumero;
+        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.ButtonEdit beBuscaCLI;
+        private DevExpress.XtraTab.XtraTabPage xtpBlocks;
         private DevExpress.XtraEditors.LabelControl labelControl41;
         private DevExpress.XtraEditors.LabelControl labelControl40;
         private DevExpress.XtraEditors.LabelControl labelControl37;
@@ -3355,45 +2810,97 @@
         private DevExpress.XtraEditors.LabelControl labelControl24;
         private DevExpress.XtraEditors.TextEdit blo_txtJuegos;
         private DevExpress.XtraEditors.LookUpEdit blo_lueNumCopias;
+        private DevExpress.XtraTab.XtraTabPage xtpLibros;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LookUpEdit lib_lueForma;
         private DevExpress.XtraTab.XtraTabControl xtcLibrosDET;
         private DevExpress.XtraTab.XtraTabPage xtpLibroENC;
-        private DevExpress.XtraTab.XtraTabPage xtpLibroPOR;
+        private DevExpress.XtraEditors.LabelControl labelControl56;
         private DevExpress.XtraGrid.GridControl lib_gcColoresENC;
         private DevExpress.XtraGrid.Views.Grid.GridView lib_gvColoresENC;
         private DevExpress.XtraGrid.Columns.GridColumn lib_gcColColorENC;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilue_gridColorENC;
         private DevExpress.XtraGrid.Columns.GridColumn lib_gcColPaginasENC;
+        private DevExpress.XtraEditors.LookUpEdit lib_TipoTrabajoENC;
+        private DevExpress.XtraEditors.TextEdit lib_txtNumPaginasENC;
+        private DevExpress.XtraEditors.LabelControl labelControl47;
+        private DevExpress.XtraTab.XtraTabPage xtpLibroPOR;
         private DevExpress.XtraEditors.TextEdit lib_txtColorPantonePOR;
+        private DevExpress.XtraEditors.LabelControl labelControl55;
         private DevExpress.XtraEditors.ButtonEdit lib_beMaterialCubiertaPOR;
         private DevExpress.XtraEditors.ButtonEdit lib_beMaterialGuardaPOR;
+        private DevExpress.XtraEditors.LabelControl labelControl54;
+        private DevExpress.XtraEditors.LabelControl labelControl53;
+        private DevExpress.XtraEditors.LabelControl labelControl51;
+        private DevExpress.XtraEditors.LabelControl labelControl50;
+        private DevExpress.XtraEditors.LabelControl labelControl49;
         private DevExpress.XtraEditors.LookUpEdit lib_lueRetiroCubiertaPOR;
         private DevExpress.XtraEditors.LookUpEdit lib_lueRetiroGuardaPOR;
         private DevExpress.XtraEditors.LookUpEdit lib_lueRetiroColorPOR;
         private DevExpress.XtraEditors.LookUpEdit lib_lueTiroCubiertaPOR;
         private DevExpress.XtraEditors.LookUpEdit lib_lueTiroGuardaPOR;
         private DevExpress.XtraEditors.LookUpEdit lib_lueTiroColorPOR;
-        private DevExpress.XtraEditors.LabelControl labelControl49;
-        private DevExpress.XtraEditors.LabelControl labelControl50;
-        private DevExpress.XtraEditors.LabelControl labelControl51;
-        private DevExpress.XtraEditors.LabelControl labelControl53;
-        private DevExpress.XtraEditors.LabelControl labelControl54;
-        private DevExpress.XtraEditors.LabelControl labelControl55;
-        private DevExpress.XtraEditors.LabelControl labelControl56;
-        private DevExpress.XtraTab.XtraTabControl xtcResumen;
-        private DevExpress.XtraTab.XtraTabPage xtpTotales;
-        private DevExpress.XtraTab.XtraTabPage xtpObservaciones;
-        private DevExpress.XtraEditors.MemoEdit meObservacionesORD;
-        private DevExpress.XtraTab.XtraTabPage xtpAcabados;
-        private DevExpress.XtraGrid.GridControl gcAcabados;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvAcabados;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColTipoAcabado;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColLadoUno;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riceUnLado;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColLadoDos;
-        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit riceDosLados;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColPáginas;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColNumerosPAG;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.LookUpEdit lib_lueForma;
+        private DevExpress.XtraEditors.LabelControl labelControl72;
+        private DevExpress.XtraEditors.LookUpEdit lib_lueTipoLibro;
+        private DevExpress.XtraTab.XtraTabPage xtpMateriales;
+        private DevExpress.XtraGrid.GridControl em_gcDetalleEGR;
+        private DevExpress.XtraGrid.Views.Grid.GridView em_gvDetalleEGR;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColSeccion;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit em_rilueSeccion;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColMaterial;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit em_ribeBuscaMAT;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCantPliego;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColExtras;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCantTamano;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColAncho;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColAlto;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColPlacasMQ;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit em_rilueMaquina;
+        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCntPlacas;
+        private DevExpress.XtraTab.XtraTabPage xtpDiseno;
+        private DevExpress.XtraTab.XtraTabControl xtcDiseno;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpGeneral;
+        private DevExpress.XtraEditors.LabelControl labelControl86;
+        private DevExpress.XtraEditors.SimpleButton dis_btnActualiza;
+        private DevExpress.XtraEditors.GroupControl gbCTP;
+        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklCTP;
+        private DevExpress.XtraEditors.TextEdit dis_txtDisenador;
+        private DevExpress.XtraEditors.GroupControl gbOrginales;
+        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklOriginales;
+        private DevExpress.XtraEditors.SimpleButton dis_btnTerminar;
+        private DevExpress.XtraEditors.GroupControl gbGraficas;
+        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklGraficasH;
+        private DevExpress.XtraEditors.SimpleButton dis_btnIniciar;
+        private DevExpress.XtraEditors.DateEdit dis_deFechaINI;
+        private DevExpress.XtraEditors.DateEdit dis_deFechaFIN;
+        private DevExpress.XtraEditors.LabelControl labelControl84;
+        private DevExpress.XtraEditors.LabelControl labelControl85;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpArmados;
+        private DevExpress.XtraGrid.GridControl dis_gcArmados;
+        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvArmados;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTrabajo;
+        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueSeccionARM;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTamano;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAncho;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAlto;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaquina;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpMaterialCLI;
+        private DevExpress.XtraGrid.GridControl dis_gcMaterialCLI;
+        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvMaterialCLI;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialCLI;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCantidadCLI;
+        private DevExpress.XtraTab.XtraTabPage xtpServiciosEXT;
+        private DevExpress.XtraEditors.CheckEdit sext_chkMetalico;
+        private DevExpress.XtraEditors.CheckEdit sext_chkResina;
+        private DevExpress.XtraEditors.SpinEdit sext_sePlastificadoPRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seSeguroPRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seTransportePRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seTermoselladoPRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seReservadoPRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seCocidoPRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seClishePRE;
+        private DevExpress.XtraEditors.SpinEdit sext_seTroquelPRE;
+        private DevExpress.XtraEditors.SpinEdit sext_sePeliculaPRE;
         private DevExpress.XtraEditors.LabelControl labelControl83;
         private DevExpress.XtraEditors.LabelControl labelControl82;
         private DevExpress.XtraEditors.LabelControl labelControl81;
@@ -3410,94 +2917,23 @@
         private DevExpress.XtraEditors.TextEdit sext_txtTroquel;
         private DevExpress.XtraEditors.TextEdit sext_txtPelicula;
         private DevExpress.XtraTab.XtraTabPage xtpControlPRD;
-        private DevExpress.XtraTab.XtraTabPage xtpTerminaTercero;
-        private DevExpress.XtraTab.XtraTabPage xtpDespachoCLI;
-        private System.Windows.Forms.ContextMenuStrip cmAcabados;
-        private System.Windows.Forms.ToolStripMenuItem mnuAgregaAcabado;
-        private System.Windows.Forms.ToolStripMenuItem mnuQuitaAcabado;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit rilue_gridColorENC;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit em_rilueSeccion;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit em_rilueMaquina;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit em_ribeBuscaMAT;
-        private DevExpress.XtraEditors.SpinEdit seSaldo;
-        private DevExpress.XtraEditors.SpinEdit seAbono;
-        private DevExpress.XtraEditors.SpinEdit seTotal;
-        private DevExpress.XtraEditors.SpinEdit seIVA;
-        private DevExpress.XtraEditors.SpinEdit seSubtotal;
-        private DevExpress.XtraEditors.SpinEdit sePrecioUNI;
-        private DevExpress.XtraEditors.SpinEdit seCantidad;
-        private DevExpress.XtraEditors.LabelControl labelControl87;
-        private DevExpress.XtraEditors.TextEdit txtItemORD;
-        private DevExpress.XtraTab.XtraTabPage xtpOrden;
-        private DevExpress.XtraEditors.LabelControl labelControl88;
-        private DevExpress.XtraEditors.DateEdit deFechaINI;
-        private DevExpress.XtraEditors.SpinEdit sext_sePlastificadoPRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seSeguroPRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seTransportePRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seTermoselladoPRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seReservadoPRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seCocidoPRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seClishePRE;
-        private DevExpress.XtraEditors.SpinEdit sext_seTroquelPRE;
-        private DevExpress.XtraEditors.SpinEdit sext_sePeliculaPRE;
-        private DevExpress.XtraEditors.CheckEdit sext_chkMetalico;
-        private DevExpress.XtraEditors.CheckEdit sext_chkResina;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColContacto;
-        private DevExpress.XtraGrid.Columns.GridColumn gcColNumero;
-        private DevExpress.XtraTab.XtraTabPage xtpDiseno;
-        private DevExpress.XtraEditors.DateEdit dis_deFechaINI;
-        private DevExpress.XtraEditors.DateEdit dis_deFechaFIN;
-        private DevExpress.XtraEditors.TextEdit dis_txtDisenador;
-        private DevExpress.XtraEditors.SimpleButton dis_btnIniciar;
-        private DevExpress.XtraEditors.SimpleButton dis_btnTerminar;
-        private DevExpress.XtraEditors.LabelControl labelControl84;
-        private DevExpress.XtraEditors.LabelControl labelControl85;
-        private DevExpress.XtraEditors.LabelControl labelControl86;
-        private DevExpress.XtraEditors.SimpleButton dis_btnActualiza;
-        private DevExpress.XtraGrid.GridControl cli_gcDestinos;
-        private DevExpress.XtraGrid.Views.Grid.GridView cli_gvDestino;
-        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColSecuencial;
-        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColCodCiudad;
-        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColDireccion;
-        private DevExpress.XtraGrid.Columns.GridColumn cli_gcColCantidad;
-        private DevExpress.XtraTab.XtraTabControl xtcDiseno;
-        private DevExpress.XtraTab.XtraTabPage dis_xtpGeneral;
-        private DevExpress.XtraEditors.GroupControl gbCTP;
-        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklCTP;
-        private DevExpress.XtraEditors.GroupControl gbOrginales;
-        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklOriginales;
-        private DevExpress.XtraEditors.GroupControl gbGraficas;
-        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklGraficasH;
-        private DevExpress.XtraTab.XtraTabPage dis_xtpArmados;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTrabajo;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTamano;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAncho;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAlto;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaquina;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvArmados;
-        private DevExpress.XtraGrid.GridControl dis_gcArmados;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.DateEdit deFechaCOT;
-        private DevExpress.XtraTab.XtraTabPage dis_xtpMaterialCLI;
-        private DevExpress.XtraGrid.GridControl dis_gcMaterialCLI;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvMaterialCLI;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialCLI;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCantidadCLI;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueSeccionARM;
-        private System.Windows.Forms.ContextMenuStrip cmSucursalCLI;
-        private System.Windows.Forms.ToolStripMenuItem mnuAgregarDestino;
-        private System.Windows.Forms.ToolStripMenuItem mnuQuitarDestino;
-        private System.Windows.Forms.ContextMenuStrip cmMaterialCLI;
-        private System.Windows.Forms.ToolStripMenuItem mnuAgregaMaterialCLI;
-        private System.Windows.Forms.ToolStripMenuItem mnuQuitaMaterialCLI;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraEditors.LookUpEdit prd_lueProceso;
         private DevExpress.XtraGrid.GridControl prd_gcDetalle;
         private DevExpress.XtraGrid.Views.Grid.GridView prd_gvDetalle;
         private DevExpress.XtraGrid.Columns.GridColumn prd_gcColEmpleado;
         private DevExpress.XtraGrid.Columns.GridColumn prd_gcColFecInicia;
         private DevExpress.XtraGrid.Columns.GridColumn prd_gcColFecTermina;
         private DevExpress.XtraGrid.Columns.GridColumn prd_gcColObservacion;
-        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.LookUpEdit prd_lueProceso;
+        private DevExpress.XtraTab.XtraTabPage xtpTerminaTercero;
+        private DevExpress.XtraEditors.LabelControl labelControl79;
+        private DevExpress.XtraEditors.TextEdit gen_txtOrdenTroquel;
+        private DevExpress.XtraEditors.LabelControl labelControl32;
+        private DevExpress.XtraEditors.LookUpEdit gen_lueTroquel;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraEditors.LabelControl labelControl13;
+        private DevExpress.XtraEditors.LabelControl labelControl9;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
     }
 }

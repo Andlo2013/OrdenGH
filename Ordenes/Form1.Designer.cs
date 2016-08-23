@@ -32,6 +32,7 @@
             this.rpgOrdenes = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiOrden = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDiseno = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiCotizacion = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,8 +41,9 @@
             this.ribbonControlMenu.ExpandCollapseItem.Id = 0;
             this.ribbonControlMenu.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiOrden,
-            this.bbiDiseno});
-            this.ribbonControlMenu.MaxItemId = 15;
+            this.bbiDiseno,
+            this.bbiCotizacion});
+            this.ribbonControlMenu.MaxItemId = 16;
             this.ribbonControlMenu.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.rpOrdenes});
             // 
@@ -54,6 +56,7 @@
             // 
             // rpgOrdenes
             // 
+            this.rpgOrdenes.ItemLinks.Add(this.bbiCotizacion);
             this.rpgOrdenes.ItemLinks.Add(this.bbiOrden);
             this.rpgOrdenes.ItemLinks.Add(this.bbiDiseno);
             this.rpgOrdenes.Name = "rpgOrdenes";
@@ -72,6 +75,13 @@
             this.bbiDiseno.Id = 14;
             this.bbiDiseno.Name = "bbiDiseno";
             this.bbiDiseno.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiDiseno_ItemClick);
+            // 
+            // bbiCotizacion
+            // 
+            this.bbiCotizacion.Caption = "Cotizaciones";
+            this.bbiCotizacion.Id = 15;
+            this.bbiCotizacion.Name = "bbiCotizacion";
+            this.bbiCotizacion.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiCotizacion_ItemClick);
             // 
             // Form1
             // 
@@ -93,6 +103,7 @@
         private DevExpress.XtraBars.BarButtonItem bbiDiseno;
         private DevExpress.XtraBars.Ribbon.RibbonPage rpOrdenes;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgOrdenes;
+        private DevExpress.XtraBars.BarButtonItem bbiCotizacion;
     }
 }
 

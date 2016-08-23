@@ -37,15 +37,15 @@ namespace Ordenes.Controles
             objVentas._cargaCMB(dt_optionsCMB, gen_lueTrabajo);
             //TODOS LOS COMBOS TAMANO
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.TipoTamano, 0);
-            objVentas._cargaCMB(dt_optionsCMB, gen_lueTamano);
-            objVentas._cargaCMB(dt_optionsCMB, blo_lueTamano);
-            objVentas._cargaCMB(dt_optionsCMB, lib_lueTamanoENC);
-            objVentas._cargaCMB(dt_optionsCMB, lib_lueTamanoPOR);
+            ////objVentas._cargaCMB(dt_optionsCMB, gen_lueTamano);
+            ////objVentas._cargaCMB(dt_optionsCMB, blo_lueTamano);
+            ////objVentas._cargaCMB(dt_optionsCMB, lib_lueTamanoENC);
+            ////objVentas._cargaCMB(dt_optionsCMB, lib_lueTamanoPOR);
             //TODOS LOS COMBOS TROQUEL
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.TipoTroquel, 0);
             objVentas._cargaCMB(dt_optionsCMB, gen_lueTroquel);
-            objVentas._cargaCMB(dt_optionsCMB, blo_lueTroquel);
-            objVentas._cargaCMB(dt_optionsCMB, lib_lueTroquelPOR);
+            ////objVentas._cargaCMB(dt_optionsCMB, blo_lueTroquel);
+            ////objVentas._cargaCMB(dt_optionsCMB, lib_lueTroquelPOR);
             //TODOS LOS COMBOS COLOR
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.Color, 0);
             objVentas._cargaCMB(dt_optionsCMB, gen_lueColorTiro);
@@ -132,14 +132,14 @@ namespace Ordenes.Controles
                 blo_txtInicia.EditValue = objVentas.pro_ModeloBlock.Inicia;
                 blo_txtTermina.EditValue = objVentas.pro_ModeloBlock.Termina;
                 blo_lueAcabado.EditValue = objVentas.pro_ModeloBlock.TipoAcabado;
-                blo_lueTamano.EditValue = objVentas.pro_ModeloBlock.TipoTamano;
-                blo_txtAncho.EditValue = objVentas.pro_ModeloBlock.Ancho;
-                blo_txtAlto.EditValue = objVentas.pro_ModeloBlock.Alto;
+                //////blo_lueTamano.EditValue = objVentas.pro_ModeloBlock.TipoTamano;
+                //////blo_txtAncho.EditValue = objVentas.pro_ModeloBlock.Ancho;
+                //////blo_txtAlto.EditValue = objVentas.pro_ModeloBlock.Alto;
                 ////blo_beMaterial.EditValue = rowBlock["Material"];
                 ////blo_txtGramos.EditValue = rowBlock["Gramos"];
                 blo_txtTiraje.EditValue = objVentas.pro_ModeloBlock.Tiraje;
-                blo_lueTroquel.EditValue = objVentas.pro_ModeloBlock.TipoTroquel;
-                blo_txtOrdenTroquel.EditValue = objVentas.pro_ModeloBlock.OrdenTroquel;
+                //////blo_lueTroquel.EditValue = objVentas.pro_ModeloBlock.TipoTroquel;
+                //////blo_txtOrdenTroquel.EditValue = objVentas.pro_ModeloBlock.OrdenTroquel;
                 blo_lueColor.EditValue = objVentas.pro_ModeloBlock.Color;
                 blo_txtPantones.EditValue = objVentas.pro_ModeloBlock.Pantones;
             }
@@ -202,9 +202,9 @@ namespace Ordenes.Controles
                 gen_lueTrabajo.EditValue = objVentas.pro_ModeloTrabajoGEN.Trabajo;
                 gen_txtTiraje.EditValue = objVentas.pro_ModeloTrabajoGEN.Tiraje;
                 gen_lueTipoTrabajo.EditValue = objVentas.pro_ModeloTrabajoGEN.TipoTrabajo;
-                gen_lueTamano.EditValue = objVentas.pro_ModeloTrabajoGEN.TipoTamano;
-                gen_txtAncho.EditValue = objVentas.pro_ModeloTrabajoGEN.Ancho;
-                gen_txtAlto.EditValue = objVentas.pro_ModeloTrabajoGEN.Alto;
+                //////gen_lueTamano.EditValue = objVentas.pro_ModeloTrabajoGEN.TipoTamano;
+                //////gen_txtAncho.EditValue = objVentas.pro_ModeloTrabajoGEN.Ancho;
+                //////gen_txtAlto.EditValue = objVentas.pro_ModeloTrabajoGEN.Alto;
                 ////gen_beMaterial.EditValue = rowGeneral["Material"];
                 ////gen_txtGramos.EditValue = rowGeneral["Gramos"];
                 gen_lueTroquel.EditValue = objVentas.pro_ModeloTrabajoGEN.TipoTroquel;
@@ -223,9 +223,9 @@ namespace Ordenes.Controles
                 lib_lueTipoLibro.EditValue = objVentas.pro_ModeloLibroENC.TipoLibro;
                 lib_lueForma.EditValue = objVentas.pro_ModeloLibroENC.FormaLibro;
                 lib_TipoTrabajoENC.EditValue = objVentas.pro_ModeloLibroENC.TipoTrabajo;
-                lib_lueTamanoENC.EditValue = objVentas.pro_ModeloLibroENC.TamanoTrabajo;
-                lib_txtAnchoENC.EditValue = objVentas.pro_ModeloLibroENC.Ancho;
-                lib_txtAltoENC.EditValue = objVentas.pro_ModeloLibroENC.Alto;
+                ////lib_lueTamanoENC.EditValue = objVentas.pro_ModeloLibroENC.TamanoTrabajo;
+                ////lib_txtAnchoENC.EditValue = objVentas.pro_ModeloLibroENC.Ancho;
+                ////lib_txtAltoENC.EditValue = objVentas.pro_ModeloLibroENC.Alto;
                 //lib_beMaterialENC.EditValue = rowLibro["Material"];
                 //lib_txtGramosENC.EditValue = rowLibro["Gramos"];
                 lib_txtNumPaginasENC.EditValue = objVentas.pro_ModeloLibroENC.NumPaginas;
@@ -237,9 +237,9 @@ namespace Ordenes.Controles
             objVentas._libroCargaDETPOR();
             if (objVentas.pro_ModeloLibroPOR != null)
             {
-                lib_lueTamanoPOR.EditValue = objVentas.pro_ModeloLibroPOR.TipoTamano;
-                lib_txtAnchoPOR.EditValue = objVentas.pro_ModeloLibroPOR.Ancho;
-                lib_txtAltoPOR.EditValue = objVentas.pro_ModeloLibroPOR.Alto;
+                ////lib_lueTamanoPOR.EditValue = objVentas.pro_ModeloLibroPOR.TipoTamano;
+                ////lib_txtAnchoPOR.EditValue = objVentas.pro_ModeloLibroPOR.Ancho;
+                ////lib_txtAltoPOR.EditValue = objVentas.pro_ModeloLibroPOR.Alto;
                 //lib_beMaterialPOR.EditValue = rowLibro["Material"];
                 //lib_txtGramosPOR.EditValue = rowLibro["Gramos"];
                 lib_lueTiroColorPOR.EditValue = objVentas.pro_ModeloLibroPOR.TiroColor;
@@ -251,8 +251,8 @@ namespace Ordenes.Controles
                 lib_txtColorPantonePOR.EditValue = objVentas.pro_ModeloLibroPOR.ColorPantone;
                 lib_beMaterialGuardaPOR.EditValue = objVentas.pro_ModeloLibroPOR.GuardaMAT;
                 lib_beMaterialCubiertaPOR.EditValue = objVentas.pro_ModeloLibroPOR.CubiertaMAT;
-                lib_lueTroquelPOR.EditValue = objVentas.pro_ModeloLibroPOR.TipoTroquel;
-                lib_txtOrdenPOR.EditValue = objVentas.pro_ModeloLibroPOR.OrdenTroquel;
+                ////lib_lueTroquelPOR.EditValue = objVentas.pro_ModeloLibroPOR.TipoTroquel;
+                ////lib_txtOrdenPOR.EditValue = objVentas.pro_ModeloLibroPOR.OrdenTroquel;
             }
         }
 
@@ -321,9 +321,9 @@ namespace Ordenes.Controles
             modelo.Trabajo=gen_lueTrabajo.EditValue.ToInt();
             modelo.Tiraje= gen_txtTiraje.EditValue.ToInt();
             modelo.TipoTrabajo= gen_lueTipoTrabajo.EditValue.ToInt();
-            modelo.TipoTamano= gen_lueTamano.EditValue.ToInt();
-            modelo.Ancho= gen_txtAncho.EditValue.ToInt();
-            modelo.Alto= gen_txtAlto.EditValue.ToInt();
+            //////modelo.TipoTamano= gen_lueTamano.EditValue.ToInt();
+            //////modelo.Ancho= gen_txtAncho.EditValue.ToInt();
+            //////modelo.Alto= gen_txtAlto.EditValue.ToInt();
             modelo.TipoTroquel= gen_lueTroquel.EditValue.ToInt();
             modelo.OrdenTroquel= gen_txtOrdenTroquel.EditValue.ToInt();
             modelo.ColorTiro= gen_lueColorTiro.EditValue.ToInt();
@@ -342,14 +342,14 @@ namespace Ordenes.Controles
             modelo.Inicia= blo_txtInicia.EditValue.ToInt();
             modelo.Termina= blo_txtTermina.EditValue.ToInt();
             modelo.TipoAcabado= blo_lueAcabado.EditValue.ToInt();
-            modelo.TipoTamano= blo_lueTamano.EditValue.ToInt();
-            modelo.Ancho= blo_txtAncho.EditValue.ToDecimal();
-            modelo.Alto= blo_txtAlto.EditValue.ToDecimal();
+            ////modelo.TipoTamano= blo_lueTamano.EditValue.ToInt();
+            ////modelo.Ancho= blo_txtAncho.EditValue.ToDecimal();
+            ////modelo.Alto= blo_txtAlto.EditValue.ToDecimal();
             ////blo_beMaterial.EditValue = rowBlock["Material"];
             ////blo_txtGramos.EditValue = rowBlock["Gramos"];
             modelo.Tiraje= blo_txtTiraje.EditValue.ToInt();
-            modelo.TipoTroquel= blo_lueTroquel.EditValue.ToInt();
-            modelo.OrdenTroquel= blo_txtOrdenTroquel.EditValue.ToInt();
+            ////modelo.TipoTroquel= blo_lueTroquel.EditValue.ToInt();
+            ////modelo.OrdenTroquel= blo_txtOrdenTroquel.EditValue.ToInt();
             modelo.Color= blo_lueColor.EditValue.ToInt();
             modelo.Pantones= blo_txtPantones.Text.ToString();
             objVentas.pro_ModeloBlock = modelo;
@@ -358,9 +358,9 @@ namespace Ordenes.Controles
         private void _actualizaLibroPOR()
         {
             libroPorMOD modelo = objVentas.pro_ModeloLibroPOR;
-            modelo.TipoTamano = lib_lueTamanoPOR.EditValue.ToInt();
-            modelo.Ancho = lib_txtAnchoPOR.EditValue.ToInt();
-            modelo.Alto = lib_txtAltoPOR.EditValue.ToInt();
+            //modelo.TipoTamano = lib_lueTamanoPOR.EditValue.ToInt();
+            //modelo.Ancho = lib_txtAnchoPOR.EditValue.ToInt();
+            //modelo.Alto = lib_txtAltoPOR.EditValue.ToInt();
             modelo.TiroColor = lib_lueTiroColorPOR.EditValue.ToInt();
             modelo.RetiroColor = lib_lueRetiroColorPOR.EditValue.ToInt();
             modelo.ColorPantone = lib_txtColorPantonePOR.Text.Trim();
@@ -377,9 +377,9 @@ namespace Ordenes.Controles
             modelo.TipoLibro = lib_lueTipoLibro.EditValue.ToInt();
             modelo.FormaLibro = lib_lueForma.EditValue.ToInt();
             modelo.TipoTrabajo = lib_TipoTrabajoENC.EditValue.ToInt();
-            modelo.TamanoTrabajo = lib_lueTamanoENC.EditValue.ToInt();
-            modelo.Ancho = lib_txtAnchoENC.EditValue.ToDecimal();
-            modelo.Alto = lib_txtAltoENC.EditValue.ToDecimal();
+            ////modelo.TamanoTrabajo = lib_lueTamanoENC.EditValue.ToInt();
+            ////modelo.Ancho = lib_txtAnchoENC.EditValue.ToDecimal();
+            ////modelo.Alto = lib_txtAltoENC.EditValue.ToDecimal();
             modelo.NumPaginas = lib_txtNumPaginasENC.EditValue.ToInt();
             objVentas.pro_ModeloLibroENC = modelo;
             

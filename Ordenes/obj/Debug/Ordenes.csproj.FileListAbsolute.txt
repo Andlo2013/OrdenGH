@@ -2,7 +2,6 @@ D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe.config
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\Automatizer.Core.Win32.Gui.dll
-D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Data.v15.2.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Printing.v15.2.Core.dll
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll
@@ -140,3 +139,5 @@ D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\dllBuscar.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\dllMensaje.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlDiseno.resources
+D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlCotizacion.resources
+D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Formularios.frmCortes.resources

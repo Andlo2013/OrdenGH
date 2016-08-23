@@ -55,5 +55,10 @@ namespace Ordenes
         {
             AgregarVentana(new Controles.ctlDiseno(), "Diseñar órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
         }
+
+        private void bbiCotizacion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AgregarVentana(new Controles.ctlCotizacion(), "Cotizaciones", global::Ordenes.Properties.sqlQuery.iconAPP);
+        }
     }
 }
