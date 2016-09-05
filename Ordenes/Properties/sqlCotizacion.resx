@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="cmb_cargaCMB" xml:space="preserve">
+    <value>SELECT id AS Codigo, Descripcion FROM pr_GHOpcionesCMB WHERE CodCategoria=@Categoria AND EstReg='True'</value>
+    <comment>Carga los combos</comment>
+  </data>
+  <data name="cmb_cargaCMBDEP" xml:space="preserve">
+    <value>SELECT id AS Codigo, Descripcion FROM pr_GHOpcionesCMB WHERE NodoPadre=@NodoPadre AND EstReg='True'</value>
+    <comment>Carga los combos</comment>
+  </data>
+  <data name="cmb_cargaMAQ" xml:space="preserve">
+    <value>SELECT EmpCod AS Codigo,MaqDsc AS Descripcion FROM MaqMae WHERE EmpCod=@CodEmpresa ORDER BY MaqDsc</value>
+    <comment>Carga el combo de las máquinas</comment>
+  </data>
+  <data name="cot_blockCargaBlock" xml:space="preserve">
+    <value>SELECT Serie, Inicia, Termina, Juego, CmbEmblocado FROM dbo.pr_CotizaBlock WHERE (idCotiza = @cotizaID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de blocks</comment>
+  </data>
+  <data name="cot_blockCargaColor" xml:space="preserve">
+    <value>SELECT SecCopia AS Secuencial, CmbColor AS Color, idCotiza, EstReg FROM dbo.pr_CotizaBlockColor WHERE (idCotiza = @cotizaID) AND (EstReg = 'True')</value>
+    <comment>Carga los colores de las copias de los blocks</comment>
+  </data>
+  <data name="cot_buscaCOT" xml:space="preserve">
+    <value>SELECT dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza AS Cotizacion, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.CliSec AS CodigoCLI,dbo.climae.Clicedruc AS CIRUC, ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,'') AS Cliente,dbo.pr_Cotiza.CmbLinPrd AS LineaPRD, dbo.pr_Cotiza.CmbGrupo AS Grupo, dbo.pr_Cotiza.CmbSubgrupo AS Subgrupo, dbo.pr_Cotiza.SecuencialItem AS SecuencialITEM, dbo.pr_Cotiza.Ancho, dbo.pr_Cotiza.Alto, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.FecEntrega, dbo.pr_Cotiza.CmbEstadoCOT AS EstadoCOT, dbo.pr_Cotiza.EplSecCotizador AS EplCotiza, dbo.pr_Cotiza.EplSecVendedor AS EplVendedor,(SELECT RTRIM(LTRIM(ISNULL(EplApl,'')+' '+ISNULL(EplNom,''))) FROM EplMae WHERE EmpCod=@CodEmpresa AND EplSec=dbo.pr_Cotiza.EplSecCotizador) AS Cotizador,(SELECT RTRIM(LTRIM(ISNULL(EplApl,'')+' '+ISNULL(EplNom,'')))
+ FROM EplMae WHERE EmpCod=@CodEmpresa AND EplSec=dbo.pr_Cotiza.EplSecVendedor) AS Vendedor, dbo.pr_Cotiza.EstReg AS Estado FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra AND (dbo.pr_Cotiza.EstReg = 'True')</value>
+    <comment>Busca cotizaciones</comment>
+  </data>
+  <data name="cot_cliCargaTelefono" xml:space="preserve">
+    <value>SELECT NomCon AS Contacto, Numero FROM dbo.CliComunic WHERE (EmpCod = @CodEmpresa) AND (CliSec = @CodigoCLI)</value>
+    <comment>Carga los teléfonos de un cliente</comment>
+  </data>
+  <data name="cot_clienteBuscar" xml:space="preserve">
+    <value>SELECT TOP 20 Clisec AS Código, Clicedruc AS CIRUC, LTRIM(RTRIM(ISNULL(CliApl,'')+' '+ISNULL(CliNom,''))) AS Cliente FROM dbo.climae WHERE (EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra ORDER BY Cliente ASC</value>
+    <comment>Permite buscar los clientes para asginar a la orden</comment>
+  </data>
+  <data name="cot_clienteCargaDestino" xml:space="preserve">
+    <value>SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestino.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenDestino.OrdenId = @cotizaID) AND (dbo.pr_OrdenDestino.EstReg = 'True')</value>
+    <comment>Carga los destinos del cliente</comment>
+  </data>
+  <data name="cot_disArmadosDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoArmado.CmbComponente AS Componente, dbo.pr_CotizaDisenoArmado.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.PliegoMPAncho AS ArmadoAncho, dbo.pr_CotizaDisenoArmado.PliegoMPAlto AS ArmadoAlto, dbo.pr_CotizaDisenoArmado.PliegoImpAncho AS PliegoAncho, dbo.pr_CotizaDisenoArmado.PliegoImpAlto AS PliegoAlto, dbo.pr_CotizaDisenoArmado.PliegoCant AS PliegoCantidad, dbo.pr_CotizaDisenoArmado.PliegoExtra AS Extra, dbo.pr_CotizaDisenoArmado.UndCotizadas AS Cotizadas  FROM dbo.pr_CotizaDisenoArmado INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoArmado.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoArmado.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoArmado.EstReg = 'True')</value>
+    <comment>Carga el detalle de los armados</comment>
+  </data>
+  <data name="cot_disColoresDET" xml:space="preserve">
+    <value>SELECT CmbComponente AS Componente, CmbTiro AS Tiro, CmbRetiro AS Retiro, Pantone, NumPaginas AS Paginas, Cobertura, DetallePag AS DetallePAG FROM dbo.pr_CotizaDisenoColores WHERE (idCotiza = @cotizaID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de colores</comment>
+  </data>
+  <data name="cot_disMATCLICargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoMaterialCLI.ItmSecuencial AS SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoMaterialCLI.CantMaterial AS Cantidad FROM dbo.pr_CotizaDisenoMaterialCLI INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoMaterialCLI.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoMaterialCLI.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoMaterialCLI.EstReg = 'True')</value>
+    <comment>Carga el detalle de materiales que deja el cliente</comment>
+  </data>
+  <data name="cot_disPlacasDET" xml:space="preserve">
+    <value>SELECT CmbComponente AS Componente, CmbTiroP AS Tiro, CmbRetiroP AS Retiro, CmbTiroRetiroP AS TiroRetiro FROM dbo.pr_CotizaDisenoPlacas WHERE (idCotiza = @cotizaID) AND (EstReg = 'True')</value>
+    <comment>Carga el detalle de placas</comment>
+  </data>
+  <data name="cot_empleadoBusca" xml:space="preserve">
+    <value>SELECT TOP 20 EplSec AS Código, LTRIM(RTRIM((ISNULL(EplApl,'')+' '+ISNULL(EplNom,'')))) AS Nombre FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra ORDER BY Nombre ASC</value>
+    <comment>Permite buscar los empleados</comment>
+  </data>
+  <data name="cot_procBuscaMAQ" xml:space="preserve">
+    <value>SELECT MaqCod AS Código, MaqDsc AS Máquina, CostoHora AS Costo FROM dbo.MaqMae WHERE (EmpCod = @CodEmpresa) AND (MaqTip = 'I')</value>
+    <comment>Lista las máquinas para buscar</comment>
+  </data>
+  <data name="cot_procCargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Tiempo, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = 'True')</value>
+    <comment>Carga el detalle de procesos</comment>
+  </data>
+</root>

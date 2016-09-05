@@ -21,15 +21,12 @@ namespace Ordenes
             InitializeComponent();
             IniciarSesion();
             session = this.Sesion;
-            if (session.Estado)
-            {
-
-            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            if (session.Estado == false)
+            if (session == null || session.Estado == false)
             {
                 this.Close();
             }

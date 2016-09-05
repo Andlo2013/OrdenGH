@@ -36,8 +36,9 @@
     <Reference Include="Automatizer.Core.Win32.Gui">
       <HintPath>..\..\..\CFBase\Automatizer.Core.Win32.Gui\Automatizer.Core.Win32.Gui\bin\Release\Automatizer.Core.Win32.Gui.dll</HintPath>
     </Reference>
-    <Reference Include="AutomatizerSQL.Core">
-      <HintPath>..\..\..\CFBase\AutomatizerSQL.Core\AutomatizerSQL.Core\bin\Debug\AutomatizerSQL.Core.dll</HintPath>
+    <Reference Include="AutomatizerSQL.Core, Version=0.1.0.0, Culture=neutral, PublicKeyToken=e832e09eee5347f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CFBase\AutomatizerSQL.Core\AutomatizerSQL.Core\bin\Release\AutomatizerSQL.Core.dll</HintPath>
     </Reference>
     <Reference Include="AutomatizerSQL.Utilidades, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e832e09eee5347f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -76,6 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\_Comunes.cs" />
+    <Compile Include="Clases\clsCotizacion.cs" />
     <Compile Include="Clases\clsVentas.cs" />
     <Compile Include="Controles\ctlCotizacion.cs">
       <SubType>UserControl</SubType>
@@ -90,6 +93,7 @@
       <DependentUpon>frmCortes.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\blockMOD.cs" />
+    <Compile Include="Modelos\cotizaMOD.cs" />
     <Compile Include="Modelos\libroEncMOD.cs" />
     <Compile Include="Modelos\libroPorMOD.cs" />
     <Compile Include="Modelos\ordenMOD.cs" />
@@ -121,8 +125,14 @@
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\trabajoGenMOD.cs" />
+    <Compile Include="Modelos\_modelo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\sqlCotizacion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sqlCotizacion.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controles\ctlCotizacion.resx">
       <DependentUpon>ctlCotizacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +162,10 @@
       <DependentUpon>sqlQuery.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Properties\sqlCotizacion.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>sqlCotizacion.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

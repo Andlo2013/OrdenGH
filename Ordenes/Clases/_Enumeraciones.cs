@@ -21,12 +21,19 @@ namespace Ordenes.Clases
             NumeroCopia=10,
             BlockAcabado=11,
             LibroEncuadernado=12,
-            Color=13,
+            Color_Maquina = 13,
             EgrMat_Seccion=14,
-            EgrMat_Maquina=15,
+            Diseno_Maquina = 15,
             DisenoChkGH=16,
             DisenoChkORI=17,
-            DisenoChkCTP=18
+            DisenoChkCTP=18,
+            Linea_Produccion=19,
+            Grupo=20,
+            Subgrupo=21,
+            TyR=22,
+            Numero_Lados=23,
+            Estado_Cotizacion=24,
+            Color_Hoja = 25
     }
 
     

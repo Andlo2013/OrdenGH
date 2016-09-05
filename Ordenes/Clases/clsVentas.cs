@@ -288,7 +288,7 @@ namespace Ordenes.Clases
             try
             {
                 modelo_Block = new blockMOD();
-                modelo_Block = modelo_Block._cargaDET(modelo_Orden.id);
+                modelo_Block = modelo_Block._cargaBlock(modelo_Orden.id);
             }
             catch (Exception ex)
             {

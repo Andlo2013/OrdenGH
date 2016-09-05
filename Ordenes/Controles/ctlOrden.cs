@@ -47,7 +47,7 @@ namespace Ordenes.Controles
             ////objVentas._cargaCMB(dt_optionsCMB, blo_lueTroquel);
             ////objVentas._cargaCMB(dt_optionsCMB, lib_lueTroquelPOR);
             //TODOS LOS COMBOS COLOR
-            dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.Color, 0);
+            dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.Color_Maquina, 0);
             objVentas._cargaCMB(dt_optionsCMB, gen_lueColorTiro);
             objVentas._cargaCMB(dt_optionsCMB, gen_lueColorRetiro);
             objVentas._cargaCMB(dt_optionsCMB, blo_lueColor);
@@ -76,7 +76,7 @@ namespace Ordenes.Controles
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.EgrMat_Seccion, 0);
             objVentas._cargaCMBLUE(dt_optionsCMB, em_rilueSeccion);
             objVentas._cargaCMBLUE(dt_optionsCMB, dis_rilueSeccionARM);
-            dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.EgrMat_Maquina, 0);
+            dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.Diseno_Maquina, 0);
             objVentas._cargaCMBLUE(dt_optionsCMB, em_rilueMaquina);
 
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.DisenoChkGH, 0);
@@ -125,23 +125,23 @@ namespace Ordenes.Controles
             objVentas._blockCargaDET();
             if (objVentas.pro_ModeloBlock != null)
             {
-                blo_lueNumCopias.EditValue = objVentas.pro_ModeloBlock.NumCopias;
-                blo_txtJuegos.EditValue = objVentas.pro_ModeloBlock.Juego;
-                blo_lueTipoEmblocado.EditValue = objVentas.pro_ModeloBlock.TipoEmblocado;
-                blo_txtSerie.EditValue = objVentas.pro_ModeloBlock.Serie;
-                blo_txtInicia.EditValue = objVentas.pro_ModeloBlock.Inicia;
-                blo_txtTermina.EditValue = objVentas.pro_ModeloBlock.Termina;
-                blo_lueAcabado.EditValue = objVentas.pro_ModeloBlock.TipoAcabado;
-                //////blo_lueTamano.EditValue = objVentas.pro_ModeloBlock.TipoTamano;
-                //////blo_txtAncho.EditValue = objVentas.pro_ModeloBlock.Ancho;
-                //////blo_txtAlto.EditValue = objVentas.pro_ModeloBlock.Alto;
-                ////blo_beMaterial.EditValue = rowBlock["Material"];
-                ////blo_txtGramos.EditValue = rowBlock["Gramos"];
-                blo_txtTiraje.EditValue = objVentas.pro_ModeloBlock.Tiraje;
-                //////blo_lueTroquel.EditValue = objVentas.pro_ModeloBlock.TipoTroquel;
-                //////blo_txtOrdenTroquel.EditValue = objVentas.pro_ModeloBlock.OrdenTroquel;
-                blo_lueColor.EditValue = objVentas.pro_ModeloBlock.Color;
-                blo_txtPantones.EditValue = objVentas.pro_ModeloBlock.Pantones;
+                //////blo_lueNumCopias.EditValue = objVentas.pro_ModeloBlock.NumCopias;
+                //////blo_txtJuegos.EditValue = objVentas.pro_ModeloBlock.Juego;
+                //////blo_lueTipoEmblocado.EditValue = objVentas.pro_ModeloBlock.TipoEmblocado;
+                //////blo_txtSerie.EditValue = objVentas.pro_ModeloBlock.Serie;
+                //////blo_txtInicia.EditValue = objVentas.pro_ModeloBlock.Inicia;
+                //////blo_txtTermina.EditValue = objVentas.pro_ModeloBlock.Termina;
+                //////blo_lueAcabado.EditValue = objVentas.pro_ModeloBlock.TipoAcabado;
+                ////////////blo_lueTamano.EditValue = objVentas.pro_ModeloBlock.TipoTamano;
+                ////////////blo_txtAncho.EditValue = objVentas.pro_ModeloBlock.Ancho;
+                ////////////blo_txtAlto.EditValue = objVentas.pro_ModeloBlock.Alto;
+                //////////blo_beMaterial.EditValue = rowBlock["Material"];
+                //////////blo_txtGramos.EditValue = rowBlock["Gramos"];
+                //////blo_txtTiraje.EditValue = objVentas.pro_ModeloBlock.Tiraje;
+                ////////////blo_lueTroquel.EditValue = objVentas.pro_ModeloBlock.TipoTroquel;
+                ////////////blo_txtOrdenTroquel.EditValue = objVentas.pro_ModeloBlock.OrdenTroquel;
+                //////blo_lueColor.EditValue = objVentas.pro_ModeloBlock.Color;
+                //////blo_txtPantones.EditValue = objVentas.pro_ModeloBlock.Pantones;
             }
         }
 
@@ -334,25 +334,7 @@ namespace Ordenes.Controles
 
         private void _actualizaBlock()
         {
-            blockMOD modelo = objVentas.pro_ModeloBlock;
-            modelo.NumCopias= blo_lueNumCopias.EditValue.ToInt();
-            modelo.Juego= blo_txtJuegos.EditValue.ToInt();
-            modelo.TipoEmblocado= blo_lueTipoEmblocado.EditValue.ToInt();
-            modelo.Serie= blo_txtSerie.Text.Trim();
-            modelo.Inicia= blo_txtInicia.EditValue.ToInt();
-            modelo.Termina= blo_txtTermina.EditValue.ToInt();
-            modelo.TipoAcabado= blo_lueAcabado.EditValue.ToInt();
-            ////modelo.TipoTamano= blo_lueTamano.EditValue.ToInt();
-            ////modelo.Ancho= blo_txtAncho.EditValue.ToDecimal();
-            ////modelo.Alto= blo_txtAlto.EditValue.ToDecimal();
-            ////blo_beMaterial.EditValue = rowBlock["Material"];
-            ////blo_txtGramos.EditValue = rowBlock["Gramos"];
-            modelo.Tiraje= blo_txtTiraje.EditValue.ToInt();
-            ////modelo.TipoTroquel= blo_lueTroquel.EditValue.ToInt();
-            ////modelo.OrdenTroquel= blo_txtOrdenTroquel.EditValue.ToInt();
-            modelo.Color= blo_lueColor.EditValue.ToInt();
-            modelo.Pantones= blo_txtPantones.Text.ToString();
-            objVentas.pro_ModeloBlock = modelo;
+            
         }
 
         private void _actualizaLibroPOR()
