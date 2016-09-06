@@ -193,6 +193,7 @@ namespace Ordenes.Clases
             {
                 dtDisenoArmado = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosDET,
                     new string[] {"@CodEmpresa", "@cotizaID" }, new object[] {m_codEmpresa, cotizaID });
+                dtDisenoArmado.Columns["Cotizadas"].Expression = "PliegoCantidad+Extra";
                 return dtDisenoArmado;
             }
             catch (Exception ex)
@@ -213,7 +214,6 @@ namespace Ordenes.Clases
             {
                 clsMensaje._msjWarning("ERROR: Al intentar agregar materiales", "Agrega material", ex.Message);
             }
-
         }
 
         private void _disenoArmadoAddMAT(DataTable filasSEL)
@@ -334,6 +334,22 @@ namespace Ordenes.Clases
 
         //DISEÑO COLOR
         #region Diseno-Color
+        
+        public void _disenoColorAgregaPantone(DataRow rowModifica)
+        {
+            try
+            {
+                DataRow rowSEL = objComunes._agregaMATSimple();
+                if (rowSEL != null)
+                {
+                    rowModifica["Pantone"] = rowSEL["Descripción"];
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar agregar materiales", "Agrega material", ex.Message);
+            }
+        }
 
         public DataTable _disenoColorCargaDET(int cotizaID)
         {
@@ -544,7 +560,7 @@ namespace Ordenes.Clases
                 dtProcesoDET = objSQLServer._CargaDataTable(sqlCotizacion.cot_procCargaDET,
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
                 dtProcesoDET.Columns.Add("Total", System.Type.GetType("System.Decimal"));
-                dtProcesoDET.Columns["Total"].Expression = "Costo*Tiempo";
+                dtProcesoDET.Columns["Total"].Expression = "Costo*Cantidad";
                 return dtProcesoDET;
             }
             catch (Exception ex)
@@ -554,7 +570,7 @@ namespace Ordenes.Clases
             }
         }
 
-        public void _procesoAgregaMAQ()
+        public void _procesoAgregaMAQ(int tiraje)
         {
             try
             {
@@ -563,7 +579,7 @@ namespace Ordenes.Clases
                 dllBuscar.frmBuscar objBuscar = new dllBuscar.frmBuscar(dtMaquinas);
                 objBuscar._setMultiSelect(true);
                 objBuscar.ShowDialog();
-                _procesoAddMAQ(objBuscar.proFilasSEL);
+                _procesoAddMAQ(objBuscar.proFilasSEL,tiraje);
             }
             catch (Exception ex)
             {
@@ -571,7 +587,7 @@ namespace Ordenes.Clases
             }
         }
 
-        private void _procesoAddMAQ(DataRow[] filasSEL)
+        private void _procesoAddMAQ(DataRow[] filasSEL,int tiraje)
         {
             if (dtProcesoDET != null && filasSEL!=null)
             {
@@ -584,7 +600,7 @@ namespace Ordenes.Clases
                         newRow["CodigoMAQ"] = rowMAQ["Código"];
                         newRow["Maquina"] = rowMAQ["Máquina"];
                         newRow["Costo"] = rowMAQ["Costo"];
-                        newRow["Tiempo"] = 0;
+                        newRow["Cantidad"] = tiraje;
                         dtProcesoDET.Rows.Add(newRow);
                     }
                 }

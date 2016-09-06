@@ -143,3 +143,148 @@ D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.Wpf.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.Common.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Data.SqlClient.pdb
 D:\Andres\VisualStudio\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe.config
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlCotizacion.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlDiseno.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlOrden.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form1.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form2.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Formularios.frmCortes.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlQuery.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlCotizacion.resources
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
+C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe.config
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Automatizer.Core.Win32.Gui.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Utilidades.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Pdf.v16.1.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Printing.v16.1.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Sparkline.v16.1.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Utils.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraBars.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraEditors.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraGrid.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraLayout.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraPrinting.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraPdfViewer.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraRichEdit.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraRichEdit.v16.1.Extensions.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.BonusSkins.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.RichEdit.v16.1.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\System.Data.SQLite.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.WinForms.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.Wpf.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.Common.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Data.SqlClient.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraTreeList.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Pdf.v16.1.Drawing.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Office.v16.1.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Automatizer.Core.Win32.Gui.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Utilidades.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Pdf.v16.1.Core.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Printing.v16.1.Core.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Sparkline.v16.1.Core.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Utils.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraBars.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraEditors.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraGrid.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraLayout.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraPrinting.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraPdfViewer.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraRichEdit.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraRichEdit.v16.1.Extensions.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.RichEdit.v16.1.Core.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\System.Data.SQLite.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.WinForms.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.Wpf.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Core.Common.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\AutomatizerSQL.Data.SqlClient.pdb
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraTreeList.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Pdf.v16.1.Drawing.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.Office.v16.1.Core.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Pdf.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Pdf.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Pdf.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Pdf.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Printing.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Printing.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Printing.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Printing.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Sparkline.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Sparkline.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Sparkline.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Sparkline.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Utils.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Utils.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Utils.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Utils.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraBars.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraBars.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraBars.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraBars.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraEditors.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraEditors.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraEditors.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraEditors.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraLayout.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraLayout.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraLayout.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraLayout.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraPrinting.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraPrinting.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraPrinting.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraPrinting.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraPdfViewer.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraPdfViewer.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraPdfViewer.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraPdfViewer.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraRichEdit.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraRichEdit.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraRichEdit.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraRichEdit.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraRichEdit.v16.1.Extensions.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraRichEdit.v16.1.Extensions.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraRichEdit.v16.1.Extensions.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraRichEdit.v16.1.Extensions.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.RichEdit.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.RichEdit.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.RichEdit.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.RichEdit.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraTreeList.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraTreeList.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraTreeList.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraTreeList.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Office.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlCotizacion.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlDiseno.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlOrden.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form1.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form2.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Formularios.frmCortes.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlQuery.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlCotizacion.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb

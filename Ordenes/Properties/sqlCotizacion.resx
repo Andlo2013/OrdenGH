@@ -154,6 +154,10 @@
     <value>SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestino.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenDestino.OrdenId = @cotizaID) AND (dbo.pr_OrdenDestino.EstReg = 'True')</value>
     <comment>Carga los destinos del cliente</comment>
   </data>
+  <data name="cot_disArmadosAgregaMAT" xml:space="preserve">
+    <value>SELECT ItmCod AS Código,ItmDsc AS Descripción,Secuencial,ISNULL((SELECT Porcentaje FROM dbo.pr_GHPorcentajes WHERE (CmbGrupo = @CodGrupo) AND (CmbComponente = @Componente) AND (SecMaterial = dbo.ItmMae.Secuencial) AND (EstReg = 'True')),0) AS Porcentaje FROM dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción</value>
+    <comment>Permite agregar materiales en los armados para agregar el porcentaje</comment>
+  </data>
   <data name="cot_disArmadosDET" xml:space="preserve">
     <value>SELECT dbo.pr_CotizaDisenoArmado.CmbComponente AS Componente, dbo.pr_CotizaDisenoArmado.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.PliegoMPAncho AS ArmadoAncho, dbo.pr_CotizaDisenoArmado.PliegoMPAlto AS ArmadoAlto, dbo.pr_CotizaDisenoArmado.PliegoImpAncho AS PliegoAncho, dbo.pr_CotizaDisenoArmado.PliegoImpAlto AS PliegoAlto, dbo.pr_CotizaDisenoArmado.PliegoCant AS PliegoCantidad, dbo.pr_CotizaDisenoArmado.PliegoExtra AS Extra, dbo.pr_CotizaDisenoArmado.UndCotizadas AS Cotizadas  FROM dbo.pr_CotizaDisenoArmado INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoArmado.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoArmado.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoArmado.EstReg = 'True')</value>
     <comment>Carga el detalle de los armados</comment>
@@ -179,7 +183,7 @@
     <comment>Lista las máquinas para buscar</comment>
   </data>
   <data name="cot_procCargaDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Tiempo, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Cantidad, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = 'True')</value>
     <comment>Carga el detalle de procesos</comment>
   </data>
 </root>

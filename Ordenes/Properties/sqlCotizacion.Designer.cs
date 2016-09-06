@@ -142,6 +142,15 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a SELECT ItmCod AS Código,ItmDsc AS Descripción,Secuencial,ISNULL((SELECT Porcentaje FROM dbo.pr_GHPorcentajes WHERE (CmbGrupo = @CodGrupo) AND (CmbComponente = @Componente) AND (SecMaterial = dbo.ItmMae.Secuencial) AND (EstReg = &apos;True&apos;)),0) AS Porcentaje FROM dbo.ItmMae WHERE EmpCod=@CodEmpresa AND {0} LIKE @paramExtra ORDER BY Descripción.
+        /// </summary>
+        internal static string cot_disArmadosAgregaMAT {
+            get {
+                return ResourceManager.GetString("cot_disArmadosAgregaMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a SELECT dbo.pr_CotizaDisenoArmado.CmbComponente AS Componente, dbo.pr_CotizaDisenoArmado.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.PliegoMPAncho AS ArmadoAncho, dbo.pr_CotizaDisenoArmado.PliegoMPAlto AS ArmadoAlto, dbo.pr_CotizaDisenoArmado.PliegoImpAncho AS PliegoAncho, dbo.pr_CotizaDisenoArmado.PliegoImpAlto AS PliegoAlto, dbo.pr_CotizaDisenoArmado.PliegoCant AS PliegoCantidad, dbo.pr_CotizaDisenoArmado.PliegoExtra AS Extra, dbo.pr_CotizaDisenoArmado.UndCotizadas AS Cotizadas  F [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string cot_disArmadosDET {
@@ -196,7 +205,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Tiempo, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = &apos;True&apos;).
+        ///   Busca una cadena traducida similar a SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Cantidad, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = &apos;True&apos;).
         /// </summary>
         internal static string cot_procCargaDET {
             get {

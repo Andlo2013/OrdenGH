@@ -107,7 +107,18 @@ namespace Ordenes.Controles
 
         //Carga los detalles
         #region Métodos-CargaDetalles
-        
+
+        //Método principal para cargar el detalle
+        #region CargaDetalle
+        private void _CargaDetalle()
+        {
+            _clienteCarga();
+            _blockCarga();
+            _disenoCarga();
+            _procesoCarga();
+        }
+        #endregion
+
         //Pestaña blocks
         #region Block-Detalles
         private void _blockCarga()
@@ -153,6 +164,7 @@ namespace Ordenes.Controles
         #endregion
 
         #endregion
+
 
 
         private void _asignaCotizaMOD()
@@ -225,7 +237,7 @@ namespace Ordenes.Controles
         private void beNumeroCOT_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             model_Cotiza = model_Cotiza._buscaCOT();
-            if (model_Cotiza.id > 0)
+            if (model_Cotiza!=null && model_Cotiza.id > 0)
             {
                 beNumeroCOT.EditValue = model_Cotiza.Cotizacion;
                 deFechaCOT.EditValue = model_Cotiza.FecCotiza;
@@ -240,10 +252,7 @@ namespace Ordenes.Controles
                 deFechaENT.EditValue = model_Cotiza.FecEntrega;
                 txtEplCotizador.EditValue = model_Cotiza.Vendedor;
                 beEplVendedor.EditValue = model_Cotiza.Cotizador;
-                _clienteCarga();
-                _blockCarga();
-                _disenoCarga();
-                _procesoCarga();
+                _CargaDetalle();
             }
         }
 
@@ -265,6 +274,16 @@ namespace Ordenes.Controles
                 model_Cotiza.EplVendedor = Convert.ToInt32(rowEmpleado["Código"]);
                 model_Cotiza.Vendedor = rowEmpleado["Nombre"].ToString().Trim();
                 beEplVendedor.Text = rowEmpleado["Nombre"].ToString().Trim();
+            }
+        }
+
+        private void dis_ribeBuscaPantone_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            {
+                DataRow rowModifica = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                objCotiza._disenoColorAgregaPantone(rowModifica);
+                dis_gvColores.RefreshRow(dis_gvColores.FocusedRowHandle);
             }
         }
 
@@ -308,6 +327,7 @@ namespace Ordenes.Controles
             model_Cotiza._nuevaCOT();
             
             beNumeroCOT.EditValue = model_Cotiza.Cotizacion;
+            _CargaDetalle();
 
         }
 
@@ -421,7 +441,7 @@ namespace Ordenes.Controles
         #region cmProcesos
         private void mnuAgregaProceso_Click(object sender, EventArgs e)
         {
-            objCotiza._procesoAgregaMAQ();
+            objCotiza._procesoAgregaMAQ(Convert.ToInt32(seTiraje.Value));
         }
 
         private void mnuQuitarProceso_Click(object sender, EventArgs e)
@@ -429,10 +449,6 @@ namespace Ordenes.Controles
             DataRow rowEliminar = gvProcesos.GetDataRow(gvProcesos.FocusedRowHandle);
             objCotiza._procesoElimina(rowEliminar);
         }
-
-
-
-
 
         #endregion
 
@@ -446,5 +462,7 @@ namespace Ordenes.Controles
                 e.Handled = true;
             }
         }
+
+        
     }
 }

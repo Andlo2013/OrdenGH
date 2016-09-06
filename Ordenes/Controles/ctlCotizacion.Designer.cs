@@ -120,6 +120,7 @@
             this.dis_gcColRetiroC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueRetiroC = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.dis_gcColPantoneC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_ribeBuscaPantone = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.dis_gcColNumPaginasC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColCoberturaC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColDetallePAGC = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -150,6 +151,7 @@
             this.gvProcesos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.proc_gcColMaquina = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColCosto = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.proc_gcColCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtpServiciosEXT = new DevExpress.XtraTab.XtraTabPage();
             this.sext_chkMetalico = new DevExpress.XtraEditors.CheckEdit();
@@ -217,7 +219,6 @@
             this.txtNombreCLI = new DevExpress.XtraEditors.ButtonEdit();
             this.btnVistaPRV = new DevExpress.XtraEditors.SimpleButton();
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
-            this.proc_gcColCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seTiraje.Properties)).BeginInit();
@@ -267,6 +268,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueComponenteC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueTiroC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueRetiroC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_ribeBuscaPantone)).BeginInit();
             this.dis_xtpPlacas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).BeginInit();
@@ -1269,7 +1271,7 @@
             // dis_gcColPliegoCantidad
             // 
             this.dis_gcColPliegoCantidad.Caption = "Cant";
-            this.dis_gcColPliegoCantidad.DisplayFormat.FormatString = "2";
+            this.dis_gcColPliegoCantidad.DisplayFormat.FormatString = "N2";
             this.dis_gcColPliegoCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dis_gcColPliegoCantidad.FieldName = "PliegoCantidad";
             this.dis_gcColPliegoCantidad.Name = "dis_gcColPliegoCantidad";
@@ -1285,7 +1287,7 @@
             // dis_gcColPliegoExtra
             // 
             this.dis_gcColPliegoExtra.Caption = "Extra";
-            this.dis_gcColPliegoExtra.DisplayFormat.FormatString = "2";
+            this.dis_gcColPliegoExtra.DisplayFormat.FormatString = "N2";
             this.dis_gcColPliegoExtra.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dis_gcColPliegoExtra.FieldName = "Extra";
             this.dis_gcColPliegoExtra.Name = "dis_gcColPliegoExtra";
@@ -1301,10 +1303,11 @@
             // dis_gcColUndCotiza
             // 
             this.dis_gcColUndCotiza.Caption = "Cotizadas";
-            this.dis_gcColUndCotiza.DisplayFormat.FormatString = "2";
+            this.dis_gcColUndCotiza.DisplayFormat.FormatString = "N2";
             this.dis_gcColUndCotiza.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dis_gcColUndCotiza.FieldName = "Cotizadas";
             this.dis_gcColUndCotiza.Name = "dis_gcColUndCotiza";
+            this.dis_gcColUndCotiza.OptionsColumn.AllowEdit = false;
             this.dis_gcColUndCotiza.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColUndCotiza.OptionsColumn.AllowIncrementalSearch = false;
             this.dis_gcColUndCotiza.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
@@ -1336,7 +1339,8 @@
             this.dis_gcColores.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.dis_rilueComponenteC,
             this.dis_rilueTiroC,
-            this.dis_rilueRetiroC});
+            this.dis_rilueRetiroC,
+            this.dis_ribeBuscaPantone});
             this.dis_gcColores.Size = new System.Drawing.Size(835, 207);
             this.dis_gcColores.TabIndex = 0;
             this.dis_gcColores.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1447,13 +1451,23 @@
             // dis_gcColPantoneC
             // 
             this.dis_gcColPantoneC.Caption = "Pantone";
+            this.dis_gcColPantoneC.ColumnEdit = this.dis_ribeBuscaPantone;
             this.dis_gcColPantoneC.FieldName = "Pantone";
             this.dis_gcColPantoneC.Name = "dis_gcColPantoneC";
             this.dis_gcColPantoneC.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColPantoneC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColPantoneC.OptionsColumn.AllowMove = false;
+            this.dis_gcColPantoneC.OptionsColumn.ReadOnly = true;
             this.dis_gcColPantoneC.Visible = true;
             this.dis_gcColPantoneC.VisibleIndex = 3;
+            // 
+            // dis_ribeBuscaPantone
+            // 
+            this.dis_ribeBuscaPantone.AutoHeight = false;
+            this.dis_ribeBuscaPantone.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.dis_ribeBuscaPantone.Name = "dis_ribeBuscaPantone";
+            this.dis_ribeBuscaPantone.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.dis_ribeBuscaPantone_ButtonClick);
             // 
             // dis_gcColNumPaginasC
             // 
@@ -1770,7 +1784,7 @@
             // 
             this.proc_gcColCosto.Caption = "Costo";
             this.proc_gcColCosto.DisplayFormat.FormatString = "N2";
-            this.proc_gcColCosto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.proc_gcColCosto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.proc_gcColCosto.FieldName = "Costo";
             this.proc_gcColCosto.Name = "proc_gcColCosto";
             this.proc_gcColCosto.OptionsColumn.AllowEdit = false;
@@ -1784,11 +1798,28 @@
             this.proc_gcColCosto.VisibleIndex = 1;
             this.proc_gcColCosto.Width = 145;
             // 
+            // proc_gcColCantidad
+            // 
+            this.proc_gcColCantidad.Caption = "Cantidad";
+            this.proc_gcColCantidad.DisplayFormat.FormatString = "N2";
+            this.proc_gcColCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.proc_gcColCantidad.FieldName = "Cantidad";
+            this.proc_gcColCantidad.Name = "proc_gcColCantidad";
+            this.proc_gcColCantidad.OptionsColumn.AllowEdit = false;
+            this.proc_gcColCantidad.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.proc_gcColCantidad.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.proc_gcColCantidad.OptionsColumn.AllowMove = false;
+            this.proc_gcColCantidad.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.proc_gcColCantidad.OptionsColumn.ReadOnly = true;
+            this.proc_gcColCantidad.Visible = true;
+            this.proc_gcColCantidad.VisibleIndex = 2;
+            this.proc_gcColCantidad.Width = 193;
+            // 
             // proc_gcColTotal
             // 
             this.proc_gcColTotal.Caption = "Total";
             this.proc_gcColTotal.DisplayFormat.FormatString = "N2";
-            this.proc_gcColTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.proc_gcColTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.proc_gcColTotal.FieldName = "Total";
             this.proc_gcColTotal.Name = "proc_gcColTotal";
             this.proc_gcColTotal.OptionsColumn.AllowEdit = false;
@@ -2630,15 +2661,6 @@
             this.beNumeroCOT.TabIndex = 0;
             this.beNumeroCOT.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beNumeroCOT_ButtonClick);
             // 
-            // proc_gcColCantidad
-            // 
-            this.proc_gcColCantidad.Caption = "Cantidad";
-            this.proc_gcColCantidad.FieldName = "Cantidad";
-            this.proc_gcColCantidad.Name = "proc_gcColCantidad";
-            this.proc_gcColCantidad.Visible = true;
-            this.proc_gcColCantidad.VisibleIndex = 2;
-            this.proc_gcColCantidad.Width = 193;
-            // 
             // ctlCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2700,6 +2722,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueComponenteC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueTiroC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueRetiroC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_ribeBuscaPantone)).EndInit();
             this.dis_xtpPlacas.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).EndInit();
@@ -2944,5 +2967,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoMP;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaMaterial;
         private DevExpress.XtraGrid.Columns.GridColumn proc_gcColCantidad;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit dis_ribeBuscaPantone;
     }
 }

@@ -15,7 +15,7 @@ namespace Ordenes.Clases
     {
 
         AutomatizerDataAccesSqlClient bd =
-            new AutomatizerDataAccesSqlClient(Settings.Default.Servidor, Settings.Default.BaseDatos);
+            new AutomatizerDataAccesSqlClient(Form1.getSession.Servidor, Form1.getSession.Catalogo);
         //IAutomatizerDataAcces bd = Form1.getSession.Data;
 
         public _SQLServer()
