@@ -88,26 +88,24 @@
             this.dis_gcArmados = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoMatARMDIS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaMATARMDIS = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculaDISARM = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQuitarMATARMDIS = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_bgvArmados = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
-            this.bandaComponente = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.dis_gcColComponente = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_rilueComponente = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.bandaMaterial = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.dis_gcColGrupo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColMaterial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandaPliegoMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.dis_gcColPliegoMPAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dis_gcColPliegoMPAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColArmadoAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColArmadoAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandaPliegoIMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColPliegoAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColPliegoAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.bandaPliego = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.dis_gcColNumTamano = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dis_gcColImpXtamano = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColPliegoCantidad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColPliegoExtra = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColUndCotiza = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.dis_xtpColores = new DevExpress.XtraTab.XtraTabPage();
             this.dis_gcColores = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoColor = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -219,6 +217,12 @@
             this.txtNombreCLI = new DevExpress.XtraEditors.ButtonEdit();
             this.btnVistaPRV = new DevExpress.XtraEditors.SimpleButton();
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
+            this.bandaComponente = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandaMaterial = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandaPliegoMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandaPliegoIMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.bandaPliego = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.seTiraje.Properties)).BeginInit();
@@ -545,13 +549,13 @@
             this.mnuAgregarDestino,
             this.mnuQuitarDestino});
             this.cmClienteSUC.Name = "cmSucursalCLI";
-            this.cmClienteSUC.Size = new System.Drawing.Size(238, 48);
+            this.cmClienteSUC.Size = new System.Drawing.Size(217, 48);
             // 
             // mnuAgregarDestino
             // 
             this.mnuAgregarDestino.Name = "mnuAgregarDestino";
             this.mnuAgregarDestino.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregarDestino.Size = new System.Drawing.Size(237, 22);
+            this.mnuAgregarDestino.Size = new System.Drawing.Size(216, 22);
             this.mnuAgregarDestino.Text = "Agregar Destino";
             this.mnuAgregarDestino.Click += new System.EventHandler(this.mnuAgregarDestino_Click);
             // 
@@ -559,7 +563,7 @@
             // 
             this.mnuQuitarDestino.Name = "mnuQuitarDestino";
             this.mnuQuitarDestino.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuQuitarDestino.Size = new System.Drawing.Size(237, 22);
+            this.mnuQuitarDestino.Size = new System.Drawing.Size(216, 22);
             this.mnuQuitarDestino.Text = "Eliminar Destino";
             this.mnuQuitarDestino.Click += new System.EventHandler(this.mnuQuitarDestino_Click);
             // 
@@ -796,13 +800,13 @@
             this.cmBlock.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuEliminaRegBlock});
             this.cmBlock.Name = "cmBlock";
-            this.cmBlock.Size = new System.Drawing.Size(241, 26);
+            this.cmBlock.Size = new System.Drawing.Size(220, 26);
             // 
             // mnuEliminaRegBlock
             // 
             this.mnuEliminaRegBlock.Name = "mnuEliminaRegBlock";
             this.mnuEliminaRegBlock.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuEliminaRegBlock.Size = new System.Drawing.Size(240, 22);
+            this.mnuEliminaRegBlock.Size = new System.Drawing.Size(219, 22);
             this.mnuEliminaRegBlock.Text = "Eliminar Registro";
             this.mnuEliminaRegBlock.Click += new System.EventHandler(this.mnuEliminaRegBlock_Click);
             // 
@@ -950,13 +954,13 @@
             this.cmDisenoPlaca.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuEliminaRegPlaca});
             this.cmDisenoPlaca.Name = "cmDisenoPlaca";
-            this.cmDisenoPlaca.Size = new System.Drawing.Size(241, 26);
+            this.cmDisenoPlaca.Size = new System.Drawing.Size(220, 26);
             // 
             // mnuEliminaRegPlaca
             // 
             this.mnuEliminaRegPlaca.Name = "mnuEliminaRegPlaca";
             this.mnuEliminaRegPlaca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuEliminaRegPlaca.Size = new System.Drawing.Size(240, 22);
+            this.mnuEliminaRegPlaca.Size = new System.Drawing.Size(219, 22);
             this.mnuEliminaRegPlaca.Text = "Eliminar Registro";
             this.mnuEliminaRegPlaca.Click += new System.EventHandler(this.mnuEliminaRegPlaca_Click);
             // 
@@ -1030,23 +1034,32 @@
             // 
             this.cmDisenoMatARMDIS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAgregaMATARMDIS,
+            this.mnuCalculaDISARM,
             this.mnuQuitarMATARMDIS});
             this.cmDisenoMatARMDIS.Name = "cmMaterialARMDIS";
-            this.cmDisenoMatARMDIS.Size = new System.Drawing.Size(241, 48);
+            this.cmDisenoMatARMDIS.Size = new System.Drawing.Size(220, 70);
             // 
             // mnuAgregaMATARMDIS
             // 
             this.mnuAgregaMATARMDIS.Name = "mnuAgregaMATARMDIS";
             this.mnuAgregaMATARMDIS.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregaMATARMDIS.Size = new System.Drawing.Size(240, 22);
+            this.mnuAgregaMATARMDIS.Size = new System.Drawing.Size(219, 22);
             this.mnuAgregaMATARMDIS.Text = "Agregar Material";
             this.mnuAgregaMATARMDIS.Click += new System.EventHandler(this.mnuAgregaMATARMDIS_Click);
+            // 
+            // mnuCalculaDISARM
+            // 
+            this.mnuCalculaDISARM.Name = "mnuCalculaDISARM";
+            this.mnuCalculaDISARM.ShortcutKeys = System.Windows.Forms.Keys.F6;
+            this.mnuCalculaDISARM.Size = new System.Drawing.Size(219, 22);
+            this.mnuCalculaDISARM.Text = "Calcular valores";
+            this.mnuCalculaDISARM.Click += new System.EventHandler(this.mnuCalculaDISARM_Click);
             // 
             // mnuQuitarMATARMDIS
             // 
             this.mnuQuitarMATARMDIS.Name = "mnuQuitarMATARMDIS";
             this.mnuQuitarMATARMDIS.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuQuitarMATARMDIS.Size = new System.Drawing.Size(240, 22);
+            this.mnuQuitarMATARMDIS.Size = new System.Drawing.Size(219, 22);
             this.mnuQuitarMATARMDIS.Text = "Eliminar Material";
             this.mnuQuitarMATARMDIS.Click += new System.EventHandler(this.mnuQuitarMATARMDIS_Click);
             // 
@@ -1061,13 +1074,16 @@
             this.gridBand6});
             this.dis_bgvArmados.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
             this.dis_gcColComponente,
+            this.dis_gcColGrupo,
             this.dis_gcColMaterial,
             this.dis_gcColAncho,
             this.dis_gcColAlto,
+            this.dis_gcColPliegoMPAncho,
+            this.dis_gcColPliegoMPAlto,
             this.dis_gcColArmadoAncho,
             this.dis_gcColArmadoAlto,
-            this.dis_gcColPliegoAncho,
-            this.dis_gcColPliegoAlto,
+            this.dis_gcColNumTamano,
+            this.dis_gcColImpXtamano,
             this.dis_gcColPliegoCantidad,
             this.dis_gcColPliegoExtra,
             this.dis_gcColUndCotiza});
@@ -1076,17 +1092,6 @@
             this.dis_bgvArmados.OptionsFilter.AllowFilterEditor = false;
             this.dis_bgvArmados.OptionsView.ColumnAutoWidth = false;
             this.dis_bgvArmados.OptionsView.ShowGroupPanel = false;
-            // 
-            // bandaComponente
-            // 
-            this.bandaComponente.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandaComponente.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandaComponente.Columns.Add(this.dis_gcColComponente);
-            this.bandaComponente.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.bandaComponente.Name = "bandaComponente";
-            this.bandaComponente.OptionsBand.AllowMove = false;
-            this.bandaComponente.VisibleIndex = 0;
-            this.bandaComponente.Width = 130;
             // 
             // dis_gcColComponente
             // 
@@ -1113,17 +1118,21 @@
             this.dis_rilueComponente.Name = "dis_rilueComponente";
             this.dis_rilueComponente.NullText = "";
             // 
-            // bandaMaterial
+            // dis_gcColGrupo
             // 
-            this.bandaMaterial.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandaMaterial.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandaMaterial.Columns.Add(this.dis_gcColMaterial);
-            this.bandaMaterial.Columns.Add(this.dis_gcColAncho);
-            this.bandaMaterial.Columns.Add(this.dis_gcColAlto);
-            this.bandaMaterial.Name = "bandaMaterial";
-            this.bandaMaterial.OptionsBand.AllowMove = false;
-            this.bandaMaterial.VisibleIndex = 1;
-            this.bandaMaterial.Width = 307;
+            this.dis_gcColGrupo.Caption = "Grupo";
+            this.dis_gcColGrupo.FieldName = "Grupo";
+            this.dis_gcColGrupo.Name = "dis_gcColGrupo";
+            this.dis_gcColGrupo.OptionsColumn.AllowEdit = false;
+            this.dis_gcColGrupo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColGrupo.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColGrupo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColGrupo.OptionsColumn.AllowMove = false;
+            this.dis_gcColGrupo.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColGrupo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColGrupo.OptionsColumn.ReadOnly = true;
+            this.dis_gcColGrupo.Visible = true;
+            this.dis_gcColGrupo.Width = 110;
             // 
             // dis_gcColMaterial
             // 
@@ -1139,7 +1148,7 @@
             this.dis_gcColMaterial.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColMaterial.OptionsColumn.ReadOnly = true;
             this.dis_gcColMaterial.Visible = true;
-            this.dis_gcColMaterial.Width = 307;
+            this.dis_gcColMaterial.Width = 218;
             // 
             // dis_gcColAncho
             // 
@@ -1167,17 +1176,41 @@
             this.dis_gcColAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColAlto.Width = 20;
             // 
-            // bandaPliegoMP
+            // dis_gcColPliegoMPAncho
             // 
-            this.bandaPliegoMP.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandaPliegoMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandaPliegoMP.Caption = "Pliego MP";
-            this.bandaPliegoMP.Columns.Add(this.dis_gcColArmadoAncho);
-            this.bandaPliegoMP.Columns.Add(this.dis_gcColArmadoAlto);
-            this.bandaPliegoMP.Name = "bandaPliegoMP";
-            this.bandaPliegoMP.OptionsBand.AllowMove = false;
-            this.bandaPliegoMP.VisibleIndex = 2;
-            this.bandaPliegoMP.Width = 100;
+            this.dis_gcColPliegoMPAncho.Caption = "Ancho";
+            this.dis_gcColPliegoMPAncho.DisplayFormat.FormatString = "N2";
+            this.dis_gcColPliegoMPAncho.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dis_gcColPliegoMPAncho.FieldName = "PliegoMPAncho";
+            this.dis_gcColPliegoMPAncho.Name = "dis_gcColPliegoMPAncho";
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowEdit = false;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowMove = false;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoMPAncho.OptionsColumn.ReadOnly = true;
+            this.dis_gcColPliegoMPAncho.Visible = true;
+            this.dis_gcColPliegoMPAncho.Width = 50;
+            // 
+            // dis_gcColPliegoMPAlto
+            // 
+            this.dis_gcColPliegoMPAlto.Caption = "Alto";
+            this.dis_gcColPliegoMPAlto.DisplayFormat.FormatString = "N2";
+            this.dis_gcColPliegoMPAlto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.dis_gcColPliegoMPAlto.FieldName = "PliegoMPAlto";
+            this.dis_gcColPliegoMPAlto.Name = "dis_gcColPliegoMPAlto";
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowEdit = false;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowMove = false;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoMPAlto.OptionsColumn.ReadOnly = true;
+            this.dis_gcColPliegoMPAlto.Visible = true;
+            this.dis_gcColPliegoMPAlto.Width = 50;
             // 
             // dis_gcColArmadoAncho
             // 
@@ -1193,7 +1226,7 @@
             this.dis_gcColArmadoAncho.OptionsColumn.AllowShowHide = false;
             this.dis_gcColArmadoAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColArmadoAncho.Visible = true;
-            this.dis_gcColArmadoAncho.Width = 50;
+            this.dis_gcColArmadoAncho.Width = 53;
             // 
             // dis_gcColArmadoAlto
             // 
@@ -1209,64 +1242,23 @@
             this.dis_gcColArmadoAlto.OptionsColumn.AllowShowHide = false;
             this.dis_gcColArmadoAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColArmadoAlto.Visible = true;
-            this.dis_gcColArmadoAlto.Width = 50;
+            this.dis_gcColArmadoAlto.Width = 53;
             // 
-            // bandaPliegoIMP
+            // dis_gcColNumTamano
             // 
-            this.bandaPliegoIMP.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandaPliegoIMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandaPliegoIMP.Caption = "Pliego IMP";
-            this.bandaPliegoIMP.Columns.Add(this.dis_gcColPliegoAncho);
-            this.bandaPliegoIMP.Columns.Add(this.dis_gcColPliegoAlto);
-            this.bandaPliegoIMP.Name = "bandaPliegoIMP";
-            this.bandaPliegoIMP.OptionsBand.AllowMove = false;
-            this.bandaPliegoIMP.VisibleIndex = 3;
-            this.bandaPliegoIMP.Width = 100;
+            this.dis_gcColNumTamano.Caption = "Tamaños";
+            this.dis_gcColNumTamano.FieldName = "NumTamanos";
+            this.dis_gcColNumTamano.Name = "dis_gcColNumTamano";
+            this.dis_gcColNumTamano.Visible = true;
+            this.dis_gcColNumTamano.Width = 65;
             // 
-            // dis_gcColPliegoAncho
+            // dis_gcColImpXtamano
             // 
-            this.dis_gcColPliegoAncho.Caption = "Ancho";
-            this.dis_gcColPliegoAncho.DisplayFormat.FormatString = "N2";
-            this.dis_gcColPliegoAncho.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dis_gcColPliegoAncho.FieldName = "PliegoAncho";
-            this.dis_gcColPliegoAncho.Name = "dis_gcColPliegoAncho";
-            this.dis_gcColPliegoAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoAncho.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegoAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoAncho.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegoAncho.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPliegoAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoAncho.Visible = true;
-            this.dis_gcColPliegoAncho.Width = 50;
-            // 
-            // dis_gcColPliegoAlto
-            // 
-            this.dis_gcColPliegoAlto.Caption = "Alto";
-            this.dis_gcColPliegoAlto.DisplayFormat.FormatString = "N2";
-            this.dis_gcColPliegoAlto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dis_gcColPliegoAlto.FieldName = "PliegoAlto";
-            this.dis_gcColPliegoAlto.Name = "dis_gcColPliegoAlto";
-            this.dis_gcColPliegoAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoAlto.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegoAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoAlto.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegoAlto.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPliegoAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoAlto.Visible = true;
-            this.dis_gcColPliegoAlto.Width = 50;
-            // 
-            // bandaPliego
-            // 
-            this.bandaPliego.AppearanceHeader.Options.UseTextOptions = true;
-            this.bandaPliego.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.bandaPliego.Caption = "Pliegos";
-            this.bandaPliego.Columns.Add(this.dis_gcColPliegoCantidad);
-            this.bandaPliego.Columns.Add(this.dis_gcColPliegoExtra);
-            this.bandaPliego.Columns.Add(this.dis_gcColUndCotiza);
-            this.bandaPliego.Name = "bandaPliego";
-            this.bandaPliego.OptionsBand.AllowMove = false;
-            this.bandaPliego.VisibleIndex = 4;
-            this.bandaPliego.Width = 180;
+            this.dis_gcColImpXtamano.Caption = "Imp X Tamaño";
+            this.dis_gcColImpXtamano.FieldName = "ImpresionesXtamano";
+            this.dis_gcColImpXtamano.Name = "dis_gcColImpXtamano";
+            this.dis_gcColImpXtamano.Visible = true;
+            this.dis_gcColImpXtamano.Width = 81;
             // 
             // dis_gcColPliegoCantidad
             // 
@@ -1275,12 +1267,14 @@
             this.dis_gcColPliegoCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dis_gcColPliegoCantidad.FieldName = "PliegoCantidad";
             this.dis_gcColPliegoCantidad.Name = "dis_gcColPliegoCantidad";
+            this.dis_gcColPliegoCantidad.OptionsColumn.AllowEdit = false;
             this.dis_gcColPliegoCantidad.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColPliegoCantidad.OptionsColumn.AllowIncrementalSearch = false;
             this.dis_gcColPliegoCantidad.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColPliegoCantidad.OptionsColumn.AllowMove = false;
             this.dis_gcColPliegoCantidad.OptionsColumn.AllowShowHide = false;
             this.dis_gcColPliegoCantidad.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPliegoCantidad.OptionsColumn.ReadOnly = true;
             this.dis_gcColPliegoCantidad.Visible = true;
             this.dis_gcColPliegoCantidad.Width = 50;
             // 
@@ -1314,14 +1308,9 @@
             this.dis_gcColUndCotiza.OptionsColumn.AllowMove = false;
             this.dis_gcColUndCotiza.OptionsColumn.AllowShowHide = false;
             this.dis_gcColUndCotiza.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColUndCotiza.OptionsColumn.ReadOnly = true;
             this.dis_gcColUndCotiza.Visible = true;
             this.dis_gcColUndCotiza.Width = 80;
-            // 
-            // gridBand6
-            // 
-            this.gridBand6.Name = "gridBand6";
-            this.gridBand6.Visible = false;
-            this.gridBand6.VisibleIndex = -1;
             // 
             // dis_xtpColores
             // 
@@ -1351,13 +1340,13 @@
             this.cmDisenoColor.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuEliminaRegDisenoColor});
             this.cmDisenoColor.Name = "cmDisenoColor";
-            this.cmDisenoColor.Size = new System.Drawing.Size(241, 26);
+            this.cmDisenoColor.Size = new System.Drawing.Size(220, 26);
             // 
             // mnuEliminaRegDisenoColor
             // 
             this.mnuEliminaRegDisenoColor.Name = "mnuEliminaRegDisenoColor";
             this.mnuEliminaRegDisenoColor.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuEliminaRegDisenoColor.Size = new System.Drawing.Size(240, 22);
+            this.mnuEliminaRegDisenoColor.Size = new System.Drawing.Size(219, 22);
             this.mnuEliminaRegDisenoColor.Text = "Eliminar Registro";
             this.mnuEliminaRegDisenoColor.Click += new System.EventHandler(this.mnuEliminaRegDisenoColor_Click);
             // 
@@ -1657,13 +1646,13 @@
             this.mnuAgregaMATCLI,
             this.mnuQuitaMATCLI});
             this.cmClienteMAT.Name = "contextMenuStrip1";
-            this.cmClienteMAT.Size = new System.Drawing.Size(241, 48);
+            this.cmClienteMAT.Size = new System.Drawing.Size(220, 48);
             // 
             // mnuAgregaMATCLI
             // 
             this.mnuAgregaMATCLI.Name = "mnuAgregaMATCLI";
             this.mnuAgregaMATCLI.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregaMATCLI.Size = new System.Drawing.Size(240, 22);
+            this.mnuAgregaMATCLI.Size = new System.Drawing.Size(219, 22);
             this.mnuAgregaMATCLI.Text = "Agrega Material";
             this.mnuAgregaMATCLI.Click += new System.EventHandler(this.mnuAgregaMATCLI_Click);
             // 
@@ -1671,7 +1660,7 @@
             // 
             this.mnuQuitaMATCLI.Name = "mnuQuitaMATCLI";
             this.mnuQuitaMATCLI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuQuitaMATCLI.Size = new System.Drawing.Size(240, 22);
+            this.mnuQuitaMATCLI.Size = new System.Drawing.Size(219, 22);
             this.mnuQuitaMATCLI.Text = "Eliminar Material";
             this.mnuQuitaMATCLI.Click += new System.EventHandler(this.mnuQuitaMATCLI_Click);
             // 
@@ -1735,13 +1724,13 @@
             this.mnuAgregaProceso,
             this.mnuQuitarProceso});
             this.cmProcesos.Name = "contextMenuStrip3";
-            this.cmProcesos.Size = new System.Drawing.Size(240, 48);
+            this.cmProcesos.Size = new System.Drawing.Size(219, 48);
             // 
             // mnuAgregaProceso
             // 
             this.mnuAgregaProceso.Name = "mnuAgregaProceso";
             this.mnuAgregaProceso.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregaProceso.Size = new System.Drawing.Size(239, 22);
+            this.mnuAgregaProceso.Size = new System.Drawing.Size(218, 22);
             this.mnuAgregaProceso.Text = "Agrega Proceso";
             this.mnuAgregaProceso.Click += new System.EventHandler(this.mnuAgregaProceso_Click);
             // 
@@ -1749,7 +1738,7 @@
             // 
             this.mnuQuitarProceso.Name = "mnuQuitarProceso";
             this.mnuQuitarProceso.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuQuitarProceso.Size = new System.Drawing.Size(239, 22);
+            this.mnuQuitarProceso.Size = new System.Drawing.Size(218, 22);
             this.mnuQuitarProceso.Text = "Eliminar Proceso";
             this.mnuQuitarProceso.Click += new System.EventHandler(this.mnuQuitarProceso_Click);
             // 
@@ -2661,6 +2650,76 @@
             this.beNumeroCOT.TabIndex = 0;
             this.beNumeroCOT.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beNumeroCOT_ButtonClick);
             // 
+            // bandaComponente
+            // 
+            this.bandaComponente.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandaComponente.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandaComponente.Columns.Add(this.dis_gcColComponente);
+            this.bandaComponente.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.bandaComponente.Name = "bandaComponente";
+            this.bandaComponente.OptionsBand.AllowMove = false;
+            this.bandaComponente.VisibleIndex = 0;
+            this.bandaComponente.Width = 130;
+            // 
+            // bandaMaterial
+            // 
+            this.bandaMaterial.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandaMaterial.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandaMaterial.Columns.Add(this.dis_gcColGrupo);
+            this.bandaMaterial.Columns.Add(this.dis_gcColMaterial);
+            this.bandaMaterial.Columns.Add(this.dis_gcColAncho);
+            this.bandaMaterial.Columns.Add(this.dis_gcColAlto);
+            this.bandaMaterial.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.bandaMaterial.Name = "bandaMaterial";
+            this.bandaMaterial.OptionsBand.AllowMove = false;
+            this.bandaMaterial.VisibleIndex = 1;
+            this.bandaMaterial.Width = 328;
+            // 
+            // bandaPliegoMP
+            // 
+            this.bandaPliegoMP.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandaPliegoMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandaPliegoMP.Caption = "Mat. Prima";
+            this.bandaPliegoMP.Columns.Add(this.dis_gcColPliegoMPAncho);
+            this.bandaPliegoMP.Columns.Add(this.dis_gcColPliegoMPAlto);
+            this.bandaPliegoMP.Name = "bandaPliegoMP";
+            this.bandaPliegoMP.OptionsBand.AllowMove = false;
+            this.bandaPliegoMP.VisibleIndex = 2;
+            this.bandaPliegoMP.Width = 100;
+            // 
+            // bandaPliegoIMP
+            // 
+            this.bandaPliegoIMP.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandaPliegoIMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandaPliegoIMP.Caption = "Armados";
+            this.bandaPliegoIMP.Columns.Add(this.dis_gcColArmadoAncho);
+            this.bandaPliegoIMP.Columns.Add(this.dis_gcColArmadoAlto);
+            this.bandaPliegoIMP.Columns.Add(this.dis_gcColNumTamano);
+            this.bandaPliegoIMP.Columns.Add(this.dis_gcColImpXtamano);
+            this.bandaPliegoIMP.Name = "bandaPliegoIMP";
+            this.bandaPliegoIMP.OptionsBand.AllowMove = false;
+            this.bandaPliegoIMP.VisibleIndex = 3;
+            this.bandaPliegoIMP.Width = 252;
+            // 
+            // bandaPliego
+            // 
+            this.bandaPliego.AppearanceHeader.Options.UseTextOptions = true;
+            this.bandaPliego.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.bandaPliego.Caption = "Pliegos";
+            this.bandaPliego.Columns.Add(this.dis_gcColPliegoCantidad);
+            this.bandaPliego.Columns.Add(this.dis_gcColPliegoExtra);
+            this.bandaPliego.Columns.Add(this.dis_gcColUndCotiza);
+            this.bandaPliego.Name = "bandaPliego";
+            this.bandaPliego.OptionsBand.AllowMove = false;
+            this.bandaPliego.VisibleIndex = 4;
+            this.bandaPliego.Width = 180;
+            // 
+            // gridBand6
+            // 
+            this.gridBand6.Name = "gridBand6";
+            this.gridBand6.Visible = false;
+            this.gridBand6.VisibleIndex = -1;
+            // 
             // ctlCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2890,8 +2949,8 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColMaterial;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColArmadoAncho;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColArmadoAlto;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoAncho;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoAlto;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoMPAncho;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoMPAlto;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoCantidad;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoExtra;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColUndCotiza;
@@ -2960,13 +3019,17 @@
         private DevExpress.XtraEditors.SpinEdit blo_seInicia;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.SpinEdit seTiraje;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaComponente;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliego;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoIMP;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoMP;
-        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaMaterial;
         private DevExpress.XtraGrid.Columns.GridColumn proc_gcColCantidad;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit dis_ribeBuscaPantone;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColGrupo;
+        private System.Windows.Forms.ToolStripMenuItem mnuCalculaDISARM;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColNumTamano;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColImpXtamano;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaComponente;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaMaterial;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoMP;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoIMP;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliego;
+        private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
     }
 }

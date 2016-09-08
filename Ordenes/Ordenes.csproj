@@ -78,6 +78,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsCalculaCorte.cs" />
     <Compile Include="Clases\_Comunes.cs" />
     <Compile Include="Clases\clsCotizacion.cs" />
     <Compile Include="Clases\clsVentas.cs" />
@@ -95,6 +96,7 @@
     </Compile>
     <Compile Include="Modelos\blockMOD.cs" />
     <Compile Include="Modelos\cotizaMOD.cs" />
+    <Compile Include="Modelos\materialArmadoMOD.cs" />
     <Compile Include="Modelos\libroEncMOD.cs" />
     <Compile Include="Modelos\libroPorMOD.cs" />
     <Compile Include="Modelos\ordenMOD.cs" />

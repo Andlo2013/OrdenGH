@@ -411,10 +411,23 @@ namespace Ordenes.Controles
             objCotiza._disenoArmadoAgregaMAT();
         }
 
+        private void mnuCalculaDISARM_Click(object sender, EventArgs e)
+        {
+            if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
+            {
+                DataRow rowSEL = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
+                objCotiza._disenoArmadoCalcula(rowSEL);
+                dis_bgvArmados.RefreshRow(dis_bgvArmados.FocusedRowHandle);
+            }
+        }
+
         private void mnuQuitarMATARMDIS_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
-            objCotiza._disenoArmadoEliminaMAT(rowEliminar);
+            if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
+            {
+                DataRow rowEliminar = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
+                objCotiza._disenoArmadoEliminaMAT(rowEliminar);
+            }
         }
 
         #endregion

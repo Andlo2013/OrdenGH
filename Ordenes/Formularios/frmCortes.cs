@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AutomatizerSQL.Utilidades;
 using dllMensaje;
+using Ordenes.Clases;
 
 namespace Ordenes.Formularios
 {
     public partial class frmCortes : Form
     {
-        float m_AnchoMAT = 90;
-        float m_AltoMAT = 65;
-        float m_AnchoCOR = 44.50f;
-        float m_AltoCOR = 32.5f;
-        int m_numeroFil = 0;
-        int m_numeroCol = 0;
+        clsCalculaCorte objCorte = new clsCalculaCorte();
+        private float m_AnchoMAT = 0;
+        private float m_AltoMAT = 0;
+        private float m_AnchoCOR = 0;
+        private float m_AltoCOR = 0;
+        private int m_numeroFil = 0;
+        private int m_numeroCol=0;
 
         public frmCortes()
         {
@@ -28,142 +30,91 @@ namespace Ordenes.Formularios
 
         private void frmCortes_Load(object sender, EventArgs e)
         {
-           
+            
         }
 
-        private double _AreaDesperdicio(float anchoMAT,float altoMAT,float anchoCOR,float altoCOR)
-        {
-            double anchoResiduo = anchoMAT % anchoCOR;
-            double altoResiduo = altoMAT % altoCOR;
-            double areaDesperdicio = (anchoResiduo * altoMAT) + (altoResiduo * anchoMAT) - (anchoResiduo * altoResiduo);
-            return areaDesperdicio;
+
+        private void _CalculaDesperdicio() {
+
+            objCorte._Calcular(m_AnchoMAT,m_AltoMAT,m_AnchoCOR,m_AltoCOR,
+                seTiraje.Value.ToInt(), seTrabajosXCorte.Value.ToInt());
+
+            seAnchoRES.EditValue = objCorte.pro_AnchoTamano;
+            seAltoRES.EditValue = objCorte.pro_AltoTamano;
+            seTamanosXpliego.EditValue = objCorte.pro_TamanoXpliego;
+            seCantidadPliegos.EditValue = objCorte.pro_TotalPliego;
+            seCantidadTamanos.EditValue = objCorte.pro_TotalTamano;
+            seCantidadImpresiones.EditValue = objCorte.pro_TotalImpresiones;
+            seCantidadPliegos.EditValue = objCorte.pro_TotalPliego;
+            
+            seCantidadImpresiones.EditValue = objCorte.pro_TotalImpresiones;
+            sePerdida.EditValue = objCorte.pro_Desperdicio;
+            m_AnchoCOR = objCorte.pro_AnchoTamano;
+            m_AltoCOR = objCorte.pro_AltoTamano;
+            m_numeroFil = objCorte.pro_NumFilas;
+            m_numeroCol = objCorte.pro_NumColumnas;
+
         }
-
-        private void _CalculaDesperdicio(float anchoMAT, float altoMAT, float anchoCOR, float altoCOR,
-                            int tiraje,int trabajoXcorte)
-        {
-            if (_Validar(anchoMAT, altoMAT,anchoCOR,altoCOR,tiraje,trabajoXcorte))
-            {
-                double areaDesperdicio1 = _AreaDesperdicio(anchoMAT, altoMAT, anchoCOR, altoCOR);
-                double areaDesperdicio2 = _AreaDesperdicio(anchoMAT, altoMAT, altoCOR, anchoCOR);
-
-                m_AnchoCOR = anchoCOR;
-                m_AltoCOR = altoCOR;
-                txtPerdida.EditValue = areaDesperdicio1;
-
-                if (areaDesperdicio1 > areaDesperdicio2)
-                {
-                    m_AltoCOR = anchoCOR;
-                    m_AnchoCOR = altoCOR;
-                    txtPerdida.EditValue = areaDesperdicio2;
-                }
-               
-                m_numeroFil = (Math.Floor(m_AltoMAT / m_AltoCOR)).ToInt();
-                m_numeroCol = Math.Floor(m_AnchoMAT / m_AnchoCOR).ToInt();
-                int cortesXpliego = m_numeroFil * m_numeroCol;
-                decimal totalPliego = Math.Ceiling(tiraje / (cortesXpliego * trabajoXcorte.ToDecimal()));
-                decimal totalCortes = totalPliego * cortesXpliego;
-                decimal totalTrabajos = totalCortes * trabajoXcorte;
-
-                txtAnchoRES.EditValue = m_AnchoCOR;
-                txtAltoRES.EditValue = m_AltoCOR;
-                txtCortesPorPliego.Text = cortesXpliego.ToString();
-                txtCantidadPliegos.Text = totalPliego.ToString();
-                txtCantidadCortes.Text = totalCortes.ToString();
-                txtCantidadTrabajos.Text = totalTrabajos.ToString();
-
-                _Dibujar();
-            }
-        }
-
+        
         private void _Dibujar()
         {
-            float margen = 1;
-            //FACTORES DE CONVERSION PARA DIBUJAR
-            float factorX = ((paSoporte.Width-(margen*2)) / m_AnchoMAT);
-            float factorY = ((paSoporte.Height- (margen * 2)) / m_AltoMAT);
+            //AREA DE TRABAJO 1.80m X 1.20m (270px X180px)
+            //5px se van en margenes de cada lado 
+            float margen = 5;
+            //1.5px=1cm
+            float factor = 1.5f;
+
             //CALCULO DE LA ESCALA
-            float anchoEscala = m_AnchoCOR * factorX;
-            float altoEscala = m_AltoCOR * factorY;
+            float anchoColumna = m_AnchoCOR * factor;
+            float altoFila = m_AltoCOR * factor;
+            
             //INICIALIZA VALORES
             float posX = 0;
             float posY = 0;
-            Pen myPen = new Pen(Color.Black,2);
+            
+            //POR ESTETICA SI EL CORTE ES MENOR A 5CM PINTE MENOS GRUESO PARA QUE SE VEA CLARO
+            int anchoPen = m_AnchoCOR > 5 && m_AltoCOR > 5 ? 2 : 1;
+
+            Pen myPen = new Pen(Color.SeaGreen,anchoPen);
             Graphics formGraphics = paSoporte.CreateGraphics();
             formGraphics.Clear(paSoporte.BackColor);
+
+            //DIBUJA EL AREA DEL MATERIAL            
+            formGraphics.FillRectangle(Brushes.Tan, margen, margen, (m_AnchoMAT * factor), (m_AltoMAT * factor));
+            
+            //DIBUJA EL AREA QUE SE VA A UTILIZAR
+            formGraphics.FillRectangle(Brushes.DarkSeaGreen, margen, margen, ((m_numeroCol * m_AnchoCOR)*factor), ((m_numeroFil * m_AltoCOR)*factor));
+
             //DIBUJA LAS FILAS
-            for (int j = 0; j < m_numeroFil+1; j++)
+            for (int j = 0; j < m_numeroFil + 1; j++)
             {
-                posY = (altoEscala * j)+margen;
-                formGraphics.DrawLine(myPen, margen, posY, ((m_numeroCol* anchoEscala) +margen), posY);
+                posY = (altoFila * j) + margen;
+                formGraphics.DrawLine(myPen, margen, posY, ((m_numeroCol * anchoColumna) + margen), posY);
             }
-            //myPen = new Pen(Color.Green);
+
             //DIBUJA LAS COLUMNAS
             for (int i = 0; i < m_numeroCol + 1; i++)
             {
-                posX = (anchoEscala * i)+ margen;
-                formGraphics.DrawLine(myPen,posX , margen, posX, ((m_numeroFil * altoEscala) + margen));
+                posX = (anchoColumna * i) + margen;
+                formGraphics.DrawLine(myPen, posX, margen, posX, ((m_numeroFil * altoFila) + margen));
             }
+
             myPen.Dispose();
             formGraphics.Dispose();
         }
 
-        private bool _Validar(float anchoMAT, float altoMAT, 
-            float anchoCOR, float altoCOR,int tiraje,int trabajoXcorte)
-        {
-            if (anchoMAT == 0)
-            {
-                clsMensaje._msjWarning("El ancho del material debe ser mayor a cero", "Validar");
-                return false;
-            }
-            else if (altoMAT == 0)
-            {
-                clsMensaje._msjWarning("El alto del material debe ser mayor a cero", "Validar");
-                return false;
-            }
-            else if (anchoCOR == 0)
-            {
-                clsMensaje._msjWarning("El ancho del corte debe ser mayor a cero", "Validar");
-                return false;
-            }
-            else if (altoCOR == 0)
-            {
-                clsMensaje._msjWarning("El alto del corte debe ser mayor a cero", "Validar");
-                return false;
-            }
-            else if (anchoCOR > altoMAT)
-            {
-                clsMensaje._msjWarning("El ancho del corte no puede ser mayor al ancho del material", "Validar");
-                return false;
-            }
-            else if (altoCOR > altoMAT)
-            {
-                clsMensaje._msjWarning("El alto del corte no puede ser mayor al alto del material", "Validar");
-                return false;
-            }
-            else if (tiraje <= 0)
-            {
-                clsMensaje._msjWarning("El tiraje debe ser mayor a cero", "Validar");
-                return false;
-            }
-            else if (trabajoXcorte <= 0)
-            {
-                clsMensaje._msjWarning("Los trabajos por corte debe ser mínimo uno", "Validar");
-                return false;
-            }
-            return true;
-        }
-
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            seAnchoTotal.Value = seAnchoCOR.Value + seAnchoPinza.Value;
-            seAltoTotal.Value = seAltoCOR.Value + seAltoPinza.Value;
+            seAnchoTotal.Value = seAnchoTAM.Value + seAnchoPinza.Value;
+            seAltoTotal.Value = seAltoTAM.Value + seAltoPinza.Value;
             m_AnchoMAT = float.Parse(seAnchoMAT.Value.ToString());
             m_AltoMAT = float.Parse(seAltoMAT.Value.ToString());
             m_AnchoCOR = float.Parse(seAnchoTotal.Value.ToString());
             m_AltoCOR = float.Parse(seAltoTotal.Value.ToString());
-            _CalculaDesperdicio(m_AnchoMAT,m_AltoMAT,m_AnchoCOR,m_AltoCOR,
-                seTiraje.Value.ToInt(),seTrabajosXCorte.Value.ToInt());
+            _CalculaDesperdicio();
+
+            _Dibujar();
         }
+
     }
 }

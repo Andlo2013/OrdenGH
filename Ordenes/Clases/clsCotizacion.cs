@@ -207,8 +207,18 @@ namespace Ordenes.Clases
         {
             try
             {
-                DataTable dtFilasSEL = objComunes._agregaMATMultiple();
-                _disenoArmadoAddMAT(dtFilasSEL);
+                //DataTable dtFilasSEL = objComunes._agregaMATMultiple();
+                //_disenoArmadoAddMAT(dtFilasSEL);
+                Dictionary<string, string> dicionario = new Dictionary<string, string>();
+                dicionario.Add("Talla", "Grupo");
+                frmBuscarITEM objBuscar = new frmBuscarITEM();
+                objBuscar.pro_Configura
+                    ._set01Connection(m_Servidor, m_Catalogo)
+                    ._set02Find(sqlCotizacion.cot_disArmadosAgregaGrupo, new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa })
+                    ._set03OptionsFilter(dicionario)
+                    ._setSeleccionSimple(false);
+                objBuscar.ShowDialog();
+                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL);    
             }
             catch (Exception ex)
             {
@@ -222,18 +232,85 @@ namespace Ordenes.Clases
             {
                 foreach (DataRow rowMAT in filasSEL.Rows)
                 {
-                    int reg = dtDisenoArmado.Select("SecMaterial=" + rowMAT["Secuencial"].ToString(), "").Length;
-                    if (reg <= 0)
-                    {
-                        DataRow newRow = dtDisenoArmado.NewRow();
-                        newRow["SecMaterial"] = rowMAT["Secuencial"];
-                        newRow["Material"] = rowMAT["Descripción"];
-                        dtDisenoArmado.Rows.Add(newRow);
-                    }
+                    ////int reg = dtDisenoArmado.Select("SecMaterial=" + rowMAT["Secuencial"].ToString(), "").Length;
+                    ////if (reg <= 0)
+                    ////{
+                    DataRow newRow = dtDisenoArmado.NewRow();
+                    newRow["CodGrupo"] = rowMAT["Código"];
+                    newRow["Grupo"] = rowMAT["Grupo"];
+                    dtDisenoArmado.Rows.Add(newRow);
+                    ////}
                 }
             }
         }
 
+        public void _disenoArmadoCalcula(DataRow rowSEL)
+        {
+            try
+            {
+                if (rowSEL != null)
+                {
+                    materialArmadoMOD materialSEL = _disenoArmadoEligeMAT(Convert.ToInt32(rowSEL["CodGrupo"]),
+                        float.Parse(rowSEL["ArmadoAncho"].ToString()), float.Parse(rowSEL["ArmadoAlto"].ToString()),
+                        rowSEL["NumTamanos"].ToInt(), rowSEL["ImpresionesXtamano"].ToInt());
+
+                    if (materialSEL != null)
+                    {
+                        rowSEL["SecMaterial"] = materialSEL.SecMaterial;
+                        rowSEL["Material"] = materialSEL.Material;
+                        rowSEL["PliegoMPAncho"] = materialSEL.Ancho;
+                        rowSEL["PliegoMPAlto"] = materialSEL.Alto;
+                        rowSEL["PliegoCantidad"] = materialSEL.PliegosCantidad;
+                    }
+                    
+                    
+                    /*
+                    1- Recuperar todos los materiales del grupo sentencia (cot_disArmadosCargaMAT) 
+                    2- Evaluear cada material e ir comparando con el desperdicio actual si es menor lo modifica
+                    3- cargar el material optimo en la fila
+                    4- este metodo se va a ejecutar solo bajo demanda. Sea por contextMenu o al guardar todas las filas recalculan
+                 
+                    */
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar calcular los valores de la fila", "Calcular fila", ex.Message);
+            }
+        }
+
+        private materialArmadoMOD _disenoArmadoEligeMAT(int CodGrupo,float ArmadoAncho,float ArmadoAlto,int totalImpresiones,int impresionesXtamano)
+        {
+            clsCalculaCorte objCorte = new clsCalculaCorte();
+            DataTable dtItemsGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
+                new string[] { "@CodEmpresa", "@CodTalla" }, new object[] { m_codEmpresa, CodGrupo });
+
+            double desperdicio = -1;
+            DataRow rowOptima = null;
+            materialArmadoMOD modelo_materialARM = new materialArmadoMOD();
+            if (dtItemsGRP != null && dtItemsGRP.Rows.Count > 0)
+            {
+                foreach (DataRow rowMAT in dtItemsGRP.Rows)
+                {
+                    objCorte._Calcular(
+                        float.Parse(rowMAT["Ancho"].ToString()),
+                        float.Parse(rowMAT["Alto"].ToString()),
+                        ArmadoAncho,ArmadoAlto,totalImpresiones,impresionesXtamano);
+
+                    if (desperdicio <0 || objCorte.pro_Desperdicio < desperdicio)
+                    {
+                        modelo_materialARM.SecMaterial = rowMAT["SecMaterial"].ToInt();
+                        modelo_materialARM.Material = rowMAT["Material"].ToString();
+                        modelo_materialARM.Ancho = Convert.ToDouble(rowMAT["Ancho"]);
+                        modelo_materialARM.Alto = Convert.ToDouble(rowMAT["Alto"]);
+                        modelo_materialARM.PliegosCantidad = objCorte.pro_TotalPliego;
+                        rowOptima = rowMAT;
+                        desperdicio = objCorte.pro_Desperdicio;
+                    }
+                }
+            }
+            return modelo_materialARM;
+        }
         public void _disenoArmadoEliminaMAT(DataRow rowElimina)
         {
             try
