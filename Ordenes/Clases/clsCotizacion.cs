@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutomatizerSQL.Utilidades;
+using Ordenes.Formularios;
 
 namespace Ordenes.Clases
 {
@@ -17,7 +18,7 @@ namespace Ordenes.Clases
     {
         _SQLServer objSQLServer = Form1.getSQLServer;
         _Comunes objComunes = new _Comunes();
-
+        private DataTable dtPlacas = null;
         DataTable dtClienteDEST = null;
         DataTable dtBlockColor = null;
         DataTable dtDisenoArmado = null;
@@ -35,7 +36,13 @@ namespace Ordenes.Clases
         private string m_Servidor = Form1.getSession.Servidor;
         private string m_Catalogo = Form1.getSession.Catalogo;
 
-        public clsCotizacion() { }
+        public clsCotizacion() { _Inicializa(); }
+
+        private void _Inicializa()
+        {
+            dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+        }
 
         //CLIENTE
         #region Cliente
@@ -187,13 +194,29 @@ namespace Ordenes.Clases
         //DISEÑO ARMADOS
         #region Diseno-Armados
 
-        public DataTable _disenoArmadoCargaDET(int cotizaID)
+        public DataTable _disenoArmadoCargaDET(int cotizaID,int tiraje)
         {
             try
             {
                 dtDisenoArmado = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosDET,
-                    new string[] {"@CodEmpresa", "@cotizaID" }, new object[] {m_codEmpresa, cotizaID });
+                    new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
                 dtDisenoArmado.Columns["Cotizadas"].Expression = "PliegoCantidad+Extra";
+                //AGREGA COLUMNAS AUXILIARES PARA CALCULO
+                dtDisenoArmado.Columns.Add("PaginasXpliego", System.Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("Tiraje", System.Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("PliegoCantidadAUX", System.Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns["NumPaginas"].DefaultValue = 1;
+                dtDisenoArmado.Columns["PaginasXtrabajo"].DefaultValue = 1;
+                dtDisenoArmado.Columns["Extra"].DefaultValue = 0;
+                dtDisenoArmado.Columns["Tiraje"].DefaultValue = 0;
+                //actualiza el tiraje para que pueda hacer el calculo
+                _disenoArmadoUPDTiraje(tiraje);
+                //PAGINAS QUE SE IMPRIMEN POR PLIEGO
+                dtDisenoArmado.Columns["PaginasXpliego"].Expression = "PaginasXtrabajo*TrabajosXtamano*TamanosXpliego";
+                //ESTO PORQUE AL HACER UNA CONVERSION A (INT) DE ACUERDO A LOS DECIMALES A VECES REDONDEA AL INFERIOR Y FALTARIA UN PLIEGO
+                dtDisenoArmado.Columns["PliegoCantidadAUX"].Expression= "Convert(IIF(PaginasXpliego>0,((NumPaginas*Tiraje)/PaginasXpliego),0),'System.Int32')";
+                //ESTA ES LA CANTIDAD DEFINITICVA DE PLIEGOS.
+                dtDisenoArmado.Columns["PliegoCantidad"].Expression = "IIF(PliegoCantidadAUX*PaginasXpliego>=(NumPaginas*Tiraje),PliegoCantidadAUX,PliegoCantidadAUX+1)";
                 return dtDisenoArmado;
             }
             catch (Exception ex)
@@ -203,12 +226,10 @@ namespace Ordenes.Clases
             }
         }
 
-        public void _disenoArmadoAgregaMAT()
+        public void _disenoArmadoAgregaMAT(int aTrabajoAlto, int aTrabajoAncho, int aTiraje)
         {
             try
             {
-                //DataTable dtFilasSEL = objComunes._agregaMATMultiple();
-                //_disenoArmadoAddMAT(dtFilasSEL);
                 Dictionary<string, string> dicionario = new Dictionary<string, string>();
                 dicionario.Add("Talla", "Grupo");
                 frmBuscarITEM objBuscar = new frmBuscarITEM();
@@ -218,7 +239,7 @@ namespace Ordenes.Clases
                     ._set03OptionsFilter(dicionario)
                     ._setSeleccionSimple(false);
                 objBuscar.ShowDialog();
-                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL);    
+                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL,aTrabajoAlto,aTrabajoAncho,aTiraje);    
             }
             catch (Exception ex)
             {
@@ -226,20 +247,22 @@ namespace Ordenes.Clases
             }
         }
 
-        private void _disenoArmadoAddMAT(DataTable filasSEL)
+        private void _disenoArmadoAddMAT(DataTable filasSEL, int aTrabajoAlto,int aTrabajoAncho,int aTiraje)
         {
             if (dtDisenoArmado != null && filasSEL != null)
             {
+                clsCalculaCorte objCorte = new clsCalculaCorte();
                 foreach (DataRow rowMAT in filasSEL.Rows)
                 {
-                    ////int reg = dtDisenoArmado.Select("SecMaterial=" + rowMAT["Secuencial"].ToString(), "").Length;
-                    ////if (reg <= 0)
-                    ////{
                     DataRow newRow = dtDisenoArmado.NewRow();
                     newRow["CodGrupo"] = rowMAT["Código"];
                     newRow["Grupo"] = rowMAT["Grupo"];
+                    newRow["TrabajoAlto"] = aTrabajoAlto;
+                    newRow["TrabajoAncho"] = aTrabajoAncho;
+                    newRow["Tiraje"] = aTiraje;
                     dtDisenoArmado.Rows.Add(newRow);
-                    ////}
+                    //selecciona el pliego
+                    objCorte._ext_disenoArmadoCalcula(newRow);
                 }
             }
         }
@@ -250,27 +273,8 @@ namespace Ordenes.Clases
             {
                 if (rowSEL != null)
                 {
-                    materialArmadoMOD materialSEL = _disenoArmadoEligeMAT(Convert.ToInt32(rowSEL["CodGrupo"]),
-                        float.Parse(rowSEL["ArmadoAncho"].ToString()), float.Parse(rowSEL["ArmadoAlto"].ToString()),
-                        rowSEL["NumTamanos"].ToInt(), rowSEL["ImpresionesXtamano"].ToInt());
-
-                    if (materialSEL != null)
-                    {
-                        rowSEL["SecMaterial"] = materialSEL.SecMaterial;
-                        rowSEL["Material"] = materialSEL.Material;
-                        rowSEL["PliegoMPAncho"] = materialSEL.Ancho;
-                        rowSEL["PliegoMPAlto"] = materialSEL.Alto;
-                        rowSEL["PliegoCantidad"] = materialSEL.PliegosCantidad;
-                    }
-                    
-                    
-                    /*
-                    1- Recuperar todos los materiales del grupo sentencia (cot_disArmadosCargaMAT) 
-                    2- Evaluear cada material e ir comparando con el desperdicio actual si es menor lo modifica
-                    3- cargar el material optimo en la fila
-                    4- este metodo se va a ejecutar solo bajo demanda. Sea por contextMenu o al guardar todas las filas recalculan
-                 
-                    */
+                    clsCalculaCorte objCorte = new clsCalculaCorte();
+                    objCorte._ext_disenoArmadoCalcula(rowSEL);
                 }
             }
             catch (Exception ex)
@@ -279,38 +283,16 @@ namespace Ordenes.Clases
             }
         }
 
-        private materialArmadoMOD _disenoArmadoEligeMAT(int CodGrupo,float ArmadoAncho,float ArmadoAlto,int totalImpresiones,int impresionesXtamano)
+        public void _disenoArmadoGrafica(DataRow rowSEL, int tiraje)
         {
-            clsCalculaCorte objCorte = new clsCalculaCorte();
-            DataTable dtItemsGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
-                new string[] { "@CodEmpresa", "@CodTalla" }, new object[] { m_codEmpresa, CodGrupo });
-
-            double desperdicio = -1;
-            DataRow rowOptima = null;
-            materialArmadoMOD modelo_materialARM = new materialArmadoMOD();
-            if (dtItemsGRP != null && dtItemsGRP.Rows.Count > 0)
+            if (rowSEL != null)
             {
-                foreach (DataRow rowMAT in dtItemsGRP.Rows)
-                {
-                    objCorte._Calcular(
-                        float.Parse(rowMAT["Ancho"].ToString()),
-                        float.Parse(rowMAT["Alto"].ToString()),
-                        ArmadoAncho,ArmadoAlto,totalImpresiones,impresionesXtamano);
-
-                    if (desperdicio <0 || objCorte.pro_Desperdicio < desperdicio)
-                    {
-                        modelo_materialARM.SecMaterial = rowMAT["SecMaterial"].ToInt();
-                        modelo_materialARM.Material = rowMAT["Material"].ToString();
-                        modelo_materialARM.Ancho = Convert.ToDouble(rowMAT["Ancho"]);
-                        modelo_materialARM.Alto = Convert.ToDouble(rowMAT["Alto"]);
-                        modelo_materialARM.PliegosCantidad = objCorte.pro_TotalPliego;
-                        rowOptima = rowMAT;
-                        desperdicio = objCorte.pro_Desperdicio;
-                    }
-                }
+                frmCortes objCortes = new frmCortes();
+                objCortes._ext_Graficar(rowSEL);
+                objCortes.ShowDialog();
             }
-            return modelo_materialARM;
         }
+
         public void _disenoArmadoEliminaMAT(DataRow rowElimina)
         {
             try
@@ -407,11 +389,22 @@ namespace Ordenes.Clases
             }
         }
 
+        public void _disenoArmadoUPDTiraje(int tiraje)
+        {
+            if (dtDisenoArmado != null)
+            {
+                foreach (DataRow row in dtDisenoArmado.Rows)
+                {
+                    row["Tiraje"] = tiraje;
+                }
+            }
+        }
+
         #endregion
 
         //DISEÑO COLOR
         #region Diseno-Color
-        
+
         public void _disenoColorAgregaPantone(DataRow rowModifica)
         {
             try

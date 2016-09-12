@@ -59,7 +59,12 @@ namespace Ordenes.Modelos
         [Range(1, 9999999, ErrorMessage = "No es un 'ITEM' válido")]
         public int SecuencialITEM { get; set; }
 
+        [Required(ErrorMessage = "Descripción del artículo es obligatorio")]
         public string Articulo { get; set; }
+
+        [Required(ErrorMessage = "Tiraje es obligatorio")]
+        [Range(1, 9999, ErrorMessage = "No es un 'Tiraje' válido")]
+        public int Tiraje { get; set; }
 
         [Required(ErrorMessage = "Ancho es obligatorio")]
         [Range(1, 9999, ErrorMessage = "No es un 'Ancho' válido")]

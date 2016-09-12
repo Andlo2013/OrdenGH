@@ -275,7 +275,6 @@ C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Office.v16.1.Core.resource
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlCotizacion.resources
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlDiseno.resources
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlOrden.resources
@@ -288,3 +287,4 @@ C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache

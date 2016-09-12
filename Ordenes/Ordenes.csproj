@@ -96,7 +96,6 @@
     </Compile>
     <Compile Include="Modelos\blockMOD.cs" />
     <Compile Include="Modelos\cotizaMOD.cs" />
-    <Compile Include="Modelos\materialArmadoMOD.cs" />
     <Compile Include="Modelos\libroEncMOD.cs" />
     <Compile Include="Modelos\libroPorMOD.cs" />
     <Compile Include="Modelos\ordenMOD.cs" />

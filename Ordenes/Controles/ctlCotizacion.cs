@@ -14,6 +14,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Repository;
 using Ordenes.Modelos;
 using dllMensaje;
+using AutomatizerSQL.Utilidades;
 
 namespace Ordenes.Controles
 {
@@ -79,10 +80,12 @@ namespace Ordenes.Controles
         {
             //CARGA LÍNEAS DE PRODUCCIÓN
             _cargaLookUpEdit(new LookUpEdit[] { lueLineaPRD }, optionsCMB.Linea_Produccion);
-            
+
+            _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.EgrMat_Seccion);
+
             //COMBO COMPONENTES
-            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueComponente,
-                dis_rilueComponenteC,dis_rilueComponenteP }, optionsCMB.EgrMat_Seccion);
+            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueComponenteC,
+                dis_rilueComponenteP }, optionsCMB.EgrMat_Seccion);
             
             //COMBO TIRO-RETIRO
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroC,
@@ -148,7 +151,7 @@ namespace Ordenes.Controles
         #region Diseno-Detalles
         private void _disenoCarga()
         {
-            dis_gcArmados.DataSource = objCotiza._disenoArmadoCargaDET(model_Cotiza.id);
+            dis_gcArmados.DataSource = objCotiza._disenoArmadoCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
             dis_gcColores.DataSource = objCotiza._disenoColorCargaDET(model_Cotiza.id);
             dis_gcPlacas.DataSource = objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
@@ -196,7 +199,7 @@ namespace Ordenes.Controles
             beNumeroCOT.Text = "";
             deFechaCOT.EditValue = DateTime.Now;
             txtCIRUCCLI.Text = txtNombreCLI.Text = beArticulo.Text = "";
-            seAncho.EditValue = seAlto.EditValue = 0;
+            seAncho.EditValue = seAlto.EditValue = 10;
             deFechaENT.EditValue = DateTime.Now.AddDays(1);
             txtEplCotizador.Text=beEplVendedor.Text = "";
             chkEstadoCOT.Checked=true;
@@ -247,6 +250,7 @@ namespace Ordenes.Controles
                 lueGrupo.EditValue = model_Cotiza.Grupo;
                 lueSubgrupo.EditValue = model_Cotiza.Subgrupo;
                 beArticulo.EditValue = model_Cotiza.Articulo;
+                seTiraje.EditValue = model_Cotiza.Tiraje;
                 seAncho.EditValue = model_Cotiza.Ancho;
                 seAlto.EditValue = model_Cotiza.Alto;
                 deFechaENT.EditValue = model_Cotiza.FecEntrega;
@@ -408,26 +412,62 @@ namespace Ordenes.Controles
 
         private void mnuAgregaMATARMDIS_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoArmadoAgregaMAT();
+            objCotiza._disenoArmadoAgregaMAT(seAlto.Value.ToInt(),
+                seAncho.Value.ToInt(),seTiraje.Value.ToInt());
         }
 
         private void mnuCalculaDISARM_Click(object sender, EventArgs e)
         {
-            if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
-            {
-                DataRow rowSEL = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
-                objCotiza._disenoArmadoCalcula(rowSEL);
-                dis_bgvArmados.RefreshRow(dis_bgvArmados.FocusedRowHandle);
-            }
+            _disenoArmadoCMenu("CALCULA");
+        }
+
+        private void mnuVerGraficaDISARM_Click(object sender, EventArgs e)
+        {
+            _disenoArmadoCMenu("GRAFICA");
         }
 
         private void mnuQuitarMATARMDIS_Click(object sender, EventArgs e)
         {
+            _disenoArmadoCMenu("QUITARMATERIAL");
+        }
+
+        //CENTRALIZA ACCIONES DE CONTEXT MENU
+        private void _disenoArmadoCMenu(string accion)
+        {
             if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
             {
-                DataRow rowEliminar = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
-                objCotiza._disenoArmadoEliminaMAT(rowEliminar);
+                DataRow rowSEL = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
+                switch (accion)
+                {
+                    case "CALCULA":
+                        if (_disenoArmadoCMenuValida(rowSEL))
+                        {
+                            objCotiza._disenoArmadoCalcula(rowSEL);
+                        }
+                        break;
+                    case "ELIMINAR":
+                        objCotiza._disenoArmadoEliminaMAT(rowSEL);
+                        break;
+                    case "GRAFICA":
+                        if (_disenoArmadoCMenuValida(rowSEL))
+                        {
+                            objCotiza._disenoArmadoGrafica(rowSEL, seTiraje.EditValue.ToInt());
+                        }
+                        break;
+                }
+                dis_bgvArmados.RefreshRow(dis_bgvArmados.FocusedRowHandle);
             }
+        }
+
+        //VALIDA ACCIONES DE CONTEXT MENU
+        private bool _disenoArmadoCMenuValida(DataRow rowSEL)
+        {
+            if (rowSEL["TrabajoAncho"].ToDecimal() <= 0 && rowSEL["TrabajoAlto"].ToDecimal() <= 0)
+            {
+                clsMensaje._msjWarning("El Ancho y Alto del trabajo tiene que ser mayor a cero","Verificar datos");
+                return false;
+            }
+            return true;
         }
 
         #endregion
@@ -476,6 +516,20 @@ namespace Ordenes.Controles
             }
         }
 
-       
+        private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+
+            if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
+            {
+                _disenoArmadoCMenu("CALCULA");   
+            }
+        }
+
+        private void seTiraje_EditValueChanged(object sender, EventArgs e)
+        {
+            objCotiza._disenoArmadoUPDTiraje(seTiraje.EditValue.ToInt());
+        }
+
+        
     }
 }
