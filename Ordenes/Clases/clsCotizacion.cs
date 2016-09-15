@@ -194,29 +194,35 @@ namespace Ordenes.Clases
         //DISEÑO ARMADOS
         #region Diseno-Armados
 
-        public DataTable _disenoArmadoCargaDET(int cotizaID,int tiraje)
+        public DataTable _disenoArmadoCargaDET(int cotizaID,int tiraje,object CodGrupo)
         {
             try
             {
                 dtDisenoArmado = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosDET,
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
-                dtDisenoArmado.Columns["Cotizadas"].Expression = "PliegoCantidad+Extra";
+                
                 //AGREGA COLUMNAS AUXILIARES PARA CALCULO
+                dtDisenoArmado.Columns.Add("CodGrupo", System.Type.GetType("System.Int32"));
                 dtDisenoArmado.Columns.Add("PaginasXpliego", System.Type.GetType("System.Decimal"));
                 dtDisenoArmado.Columns.Add("Tiraje", System.Type.GetType("System.Decimal"));
                 dtDisenoArmado.Columns.Add("PliegoCantidadAUX", System.Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("Extra", System.Type.GetType("System.Decimal"), "Convert(PaginasXpliego*(PorcentajeEXT/100),'System.Int32')");
+                dtDisenoArmado.Columns["CodGrupo"].DefaultValue = CodGrupo;
                 dtDisenoArmado.Columns["NumPaginas"].DefaultValue = 1;
                 dtDisenoArmado.Columns["PaginasXtrabajo"].DefaultValue = 1;
-                dtDisenoArmado.Columns["Extra"].DefaultValue = 0;
+                dtDisenoArmado.Columns["PorcentajeEXT"].DefaultValue = 0;
                 dtDisenoArmado.Columns["Tiraje"].DefaultValue = 0;
                 //actualiza el tiraje para que pueda hacer el calculo
-                _disenoArmadoUPDTiraje(tiraje);
+                _disenoArmadoUPDColumna("Tiraje",tiraje);
+                //actualiza la columna codGrupo para recuperar los porcentajes de perdida al agregar o cambiar materiales
+                _disenoArmadoUPDColumna("CodGrupo", CodGrupo);
                 //PAGINAS QUE SE IMPRIMEN POR PLIEGO
                 dtDisenoArmado.Columns["PaginasXpliego"].Expression = "PaginasXtrabajo*TrabajosXtamano*TamanosXpliego";
                 //ESTO PORQUE AL HACER UNA CONVERSION A (INT) DE ACUERDO A LOS DECIMALES A VECES REDONDEA AL INFERIOR Y FALTARIA UN PLIEGO
                 dtDisenoArmado.Columns["PliegoCantidadAUX"].Expression= "Convert(IIF(PaginasXpliego>0,((NumPaginas*Tiraje)/PaginasXpliego),0),'System.Int32')";
                 //ESTA ES LA CANTIDAD DEFINITICVA DE PLIEGOS.
                 dtDisenoArmado.Columns["PliegoCantidad"].Expression = "IIF(PliegoCantidadAUX*PaginasXpliego>=(NumPaginas*Tiraje),PliegoCantidadAUX,PliegoCantidadAUX+1)";
+                dtDisenoArmado.Columns["PliegoCotizados"].Expression = "PliegoCantidad+Extra";
                 return dtDisenoArmado;
             }
             catch (Exception ex)
@@ -226,7 +232,15 @@ namespace Ordenes.Clases
             }
         }
 
-        public void _disenoArmadoAgregaMAT(int aTrabajoAlto, int aTrabajoAncho, int aTiraje)
+        public DataView _disenoArmadoFiltrar(int codComponente)
+        {
+            DataView dvFiltrar = new DataView(dtDisenoArmado);
+            dvFiltrar.RowFilter = "Componente=" + codComponente;
+            return dvFiltrar;
+        }
+
+        public void _disenoArmadoAgregaMAT(int aTrabajoAlto, int aTrabajoAncho, 
+            int aTiraje,object codGrupo,object codComponente)
         {
             try
             {
@@ -239,7 +253,7 @@ namespace Ordenes.Clases
                     ._set03OptionsFilter(dicionario)
                     ._setSeleccionSimple(false);
                 objBuscar.ShowDialog();
-                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL,aTrabajoAlto,aTrabajoAncho,aTiraje);    
+                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL,aTrabajoAlto,aTrabajoAncho,aTiraje,codGrupo,codComponente);    
             }
             catch (Exception ex)
             {
@@ -247,7 +261,8 @@ namespace Ordenes.Clases
             }
         }
 
-        private void _disenoArmadoAddMAT(DataTable filasSEL, int aTrabajoAlto,int aTrabajoAncho,int aTiraje)
+        private void _disenoArmadoAddMAT(DataTable filasSEL, int aTrabajoAlto,
+            int aTrabajoAncho,int aTiraje,object codGrupo,object codComponente)
         {
             if (dtDisenoArmado != null && filasSEL != null)
             {
@@ -255,8 +270,10 @@ namespace Ordenes.Clases
                 foreach (DataRow rowMAT in filasSEL.Rows)
                 {
                     DataRow newRow = dtDisenoArmado.NewRow();
-                    newRow["CodGrupo"] = rowMAT["Código"];
-                    newRow["Grupo"] = rowMAT["Grupo"];
+                    newRow["CodGrupo"] = codGrupo;
+                    newRow["Componente"] = codComponente;
+                    newRow["CodTalla"] = rowMAT["Código"];
+                    newRow["Talla"] = rowMAT["Grupo"];
                     newRow["TrabajoAlto"] = aTrabajoAlto;
                     newRow["TrabajoAncho"] = aTrabajoAncho;
                     newRow["Tiraje"] = aTiraje;
@@ -389,13 +406,13 @@ namespace Ordenes.Clases
             }
         }
 
-        public void _disenoArmadoUPDTiraje(int tiraje)
+        public void _disenoArmadoUPDColumna(string columna,object valor)
         {
             if (dtDisenoArmado != null)
             {
                 foreach (DataRow row in dtDisenoArmado.Rows)
                 {
-                    row["Tiraje"] = tiraje;
+                    row[columna] = valor;
                 }
             }
         }
@@ -434,6 +451,13 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar cargar el detalle de colores", "Cargar datos", ex.Message);
                 return null;
             }
+        }
+
+        public DataView _disenoColorFiltrar(int codComponente)
+        {
+            DataView dvFiltrar = new DataView(dtDisenoColor);
+            dvFiltrar.RowFilter = "Componente=" + codComponente;
+            return dvFiltrar;
         }
 
         public void _disenoColorElimina(DataRow rowElimina)
@@ -510,6 +534,13 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar cargar el detalle de placas", "Cargar datos", ex.Message);
                 return null;
             }
+        }
+
+        public DataView _disenoPlacaFiltrar(int codComponente)
+        {
+            DataView dvFiltrar = new DataView(dtDisenoPlaca);
+            dvFiltrar.RowFilter = "Componente=" + codComponente;
+            return dvFiltrar;
         }
 
         public void _disenoPlacaElimina(DataRow rowElimina)

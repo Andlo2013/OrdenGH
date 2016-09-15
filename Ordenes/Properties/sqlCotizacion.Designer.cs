@@ -160,7 +160,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT ItmCod AS Codigo, ItmDsc AS Material, Secuencial AS SecMaterial,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip=&apos;I&apos; AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=1),0) AS Ancho,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip=&apos;I&apos; AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=2),0) AS Alto FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (ItmTip=&apos;I&apos;) AND (IdTalla = @CodTalla).
+        ///   Looks up a localized string similar to SELECT ItmCod AS Codigo, ItmDsc AS Material, Secuencial AS SecMaterial,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip=&apos;I&apos; AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=1),0) AS Ancho,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip=&apos;I&apos; AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=2),0) AS Alto,ISNULL((SELECT Porcentaje FROM pr_GHPorcentajes WHERE CmbGrupo=@CodGrupo AND CmbComponente=@CodComponente AND SecMaterial=dbo.ItmMae.Secuencial),0) AS PorcentajeEXT FRO [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string cot_disArmadosCargaMAT {
             get {
@@ -169,7 +169,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoArmado.CmbComponente AS Componente, dbo.ItmMae.IdTalla AS CodGrupo, ISNULL(dbo.ItmTallas.Talla, &apos;SIN-GRUPO&apos;) AS Grupo, dbo.pr_CotizaDisenoArmado.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.NumPaginas,dbo.pr_CotizaDisenoArmado.PliegoAncho, dbo.pr_CotizaDisenoArmado.PliegoAlto,dbo.pr_CotizaDisenoArmado.TamanoAncho, dbo.pr_CotizaDisenoArmado.TamanoAlto,dbo.pr_CotizaDisenoArmado.TrabajoAncho, dbo.pr_CotizaDisenoArmado.TrabajoAlto,dbo.pr_CotizaDisenoArmado.Tama [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoArmado.CmbComponente AS Componente, dbo.ItmMae.IdTalla AS CodTalla, ISNULL(dbo.ItmTallas.Talla, &apos;SIN-GRUPO&apos;) AS Talla, dbo.pr_CotizaDisenoArmado.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.NumPaginas,dbo.pr_CotizaDisenoArmado.TrabajoAncho, dbo.pr_CotizaDisenoArmado.TrabajoAlto,dbo.pr_CotizaDisenoArmado.PaginasXtrabajo,dbo.pr_CotizaDisenoArmado.TamanoAncho, dbo.pr_CotizaDisenoArmado.TamanoAlto,dbo.pr_CotizaDisenoArmado.TrabajosXtamano,dbo.pr_CotizaDisenoArm [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string cot_disArmadosDET {
             get {

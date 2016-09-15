@@ -83,9 +83,7 @@ namespace Ordenes.Controles
 
             _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.EgrMat_Seccion);
 
-            //COMBO COMPONENTES
-            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueComponenteC,
-                dis_rilueComponenteP }, optionsCMB.EgrMat_Seccion);
+            
             
             //COMBO TIRO-RETIRO
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroC,
@@ -149,13 +147,27 @@ namespace Ordenes.Controles
 
         //Pestaña diseño
         #region Diseno-Detalles
+        
+        //carga los detalles del diseno
         private void _disenoCarga()
         {
-            dis_gcArmados.DataSource = objCotiza._disenoArmadoCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
-            dis_gcColores.DataSource = objCotiza._disenoColorCargaDET(model_Cotiza.id);
-            dis_gcPlacas.DataSource = objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
+            //dis_gcArmados.DataSource = objCotiza._disenoArmadoCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
+            objCotiza._disenoArmadoCargaDET(model_Cotiza.id, model_Cotiza.Tiraje,model_Cotiza.Grupo);
+            objCotiza._disenoColorCargaDET(model_Cotiza.id);
+            objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
+            //para que cargue solo lo del combo
+            _disenoFiltrar();
         }
+
+        //filtra los detalles del diseno de acuerdo a la opcion seleccionada en componente
+        private void _disenoFiltrar()
+        {
+            dis_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcPlacas.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
+        }
+
         #endregion
 
         //Pestaña proceso
@@ -168,8 +180,11 @@ namespace Ordenes.Controles
 
         #endregion
 
+        //Carga las propiedades de los modelos
+        #region Métodos-CargarModelos(Para guardar)
 
-
+        //asgina valores al modelo cotizacion
+        #region asignaCotizaMOD
         private void _asignaCotizaMOD()
         {
             model_Cotiza.Cotizacion = Convert.ToInt32(beNumeroCOT.EditValue);
@@ -183,7 +198,10 @@ namespace Ordenes.Controles
             model_Cotiza.EplCotiza = Form1.getSession.Usuario.Empleado.Codigo;
             model_Cotiza.Estado = true;
         }
+        #endregion
 
+        //asigna valores al modelo block (Cabecera de blocks)
+        #region asginaBlockMOD
         private void _asignaBlockMOD()
         {
             int emblocado = blo_lueTipoEmblocado.EditValue != null ? Convert.ToInt32(blo_lueTipoEmblocado.EditValue) : 0;
@@ -193,7 +211,15 @@ namespace Ordenes.Controles
             model_Block.Termina = Convert.ToInt32(blo_seInicia.Value);
             model_Block.Juego= Convert.ToInt32(blo_seJuegos.Value);
         }
+        #endregion
 
+        #endregion
+
+        //Métodos varios
+        #region Métodos-Varios
+
+        //Limpia los controles y propiedades de los modelos
+        #region LimpiarControles
         private void _LimpiarControles()
         {
             beNumeroCOT.Text = "";
@@ -201,23 +227,38 @@ namespace Ordenes.Controles
             txtCIRUCCLI.Text = txtNombreCLI.Text = beArticulo.Text = "";
             seAncho.EditValue = seAlto.EditValue = 10;
             deFechaENT.EditValue = DateTime.Now.AddDays(1);
-            txtEplCotizador.Text=beEplVendedor.Text = "";
-            chkEstadoCOT.Checked=true;
+            txtEplCotizador.Text = beEplVendedor.Text = "";
+            chkEstadoCOT.Checked = true;
         }
+        #endregion
+        
+        //Valida que ingresen solo numeros en un textedit
+        #region SoloNumeros
+        private void _SoloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar) == false
+                && e.KeyChar != 13 && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
 
+        //Validaciones
+        #region Validar
         private bool _Validar()
         {
-            if (blo_seInicia.Value>blo_seTermina.Value)
+            if (blo_seInicia.Value > blo_seTermina.Value)
             {
                 decimal aux = blo_seInicia.Value;
                 blo_seInicia.Value = blo_seTermina.Value;
                 blo_seTermina.Value = aux;
             }
 
-            if(blo_seInicia.Value==blo_seTermina.Value && blo_seInicia.Value != 0)
+            if (blo_seInicia.Value == blo_seTermina.Value && blo_seInicia.Value != 0)
             {
-                clsMensaje._msjWarning("Blocks: El campo 'INICIA' no puede tener "+
-                    "el mismo valor que el campo 'TERMINA'","Verificar datos");
+                clsMensaje._msjWarning("Blocks: El campo 'INICIA' no puede tener " +
+                    "el mismo valor que el campo 'TERMINA'", "Verificar datos");
                 blo_seTermina.Focus();
                 return false;
             }
@@ -225,8 +266,9 @@ namespace Ordenes.Controles
                             && objCotiza._disenoColorValida();
             return validaDET;
         }
+        #endregion
 
-        
+        #endregion
 
         //Controles
         #region Controles
@@ -281,6 +323,15 @@ namespace Ordenes.Controles
             }
         }
 
+        private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+
+            if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
+            {
+                _disenoArmadoCMenu("CALCULA");
+            }
+        }
+
         private void dis_ribeBuscaPantone_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
             if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
@@ -289,6 +340,11 @@ namespace Ordenes.Controles
                 objCotiza._disenoColorAgregaPantone(rowModifica);
                 dis_gvColores.RefreshRow(dis_gvColores.FocusedRowHandle);
             }
+        }
+
+        private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
+        {
+            _disenoFiltrar();
         }
 
         private void lueLineaPRD_EditValueChanged(object sender, EventArgs e)
@@ -317,6 +373,11 @@ namespace Ordenes.Controles
                 txtNombreCLI.Text = rowCliente["Cliente"].ToString().Trim();
                 _clienteCarga();
             }
+        }
+
+        private void seTiraje_EditValueChanged(object sender, EventArgs e)
+        {
+            objCotiza._disenoArmadoUPDColumna("Tiraje",seTiraje.EditValue.ToInt());
         }
 
         #endregion
@@ -413,7 +474,8 @@ namespace Ordenes.Controles
         private void mnuAgregaMATARMDIS_Click(object sender, EventArgs e)
         {
             objCotiza._disenoArmadoAgregaMAT(seAlto.Value.ToInt(),
-                seAncho.Value.ToInt(),seTiraje.Value.ToInt());
+                seAncho.Value.ToInt(),seTiraje.Value.ToInt(),
+                lueGrupo.EditValue, dis_lueComponente.EditValue);
         }
 
         private void mnuCalculaDISARM_Click(object sender, EventArgs e)
@@ -507,29 +569,5 @@ namespace Ordenes.Controles
 
         #endregion
 
-        private void _SoloNumeros(object sender, KeyPressEventArgs e)
-        {
-            if(char.IsDigit(e.KeyChar)==false 
-                && e.KeyChar!=13 && e.KeyChar != 8)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-
-            if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
-            {
-                _disenoArmadoCMenu("CALCULA");   
-            }
-        }
-
-        private void seTiraje_EditValueChanged(object sender, EventArgs e)
-        {
-            objCotiza._disenoArmadoUPDTiraje(seTiraje.EditValue.ToInt());
-        }
-
-        
     }
 }

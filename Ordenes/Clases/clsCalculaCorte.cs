@@ -125,7 +125,7 @@ namespace Ordenes.Clases
                     if (this.pro_Desperdicio >= 0)
                     {
                         if (isFirstTime ||
-                            (this.pro_Desperdicio < desperdicioTEMP &&
+                            (this.pro_Desperdicio <= desperdicioTEMP &&
                             this.pro_TamanoCantidad > 0))
                         {
                             this.rowMaterial = rowMP;
@@ -185,6 +185,16 @@ namespace Ordenes.Clases
         public decimal pro_Desperdicio { get { return m_Desperdicio; } }
         #endregion
 
+        public int pro_numFilas
+        {
+            get { return m_numeroFIL; }
+        }
+
+        public int pro_numColumnas
+        {
+            get { return m_numeroCOL; }
+        }
+
         #endregion
 
         //MÉTODOS QUE IMPLEMENTAN FUNCIONALIDAD DE CLASES EXTERNAS
@@ -205,6 +215,8 @@ namespace Ordenes.Clases
                         _ext_PlacasValidas(rowSEL);
                         _ext_disenoArmadoEligePlaca(rowSEL);
                         _ext_disenoArmadoEligePliego(rowSEL);
+                        
+                        
                         //Actualiza los valores de la fila para reflejar los cambios
                         rowSEL.AcceptChanges();
                     }
@@ -220,7 +232,8 @@ namespace Ordenes.Clases
         //PLACAS VALIDAS
         #region ext_PlacasValidas
         /// <summary>
-        /// Verifica las placas que se pueden utilizar en funcion de las medidas de los pliegos disponibles
+        /// Verifica los placas que se pueden utilizar 
+        /// en funcion de las medidas de las pliegos disponibles
         /// </summary>
         /// <param name="rowDetalle">DataRow a analizar</param>
         private void _ext_PlacasValidas(DataRow rowDetalle)
@@ -231,24 +244,25 @@ namespace Ordenes.Clases
 
             //Recupera los pliegos del grupo
             dtPliegosGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
-                new string[] { "@CodEmpresa", "@CodTalla" }, new object[] { m_codEmpresa, rowDetalle["CodGrupo"] });
+                new string[] { "@CodEmpresa", "@CodGrupo", "@CodTalla", "@CodComponente" }, 
+                new object[] { m_codEmpresa, rowDetalle["CodGrupo"], rowDetalle["CodTalla"], rowDetalle["Componente"] });
             //calcula las areas
             dtPlacas.Columns.Add("Area", System.Type.GetType("System.Decimal"), "Ancho*Alto");
             dtPliegosGRP.Columns.Add("Area", System.Type.GetType("System.Decimal"), "Ancho*Alto");
 
-            //crea una lista para agregar placas que tienen area superior a los pliegos del grupo
+            //crea una lista para agregar pliegos que tienen area superior a las placas
             List<DataRow> rowEliminar = new List<DataRow>();
             //
             foreach (DataRow rowPlaca in dtPlacas.Rows)
             {
-                //compara cada placa y busca si hay un pliego en el que pueda entrar
+                //compara cada placa y busca si hay una pliego en el que pueda entrar
                 if (dtPliegosGRP.Select("Area>=" + rowPlaca["Area"]).Length <= 0)
                 {
                     //si no encuentra agrega a la lista de eliminar
                     rowEliminar.Add(rowPlaca);
                 }
             }
-            //elimina las placas para no considerar en el uso
+            //elimina las pliegos mas grandes que las placas para no considerar en el calculo
             for (int i = 0; i < rowEliminar.Count; i++)
             {
                 dtPlacas.Rows.Remove(rowEliminar[i]);
@@ -265,8 +279,8 @@ namespace Ordenes.Clases
             _EligeMaterialAUT(dtPlacas, trabajoAncho, trabajoAlto);
             if (this.pro_MaterialSEL != null)
             {
-                rowDetalle["TamanoAncho"] = this.pro_MaterialSEL["Ancho"];//rowPlaca["Ancho"];
-                rowDetalle["TamanoAlto"] = this.pro_MaterialSEL["Alto"];//rowPlaca["Alto"];
+                rowDetalle["TamanoAncho"] = this.pro_TamanoAncho * pro_numColumnas; //this.pro_MaterialSEL["Ancho"];//rowPlaca["Ancho"];
+                rowDetalle["TamanoAlto"] = this.pro_TamanoAlto * pro_numFilas;//this.pro_MaterialSEL["Alto"];//rowPlaca["Alto"];
                 rowDetalle["TrabajoAncho"] = this.pro_TamanoAncho;
                 rowDetalle["TrabajoAlto"] = this.pro_TamanoAlto;
                 rowDetalle["TrabajosXtamano"] = this.pro_TamanoCantidad;
@@ -287,9 +301,9 @@ namespace Ordenes.Clases
         #region ext_disenoArmadoEligePliego
         private void _ext_disenoArmadoEligePliego(DataRow rowDetalle)
         {
-            decimal trabajoAncho = rowDetalle["TrabajoAncho"].ToDecimal();
-            decimal trabajoAlto = rowDetalle["TrabajoAlto"].ToDecimal();
-            _EligeMaterialAUT(dtPliegosGRP, rowDetalle["TamanoAncho"].ToDecimal(), rowDetalle["TamanoAlto"].ToDecimal());
+            decimal tamanoAncho = rowDetalle["TamanoAncho"].ToDecimal();
+            decimal tamanoAlto = rowDetalle["TamanoAlto"].ToDecimal();
+            _EligeMaterialAUT(dtPliegosGRP, tamanoAncho, tamanoAlto);
             if (this.pro_MaterialSEL != null)
             {
                 rowDetalle["SecMaterial"] = this.pro_MaterialSEL["SecMaterial"];
@@ -299,6 +313,7 @@ namespace Ordenes.Clases
                 rowDetalle["TamanoAncho"] = this.pro_TamanoAncho;
                 rowDetalle["TamanoAlto"] = this.pro_TamanoAlto;
                 rowDetalle["TamanosXpliego"] = this.pro_TamanoCantidad;
+                rowDetalle["PorcentajeEXT"] = this.pro_MaterialSEL["PorcentajeEXT"];
             }
             else
             {
@@ -306,9 +321,10 @@ namespace Ordenes.Clases
                 rowDetalle["Material"] = "";
                 rowDetalle["PliegoAncho"] = 0;
                 rowDetalle["PliegoAlto"] = 0;
-                rowDetalle["TamanoAncho"] = trabajoAncho;
-                rowDetalle["TamanoAlto"] = trabajoAlto;
-                rowDetalle["TamanosXpliego"] = 0;
+                rowDetalle["TamanoAncho"] = tamanoAncho;
+                rowDetalle["TamanoAlto"] = tamanoAlto;
+                rowDetalle["TrabajosXpliego"] = 0;
+                rowDetalle["PorcentajeEXT"] = 0;
             }
         }
         #endregion

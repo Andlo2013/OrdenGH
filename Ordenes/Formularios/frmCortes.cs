@@ -62,8 +62,8 @@ namespace Ordenes.Formularios
                 DataRow rowSEL = objBuscar.pro_FilaSEL;
                 if (rowSEL != null)
                 {
-                    this.rowMaterial["CodGrupo"] = rowSEL["Código"];
-                    this.rowMaterial["Grupo"] = rowSEL["Grupo"];
+                    this.rowMaterial["CodTalla"] = rowSEL["Código"];
+                    this.rowMaterial["Talla"] = rowSEL["Grupo"];
                     beGrupoMAT.EditValue = rowSEL["Grupo"];
                     //CAMBIA EL GRUPO PUEDE CAMBIAR LAS DIMENSIONES DE LOS PLIEGOS
                     _Calcular();
@@ -80,7 +80,7 @@ namespace Ordenes.Formularios
         #region CargarControles
         private void _CargaControles()
         {
-            beGrupoMAT.EditValue = rowMaterial["Grupo"].ToString();
+            beGrupoMAT.EditValue = rowMaterial["Talla"].ToString();
             sePliegoAncho.EditValue = rowMaterial["PliegoAncho"];
             sePliegoAlto.EditValue = rowMaterial["PliegoAlto"];
             seTamanoAncho.EditValue = rowMaterial["TamanoAncho"];
