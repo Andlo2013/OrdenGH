@@ -488,6 +488,11 @@ namespace Ordenes.Controles
             _disenoArmadoCMenu("GRAFICA");
         }
 
+        private void mnuDetallaPliegosDISARM_Click(object sender, EventArgs e)
+        {
+            _disenoArmadoCMenu("PLIEGOSIMP");
+        }
+
         private void mnuQuitarMATARMDIS_Click(object sender, EventArgs e)
         {
             _disenoArmadoCMenu("QUITARMATERIAL");
@@ -513,7 +518,13 @@ namespace Ordenes.Controles
                     case "GRAFICA":
                         if (_disenoArmadoCMenuValida(rowSEL))
                         {
-                            objCotiza._disenoArmadoGrafica(rowSEL, seTiraje.EditValue.ToInt());
+                            objCotiza._disenoArmadoGrafica(rowSEL);
+                        }
+                        break;
+                    case "PLIEGOSIMP":
+                        if (_disenoArmadoCMenuValida(rowSEL))
+                        {
+                            objCotiza._disenoArmadoPliegos(rowSEL);
                         }
                         break;
                 }
@@ -569,5 +580,6 @@ namespace Ordenes.Controles
 
         #endregion
 
+       
     }
 }

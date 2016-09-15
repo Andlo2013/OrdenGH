@@ -112,8 +112,13 @@
             this.dis_gvColores = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dis_gcColTiroC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueTiroC = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.dis_gcColCoberturaT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColPantoneT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColNumPaginasT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColGramosT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColRetiroC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueRetiroC = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+            this.dis_gcColCoberturaR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColPantoneR = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_ribeBuscaPantone = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.dis_gcColNumPaginasR = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -225,11 +230,7 @@
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
             this.deFechaENT = new DevExpress.XtraEditors.DateEdit();
             this.beArticulo = new DevExpress.XtraEditors.ButtonEdit();
-            this.dis_gcColCoberturaT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColCoberturaR = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColGramosT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColNumPaginasT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColPantoneT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mnuDetallaPliegosDISARM = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcPestanas)).BeginInit();
@@ -917,9 +918,10 @@
             this.mnuAgregaMATARMDIS,
             this.mnuCalculaDISARM,
             this.mnuVerGraficaDISARM,
+            this.mnuDetallaPliegosDISARM,
             this.mnuQuitarMATARMDIS});
             this.cmDisenoMatARMDIS.Name = "cmMaterialARMDIS";
-            this.cmDisenoMatARMDIS.Size = new System.Drawing.Size(220, 92);
+            this.cmDisenoMatARMDIS.Size = new System.Drawing.Size(220, 136);
             // 
             // mnuAgregaMATARMDIS
             // 
@@ -1443,6 +1445,38 @@
             this.dis_rilueTiroC.NullText = "";
             this.dis_rilueTiroC.ValueMember = "Codigo";
             // 
+            // dis_gcColCoberturaT
+            // 
+            this.dis_gcColCoberturaT.Caption = "Cobertura";
+            this.dis_gcColCoberturaT.FieldName = "CoberturaT";
+            this.dis_gcColCoberturaT.Name = "dis_gcColCoberturaT";
+            this.dis_gcColCoberturaT.Visible = true;
+            this.dis_gcColCoberturaT.VisibleIndex = 1;
+            // 
+            // dis_gcColPantoneT
+            // 
+            this.dis_gcColPantoneT.Caption = "Pantone";
+            this.dis_gcColPantoneT.FieldName = "PantoneT";
+            this.dis_gcColPantoneT.Name = "dis_gcColPantoneT";
+            this.dis_gcColPantoneT.Visible = true;
+            this.dis_gcColPantoneT.VisibleIndex = 2;
+            // 
+            // dis_gcColNumPaginasT
+            // 
+            this.dis_gcColNumPaginasT.Caption = "Nro. Pag";
+            this.dis_gcColNumPaginasT.FieldName = "NumPaginasT";
+            this.dis_gcColNumPaginasT.Name = "dis_gcColNumPaginasT";
+            this.dis_gcColNumPaginasT.Visible = true;
+            this.dis_gcColNumPaginasT.VisibleIndex = 3;
+            // 
+            // dis_gcColGramosT
+            // 
+            this.dis_gcColGramosT.Caption = "Gramos";
+            this.dis_gcColGramosT.FieldName = "GramosT";
+            this.dis_gcColGramosT.Name = "dis_gcColGramosT";
+            this.dis_gcColGramosT.Visible = true;
+            this.dis_gcColGramosT.VisibleIndex = 4;
+            // 
             // dis_gcColRetiroC
             // 
             this.dis_gcColRetiroC.Caption = "Retiro";
@@ -1466,6 +1500,14 @@
             this.dis_rilueRetiroC.Name = "dis_rilueRetiroC";
             this.dis_rilueRetiroC.NullText = "";
             this.dis_rilueRetiroC.ValueMember = "Codigo";
+            // 
+            // dis_gcColCoberturaR
+            // 
+            this.dis_gcColCoberturaR.Caption = "Cobertura";
+            this.dis_gcColCoberturaR.FieldName = "CoberturaR";
+            this.dis_gcColCoberturaR.Name = "dis_gcColCoberturaR";
+            this.dis_gcColCoberturaR.Visible = true;
+            this.dis_gcColCoberturaR.VisibleIndex = 6;
             // 
             // dis_gcColPantoneR
             // 
@@ -2828,45 +2870,13 @@
             this.beArticulo.TabIndex = 70;
             this.beArticulo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beArticulo_ButtonClick);
             // 
-            // dis_gcColCoberturaT
+            // mnuDetallaPliegosDISARM
             // 
-            this.dis_gcColCoberturaT.Caption = "Cobertura";
-            this.dis_gcColCoberturaT.FieldName = "CoberturaT";
-            this.dis_gcColCoberturaT.Name = "dis_gcColCoberturaT";
-            this.dis_gcColCoberturaT.Visible = true;
-            this.dis_gcColCoberturaT.VisibleIndex = 1;
-            // 
-            // dis_gcColCoberturaR
-            // 
-            this.dis_gcColCoberturaR.Caption = "Cobertura";
-            this.dis_gcColCoberturaR.FieldName = "CoberturaR";
-            this.dis_gcColCoberturaR.Name = "dis_gcColCoberturaR";
-            this.dis_gcColCoberturaR.Visible = true;
-            this.dis_gcColCoberturaR.VisibleIndex = 6;
-            // 
-            // dis_gcColGramosT
-            // 
-            this.dis_gcColGramosT.Caption = "Gramos";
-            this.dis_gcColGramosT.FieldName = "GramosT";
-            this.dis_gcColGramosT.Name = "dis_gcColGramosT";
-            this.dis_gcColGramosT.Visible = true;
-            this.dis_gcColGramosT.VisibleIndex = 4;
-            // 
-            // dis_gcColNumPaginasT
-            // 
-            this.dis_gcColNumPaginasT.Caption = "Nro. Pag";
-            this.dis_gcColNumPaginasT.FieldName = "NumPaginasT";
-            this.dis_gcColNumPaginasT.Name = "dis_gcColNumPaginasT";
-            this.dis_gcColNumPaginasT.Visible = true;
-            this.dis_gcColNumPaginasT.VisibleIndex = 3;
-            // 
-            // dis_gcColPantoneT
-            // 
-            this.dis_gcColPantoneT.Caption = "Pantone";
-            this.dis_gcColPantoneT.FieldName = "PantoneT";
-            this.dis_gcColPantoneT.Name = "dis_gcColPantoneT";
-            this.dis_gcColPantoneT.Visible = true;
-            this.dis_gcColPantoneT.VisibleIndex = 2;
+            this.mnuDetallaPliegosDISARM.Name = "mnuDetallaPliegosDISARM";
+            this.mnuDetallaPliegosDISARM.ShortcutKeys = System.Windows.Forms.Keys.F8;
+            this.mnuDetallaPliegosDISARM.Size = new System.Drawing.Size(219, 22);
+            this.mnuDetallaPliegosDISARM.Text = "Detallar Pliegos";
+            this.mnuDetallaPliegosDISARM.Click += new System.EventHandler(this.mnuDetallaPliegosDISARM_Click);
             // 
             // ctlCotizacion
             // 
@@ -3191,5 +3201,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPaginasT;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColGramosT;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCoberturaR;
+        private System.Windows.Forms.ToolStripMenuItem mnuDetallaPliegosDISARM;
     }
 }

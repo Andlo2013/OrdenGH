@@ -300,13 +300,24 @@ namespace Ordenes.Clases
             }
         }
 
-        public void _disenoArmadoGrafica(DataRow rowSEL, int tiraje)
+        public void _disenoArmadoGrafica(DataRow rowSEL)
         {
             if (rowSEL != null)
             {
                 frmCortes objCortes = new frmCortes();
                 objCortes._ext_Graficar(rowSEL);
                 objCortes.ShowDialog();
+            }
+        }
+
+        public void _disenoArmadoPliegos(DataRow rowSEL)
+        {
+            if (rowSEL != null)
+            {
+                clsCalculaCorte objCorte = new clsCalculaCorte();
+                objCorte._ext_disenoArmadoCalcula(rowSEL);
+                frmBuscar objBuscar = new frmBuscar(objCorte.pro_PliegosIMP);
+                objBuscar.ShowDialog();
             }
         }
 

@@ -20,6 +20,8 @@ namespace Ordenes.Clases
 
         private DataTable dtPliegosGRP = null;
         private DataTable dtPlacas = null;
+        private DataTable dtPliegosIMP = null;
+        private DataTable dtCortes = null;
         private DataRow rowMaterial = null;
 
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
@@ -76,7 +78,7 @@ namespace Ordenes.Clases
                 m_tamanoAlto = m_corteAlto;
                 m_Desperdicio = areaDesperdicio1;
 
-                if (areaDesperdicio1 > areaDesperdicio2 && areaDesperdicio2 >= 0)
+                if (areaDesperdicio1 > areaDesperdicio2 || (areaDesperdicio1<0 && areaDesperdicio2 >= 0))
                 {
                     m_tamanoAlto = m_corteAncho;
                     m_tamanoAncho = m_corteAlto;
@@ -195,6 +197,11 @@ namespace Ordenes.Clases
             get { return m_numeroCOL; }
         }
 
+        public DataTable pro_PliegosIMP
+        {
+            get { return dtPliegosIMP; }
+        }
+
         #endregion
 
         //MÉTODOS QUE IMPLEMENTAN FUNCIONALIDAD DE CLASES EXTERNAS
@@ -210,13 +217,9 @@ namespace Ordenes.Clases
                 {
                     if (rowSEL["TrabajoAncho"].ToDecimal() > 0 && rowSEL["TrabajoAlto"].ToDecimal() > 0)
                     {
-                        //elige las placas que entren en las medidas de los pliegos disponibles del grupo seleccionado
-                        //EJEMPLO si la medida maxima de pliego en el grupo es 90*60 no puede usar una placa de 70*80
-                        _ext_PlacasValidas(rowSEL);
-                        _ext_disenoArmadoEligePlaca(rowSEL);
-                        _ext_disenoArmadoEligePliego(rowSEL);
-                        
-                        
+                       
+                        _autCalcular(rowSEL);
+
                         //Actualiza los valores de la fila para reflejar los cambios
                         rowSEL.AcceptChanges();
                     }
@@ -229,105 +232,111 @@ namespace Ordenes.Clases
         }
         #endregion
 
-        //PLACAS VALIDAS
-        #region ext_PlacasValidas
-        /// <summary>
-        /// Verifica los placas que se pueden utilizar 
-        /// en funcion de las medidas de las pliegos disponibles
-        /// </summary>
-        /// <param name="rowDetalle">DataRow a analizar</param>
-        private void _ext_PlacasValidas(DataRow rowDetalle)
+
+        private void _autcreaTablaPliegoIMP()
         {
+            dtPliegosIMP = new DataTable();
+            dtPliegosIMP.Columns.Add("TamanoAncho", System.Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("TamanoAlto", System.Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("TamanoFilas", System.Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("TamanoColumnas", System.Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("TrabajosXtamano", System.Type.GetType("System.Int32"));
+            
+            dtPliegosIMP.Columns.Add("SecMaterial", System.Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("Material", System.Type.GetType("System.String"));
+            dtPliegosIMP.Columns.Add("PliegoAncho", System.Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("PliegoAlto", System.Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("PliegoDesperdicio", System.Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("PliegoPorcentajeEXT", System.Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("TamanosXpliego", System.Type.GetType("System.Int32"));
+        }
+
+        private void _autObtienePliegoIMP(decimal trabajoAncho,decimal trabajoAlto)
+        {
+            foreach (DataRow rowPlaca in dtPlacas.Rows)
+            {
+                _Calcular(rowPlaca["Ancho"].ToDecimal(), rowPlaca["Alto"].ToDecimal(),
+                                trabajoAncho, trabajoAlto);
+                if (this.pro_Desperdicio >= 0)
+                {
+                    DataRow rowPliegoIMP = dtPliegosIMP.NewRow();
+                    rowPliegoIMP["TamanoAncho"] = this.pro_TamanoAncho * this.pro_numColumnas;
+                    rowPliegoIMP["TamanoAlto"] = this.pro_TamanoAlto * this.pro_numFilas;
+                    rowPliegoIMP["TamanoFilas"] = this.pro_numFilas;
+                    rowPliegoIMP["TamanoColumnas"] = this.pro_numColumnas;
+                    rowPliegoIMP["TrabajosXtamano"] = this.pro_TamanoCantidad;
+                    dtPliegosIMP.Rows.Add(rowPliegoIMP);
+                }
+            }
+        }
+
+        private void _autSeleccionaMatPliego()
+        {
+            foreach (DataRow rowPliegoIMP in dtPliegosIMP.Rows)
+            {
+                _EligeMaterialAUT(dtPliegosGRP,
+                            rowPliegoIMP["TamanoAncho"].ToDecimal(),
+                            rowPliegoIMP["TamanoAlto"].ToDecimal());
+
+                if (this.pro_MaterialSEL != null)
+                {
+
+                    rowPliegoIMP["SecMaterial"] = this.pro_MaterialSEL["SecMaterial"];
+                    rowPliegoIMP["Material"] = this.pro_MaterialSEL["Material"];
+                    rowPliegoIMP["PliegoAncho"] = this.pro_MaterialSEL["Ancho"];
+                    rowPliegoIMP["PliegoAlto"] = this.pro_MaterialSEL["Alto"];
+                    rowPliegoIMP["TamanoAncho"] = this.pro_TamanoAncho;
+                    rowPliegoIMP["TamanoAlto"] = this.pro_TamanoAlto;
+                    rowPliegoIMP["TamanosXpliego"] = this.pro_TamanoCantidad;
+                    rowPliegoIMP["PliegoDesperdicio"] = this.pro_Desperdicio;
+                    rowPliegoIMP["PliegoPorcentajeEXT"] = this.pro_MaterialSEL["PorcentajeEXT"];
+                }
+            }
+        }
+
+        private void _autMenorDesperdicio(DataRow rowDetalle)
+        {
+            var resultado = from registro in dtPliegosIMP.AsEnumerable()
+                            orderby registro.Field<Decimal>("PliegoDesperdicio"),
+                                    registro.Field<Int32>("TamanosXpliego")
+                            select registro;
+
+            foreach (DataRow rowPliego in resultado)
+            {
+                rowDetalle["SecMaterial"] = rowPliego["SecMaterial"];
+                rowDetalle["Material"] = rowPliego["Material"];
+                rowDetalle["PliegoAncho"] = rowPliego["PliegoAncho"];
+                rowDetalle["PliegoAlto"] = rowPliego["PliegoAlto"];
+                rowDetalle["TamanoAncho"] = rowPliego["TamanoAncho"];
+                rowDetalle["TamanoAlto"] = rowPliego["TamanoAlto"];
+                rowDetalle["TamanosXpliego"] = rowPliego["TamanosXpliego"];
+                rowDetalle["PorcentajeEXT"] = rowPliego["PliegoPorcentajeEXT"];
+                break;
+            }
+        }
+
+        private void _autCalcular(DataRow rowDetalle)
+        {
+
             //Recupera todas las placas
             dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
 
             //Recupera los pliegos del grupo
             dtPliegosGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
-                new string[] { "@CodEmpresa", "@CodGrupo", "@CodTalla", "@CodComponente" }, 
+                new string[] { "@CodEmpresa", "@CodGrupo", "@CodTalla", "@CodComponente" },
                 new object[] { m_codEmpresa, rowDetalle["CodGrupo"], rowDetalle["CodTalla"], rowDetalle["Componente"] });
-            //calcula las areas
-            dtPlacas.Columns.Add("Area", System.Type.GetType("System.Decimal"), "Ancho*Alto");
-            dtPliegosGRP.Columns.Add("Area", System.Type.GetType("System.Decimal"), "Ancho*Alto");
 
-            //crea una lista para agregar pliegos que tienen area superior a las placas
-            List<DataRow> rowEliminar = new List<DataRow>();
-            //
-            foreach (DataRow rowPlaca in dtPlacas.Rows)
-            {
-                //compara cada placa y busca si hay una pliego en el que pueda entrar
-                if (dtPliegosGRP.Select("Area>=" + rowPlaca["Area"]).Length <= 0)
-                {
-                    //si no encuentra agrega a la lista de eliminar
-                    rowEliminar.Add(rowPlaca);
-                }
-            }
-            //elimina las pliegos mas grandes que las placas para no considerar en el calculo
-            for (int i = 0; i < rowEliminar.Count; i++)
-            {
-                dtPlacas.Rows.Remove(rowEliminar[i]);
-            }
+            _autcreaTablaPliegoIMP();
+
+            _autObtienePliegoIMP(rowDetalle["trabajoAncho"].ToDecimal(), rowDetalle["trabajoAlto"].ToDecimal());
+
+            _autSeleccionaMatPliego();
+
+            _autMenorDesperdicio(rowDetalle);
+
+            
         }
-        #endregion
-
-        //DISENO ARMADO ELIGE PLACA
-        #region ext_disenoArmadoEligePlaca
-        private void _ext_disenoArmadoEligePlaca(DataRow rowDetalle)
-        {
-            decimal trabajoAncho = rowDetalle["TrabajoAncho"].ToDecimal();
-            decimal trabajoAlto = rowDetalle["TrabajoAlto"].ToDecimal();
-            _EligeMaterialAUT(dtPlacas, trabajoAncho, trabajoAlto);
-            if (this.pro_MaterialSEL != null)
-            {
-                rowDetalle["TamanoAncho"] = this.pro_TamanoAncho * pro_numColumnas; //this.pro_MaterialSEL["Ancho"];//rowPlaca["Ancho"];
-                rowDetalle["TamanoAlto"] = this.pro_TamanoAlto * pro_numFilas;//this.pro_MaterialSEL["Alto"];//rowPlaca["Alto"];
-                rowDetalle["TrabajoAncho"] = this.pro_TamanoAncho;
-                rowDetalle["TrabajoAlto"] = this.pro_TamanoAlto;
-                rowDetalle["TrabajosXtamano"] = this.pro_TamanoCantidad;
-            }
-            else
-            {
-                rowDetalle["TamanoAncho"] = 0;
-                rowDetalle["TamanoAlto"] = 0;
-                rowDetalle["TrabajoAncho"] = trabajoAncho;
-                rowDetalle["TrabajoAlto"] = trabajoAlto;
-                rowDetalle["TrabajosXtamano"] = 0;
-            }
-
-        }
-        #endregion
-
-        //DISENO ARMADO ELIGE PLIEGO
-        #region ext_disenoArmadoEligePliego
-        private void _ext_disenoArmadoEligePliego(DataRow rowDetalle)
-        {
-            decimal tamanoAncho = rowDetalle["TamanoAncho"].ToDecimal();
-            decimal tamanoAlto = rowDetalle["TamanoAlto"].ToDecimal();
-            _EligeMaterialAUT(dtPliegosGRP, tamanoAncho, tamanoAlto);
-            if (this.pro_MaterialSEL != null)
-            {
-                rowDetalle["SecMaterial"] = this.pro_MaterialSEL["SecMaterial"];
-                rowDetalle["Material"] = this.pro_MaterialSEL["Material"];
-                rowDetalle["PliegoAncho"] = this.pro_MaterialSEL["Ancho"];
-                rowDetalle["PliegoAlto"] = this.pro_MaterialSEL["Alto"];
-                rowDetalle["TamanoAncho"] = this.pro_TamanoAncho;
-                rowDetalle["TamanoAlto"] = this.pro_TamanoAlto;
-                rowDetalle["TamanosXpliego"] = this.pro_TamanoCantidad;
-                rowDetalle["PorcentajeEXT"] = this.pro_MaterialSEL["PorcentajeEXT"];
-            }
-            else
-            {
-                rowDetalle["SecMaterial"] = -1;
-                rowDetalle["Material"] = "";
-                rowDetalle["PliegoAncho"] = 0;
-                rowDetalle["PliegoAlto"] = 0;
-                rowDetalle["TamanoAncho"] = tamanoAncho;
-                rowDetalle["TamanoAlto"] = tamanoAlto;
-                rowDetalle["TrabajosXpliego"] = 0;
-                rowDetalle["PorcentajeEXT"] = 0;
-            }
-        }
-        #endregion
 
         #endregion
 
