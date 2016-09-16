@@ -471,6 +471,7 @@ namespace Ordenes.Controles
         //Diseño-Armado
         #region cmDisenoArmado
 
+        //AGREGA UN MATERIAL A LOS ARMADOS
         private void mnuAgregaMATARMDIS_Click(object sender, EventArgs e)
         {
             objCotiza._disenoArmadoAgregaMAT(seAlto.Value.ToInt(),
@@ -478,24 +479,22 @@ namespace Ordenes.Controles
                 lueGrupo.EditValue, dis_lueComponente.EditValue);
         }
 
+        //CACLULA LOS VALORES DE CORTE
         private void mnuCalculaDISARM_Click(object sender, EventArgs e)
         {
             _disenoArmadoCMenu("CALCULA");
         }
 
+        //CALCULA LOS VALORES DE CORTE Y CARGA LA GRAFICA
         private void mnuVerGraficaDISARM_Click(object sender, EventArgs e)
         {
             _disenoArmadoCMenu("GRAFICA");
         }
 
-        private void mnuDetallaPliegosDISARM_Click(object sender, EventArgs e)
-        {
-            _disenoArmadoCMenu("PLIEGOSIMP");
-        }
-
+        //QUITA UN MATERIAL DE LOS ARMADOS
         private void mnuQuitarMATARMDIS_Click(object sender, EventArgs e)
         {
-            _disenoArmadoCMenu("QUITARMATERIAL");
+            _disenoArmadoCMenu("ELIMINAR");
         }
 
         //CENTRALIZA ACCIONES DE CONTEXT MENU
@@ -519,12 +518,6 @@ namespace Ordenes.Controles
                         if (_disenoArmadoCMenuValida(rowSEL))
                         {
                             objCotiza._disenoArmadoGrafica(rowSEL);
-                        }
-                        break;
-                    case "PLIEGOSIMP":
-                        if (_disenoArmadoCMenuValida(rowSEL))
-                        {
-                            objCotiza._disenoArmadoPliegos(rowSEL);
                         }
                         break;
                 }

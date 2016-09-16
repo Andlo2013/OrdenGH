@@ -82,6 +82,7 @@
             this.mnuQuitarMATARMDIS = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_bgvArmados = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.bandaPliegoMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.dis_gcColSeleccionAUT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColGrupo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColMaterial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandaTrabajoFinal = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -92,6 +93,7 @@
             this.dis_gcColNumPaginas = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColPaginasXtrabajo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandaPliegoIMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
+            this.dis_gcColPlaca = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColArmadoAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColArmadoAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColImpXtamano = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -230,7 +232,6 @@
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
             this.deFechaENT = new DevExpress.XtraEditors.DateEdit();
             this.beArticulo = new DevExpress.XtraEditors.ButtonEdit();
-            this.mnuDetallaPliegosDISARM = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcPestanas)).BeginInit();
@@ -918,10 +919,9 @@
             this.mnuAgregaMATARMDIS,
             this.mnuCalculaDISARM,
             this.mnuVerGraficaDISARM,
-            this.mnuDetallaPliegosDISARM,
             this.mnuQuitarMATARMDIS});
             this.cmDisenoMatARMDIS.Name = "cmMaterialARMDIS";
-            this.cmDisenoMatARMDIS.Size = new System.Drawing.Size(220, 136);
+            this.cmDisenoMatARMDIS.Size = new System.Drawing.Size(220, 114);
             // 
             // mnuAgregaMATARMDIS
             // 
@@ -964,6 +964,7 @@
             this.bandaPliego,
             this.gridBand6});
             this.dis_bgvArmados.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.dis_gcColSeleccionAUT,
             this.dis_gcColGrupo,
             this.dis_gcColMaterial,
             this.dis_gcColAnchoTrabajoF,
@@ -979,7 +980,8 @@
             this.dis_gcColPliegoCantidad,
             this.dis_gcPliegoEXTPorcentaje,
             this.dis_gcColPliegoExtra,
-            this.dis_gcColUndCotiza});
+            this.dis_gcColUndCotiza,
+            this.dis_gcColPlaca});
             this.dis_bgvArmados.GridControl = this.dis_gcArmados;
             this.dis_bgvArmados.Name = "dis_bgvArmados";
             this.dis_bgvArmados.OptionsFilter.AllowFilterEditor = false;
@@ -992,12 +994,31 @@
             this.bandaPliegoMP.AppearanceHeader.Options.UseTextOptions = true;
             this.bandaPliegoMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandaPliegoMP.Caption = "Mat. Prima";
+            this.bandaPliegoMP.Columns.Add(this.dis_gcColSeleccionAUT);
             this.bandaPliegoMP.Columns.Add(this.dis_gcColGrupo);
             this.bandaPliegoMP.Columns.Add(this.dis_gcColMaterial);
             this.bandaPliegoMP.Name = "bandaPliegoMP";
             this.bandaPliegoMP.OptionsBand.AllowMove = false;
             this.bandaPliegoMP.VisibleIndex = 0;
-            this.bandaPliegoMP.Width = 338;
+            this.bandaPliegoMP.Width = 376;
+            // 
+            // dis_gcColSeleccionAUT
+            // 
+            this.dis_gcColSeleccionAUT.Caption = "AUT";
+            this.dis_gcColSeleccionAUT.FieldName = "AUT";
+            this.dis_gcColSeleccionAUT.Name = "dis_gcColSeleccionAUT";
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowEdit = false;
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowMove = false;
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColSeleccionAUT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColSeleccionAUT.OptionsColumn.ReadOnly = true;
+            this.dis_gcColSeleccionAUT.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColSeleccionAUT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColSeleccionAUT.Visible = true;
+            this.dis_gcColSeleccionAUT.Width = 38;
             // 
             // dis_gcColGrupo
             // 
@@ -1151,13 +1172,31 @@
             this.bandaPliegoIMP.AppearanceHeader.Options.UseTextOptions = true;
             this.bandaPliegoIMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandaPliegoIMP.Caption = "Armados";
+            this.bandaPliegoIMP.Columns.Add(this.dis_gcColPlaca);
             this.bandaPliegoIMP.Columns.Add(this.dis_gcColArmadoAncho);
             this.bandaPliegoIMP.Columns.Add(this.dis_gcColArmadoAlto);
             this.bandaPliegoIMP.Columns.Add(this.dis_gcColImpXtamano);
             this.bandaPliegoIMP.Name = "bandaPliegoIMP";
             this.bandaPliegoIMP.OptionsBand.AllowMove = false;
             this.bandaPliegoIMP.VisibleIndex = 2;
-            this.bandaPliegoIMP.Width = 189;
+            this.bandaPliegoIMP.Width = 264;
+            // 
+            // dis_gcColPlaca
+            // 
+            this.dis_gcColPlaca.Caption = "Máquina";
+            this.dis_gcColPlaca.FieldName = "Placa";
+            this.dis_gcColPlaca.Name = "dis_gcColPlaca";
+            this.dis_gcColPlaca.OptionsColumn.AllowEdit = false;
+            this.dis_gcColPlaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlaca.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColPlaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlaca.OptionsColumn.AllowMove = false;
+            this.dis_gcColPlaca.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColPlaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlaca.OptionsColumn.ReadOnly = true;
+            this.dis_gcColPlaca.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColPlaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlaca.Visible = true;
             // 
             // dis_gcColArmadoAncho
             // 
@@ -2870,14 +2909,6 @@
             this.beArticulo.TabIndex = 70;
             this.beArticulo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beArticulo_ButtonClick);
             // 
-            // mnuDetallaPliegosDISARM
-            // 
-            this.mnuDetallaPliegosDISARM.Name = "mnuDetallaPliegosDISARM";
-            this.mnuDetallaPliegosDISARM.ShortcutKeys = System.Windows.Forms.Keys.F8;
-            this.mnuDetallaPliegosDISARM.Size = new System.Drawing.Size(219, 22);
-            this.mnuDetallaPliegosDISARM.Text = "Detallar Pliegos";
-            this.mnuDetallaPliegosDISARM.Click += new System.EventHandler(this.mnuDetallaPliegosDISARM_Click);
-            // 
             // ctlCotizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3201,6 +3232,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPaginasT;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColGramosT;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCoberturaR;
-        private System.Windows.Forms.ToolStripMenuItem mnuDetallaPliegosDISARM;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPlaca;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColSeleccionAUT;
     }
 }

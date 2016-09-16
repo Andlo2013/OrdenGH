@@ -2,14 +2,12 @@
 using dllMensaje;
 using Ordenes.Properties;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ordenes.Clases
 {
+
     public class clsCalculaCorte
     {
 
@@ -21,21 +19,22 @@ namespace Ordenes.Clases
         private DataTable dtPliegosGRP = null;
         private DataTable dtPlacas = null;
         private DataTable dtPliegosIMP = null;
-        private DataTable dtCortes = null;
         private DataRow rowMaterial = null;
 
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
-
-        private decimal m_tamanoAncho = 0;
-        private decimal m_tamanoAlto = 0;
-        private int m_tamanoCantidad = 0;
-
+        
+        //medidas del material
         private decimal m_materialAncho = 0;
         private decimal m_materialAlto = 0;
 
+        //medidas del corte (usuario)
         private decimal m_corteAncho = 0;
         private decimal m_corteAlto = 0;
 
+        //medidas a cortar (sugeridas por sistema)
+        private decimal m_tamanoAncho = 0;
+        private decimal m_tamanoAlto = 0;
+        private int m_tamanoCantidad = 0;
         private int m_numeroFIL = 0;
         private int m_numeroCOL = 0;
         private decimal m_Desperdicio = 0;
@@ -78,7 +77,7 @@ namespace Ordenes.Clases
                 m_tamanoAlto = m_corteAlto;
                 m_Desperdicio = areaDesperdicio1;
 
-                if (areaDesperdicio1 > areaDesperdicio2 || (areaDesperdicio1<0 && areaDesperdicio2 >= 0))
+                if ((areaDesperdicio1 > areaDesperdicio2 && areaDesperdicio2>=0) || (areaDesperdicio1<0 && areaDesperdicio2 >= 0))
                 {
                     m_tamanoAlto = m_corteAncho;
                     m_tamanoAncho = m_corteAlto;
@@ -187,20 +186,40 @@ namespace Ordenes.Clases
         public decimal pro_Desperdicio { get { return m_Desperdicio; } }
         #endregion
 
+        //Numero de filas en los cortes
+        #region proNumFilas
         public int pro_numFilas
         {
             get { return m_numeroFIL; }
         }
+        #endregion
 
+        //Numero de columnas en los cortes
+        #region proNumColumnas
         public int pro_numColumnas
         {
             get { return m_numeroCOL; }
         }
+        #endregion
 
-        public DataTable pro_PliegosIMP
+        //Ordena los pliegos de impresion y regresa un DataView 
+        //para mostrar al usuario la seleccion del sistema
+        #region pliegosIMP
+        public DataView pro_PliegosIMP
         {
-            get { return dtPliegosIMP; }
+            get
+            {
+                /*ordena por:
+                 * 1.- Desperdicio ascendente para tomar la menor perdida
+                 * 2.- Total Pagina descendente en caso de igual perdida. Selecciona el que imprime mas paginas
+                 * 3.- TrabajosXtamano descendente para hacer menos cortes a la materia prima
+                */
+                DataView dv = new DataView(dtPliegosIMP);
+                dv.Sort = "PliegoDesperdicio, TotalPaginas DESC, TrabajosXtamano DESC";
+                return dv;
+            }
         }
+        #endregion
 
         #endregion
 
@@ -217,8 +236,9 @@ namespace Ordenes.Clases
                 {
                     if (rowSEL["TrabajoAncho"].ToDecimal() > 0 && rowSEL["TrabajoAlto"].ToDecimal() > 0)
                     {
-                       
-                        _autCalcular(rowSEL);
+
+                        //INICIA EL PROCESO DE CALCULO DE LOS ARMADOS (DISENO)
+                        _disenoArmadoCalcular(rowSEL);
 
                         //Actualiza los valores de la fila para reflejar los cambios
                         rowSEL.AcceptChanges();
@@ -232,10 +252,41 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //METODO INICIAL DEL CALCULO
+        #region disenoArmadoCalcular
+        private void _disenoArmadoCalcular(DataRow rowDetalle)
+        {
 
-        private void _autcreaTablaPliegoIMP()
+            //Recupera todas las placas
+            dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+
+            //Recupera los pliegos del grupo
+            dtPliegosGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
+                new string[] { "@CodEmpresa", "@CodGrupo", "@CodTalla", "@CodComponente" },
+                new object[] { m_codEmpresa, rowDetalle["CodGrupo"], rowDetalle["CodTalla"], rowDetalle["Componente"] });
+
+            _disenoArmadoCreaDTPliegoIMP(rowDetalle["PaginasXtrabajo"].ToInt());
+
+            _disenoArmadoObtienePliegoIMP(rowDetalle["TrabajoAnchoMasPinza"].ToDecimal(), 
+                rowDetalle["TrabajoAltoMasPinza"].ToDecimal(),rowDetalle["AUT"].ToBool(), rowDetalle["CodPlaca"].ToInt());
+
+            _disenoArmadoSelMatPliego();
+
+            _disenoArmadoOptimizaDesperdicio(rowDetalle);
+
+            _disenoArmadoVerificaInvertir(rowDetalle);
+
+        }
+        #endregion
+
+        //CREA EL DATATABLE DE PLIEGO DE IMPRESION
+        #region disenoArmadoCreDTPliegoIMP
+        private void _disenoArmadoCreaDTPliegoIMP(int PaginasXtrabajo)
         {
             dtPliegosIMP = new DataTable();
+            dtPliegosIMP.Columns.Add("CodPlaca", System.Type.GetType("System.String"));
+            dtPliegosIMP.Columns.Add("Placa", System.Type.GetType("System.String"));
             dtPliegosIMP.Columns.Add("TamanoAncho", System.Type.GetType("System.Decimal"));
             dtPliegosIMP.Columns.Add("TamanoAlto", System.Type.GetType("System.Decimal"));
             dtPliegosIMP.Columns.Add("TamanoFilas", System.Type.GetType("System.Int32"));
@@ -249,29 +300,48 @@ namespace Ordenes.Clases
             dtPliegosIMP.Columns.Add("PliegoDesperdicio", System.Type.GetType("System.Decimal"));
             dtPliegosIMP.Columns.Add("PliegoPorcentajeEXT", System.Type.GetType("System.Decimal"));
             dtPliegosIMP.Columns.Add("TamanosXpliego", System.Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("PaginasXTrabajo", System.Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("TotalPaginas", System.Type.GetType("System.Int32"),"TamanosXpliego*TrabajosXtamano*PaginasXtrabajo");
+            dtPliegosIMP.Columns["PaginasXtrabajo"].Expression = PaginasXtrabajo.ToString();
         }
+        #endregion
 
-        private void _autObtienePliegoIMP(decimal trabajoAncho,decimal trabajoAlto)
+        //OBTIENE LOS TAMANOS DE LOS PLIEGOS DE IMPRESION
+        #region disenoArmadoObtienePliegoIMP
+        private void _disenoArmadoObtienePliegoIMP(decimal trabajoAncho,decimal trabajoAlto,bool esSeleccionAUT,int PlacaSEL)
         {
-            foreach (DataRow rowPlaca in dtPlacas.Rows)
+            string filtroPlaca = esSeleccionAUT==false && PlacaSEL > 0 ?  "Codigo=" + PlacaSEL.ToString() : "" ;
+            DataRow [] drPlacas = dtPlacas.Select(filtroPlaca);
+
+            if (drPlacas != null)
             {
-                _Calcular(rowPlaca["Ancho"].ToDecimal(), rowPlaca["Alto"].ToDecimal(),
-                                trabajoAncho, trabajoAlto);
-                if (this.pro_Desperdicio >= 0)
+                foreach (DataRow rowPlaca in drPlacas)
                 {
-                    DataRow rowPliegoIMP = dtPliegosIMP.NewRow();
-                    rowPliegoIMP["TamanoAncho"] = this.pro_TamanoAncho * this.pro_numColumnas;
-                    rowPliegoIMP["TamanoAlto"] = this.pro_TamanoAlto * this.pro_numFilas;
-                    rowPliegoIMP["TamanoFilas"] = this.pro_numFilas;
-                    rowPliegoIMP["TamanoColumnas"] = this.pro_numColumnas;
-                    rowPliegoIMP["TrabajosXtamano"] = this.pro_TamanoCantidad;
-                    dtPliegosIMP.Rows.Add(rowPliegoIMP);
+                    _Calcular(rowPlaca["Ancho"].ToDecimal(), rowPlaca["Alto"].ToDecimal(),
+                                    trabajoAncho, trabajoAlto);
+                    if (this.pro_Desperdicio >= 0)
+                    {
+                        DataRow rowPliegoIMP = dtPliegosIMP.NewRow();
+                        rowPliegoIMP["CodPlaca"] = rowPlaca["Codigo"];
+                        rowPliegoIMP["Placa"] = rowPlaca["Placa"];
+                        rowPliegoIMP["TamanoAncho"] = this.pro_TamanoAncho * this.pro_numColumnas;
+                        rowPliegoIMP["TamanoAlto"] = this.pro_TamanoAlto * this.pro_numFilas;
+                        rowPliegoIMP["TamanoFilas"] = this.pro_numFilas;
+                        rowPliegoIMP["TamanoColumnas"] = this.pro_numColumnas;
+                        rowPliegoIMP["TrabajosXtamano"] = this.pro_TamanoCantidad;
+                        dtPliegosIMP.Rows.Add(rowPliegoIMP);
+                    }
                 }
             }
         }
+        #endregion
 
-        private void _autSeleccionaMatPliego()
+        //SELECCIONA EL PLIEGO DE MATERIA PRIMA OPTIMO
+        //PARA CADA PLACA O MAQUINA DISPONIBLE
+        #region disenoArmadoSelMatPliego
+        private void _disenoArmadoSelMatPliego()
         {
+
             foreach (DataRow rowPliegoIMP in dtPliegosIMP.Rows)
             {
                 _EligeMaterialAUT(dtPliegosGRP,
@@ -280,7 +350,6 @@ namespace Ordenes.Clases
 
                 if (this.pro_MaterialSEL != null)
                 {
-
                     rowPliegoIMP["SecMaterial"] = this.pro_MaterialSEL["SecMaterial"];
                     rowPliegoIMP["Material"] = this.pro_MaterialSEL["Material"];
                     rowPliegoIMP["PliegoAncho"] = this.pro_MaterialSEL["Ancho"];
@@ -293,52 +362,90 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
-        private void _autMenorDesperdicio(DataRow rowDetalle)
+        //SELECCIONA LA PLACA O MAQUINA QUE MENOR PERDIDA GENERA 
+        #region disenoArmadoOptimizaDesperdicio
+        private void _disenoArmadoOptimizaDesperdicio(DataRow rowDetalle)
         {
-            var resultado = from registro in dtPliegosIMP.AsEnumerable()
-                            orderby registro.Field<Decimal>("PliegoDesperdicio"),
-                                    registro.Field<Int32>("TamanosXpliego")
-                            select registro;
-
-            foreach (DataRow rowPliego in resultado)
+            if (dtPliegosIMP != null && dtPliegosIMP.Rows.Count > 0)
             {
-                rowDetalle["SecMaterial"] = rowPliego["SecMaterial"];
-                rowDetalle["Material"] = rowPliego["Material"];
-                rowDetalle["PliegoAncho"] = rowPliego["PliegoAncho"];
-                rowDetalle["PliegoAlto"] = rowPliego["PliegoAlto"];
-                rowDetalle["TamanoAncho"] = rowPliego["TamanoAncho"];
-                rowDetalle["TamanoAlto"] = rowPliego["TamanoAlto"];
-                rowDetalle["TamanosXpliego"] = rowPliego["TamanosXpliego"];
-                rowDetalle["PorcentajeEXT"] = rowPliego["PliegoPorcentajeEXT"];
-                break;
+                /*ordena por:
+                 * 1.- Desperdicio ascendente para tomar la menor perdida
+                 * 2.- Total Pagina descendente en caso de igual perdida. Selecciona el que imprime mas paginas
+                 * 3.- TrabajosXtamano descendente para hacer menos cortes a la materia prima
+                */
+                var resultado = from registro in dtPliegosIMP.AsEnumerable()
+                                orderby registro.Field<Decimal>("PliegoDesperdicio") ascending,
+                                        registro.Field<Int32>("TotalPaginas") descending,
+                                        registro.Field<Int32>("TrabajosXtamano") descending
+                                select registro;
+
+                foreach (DataRow rowPliego in resultado)
+                {
+                    rowDetalle["SecMaterial"] = rowPliego["SecMaterial"];
+                    rowDetalle["Material"] = rowPliego["Material"];
+                    rowDetalle["PliegoAncho"] = rowPliego["PliegoAncho"];
+                    rowDetalle["PliegoAlto"] = rowPliego["PliegoAlto"];
+                    rowDetalle["TamanoAncho"] = rowPliego["TamanoAncho"];
+                    rowDetalle["TamanoAlto"] = rowPliego["TamanoAlto"];
+                    rowDetalle["TrabajosXtamano"] = rowPliego["TrabajosXtamano"];
+                    rowDetalle["TamanosXpliego"] = rowPliego["TamanosXpliego"];
+                    rowDetalle["PorcentajeEXT"] = rowPliego["PliegoPorcentajeEXT"];
+                    rowDetalle["CodPlaca"] = rowPliego["CodPlaca"];
+                    rowDetalle["Placa"] = rowPliego["Placa"];
+                    break;
+                }
+            }
+            else
+            {
+                _disenoArmadoEnceraFila(rowDetalle);
             }
         }
+        #endregion
 
-        private void _autCalcular(DataRow rowDetalle)
+        //CUANDO NO HAY PLIEGOS DE IMPRESION. ENCERA VALORES
+        #region disenoArmadoEnceraFila
+        private void _disenoArmadoEnceraFila(DataRow rowDetalle)
         {
-
-            //Recupera todas las placas
-            dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
-                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
-
-            //Recupera los pliegos del grupo
-            dtPliegosGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
-                new string[] { "@CodEmpresa", "@CodGrupo", "@CodTalla", "@CodComponente" },
-                new object[] { m_codEmpresa, rowDetalle["CodGrupo"], rowDetalle["CodTalla"], rowDetalle["Componente"] });
-
-            _autcreaTablaPliegoIMP();
-
-            _autObtienePliegoIMP(rowDetalle["trabajoAncho"].ToDecimal(), rowDetalle["trabajoAlto"].ToDecimal());
-
-            _autSeleccionaMatPliego();
-
-            _autMenorDesperdicio(rowDetalle);
-
-            
+            rowDetalle["SecMaterial"] = 0;
+            rowDetalle["Material"] = "";
+            rowDetalle["PliegoAncho"] = 0;
+            rowDetalle["PliegoAlto"] = 0;
+            rowDetalle["TamanoAncho"] = 0;
+            rowDetalle["TamanoAlto"] = 0;
+            rowDetalle["TrabajosXtamano"] = 0;
+            rowDetalle["TamanosXpliego"] = 0;
+            rowDetalle["PorcentajeEXT"] = 0;
+            rowDetalle["CodPlaca"] = 0;
+            rowDetalle["Placa"] = "";
         }
+        #endregion
+
+        //EL PLIEGO DE IMPRESION NUNCA GENERA PERDIDA PORQUE ES CORTADO ACORDE
+        //A LAS MEDIDAS DEL TRABAJO Y DE LA MAQUINA. SI HAY UN DESPERDICIO
+        //SE DEBE A QUE SE CAMBIO EL SENTIDO DEL PLIEGOIMP AL MOMENTO DE ACOMODAR
+        // EN EL PLIEGO MATERIAMP
+        #region disenoArmadoVerificaInvertir
+        private void _disenoArmadoVerificaInvertir(DataRow rowDetalle)
+        {
+            //El pliegoIMP o tamano se calcula en funcion de las medidas del trabajo
+            //por lo tanto siempre debe ser exacto. Caso contrario 
+            //significa que al momento de cortar el pliegoMP se cambio el sentido
+            //del pliegoIMP (HORIZONTAL->VERTICAL) entonces se actualiza medidas
+            decimal anchoTamano = rowDetalle["TamanoAncho"].ToDecimal();
+            decimal anchoTrabajo = rowDetalle["TrabajoAnchoMasPinza"].ToDecimal();
+            if (( anchoTamano%anchoTrabajo ) > 0)
+            {
+                object aux = rowDetalle["TrabajoAncho"];
+                rowDetalle["TrabajoAncho"] = rowDetalle["TrabajoAlto"];
+                rowDetalle["TrabajoAlto"] = aux;
+            }
+        }
+        #endregion
 
         #endregion
 
     }
+
 }

@@ -166,7 +166,7 @@
     </Compile>
     <EmbeddedResource Include="Properties\sqlCotizacion.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>sqlCotizacion.Designer.cs</LastGenOutput>
+      <LastGenOutput>sqlCotizacion1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -35,6 +35,9 @@ namespace Ordenes.Clases
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
         private string m_Servidor = Form1.getSession.Servidor;
         private string m_Catalogo = Form1.getSession.Catalogo;
+        //VALOR DE PINZAS SOLICITADO POR GLADYS QUE SE SUME EN FORMA AUTOMATICA 
+        //A LAS MEDIDAS DE ANCHO Y ALTO DEL TRABAJO
+        private decimal m_margenPinza = 1;
 
         public clsCotizacion() { _Inicializa(); }
 
@@ -193,7 +196,9 @@ namespace Ordenes.Clases
 
         //DISEÑO ARMADOS
         #region Diseno-Armados
-
+        
+        //CARGA EL DETALLE DE LOS ARMADOS
+        #region disenoArmadoCargaDET
         public DataTable _disenoArmadoCargaDET(int cotizaID,int tiraje,object CodGrupo)
         {
             try
@@ -205,6 +210,8 @@ namespace Ordenes.Clases
                 dtDisenoArmado.Columns.Add("CodGrupo", System.Type.GetType("System.Int32"));
                 dtDisenoArmado.Columns.Add("PaginasXpliego", System.Type.GetType("System.Decimal"));
                 dtDisenoArmado.Columns.Add("Tiraje", System.Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("TrabajoAnchoMasPinza", System.Type.GetType("System.Decimal"), "TrabajoAncho+" + m_margenPinza);
+                dtDisenoArmado.Columns.Add("TrabajoAltoMasPinza", System.Type.GetType("System.Decimal"), "TrabajoAlto+" + m_margenPinza);
                 dtDisenoArmado.Columns.Add("PliegoCantidadAUX", System.Type.GetType("System.Decimal"));
                 dtDisenoArmado.Columns.Add("Extra", System.Type.GetType("System.Decimal"), "Convert(PaginasXpliego*(PorcentajeEXT/100),'System.Int32')");
                 dtDisenoArmado.Columns["CodGrupo"].DefaultValue = CodGrupo;
@@ -212,6 +219,11 @@ namespace Ordenes.Clases
                 dtDisenoArmado.Columns["PaginasXtrabajo"].DefaultValue = 1;
                 dtDisenoArmado.Columns["PorcentajeEXT"].DefaultValue = 0;
                 dtDisenoArmado.Columns["Tiraje"].DefaultValue = 0;
+                dtDisenoArmado.Columns["AUT"].DefaultValue = true;
+                dtDisenoArmado.Columns["CodPlaca"].DefaultValue = 0;
+                dtDisenoArmado.Columns["TrabajosXtamano"].DefaultValue = 0;
+                dtDisenoArmado.Columns["TamanosXpliego"].DefaultValue = 0;
+                
                 //actualiza el tiraje para que pueda hacer el calculo
                 _disenoArmadoUPDColumna("Tiraje",tiraje);
                 //actualiza la columna codGrupo para recuperar los porcentajes de perdida al agregar o cambiar materiales
@@ -231,14 +243,24 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
+        //FILTRA LOS MATERIALES DEL ARMADO POR EL COMPONENTE
+        #region disenoArmadoFiltrar
         public DataView _disenoArmadoFiltrar(int codComponente)
         {
-            DataView dvFiltrar = new DataView(dtDisenoArmado);
-            dvFiltrar.RowFilter = "Componente=" + codComponente;
-            return dvFiltrar;
+            if (dtDisenoArmado != null)
+            {
+                DataView dvFiltrar = new DataView(dtDisenoArmado);
+                dvFiltrar.RowFilter = "Componente=" + codComponente;
+                return dvFiltrar;
+            }
+            return null;
         }
+        #endregion
 
+        //AGREGA MATERIALES A LOS ARMADOS
+        #region disenoArmadoAgregaMAT
         public void _disenoArmadoAgregaMAT(int aTrabajoAlto, int aTrabajoAncho, 
             int aTiraje,object codGrupo,object codComponente)
         {
@@ -249,18 +271,26 @@ namespace Ordenes.Clases
                 frmBuscarITEM objBuscar = new frmBuscarITEM();
                 objBuscar.pro_Configura
                     ._set01Connection(m_Servidor, m_Catalogo)
-                    ._set02Find(sqlCotizacion.cot_disArmadosAgregaGrupo, new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa })
+                    ._set02Find(sqlCotizacion.cot_disArmadosAgregaGrupo, 
+                                new string[] { "@CodEmpresa" }, 
+                                new object[] { m_codEmpresa })
                     ._set03OptionsFilter(dicionario)
                     ._setSeleccionSimple(false);
+
                 objBuscar.ShowDialog();
-                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL,aTrabajoAlto,aTrabajoAncho,aTiraje,codGrupo,codComponente);    
+
+                _disenoArmadoAddMAT(objBuscar.pro_dtFilasSEL,aTrabajoAlto,
+                    aTrabajoAncho,aTiraje,codGrupo,codComponente);    
             }
             catch (Exception ex)
             {
                 clsMensaje._msjWarning("ERROR: Al intentar agregar materiales", "Agrega material", ex.Message);
             }
         }
+        #endregion
 
+        //AGREGA UN MATERIAL AL DETALLE
+        #region disenoArmadoAddMAT
         private void _disenoArmadoAddMAT(DataTable filasSEL, int aTrabajoAlto,
             int aTrabajoAncho,int aTiraje,object codGrupo,object codComponente)
         {
@@ -269,21 +299,29 @@ namespace Ordenes.Clases
                 clsCalculaCorte objCorte = new clsCalculaCorte();
                 foreach (DataRow rowMAT in filasSEL.Rows)
                 {
-                    DataRow newRow = dtDisenoArmado.NewRow();
-                    newRow["CodGrupo"] = codGrupo;
-                    newRow["Componente"] = codComponente;
-                    newRow["CodTalla"] = rowMAT["Código"];
-                    newRow["Talla"] = rowMAT["Grupo"];
-                    newRow["TrabajoAlto"] = aTrabajoAlto;
-                    newRow["TrabajoAncho"] = aTrabajoAncho;
-                    newRow["Tiraje"] = aTiraje;
-                    dtDisenoArmado.Rows.Add(newRow);
-                    //selecciona el pliego
-                    objCorte._ext_disenoArmadoCalcula(newRow);
+                    //NO PUEDE DUPLICAR EL MATERIAL EN LOS COMPONENTES
+                    if (dtDisenoArmado.Select("Componente="+codComponente+
+                        " AND CodTalla=" + rowMAT["Código"]).Length <= 0)
+                    {
+                        DataRow newRow = dtDisenoArmado.NewRow();
+                        newRow["CodGrupo"] = codGrupo;
+                        newRow["Componente"] = codComponente;
+                        newRow["CodTalla"] = rowMAT["Código"];
+                        newRow["Talla"] = rowMAT["Grupo"];
+                        newRow["TrabajoAlto"] = aTrabajoAlto;
+                        newRow["TrabajoAncho"] = aTrabajoAncho;
+                        newRow["Tiraje"] = aTiraje;
+                        dtDisenoArmado.Rows.Add(newRow);
+                        //selecciona el pliego
+                        objCorte._ext_disenoArmadoCalcula(newRow);
+                    }
                 }
             }
         }
+        #endregion
 
+        //HACE EL CALCULO DE OPTIMIZAR CORTES
+        #region disenoArmadoCalcula
         public void _disenoArmadoCalcula(DataRow rowSEL)
         {
             try
@@ -299,7 +337,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar calcular los valores de la fila", "Calcular fila", ex.Message);
             }
         }
+        #endregion
 
+        //HACE EL CALCULO Y MUESTRA LA GRAFICA DE CORTES
+        #region disenoArmadoGrafica
         public void _disenoArmadoGrafica(DataRow rowSEL)
         {
             if (rowSEL != null)
@@ -309,18 +350,10 @@ namespace Ordenes.Clases
                 objCortes.ShowDialog();
             }
         }
+        #endregion
 
-        public void _disenoArmadoPliegos(DataRow rowSEL)
-        {
-            if (rowSEL != null)
-            {
-                clsCalculaCorte objCorte = new clsCalculaCorte();
-                objCorte._ext_disenoArmadoCalcula(rowSEL);
-                frmBuscar objBuscar = new frmBuscar(objCorte.pro_PliegosIMP);
-                objBuscar.ShowDialog();
-            }
-        }
-
+        //ELIMINA MATERIALES DE LOS ARMADOS
+        #region disenoArmadoEliminaMAT
         public void _disenoArmadoEliminaMAT(DataRow rowElimina)
         {
             try
@@ -328,6 +361,7 @@ namespace Ordenes.Clases
                 if (rowElimina != null)
                 {
                     dtDisenoArmado.Rows.Remove(rowElimina);
+                    dtDisenoArmado.AcceptChanges();
                 }
             }
             catch (Exception ex)
@@ -335,7 +369,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
 
+        //VALIDA EL DETALLE DE ARMADOS
+        #region disenoArmadoValida
         public bool _disenoArmadoValida()
         {
             try {
@@ -416,7 +453,10 @@ namespace Ordenes.Clases
                 return false;
             }
         }
+        #endregion
 
+        //ACTUALIZA UNA COLUMNA COMPLETA EN EL DETALLE DE ARMADOS
+        #region disenoArmadoUPDColumna
         public void _disenoArmadoUPDColumna(string columna,object valor)
         {
             if (dtDisenoArmado != null)
@@ -427,6 +467,7 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
         #endregion
 

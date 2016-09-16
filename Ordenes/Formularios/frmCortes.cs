@@ -11,8 +11,10 @@ using Ordenes.Properties;
 
 namespace Ordenes.Formularios
 {
+
     public partial class frmCortes : Form
     {
+
         //INSTANCIAS-VARIABLES DE LA CLASE
         #region INSTANCIAS-VARIABLES
         clsCalculaCorte objCorte = new clsCalculaCorte();
@@ -81,15 +83,17 @@ namespace Ordenes.Formularios
         private void _CargaControles()
         {
             beGrupoMAT.EditValue = rowMaterial["Talla"].ToString();
+            sePaginasXtrabajo.EditValue=rowMaterial["PaginasXtrabajo"].ToString();
             sePliegoAncho.EditValue = rowMaterial["PliegoAncho"];
             sePliegoAlto.EditValue = rowMaterial["PliegoAlto"];
             seTamanoAncho.EditValue = rowMaterial["TamanoAncho"];
             seTamanoAlto.EditValue = rowMaterial["TamanoAlto"];
-            seTrabajoAncho.EditValue = rowMaterial["TrabajoAncho"];
-            seTrabajoAlto.EditValue = rowMaterial["TrabajoAlto"];
+            seTrabajoAncho.EditValue = rowMaterial["TrabajoAnchoMasPinza"];
+            seTrabajoAlto.EditValue = rowMaterial["TrabajoAltoMasPinza"];
             seTrabajosXtamano.EditValue = rowMaterial["TrabajosXtamano"];
             seTamanosXpliego.EditValue = rowMaterial["TamanosXpliego"];
             seTotalPliegos.EditValue = rowMaterial["PliegoCantidad"];
+            teMaquina.EditValue = rowMaterial["Placa"];
         }
         #endregion
 
@@ -103,6 +107,7 @@ namespace Ordenes.Formularios
             objCorte._ext_disenoArmadoCalcula(rowMaterial);
             _CargaControles();
             _Dibujar();
+            gcDetallePlacas.DataSource = objCorte.pro_PliegosIMP;
         }
         #endregion
 
@@ -124,13 +129,6 @@ namespace Ordenes.Formularios
                 float anchoTrabajo = float.Parse(seTrabajoAncho.EditValue.ToString());
                 float altoTrabajo = float.Parse(seTrabajoAlto.EditValue.ToString());
 
-                if (anchoTamano < altoTamano)
-                {
-                    float AUX = anchoTrabajo;
-                    anchoTrabajo = altoTrabajo;
-                    altoTrabajo = AUX;
-                }
-
                 _limpiarAreaTrabajo();
                 //DIBUJA EL AREA DEL MATERIAL            
                 _DibujarArea(margen, margen, (anchoMAT * factor), (altoMAT * factor), Brushes.Tan);
@@ -141,9 +139,10 @@ namespace Ordenes.Formularios
                 //DIBUJA EL AREA QUE UTILIZA EL TRABAJO
                 _DibujarAreaCALC(anchoTamano, altoTamano, anchoTrabajo, altoTrabajo, Brushes.CadetBlue);
 
-
+                //DIBUJA LOS CORES DE LOS TAMANOS
                 _DibujarCortes(anchoMAT, altoMAT, anchoTamano, altoTamano);
 
+                //DIBUJA LOS CORTES DE LOS TRABAJOS
                 _DibujarCortes(anchoTamano, altoTamano, anchoTrabajo, altoTrabajo);
             }
             catch(Exception ex)
@@ -269,11 +268,42 @@ namespace Ordenes.Formularios
 
         #endregion
 
+        //ContextMenu OPCIONES-PLACA
+        #region cmOpcionesSELPlaca
+        //Permite seleccionar la Placa (Máquina) con la que desea trabajar
+        //en este caso los valores de material perdido son responsabilidad del usuario
+
+        #region SeleccionaMAQ
+
+        private void mnuSeleccionaMAQ_Click(object sender, EventArgs e)
+        {
+            if (gvDetallePlacas.IsValidRowHandle(gvDetallePlacas.FocusedRowHandle))
+            {
+                DataRow rowPlaca = gvDetallePlacas.GetDataRow(gvDetallePlacas.FocusedRowHandle);
+                if (rowPlaca != null)
+                {
+                    //quita la seleccion automatica 
+                    //para que trabaje con el equipo seleccionado
+                    rowMaterial["AUT"] = false;
+                    rowMaterial["CodPlaca"] = rowPlaca["CodPlaca"];
+                    rowMaterial["Placa"] = rowPlaca["Placa"];
+                    rowMaterial.AcceptChanges();
+                    //recalcula valores
+                    _Calcular();
+                }
+            }
+        }
+
+        #endregion
+
+        #endregion
+
         //METODOS PARA CLASES EXTERNAS
         #region METODOS: EXTERNOS
 
         //GRAFICAR METODO EXTERNO
-        #region Graficar
+        #region ext_Graficar
+
         public void _ext_Graficar(DataRow rowSEL)
         {
             seTiraje.Value = rowSEL["Tiraje"].ToDecimal();
@@ -282,10 +312,11 @@ namespace Ordenes.Formularios
             seAltoUsuario.EditValue = rowMaterial["TrabajoAlto"];
             _Calcular();
         }
-        #endregion
 
         #endregion
 
-        
+        #endregion
+
     }
+
 }
