@@ -24,9 +24,11 @@ namespace Ordenes.Clases
         DataTable dtDisenoArmado = null;
         DataTable dtDisenoColor = null;
         DataTable dtDisenoPlaca = null;
-        DataTable dtDisenoPorCOB = null;
         DataTable dtDisenoMaterialCLI = null;
         DataTable dtProcesoDET = null;
+
+        DataTable dtDisenoPorCOB = null;
+        DataTable dtColorPlanchas= null;
         //////ordenMOD modelo_Orden = new ordenMOD();
         trabajoGenMOD modelo_TrabajoGEN = new trabajoGenMOD();
         blockMOD modelo_Block = new blockMOD();
@@ -44,7 +46,10 @@ namespace Ordenes.Clases
 
         private void _Inicializa()
         {
-           
+            dtDisenoPorCOB = objSQLServer._CargaDataTable(sqlCotizacion.cmb_cargaPorcentajeCOB,
+                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+            dtColorPlanchas = objSQLServer._CargaDataTable(sqlCotizacion.cmb_colorPlancha,
+                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
         }
 
         //CLIENTE
@@ -316,8 +321,6 @@ namespace Ordenes.Clases
                         newRow["TrabajoAncho"] = aTrabajoAncho;
                         newRow["Tiraje"] = aTiraje;
                         dtDisenoArmado.Rows.Add(newRow);
-                        _disenoColorAddColor(codComponente,rowMAT["Código"], 
-                            rowMAT["Grupo"],aTrabajoAncho,aTrabajoAlto);
                         //selecciona el pliego
                         objCorte._ext_disenoArmadoCalcula(newRow);
                     }
@@ -366,8 +369,22 @@ namespace Ordenes.Clases
             {
                 if (rowElimina != null)
                 {
+                    //ELIMINA TODAS LAS FILAS DE COLORES 
+                    //QUE USEN EL MATERIAL EN EL COMPONENTE ELIMINADO
+
+                    DataRow [] rowColoresELI = dtDisenoColor.Select("Componente=" + rowElimina["Componente"] +
+                        " AND SecMaterial=" + rowElimina["SecMaterial"],"");
+
+                    if (rowColoresELI != null)
+                    {
+                        foreach(DataRow rowColorELI in rowColoresELI)
+                        {
+                            _disenoColorElimina(rowColorELI);
+                        }
+                    }
                     dtDisenoArmado.Rows.Remove(rowElimina);
                     dtDisenoArmado.AcceptChanges();
+                    
                 }
             }
             catch (Exception ex)
@@ -480,20 +497,28 @@ namespace Ordenes.Clases
         //DISEÑO COLOR
         #region Diseno-Color
 
-        public void _disenoColorAddColor(object CodComponente,object CodTalla,
-            object TallaNombre,decimal Ancho,decimal Alto)
+        public void _disenoColorAddColor(object CodComponente)
         {
-            if (dtDisenoColor != null)
+            DataView dvColores = new DataView(dtDisenoArmado);
+            dvColores.RowFilter = "Componente=" + CodComponente;
+            frmBuscar objBuscar = new frmBuscar(dvColores.ToTable());
+            objBuscar._setVisibleCOL(new string[] { "Material" }, true);
+            objBuscar._setMultiSelect(true);
+            objBuscar.ShowDialog();
+            DataRow [] drFilasSEL =objBuscar.proFilasSEL;
+            if (dtDisenoColor != null && drFilasSEL!=null)
             {
-                DataRow rowColor = dtDisenoColor.NewRow();
-                rowColor["Componente"] = CodComponente;
-                rowColor["CodTalla"] = CodTalla;
-                rowColor["Talla"] = TallaNombre;
-                rowColor["TrabajoAncho"] = Ancho;
-                rowColor["TrabajoAlto"] = Alto;
-                rowColor["CoberturaT"] = 0;
-                rowColor["CoberturaR"] = 0;
-                dtDisenoColor.Rows.Add(rowColor);
+                foreach (DataRow rowFila in drFilasSEL)
+                {
+                    DataRow rowColor = dtDisenoColor.NewRow();
+                    rowColor["Componente"] = CodComponente;
+                    rowColor["SecMaterial"] = rowFila["SecMaterial"];
+                    rowColor["Material"] = rowFila["Material"];
+                    rowColor["TamanoAncho"] = rowFila["TamanoAncho"];
+                    rowColor["TamanoAlto"] = rowFila["TamanoAlto"];
+                    rowColor["Cobertura"] = 0;
+                    dtDisenoColor.Rows.Add(rowColor);
+                }
             }
         }
 
@@ -515,28 +540,40 @@ namespace Ordenes.Clases
 
         public void _disenoColorCargaCobertura(RepositoryItemLookUpEdit lueCobertura)
         {
-            dtDisenoPorCOB = objSQLServer._CargaDataTable(sqlCotizacion.cot_disColoresPorCob,
-                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
             lueCobertura.DataSource = dtDisenoPorCOB;
+            lueCobertura.ForceInitialize();
             lueCobertura.DisplayMember = "Descripcion";
             lueCobertura.ValueMember = "Codigo";
         }
 
+        public void _disenoColorCargaPlanchas(RepositoryItemLookUpEdit lueColorPlancha)
+        {
+            lueColorPlancha.DataSource = dtColorPlanchas;
+            lueColorPlancha.ForceInitialize();
+            lueColorPlancha.DisplayMember = "Descripcion";
+            lueColorPlancha.ValueMember = "Codigo";
+        }
+
         public void _disenoColorCambiaCobertura(DataRow rowColor)
         {
-            object coberturaTiro = rowColor["CoberturaT"];
-            object coberturaRetiro = rowColor["CoberturaR"];
+            object coberturaTiro = rowColor["Cobertura"];
 
             DataRow [] rowCobertura=dtDisenoPorCOB.Select("Codigo="+coberturaTiro,"");
             if (rowCobertura != null && rowCobertura.Length == 1)
             {
-                rowColor["GramosT"] = rowCobertura[0]["Gramos"];
+                rowColor["Gramos"] = rowCobertura[0]["Gramos"];
             }
+        }
 
-            rowCobertura = dtDisenoPorCOB.Select("Codigo=" + coberturaRetiro, "");
-            if (rowCobertura != null && rowCobertura.Length == 1)
+        public void _disenoColorCambiaPlancha(DataRow rowColor)
+        {
+            object colorPlancha = rowColor["Color"];
+
+            DataRow[] rowColorPlancha = dtColorPlanchas.Select("Codigo=" + colorPlancha, "");
+            if (rowColorPlancha != null && rowColorPlancha.Length == 1)
             {
-                rowColor["GramosR"] = rowCobertura[0]["Gramos"];
+                rowColor["Color"] = rowColorPlancha[0]["Codigo"];
+                rowColor["NumPlancha"] = rowColorPlancha[0]["Planchas"];
             }
         }
 
@@ -546,15 +583,12 @@ namespace Ordenes.Clases
             {
                 dtDisenoColor = objSQLServer._CargaDataTable(sqlCotizacion.cot_disColoresDET,
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
-                dtDisenoColor.Columns.Add("Area", Type.GetType("System.Decimal"), "TrabajoAncho*TrabajoAlto");
-                dtDisenoColor.Columns.Add("TotalGramosT", Type.GetType("System.Decimal"), "GramosT*Area*NumPaginasT");
-                dtDisenoColor.Columns.Add("TotalGramosR", Type.GetType("System.Decimal"), "GramosR*Area*NumPaginasR");
+                dtDisenoColor.Columns.Add("Area", Type.GetType("System.Decimal"), "TamanoAncho*TamanoAlto");
+                dtDisenoColor.Columns.Add("TotalGramos", Type.GetType("System.Decimal"), "Gramos*Area*NumPlancha");
                 dtDisenoColor.Columns["Area"].DefaultValue = 0;
-                dtDisenoColor.Columns["GramosT"].DefaultValue=0;
-                dtDisenoColor.Columns["GramosR"].DefaultValue=0;
-                dtDisenoColor.Columns["NumPaginasT"].DefaultValue = 0;
-                dtDisenoColor.Columns["NumPaginasR"].DefaultValue = 0;
-
+                dtDisenoColor.Columns["Gramos"].DefaultValue=0;
+                dtDisenoColor.Columns["NumPaginas"].DefaultValue = 0;
+                dtDisenoColor.Columns["NumPlancha"].DefaultValue = 0;
                 return dtDisenoColor;
             }
             catch (Exception ex)
@@ -562,13 +596,6 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar cargar el detalle de colores", "Cargar datos", ex.Message);
                 return null;
             }
-        }
-
-        public DataView _disenoColorFiltrar(int codComponente)
-        {
-            DataView dvFiltrar = new DataView(dtDisenoColor);
-            dvFiltrar.RowFilter = "Componente=" + codComponente;
-            return dvFiltrar;
         }
 
         public void _disenoColorElimina(DataRow rowElimina)
@@ -584,6 +611,40 @@ namespace Ordenes.Clases
             {
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
+        }
+
+        public DataView _disenoColorFiltrar(int codComponente)
+        {
+            DataView dvFiltrar = new DataView(dtDisenoColor);
+            dvFiltrar.RowFilter = "Componente=" + codComponente;
+            return dvFiltrar;
+        }
+
+        public decimal[] _disenoColorTotales()
+        {
+            decimal gramosColor = 0;
+            decimal gramosMetalizado = 0;
+            decimal gramosPantone = 0;
+            decimal numPlacas = 0;
+            try
+            {
+                if (dtDisenoColor != null)
+                {
+                    //suma unColor, dosColores, fullColor
+                    gramosColor = dtDisenoColor.Compute("SUM(TotalGramos)", "Color<=2").ToDecimal();
+                    //suma Metalizado
+                    gramosMetalizado = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=4").ToDecimal();
+                    //suma Pantones
+                    gramosPantone = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=5").ToDecimal();
+                    //suma las placas
+                    numPlacas= dtDisenoColor.Compute("SUM(NumPlancha)", "").ToDecimal();
+                }
+            }
+            catch(Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar calcular los totales", "Totales", ex.Message);
+            }
+            return new decimal[] {gramosColor,gramosMetalizado,gramosPantone,numPlacas };
         }
 
         public bool _disenoColorValida()

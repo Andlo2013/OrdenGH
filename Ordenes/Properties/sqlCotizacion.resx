@@ -129,6 +129,14 @@
     <value>SELECT EmpCod AS Codigo,MaqDsc AS Descripcion FROM MaqMae WHERE EmpCod=@CodEmpresa ORDER BY MaqDsc</value>
     <comment>Carga el combo de las máquinas</comment>
   </data>
+  <data name="cmb_cargaPorcentajeCOB" xml:space="preserve">
+    <value>SELECT idCobertura AS Codigo,Descripcion,Gramos FROM pr_GHCoberturas WHERE EstReg='True'</value>
+    <comment>Carga el detalle de los porcentajes de cobertura y gramages</comment>
+  </data>
+  <data name="cmb_colorPlancha" xml:space="preserve">
+    <value>SELECT idColor AS Codigo,Descripcion,Planchas FROM pr_GHColorPlanchas WHERE EstReg='True'</value>
+    <comment>Carga el combo de colores de la plancha</comment>
+  </data>
   <data name="cot_blockCargaBlock" xml:space="preserve">
     <value>SELECT Serie, Inicia, Termina, Juego, CmbEmblocado FROM dbo.pr_CotizaBlock WHERE (idCotiza = @cotizaID) AND (EstReg = 'True')</value>
     <comment>Carga el detalle de blocks</comment>
@@ -171,12 +179,8 @@
     <comment>Carga el detalle de los armados</comment>
   </data>
   <data name="cot_disColoresDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaDisenoColores.CmbComponente AS Componente, dbo.pr_CotizaDisenoColores.idTalla AS CodTalla, ISNULL((SELECT Talla FROM dbo.ItmTallas WHERE (EmpCod = @CodEmpresa) AND (IdTalla = dbo.pr_CotizaDisenoColores.idTalla)), 'SIN-GRUPO') AS Talla, dbo.pr_CotizaDisenoArmado.TrabajoAncho, dbo.pr_CotizaDisenoArmado.TrabajoAlto, dbo.pr_CotizaDisenoColores.CmbTiro AS Tiro, dbo.pr_CotizaDisenoColores.CmbCoberturaT AS CoberturaT, dbo.pr_CotizaDisenoColores.PantoneT, dbo.pr_CotizaDisenoColores.NumPaginasT, dbo.pr_CotizaDisenoColores.GramosT, dbo.pr_CotizaDisenoColores.CmbRetiro AS Retiro, dbo.pr_CotizaDisenoColores.CmbCoberturaR AS CoberturaR, dbo.pr_CotizaDisenoColores.PantoneR, dbo.pr_CotizaDisenoColores.NumPaginasR, dbo.pr_CotizaDisenoColores.GramosR, dbo.pr_CotizaDisenoColores.DetallePag FROM dbo.pr_CotizaDisenoColores INNER JOIN dbo.pr_CotizaDisenoArmado ON dbo.pr_CotizaDisenoColores.idCotiza = dbo.pr_CotizaDisenoArmado.idCotiza AND dbo.pr_CotizaDisenoColores.CmbComponente = dbo.pr_CotizaDisenoArmado.CmbComponente AND dbo.pr_CotizaDisenoColores.idTalla = dbo.pr_CotizaDisenoArmado.idTalla WHERE (dbo.pr_CotizaDisenoColores.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoColores.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaDisenoColores.CmbComponente AS Componente, dbo.pr_CotizaDisenoColores.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.TamanoAncho,dbo.pr_CotizaDisenoArmado.TamanoAlto, dbo.pr_CotizaDisenoColores.CmbLadoImpresion AS LadoImpresion, dbo.pr_CotizaDisenoColores.CmbColorPlancha AS Color, dbo.pr_CotizaDisenoColores.NumPlancha,dbo.pr_CotizaDisenoColores.CmbCobertura AS Cobertura, dbo.pr_CotizaDisenoColores.Pantone, dbo.pr_CotizaDisenoColores.NumPaginas, dbo.pr_CotizaDisenoColores.Gramos, dbo.pr_CotizaDisenoColores.DetallePag FROM dbo.pr_CotizaDisenoColores INNER JOIN dbo.pr_CotizaDisenoArmado ON dbo.pr_CotizaDisenoColores.idCotiza = dbo.pr_CotizaDisenoArmado.idCotiza AND dbo.pr_CotizaDisenoColores.CmbComponente = dbo.pr_CotizaDisenoArmado.CmbComponente AND dbo.pr_CotizaDisenoColores.SecMaterial = dbo.pr_CotizaDisenoArmado.SecMaterial INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoColores.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoColores.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoColores.EstReg = 'True')</value>
     <comment>Carga el detalle de colores</comment>
-  </data>
-  <data name="cot_disColoresPorCob" xml:space="preserve">
-    <value>SELECT idCobertura AS Codigo,Descripcion,Gramos FROM pr_GHCoberturas WHERE EstReg='True'</value>
-    <comment>Carga el detalle de los porcentajes de cobertura y gramages</comment>
   </data>
   <data name="cot_disMATCLICargaDET" xml:space="preserve">
     <value>SELECT dbo.pr_CotizaDisenoMaterialCLI.ItmSecuencial AS SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoMaterialCLI.CantMaterial AS Cantidad FROM dbo.pr_CotizaDisenoMaterialCLI INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoMaterialCLI.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoMaterialCLI.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoMaterialCLI.EstReg = 'True')</value>

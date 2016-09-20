@@ -33,7 +33,8 @@ namespace Ordenes.Clases
             TyR=22,
             Numero_Lados=23,
             Estado_Cotizacion=24,
-            Color_Hoja = 25
+            Color_Hoja = 25,
+            Lado_Impresion=26
     }
 
     

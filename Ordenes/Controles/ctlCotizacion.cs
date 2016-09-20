@@ -9,6 +9,7 @@ using DevExpress.XtraEditors.Repository;
 using Ordenes.Modelos;
 using dllMensaje;
 using AutomatizerSQL.Utilidades;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace Ordenes.Controles
 {
@@ -78,17 +79,20 @@ namespace Ordenes.Controles
             //CARGA EL COMBO DE COMPONENTES
             _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.EgrMat_Seccion);
 
-            //COMBO TIRO-RETIRO
-            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroRetiro }, optionsCMB.Color_Maquina);
+            //COMBO LADO-IMPRESION
+            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueLadoImpresion }, optionsCMB.Lado_Impresion);
+
+            //COMBO COLOR-PLANCHA
+            objCotiza._disenoColorCargaPlanchas(dis_rilueColorPlancha);
 
             //COMBO COBERTURA
             objCotiza._disenoColorCargaCobertura(dis_rilueCobertura);
 
-            //COMBO COLOR
+            //COMBO COLOR-HOJA
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { blo_rilueColorCopia }, optionsCMB.Color_Hoja);
 
             //COMBOS PESTAÑA PLACAS
-            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroP,dis_rilueRetiroP, dis_rilueTiroRetiroP }, optionsCMB.TyR);
+            //_cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroP,dis_rilueRetiroP, dis_rilueTiroRetiroP }, optionsCMB.TyR);
             
             //COMBO TIPO DE EMBLOCADO
             _cargaLookUpEdit(new LookUpEdit[] { blo_lueTipoEmblocado, }, optionsCMB.TipoBloque);
@@ -160,7 +164,8 @@ namespace Ordenes.Controles
         {
             dis_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcPlacas.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
+            //calcula los totales de los gramos de colores en pestana diseno
+            _disenoColorTotales();
         }
 
         #endregion
@@ -508,6 +513,7 @@ namespace Ordenes.Controles
                         break;
                     case "ELIMINAR":
                         objCotiza._disenoArmadoEliminaMAT(rowSEL);
+                        _disenoColorTotales();
                         break;
                     case "GRAFICA":
                         if (_disenoArmadoCMenuValida(rowSEL))
@@ -535,19 +541,18 @@ namespace Ordenes.Controles
 
         //Diseño-Color
         #region cmDisenoColorElimina
+
+        private void mnuAgregaRegistro_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoColorAddColor(dis_lueComponente.EditValue);
+            _disenoColorTotales();
+        }
+
         private void mnuEliminaRegDisenoColor_Click(object sender, EventArgs e)
         {
             DataRow rowEliminar = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
             objCotiza._disenoColorElimina(rowEliminar);
-        }
-        #endregion
-
-        //Diseño-Placa
-        #region cmDisenoPlacaElimina
-        private void mnuEliminaRegPlaca_Click(object sender, EventArgs e)
-        {
-            DataRow rowEliminar = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
-            objCotiza._disenoPlacaElimina(rowEliminar);
+            _disenoColorTotales();
         }
         #endregion
 
@@ -573,11 +578,37 @@ namespace Ordenes.Controles
         {
             if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
             {
-                txtCIRUCCLI.Focus();
-                dis_gvColores.Focus();
+                _ForceUpdate(dis_gvColores);
                 DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
                 objCotiza._disenoColorCambiaCobertura(rowColor);
+                _disenoColorTotales();
             }
+        }
+
+        private void dis_rilueColorPlancha_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            {
+                _ForceUpdate(dis_gvColores);
+                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                objCotiza._disenoColorCambiaPlancha(rowColor);
+                _disenoColorTotales();
+            }
+        }
+
+        private void _ForceUpdate(GridView dgvToForce)
+        {
+            txtCIRUCCLI.Focus();
+            dgvToForce.Focus();
+        }
+
+        private void _disenoColorTotales()
+        {
+            decimal [] totales=objCotiza._disenoColorTotales();
+            dis_seGramosColor.Value = totales[0];
+            dis_seGramosMetalizado.Value = totales[1];
+            dis_seGramosPantone.Value = totales[2];
+            dis_seNumPlacas.Value = totales[3];
         }
     }
 }
