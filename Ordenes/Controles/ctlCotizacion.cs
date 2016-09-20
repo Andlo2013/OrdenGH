@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ordenes.Formularios;
 using Ordenes.Clases;
@@ -81,13 +75,14 @@ namespace Ordenes.Controles
             //CARGA LÍNEAS DE PRODUCCIÓN
             _cargaLookUpEdit(new LookUpEdit[] { lueLineaPRD }, optionsCMB.Linea_Produccion);
 
+            //CARGA EL COMBO DE COMPONENTES
             _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.EgrMat_Seccion);
 
-            
-            
             //COMBO TIRO-RETIRO
-            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroC,
-                dis_rilueRetiroC }, optionsCMB.Color_Maquina);
+            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroRetiro }, optionsCMB.Color_Maquina);
+
+            //COMBO COBERTURA
+            objCotiza._disenoColorCargaCobertura(dis_rilueCobertura);
 
             //COMBO COLOR
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { blo_rilueColorCopia }, optionsCMB.Color_Hoja);
@@ -569,10 +564,20 @@ namespace Ordenes.Controles
             objCotiza._procesoElimina(rowEliminar);
         }
 
-        #endregion
 
         #endregion
 
-       
+        #endregion
+
+        private void dis_rilueCobertura_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            {
+                txtCIRUCCLI.Focus();
+                dis_gvColores.Focus();
+                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                objCotiza._disenoColorCambiaCobertura(rowColor);
+            }
+        }
     }
 }

@@ -41,7 +41,10 @@ namespace Ordenes.Clases
 
         #endregion
 
-        public clsCalculaCorte() { }
+        public clsCalculaCorte() {
+            dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
+               new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+        }
 
 
         //MÉTODOS PROPIOS DE LA CLASE
@@ -256,11 +259,6 @@ namespace Ordenes.Clases
         #region disenoArmadoCalcular
         private void _disenoArmadoCalcular(DataRow rowDetalle)
         {
-
-            //Recupera todas las placas
-            dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
-                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
-
             //Recupera los pliegos del grupo
             dtPliegosGRP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disArmadosCargaMAT,
                 new string[] { "@CodEmpresa", "@CodGrupo", "@CodTalla", "@CodComponente" },

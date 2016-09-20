@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutomatizerSQL.Utilidades;
 using Ordenes.Formularios;
+using DevExpress.XtraEditors.Repository;
 
 namespace Ordenes.Clases
 {
@@ -18,12 +19,12 @@ namespace Ordenes.Clases
     {
         _SQLServer objSQLServer = Form1.getSQLServer;
         _Comunes objComunes = new _Comunes();
-        private DataTable dtPlacas = null;
         DataTable dtClienteDEST = null;
         DataTable dtBlockColor = null;
         DataTable dtDisenoArmado = null;
         DataTable dtDisenoColor = null;
         DataTable dtDisenoPlaca = null;
+        DataTable dtDisenoPorCOB = null;
         DataTable dtDisenoMaterialCLI = null;
         DataTable dtProcesoDET = null;
         //////ordenMOD modelo_Orden = new ordenMOD();
@@ -43,8 +44,7 @@ namespace Ordenes.Clases
 
         private void _Inicializa()
         {
-            dtPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
-                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+           
         }
 
         //CLIENTE
@@ -194,9 +194,13 @@ namespace Ordenes.Clases
 
         #endregion
 
+
+        //DISENO
+        #region DISENO
+
         //DISEÑO ARMADOS
         #region Diseno-Armados
-        
+
         //CARGA EL DETALLE DE LOS ARMADOS
         #region disenoArmadoCargaDET
         public DataTable _disenoArmadoCargaDET(int cotizaID,int tiraje,object CodGrupo)
@@ -291,8 +295,8 @@ namespace Ordenes.Clases
 
         //AGREGA UN MATERIAL AL DETALLE
         #region disenoArmadoAddMAT
-        private void _disenoArmadoAddMAT(DataTable filasSEL, int aTrabajoAlto,
-            int aTrabajoAncho,int aTiraje,object codGrupo,object codComponente)
+        private void _disenoArmadoAddMAT(DataTable filasSEL, decimal aTrabajoAlto,
+            decimal aTrabajoAncho,int aTiraje,object codGrupo,object codComponente)
         {
             if (dtDisenoArmado != null && filasSEL != null)
             {
@@ -312,6 +316,8 @@ namespace Ordenes.Clases
                         newRow["TrabajoAncho"] = aTrabajoAncho;
                         newRow["Tiraje"] = aTiraje;
                         dtDisenoArmado.Rows.Add(newRow);
+                        _disenoColorAddColor(codComponente,rowMAT["Código"], 
+                            rowMAT["Grupo"],aTrabajoAncho,aTrabajoAlto);
                         //selecciona el pliego
                         objCorte._ext_disenoArmadoCalcula(newRow);
                     }
@@ -474,6 +480,23 @@ namespace Ordenes.Clases
         //DISEÑO COLOR
         #region Diseno-Color
 
+        public void _disenoColorAddColor(object CodComponente,object CodTalla,
+            object TallaNombre,decimal Ancho,decimal Alto)
+        {
+            if (dtDisenoColor != null)
+            {
+                DataRow rowColor = dtDisenoColor.NewRow();
+                rowColor["Componente"] = CodComponente;
+                rowColor["CodTalla"] = CodTalla;
+                rowColor["Talla"] = TallaNombre;
+                rowColor["TrabajoAncho"] = Ancho;
+                rowColor["TrabajoAlto"] = Alto;
+                rowColor["CoberturaT"] = 0;
+                rowColor["CoberturaR"] = 0;
+                dtDisenoColor.Rows.Add(rowColor);
+            }
+        }
+
         public void _disenoColorAgregaPantone(DataRow rowModifica)
         {
             try
@@ -490,12 +513,48 @@ namespace Ordenes.Clases
             }
         }
 
+        public void _disenoColorCargaCobertura(RepositoryItemLookUpEdit lueCobertura)
+        {
+            dtDisenoPorCOB = objSQLServer._CargaDataTable(sqlCotizacion.cot_disColoresPorCob,
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+            lueCobertura.DataSource = dtDisenoPorCOB;
+            lueCobertura.DisplayMember = "Descripcion";
+            lueCobertura.ValueMember = "Codigo";
+        }
+
+        public void _disenoColorCambiaCobertura(DataRow rowColor)
+        {
+            object coberturaTiro = rowColor["CoberturaT"];
+            object coberturaRetiro = rowColor["CoberturaR"];
+
+            DataRow [] rowCobertura=dtDisenoPorCOB.Select("Codigo="+coberturaTiro,"");
+            if (rowCobertura != null && rowCobertura.Length == 1)
+            {
+                rowColor["GramosT"] = rowCobertura[0]["Gramos"];
+            }
+
+            rowCobertura = dtDisenoPorCOB.Select("Codigo=" + coberturaRetiro, "");
+            if (rowCobertura != null && rowCobertura.Length == 1)
+            {
+                rowColor["GramosR"] = rowCobertura[0]["Gramos"];
+            }
+        }
+
         public DataTable _disenoColorCargaDET(int cotizaID)
         {
             try
             {
                 dtDisenoColor = objSQLServer._CargaDataTable(sqlCotizacion.cot_disColoresDET,
-                    new string[] { "@cotizaID" }, new object[] { cotizaID });
+                    new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
+                dtDisenoColor.Columns.Add("Area", Type.GetType("System.Decimal"), "TrabajoAncho*TrabajoAlto");
+                dtDisenoColor.Columns.Add("TotalGramosT", Type.GetType("System.Decimal"), "GramosT*Area*NumPaginasT");
+                dtDisenoColor.Columns.Add("TotalGramosR", Type.GetType("System.Decimal"), "GramosR*Area*NumPaginasR");
+                dtDisenoColor.Columns["Area"].DefaultValue = 0;
+                dtDisenoColor.Columns["GramosT"].DefaultValue=0;
+                dtDisenoColor.Columns["GramosR"].DefaultValue=0;
+                dtDisenoColor.Columns["NumPaginasT"].DefaultValue = 0;
+                dtDisenoColor.Columns["NumPaginasR"].DefaultValue = 0;
+
                 return dtDisenoColor;
             }
             catch (Exception ex)
@@ -614,6 +673,7 @@ namespace Ordenes.Clases
 
         //MATERIALES-CLIENTE
         #region Diseno-MaterialCliente
+
         public DataTable _disenoMATCLICargaDET(int cotizaID)
         {
             try
@@ -678,8 +738,11 @@ namespace Ordenes.Clases
 
         #endregion
 
+        #endregion
+
         //EMPLEADOS-VENDEDORES COTIZADORES
         #region Empleados
+
         public DataRow _empleadoBuscar()
         {
             try
@@ -701,6 +764,7 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+
         #endregion
 
         //PROCESOS

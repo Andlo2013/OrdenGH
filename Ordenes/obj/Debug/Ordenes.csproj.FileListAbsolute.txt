@@ -287,3 +287,4 @@ C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache

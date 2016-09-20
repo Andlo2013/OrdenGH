@@ -68,6 +68,7 @@ namespace Ordenes.Clases
             lueCombo.Properties.DataSource = data;
             lueCombo.Properties.DisplayMember = DisplayMember;
             lueCombo.Properties.ValueMember = ValueMember;
+            lueCombo.Properties.ForceInitialize();
             lueCombo.ItemIndex = data.Rows.Count > 0 ? 0 : lueCombo.ItemIndex;
         }
 
