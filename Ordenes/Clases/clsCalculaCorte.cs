@@ -217,9 +217,13 @@ namespace Ordenes.Clases
                  * 2.- Total Pagina descendente en caso de igual perdida. Selecciona el que imprime mas paginas
                  * 3.- TrabajosXtamano descendente para hacer menos cortes a la materia prima
                 */
-                DataView dv = new DataView(dtPliegosIMP);
-                dv.Sort = "PliegoDesperdicio, TotalPaginas DESC, TrabajosXtamano DESC";
-                return dv;
+                if (dtPliegosIMP != null)
+                {
+                    DataView dv = new DataView(dtPliegosIMP);
+                    dv.Sort = "PliegoDesperdicio, TotalPaginas DESC, TrabajosXtamano DESC";
+                    return dv;
+                }
+                return null;
             }
         }
         #endregion
@@ -283,24 +287,26 @@ namespace Ordenes.Clases
         private void _disenoArmadoCreaDTPliegoIMP(int PaginasXtrabajo)
         {
             dtPliegosIMP = new DataTable();
-            dtPliegosIMP.Columns.Add("CodPlaca", System.Type.GetType("System.String"));
-            dtPliegosIMP.Columns.Add("Placa", System.Type.GetType("System.String"));
-            dtPliegosIMP.Columns.Add("TamanoAncho", System.Type.GetType("System.Decimal"));
-            dtPliegosIMP.Columns.Add("TamanoAlto", System.Type.GetType("System.Decimal"));
-            dtPliegosIMP.Columns.Add("TamanoFilas", System.Type.GetType("System.Int32"));
-            dtPliegosIMP.Columns.Add("TamanoColumnas", System.Type.GetType("System.Int32"));
-            dtPliegosIMP.Columns.Add("TrabajosXtamano", System.Type.GetType("System.Int32"));
-            
-            dtPliegosIMP.Columns.Add("SecMaterial", System.Type.GetType("System.Int32"));
-            dtPliegosIMP.Columns.Add("Material", System.Type.GetType("System.String"));
-            dtPliegosIMP.Columns.Add("PliegoAncho", System.Type.GetType("System.Decimal"));
-            dtPliegosIMP.Columns.Add("PliegoAlto", System.Type.GetType("System.Decimal"));
-            dtPliegosIMP.Columns.Add("PliegoDesperdicio", System.Type.GetType("System.Decimal"));
-            dtPliegosIMP.Columns.Add("PliegoPorcentajeEXT", System.Type.GetType("System.Decimal"));
-            dtPliegosIMP.Columns.Add("TamanosXpliego", System.Type.GetType("System.Int32"));
-            dtPliegosIMP.Columns.Add("PaginasXTrabajo", System.Type.GetType("System.Int32"));
-            dtPliegosIMP.Columns.Add("TotalPaginas", System.Type.GetType("System.Int32"),"TamanosXpliego*TrabajosXtamano*PaginasXtrabajo");
+            dtPliegosIMP.Columns.Add("CodPlaca", Type.GetType("System.String"));
+            dtPliegosIMP.Columns.Add("Placa", Type.GetType("System.String"));
+            dtPliegosIMP.Columns.Add("TamanoAncho", Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("TamanoAlto", Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("TamanoFilas", Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("TamanoColumnas", Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("TrabajosXtamano", Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("Costo", Type.GetType("System.Decimal"));
+
+            dtPliegosIMP.Columns.Add("SecMaterial", Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("Material", Type.GetType("System.String"));
+            dtPliegosIMP.Columns.Add("PliegoAncho", Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("PliegoAlto", Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("PliegoDesperdicio", Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("PliegoPorcentajeEXT", Type.GetType("System.Decimal"));
+            dtPliegosIMP.Columns.Add("TamanosXpliego", Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("PaginasXTrabajo", Type.GetType("System.Int32"));
+            dtPliegosIMP.Columns.Add("TotalPaginas", Type.GetType("System.Int32"),"TamanosXpliego*TrabajosXtamano*PaginasXtrabajo");
             dtPliegosIMP.Columns["PaginasXtrabajo"].Expression = PaginasXtrabajo.ToString();
+            dtPliegosIMP.Columns["Costo"].DefaultValue = 0;
         }
         #endregion
 
@@ -357,6 +363,7 @@ namespace Ordenes.Clases
                     rowPliegoIMP["TamanosXpliego"] = this.pro_TamanoCantidad;
                     rowPliegoIMP["PliegoDesperdicio"] = this.pro_Desperdicio;
                     rowPliegoIMP["PliegoPorcentajeEXT"] = this.pro_MaterialSEL["PorcentajeEXT"];
+                    rowPliegoIMP["Costo"] = this.pro_MaterialSEL["Costo"];
                 }
             }
         }
@@ -392,6 +399,7 @@ namespace Ordenes.Clases
                     rowDetalle["PorcentajeEXT"] = rowPliego["PliegoPorcentajeEXT"];
                     rowDetalle["CodPlaca"] = rowPliego["CodPlaca"];
                     rowDetalle["Placa"] = rowPliego["Placa"];
+                    rowDetalle["Costo"] = rowPliego["Costo"];
                     break;
                 }
             }

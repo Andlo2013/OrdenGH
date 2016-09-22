@@ -28,7 +28,7 @@ namespace Ordenes.Clases
         DataTable dtProcesoDET = null;
 
         DataTable dtDisenoPorCOB = null;
-        DataTable dtColorPlanchas= null;
+        DataTable dtTipoColor= null;
         //////ordenMOD modelo_Orden = new ordenMOD();
         trabajoGenMOD modelo_TrabajoGEN = new trabajoGenMOD();
         blockMOD modelo_Block = new blockMOD();
@@ -48,7 +48,7 @@ namespace Ordenes.Clases
         {
             dtDisenoPorCOB = objSQLServer._CargaDataTable(sqlCotizacion.cmb_cargaPorcentajeCOB,
                  new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
-            dtColorPlanchas = objSQLServer._CargaDataTable(sqlCotizacion.cmb_colorPlancha,
+            dtTipoColor = objSQLServer._CargaDataTable(sqlCotizacion.cmb_TipoColor,
                  new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
         }
 
@@ -164,6 +164,27 @@ namespace Ordenes.Clases
 
         #endregion
 
+
+        //ACTUALIZA UNA COLUMNA COMPLETA EN UNA TABLA
+        #region updateColumna
+        private void _updateColumna(DataTable dt, string columna, object valor)
+        {
+            if (dt != null)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    row[columna] = valor;
+                }
+            }
+        }
+        #endregion
+
+        public void _updateTiraje(decimal tiraje)
+        {
+            _updateColumna(dtDisenoArmado, "Tiraje", tiraje);
+            _updateColumna(dtDisenoColor, "Tiraje", tiraje);
+        }
+
         //BLOCKS
         #region Block
 
@@ -216,13 +237,13 @@ namespace Ordenes.Clases
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
                 
                 //AGREGA COLUMNAS AUXILIARES PARA CALCULO
-                dtDisenoArmado.Columns.Add("CodGrupo", System.Type.GetType("System.Int32"));
-                dtDisenoArmado.Columns.Add("PaginasXpliego", System.Type.GetType("System.Decimal"));
-                dtDisenoArmado.Columns.Add("Tiraje", System.Type.GetType("System.Decimal"));
-                dtDisenoArmado.Columns.Add("TrabajoAnchoMasPinza", System.Type.GetType("System.Decimal"), "TrabajoAncho+" + m_margenPinza);
-                dtDisenoArmado.Columns.Add("TrabajoAltoMasPinza", System.Type.GetType("System.Decimal"), "TrabajoAlto+" + m_margenPinza);
-                dtDisenoArmado.Columns.Add("PliegoCantidadAUX", System.Type.GetType("System.Decimal"));
-                dtDisenoArmado.Columns.Add("Extra", System.Type.GetType("System.Decimal"), "Convert(PaginasXpliego*(PorcentajeEXT/100),'System.Int32')");
+                dtDisenoArmado.Columns.Add("CodGrupo", Type.GetType("System.Int32"));
+                dtDisenoArmado.Columns.Add("PaginasXpliego", Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("Tiraje", Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("TrabajoAnchoMasPinza",Type.GetType("System.Decimal"), "TrabajoAncho+" + m_margenPinza);
+                dtDisenoArmado.Columns.Add("TrabajoAltoMasPinza", Type.GetType("System.Decimal"), "TrabajoAlto+" + m_margenPinza);
+                dtDisenoArmado.Columns.Add("PliegoCantidadAUX",Type.GetType("System.Decimal"));
+                dtDisenoArmado.Columns.Add("Extra", Type.GetType("System.Decimal"), "Convert(PaginasXpliego*(PorcentajeEXT/100),'System.Int32')");
                 dtDisenoArmado.Columns["CodGrupo"].DefaultValue = CodGrupo;
                 dtDisenoArmado.Columns["NumPaginas"].DefaultValue = 1;
                 dtDisenoArmado.Columns["PaginasXtrabajo"].DefaultValue = 1;
@@ -234,9 +255,9 @@ namespace Ordenes.Clases
                 dtDisenoArmado.Columns["TamanosXpliego"].DefaultValue = 0;
                 
                 //actualiza el tiraje para que pueda hacer el calculo
-                _disenoArmadoUPDColumna("Tiraje",tiraje);
+                _updateColumna(dtDisenoArmado,"Tiraje",tiraje);
                 //actualiza la columna codGrupo para recuperar los porcentajes de perdida al agregar o cambiar materiales
-                _disenoArmadoUPDColumna("CodGrupo", CodGrupo);
+                _updateColumna(dtDisenoArmado,"CodGrupo", CodGrupo);
                 //PAGINAS QUE SE IMPRIMEN POR PLIEGO
                 dtDisenoArmado.Columns["PaginasXpliego"].Expression = "PaginasXtrabajo*TrabajosXtamano*TamanosXpliego";
                 //ESTO PORQUE AL HACER UNA CONVERSION A (INT) DE ACUERDO A LOS DECIMALES A VECES REDONDEA AL INFERIOR Y FALTARIA UN PLIEGO
@@ -244,6 +265,7 @@ namespace Ordenes.Clases
                 //ESTA ES LA CANTIDAD DEFINITICVA DE PLIEGOS.
                 dtDisenoArmado.Columns["PliegoCantidad"].Expression = "IIF(PliegoCantidadAUX*PaginasXpliego>=(NumPaginas*Tiraje),PliegoCantidadAUX,PliegoCantidadAUX+1)";
                 dtDisenoArmado.Columns["PliegoCotizados"].Expression = "PliegoCantidad+Extra";
+                dtDisenoArmado.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "PliegoCotizados*Costo");
                 return dtDisenoArmado;
             }
             catch (Exception ex)
@@ -478,19 +500,23 @@ namespace Ordenes.Clases
         }
         #endregion
 
-        //ACTUALIZA UNA COLUMNA COMPLETA EN EL DETALLE DE ARMADOS
-        #region disenoArmadoUPDColumna
-        public void _disenoArmadoUPDColumna(string columna,object valor)
+        public decimal _disenoArmadoTotales()
         {
-            if (dtDisenoArmado != null)
+            decimal totalCostoPliego = 0;
+            try
             {
-                foreach (DataRow row in dtDisenoArmado.Rows)
+                if (dtDisenoColor != null)
                 {
-                    row[columna] = valor;
+                    //suma costos de la materia prima
+                    totalCostoPliego = dtDisenoArmado.Compute("SUM(TotalLinea)", "").ToDecimal();
                 }
             }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar calcular los totales", "Totales", ex.Message);
+            }
+            return totalCostoPliego;
         }
-        #endregion
 
         #endregion
 
@@ -514,9 +540,10 @@ namespace Ordenes.Clases
                     rowColor["Componente"] = CodComponente;
                     rowColor["SecMaterial"] = rowFila["SecMaterial"];
                     rowColor["Material"] = rowFila["Material"];
-                    rowColor["TamanoAncho"] = rowFila["TamanoAncho"];
-                    rowColor["TamanoAlto"] = rowFila["TamanoAlto"];
+                    rowColor["TrabajoAncho"] = rowFila["TrabajoAncho"];
+                    rowColor["TrabajoAlto"] = rowFila["TrabajoAlto"];
                     rowColor["Cobertura"] = 0;
+                    rowColor["NumPaginas"] = rowFila["NumPaginas"];
                     dtDisenoColor.Rows.Add(rowColor);
                 }
             }
@@ -548,7 +575,7 @@ namespace Ordenes.Clases
 
         public void _disenoColorCargaPlanchas(RepositoryItemLookUpEdit lueColorPlancha)
         {
-            lueColorPlancha.DataSource = dtColorPlanchas;
+            lueColorPlancha.DataSource = dtTipoColor;
             lueColorPlancha.ForceInitialize();
             lueColorPlancha.DisplayMember = "Descripcion";
             lueColorPlancha.ValueMember = "Codigo";
@@ -567,28 +594,34 @@ namespace Ordenes.Clases
 
         public void _disenoColorCambiaPlancha(DataRow rowColor)
         {
-            object colorPlancha = rowColor["Color"];
+            object tipoColor = rowColor["Color"];
 
-            DataRow[] rowColorPlancha = dtColorPlanchas.Select("Codigo=" + colorPlancha, "");
+            DataRow[] rowColorPlancha = dtTipoColor.Select("Codigo=" + tipoColor, "");
             if (rowColorPlancha != null && rowColorPlancha.Length == 1)
             {
                 rowColor["Color"] = rowColorPlancha[0]["Codigo"];
-                rowColor["NumPlancha"] = rowColorPlancha[0]["Planchas"];
+                rowColor["CostoColor"] = rowColorPlancha[0]["Costo"];
             }
         }
 
-        public DataTable _disenoColorCargaDET(int cotizaID)
+        public DataTable _disenoColorCargaDET(int cotizaID,int tiraje)
         {
             try
             {
                 dtDisenoColor = objSQLServer._CargaDataTable(sqlCotizacion.cot_disColoresDET,
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
-                dtDisenoColor.Columns.Add("Area", Type.GetType("System.Decimal"), "TamanoAncho*TamanoAlto");
-                dtDisenoColor.Columns.Add("TotalGramos", Type.GetType("System.Decimal"), "Gramos*Area*NumPlancha");
+                dtDisenoColor.Columns.Add("Area", Type.GetType("System.Decimal"), "TrabajoAncho*TrabajoAlto");
+                dtDisenoColor.Columns.Add("TotalGramos", Type.GetType("System.Decimal"), "Area*NumPaginas*Gramos");
+                dtDisenoColor.Columns.Add("Tiraje", Type.GetType("System.Decimal"));
+                dtDisenoColor.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "TotalGramos*CostoColor*Tiraje");
+
                 dtDisenoColor.Columns["Area"].DefaultValue = 0;
                 dtDisenoColor.Columns["Gramos"].DefaultValue=0;
                 dtDisenoColor.Columns["NumPaginas"].DefaultValue = 0;
-                dtDisenoColor.Columns["NumPlancha"].DefaultValue = 0;
+                dtDisenoColor.Columns["CostoColor"].DefaultValue = 0;
+                dtDisenoColor.Columns["Tiraje"].DefaultValue = tiraje;
+
+                _updateColumna(dtDisenoColor, "Tiraje", tiraje);
                 return dtDisenoColor;
             }
             catch (Exception ex)
@@ -625,26 +658,27 @@ namespace Ordenes.Clases
             decimal gramosColor = 0;
             decimal gramosMetalizado = 0;
             decimal gramosPantone = 0;
-            decimal numPlacas = 0;
+            decimal totalCostoTinta = 0;
             try
             {
                 if (dtDisenoColor != null)
                 {
                     //suma unColor, dosColores, fullColor
-                    gramosColor = dtDisenoColor.Compute("SUM(TotalGramos)", "Color<=2").ToDecimal();
-                    //suma Metalizado
-                    gramosMetalizado = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=4").ToDecimal();
+                    gramosColor = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=1").ToDecimal();
                     //suma Pantones
-                    gramosPantone = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=5").ToDecimal();
-                    //suma las placas
-                    numPlacas= dtDisenoColor.Compute("SUM(NumPlancha)", "").ToDecimal();
+                    gramosPantone = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=2").ToDecimal();
+                    //suma Metalizado
+                    gramosMetalizado = dtDisenoColor.Compute("SUM(TotalGramos)", "Color=3").ToDecimal();
+                    
+                    //suma costos de la tinta
+                    totalCostoTinta = dtDisenoColor.Compute("SUM(TotalLinea)", "").ToDecimal();
                 }
             }
             catch(Exception ex)
             {
                 clsMensaje._msjWarning("ERROR: Al intentar calcular los totales", "Totales", ex.Message);
             }
-            return new decimal[] {gramosColor,gramosMetalizado,gramosPantone,numPlacas };
+            return new decimal[] {gramosColor,gramosMetalizado,gramosPantone, totalCostoTinta };
         }
 
         public bool _disenoColorValida()

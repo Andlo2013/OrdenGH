@@ -30,9 +30,12 @@ namespace Ordenes.Controles
             _inicializa();
         }
 
+        //METODOS DEL FORMULARIO
+        #region METODOS
+
         //Métodos para iniciar el formulario
         #region Métodos-Inicializacion
-        
+
         //carga CheckedList
         #region cargaCHKList
         private void _cargaCheckedList()
@@ -83,7 +86,7 @@ namespace Ordenes.Controles
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueLadoImpresion }, optionsCMB.Lado_Impresion);
 
             //COMBO COLOR-PLANCHA
-            objCotiza._disenoColorCargaPlanchas(dis_rilueColorPlancha);
+            objCotiza._disenoColorCargaPlanchas(dis_rilueTipoColor);
 
             //COMBO COBERTURA
             objCotiza._disenoColorCargaCobertura(dis_rilueCobertura);
@@ -152,7 +155,7 @@ namespace Ordenes.Controles
         {
             //dis_gcArmados.DataSource = objCotiza._disenoArmadoCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
             objCotiza._disenoArmadoCargaDET(model_Cotiza.id, model_Cotiza.Tiraje,model_Cotiza.Grupo);
-            objCotiza._disenoColorCargaDET(model_Cotiza.id);
+            objCotiza._disenoColorCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
             objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
             //para que cargue solo lo del combo
@@ -164,8 +167,8 @@ namespace Ordenes.Controles
         {
             dis_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
-            //calcula los totales de los gramos de colores en pestana diseno
-            _disenoColorTotales();
+            //calcula los totales de los detalles
+            _totales();
         }
 
         #endregion
@@ -181,7 +184,7 @@ namespace Ordenes.Controles
         #endregion
 
         //Carga las propiedades de los modelos
-        #region Métodos-CargarModelos(Para guardar)
+        #region Métodos-CargaModelos(Para guardar)
 
         //asgina valores al modelo cotizacion
         #region asignaCotizaMOD
@@ -218,6 +221,27 @@ namespace Ordenes.Controles
         //Métodos varios
         #region Métodos-Varios
 
+        private void _disenoColorTotales()
+        {
+            decimal[] totales = objCotiza._disenoColorTotales();
+            dis_seGramosColor.Value = totales[0];
+            dis_seGramosMetalizado.Value = totales[1];
+            dis_seGramosPantone.Value = totales[2];
+            dis_seTotalCostoTinta.Value = totales[3];
+        }
+
+        private void _disenoArmadosTotales()
+        {
+            dis_seTotalCostoPapel.Value = objCotiza._disenoArmadoTotales();
+
+        }
+
+        private void _forceUpdate(GridView dgvToForce)
+        {
+            txtCIRUCCLI.Focus();
+            dgvToForce.Focus();
+        }
+
         //Limpia los controles y propiedades de los modelos
         #region LimpiarControles
         private void _LimpiarControles()
@@ -243,6 +267,12 @@ namespace Ordenes.Controles
             }
         }
         #endregion
+
+        private void _totales()
+        {
+            _disenoArmadosTotales();
+            _disenoColorTotales();
+        }
 
         //Validaciones
         #region Validar
@@ -270,8 +300,12 @@ namespace Ordenes.Controles
 
         #endregion
 
+        #endregion
+
         //Controles
         #region Controles
+
+        #region EVENTOS-CONTROLES-GENERALES
 
         private void btnVistaPRV_Click(object sender, EventArgs e)
         {
@@ -323,25 +357,6 @@ namespace Ordenes.Controles
             }
         }
 
-        private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-
-            if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
-            {
-                _disenoArmadoCMenu("CALCULA");
-            }
-        }
-
-        private void dis_ribeBuscaPantone_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
-            {
-                DataRow rowModifica = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
-                objCotiza._disenoColorAgregaPantone(rowModifica);
-                dis_gvColores.RefreshRow(dis_gvColores.FocusedRowHandle);
-            }
-        }
-
         private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
         {
             _disenoFiltrar();
@@ -367,8 +382,8 @@ namespace Ordenes.Controles
             if (rowCliente != null)
             {
                 model_Cotiza.CodigoCLI = Convert.ToInt32(rowCliente["Código"]);
-                model_Cotiza.CIRUC= rowCliente["CIRUC"].ToString().Trim();
-                model_Cotiza.Cliente= rowCliente["Cliente"].ToString().Trim();
+                model_Cotiza.CIRUC = rowCliente["CIRUC"].ToString().Trim();
+                model_Cotiza.Cliente = rowCliente["Cliente"].ToString().Trim();
                 txtCIRUCCLI.Text = rowCliente["CIRUC"].ToString().Trim();
                 txtNombreCLI.Text = rowCliente["Cliente"].ToString().Trim();
                 _clienteCarga();
@@ -377,13 +392,69 @@ namespace Ordenes.Controles
 
         private void seTiraje_EditValueChanged(object sender, EventArgs e)
         {
-            objCotiza._disenoArmadoUPDColumna("Tiraje",seTiraje.EditValue.ToInt());
+            objCotiza._updateTiraje(seTiraje.EditValue.ToInt());
+            _totales();
         }
 
         #endregion
 
+        #region EVENTOS-DISENO-ARMADOS
+
+        private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
+            {
+                _disenoArmadoCMenu("CALCULA");
+                _disenoArmadosTotales();
+            }
+            else if(e.Column.FieldName == "NumPaginas")
+            {
+                _disenoArmadosTotales();
+            }
+        }
+
+        #endregion
+
+        #region EVENTOS-DISENO-COLOR
+
+        private void dis_ribeBuscaPantone_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            {
+                DataRow rowModifica = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                objCotiza._disenoColorAgregaPantone(rowModifica);
+                dis_gvColores.RefreshRow(dis_gvColores.FocusedRowHandle);
+            }
+        }
+
+        private void dis_rilueCobertura_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            {
+                _forceUpdate(dis_gvColores);
+                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                objCotiza._disenoColorCambiaCobertura(rowColor);
+                _disenoColorTotales();
+            }
+        }
+
+        private void dis_rilueColorPlancha_EditValueChanged(object sender, EventArgs e)
+        {
+            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            {
+                _forceUpdate(dis_gvColores);
+                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                objCotiza._disenoColorCambiaPlancha(rowColor);
+                _disenoColorTotales();
+            }
+        }
+
+        #endregion
+
+        #endregion
+
         //Barra-Estandar
-        #region BarraStandar
+        #region BARRA-STANDAR
 
         private void barraStandar_onNew()
         {
@@ -425,7 +496,7 @@ namespace Ordenes.Controles
         #endregion
 
         //Menú-Contextual
-        #region MenuContextual
+        #region MENUS-CONTEXTUALES
 
         //Block
         #region cmBlockElimina
@@ -477,6 +548,7 @@ namespace Ordenes.Controles
             objCotiza._disenoArmadoAgregaMAT(seAlto.Value.ToInt(),
                 seAncho.Value.ToInt(),seTiraje.Value.ToInt(),
                 lueGrupo.EditValue, dis_lueComponente.EditValue);
+            _disenoArmadosTotales();
         }
 
         //CACLULA LOS VALORES DE CORTE
@@ -523,6 +595,7 @@ namespace Ordenes.Controles
                         break;
                 }
                 dis_bgvArmados.RefreshRow(dis_bgvArmados.FocusedRowHandle);
+                _disenoArmadosTotales();
             }
         }
 
@@ -574,41 +647,8 @@ namespace Ordenes.Controles
 
         #endregion
 
-        private void dis_rilueCobertura_EditValueChanged(object sender, EventArgs e)
-        {
-            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
-            {
-                _ForceUpdate(dis_gvColores);
-                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
-                objCotiza._disenoColorCambiaCobertura(rowColor);
-                _disenoColorTotales();
-            }
-        }
+        
 
-        private void dis_rilueColorPlancha_EditValueChanged(object sender, EventArgs e)
-        {
-            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
-            {
-                _ForceUpdate(dis_gvColores);
-                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
-                objCotiza._disenoColorCambiaPlancha(rowColor);
-                _disenoColorTotales();
-            }
-        }
-
-        private void _ForceUpdate(GridView dgvToForce)
-        {
-            txtCIRUCCLI.Focus();
-            dgvToForce.Focus();
-        }
-
-        private void _disenoColorTotales()
-        {
-            decimal [] totales=objCotiza._disenoColorTotales();
-            dis_seGramosColor.Value = totales[0];
-            dis_seGramosMetalizado.Value = totales[1];
-            dis_seGramosPantone.Value = totales[2];
-            dis_seNumPlacas.Value = totales[3];
-        }
+        
     }
 }
