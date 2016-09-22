@@ -134,7 +134,7 @@
     <comment>Carga el detalle de los porcentajes de cobertura y gramages</comment>
   </data>
   <data name="cmb_TipoColor" xml:space="preserve">
-    <value>SELECT idColor AS Codigo,Descripcion,Costo FROM pr_GHTipoColor WHERE EstReg='True'</value>
+    <value>SELECT idColor AS Codigo,Descripcion,CostoGramo FROM pr_GHTipoColor WHERE EstReg='True'</value>
     <comment>Carga el combo de colores de la plancha</comment>
   </data>
   <data name="cot_blockCargaBlock" xml:space="preserve">
@@ -179,7 +179,7 @@
     <comment>Carga el detalle de los armados</comment>
   </data>
   <data name="cot_disColoresDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaDisenoColores.CmbComponente AS Componente, dbo.pr_CotizaDisenoColores.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.TrabajoAncho,dbo.pr_CotizaDisenoArmado.TrabajoAlto, dbo.pr_CotizaDisenoColores.CmbLadoImpresion AS LadoImpresion, dbo.pr_CotizaDisenoColores.CmbTipoColor AS Color, dbo.pr_CotizaDisenoColores.CostoColor,dbo.pr_CotizaDisenoColores.CmbCobertura AS Cobertura, dbo.pr_CotizaDisenoColores.Pantone, dbo.pr_CotizaDisenoColores.NumPaginas, dbo.pr_CotizaDisenoColores.Gramos, dbo.pr_CotizaDisenoColores.DetallePag FROM dbo.pr_CotizaDisenoColores INNER JOIN dbo.pr_CotizaDisenoArmado ON dbo.pr_CotizaDisenoColores.idCotiza = dbo.pr_CotizaDisenoArmado.idCotiza AND dbo.pr_CotizaDisenoColores.CmbComponente = dbo.pr_CotizaDisenoArmado.CmbComponente AND dbo.pr_CotizaDisenoColores.SecMaterial = dbo.pr_CotizaDisenoArmado.SecMaterial INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoColores.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoColores.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoColores.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaDisenoColores.CmbComponente AS Componente, dbo.pr_CotizaDisenoColores.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoArmado.TrabajoAncho,dbo.pr_CotizaDisenoArmado.TrabajoAlto, dbo.pr_CotizaDisenoColores.CmbLadoImpresion AS LadoImpresion, dbo.pr_CotizaDisenoColores.CmbTipoColor AS Color, dbo.pr_CotizaDisenoColores.CostoGramo,dbo.pr_CotizaDisenoColores.CmbCobertura AS Cobertura, dbo.pr_CotizaDisenoColores.Pantone, dbo.pr_CotizaDisenoColores.NumPaginas, dbo.pr_CotizaDisenoColores.GramosXcm2, dbo.pr_CotizaDisenoColores.CostoGramo,dbo.pr_CotizaDisenoColores.DetallePag FROM dbo.pr_CotizaDisenoColores INNER JOIN dbo.pr_CotizaDisenoArmado ON dbo.pr_CotizaDisenoColores.idCotiza = dbo.pr_CotizaDisenoArmado.idCotiza AND dbo.pr_CotizaDisenoColores.CmbComponente = dbo.pr_CotizaDisenoArmado.CmbComponente AND dbo.pr_CotizaDisenoColores.SecMaterial = dbo.pr_CotizaDisenoArmado.SecMaterial INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoColores.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoColores.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoColores.EstReg = 'True')</value>
     <comment>Carga el detalle de colores</comment>
   </data>
   <data name="cot_disMATCLICargaDET" xml:space="preserve">
@@ -187,7 +187,7 @@
     <comment>Carga el detalle de materiales que deja el cliente</comment>
   </data>
   <data name="cot_disPlacasDET" xml:space="preserve">
-    <value>SELECT CmbComponente AS Componente, CmbTiroP AS Tiro, CmbRetiroP AS Retiro, CmbTiroRetiroP AS TiroRetiro FROM dbo.pr_CotizaDisenoPlacas WHERE (idCotiza = @cotizaID) AND (EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaDisenoPlacas.SecDetalle, dbo.pr_CotizaDisenoPlacas.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoPlacas.CmbComponente AS Componente, dbo.pr_CotizaDisenoPlacas.PlacaId AS CodPlaca, dbo.pr_GHPlacas.Descripcion AS Maquina, dbo.pr_CotizaDisenoPlacas.CmbLadoImpresion AS LadoPlaca, dbo.pr_CotizaDisenoPlacas.NumColores, dbo.pr_CotizaDisenoPlacas.CostoPlaca FROM dbo.pr_CotizaDisenoPlacas INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoPlacas.SecMaterial = dbo.ItmMae.Secuencial INNER JOIN dbo.pr_GHPlacas ON dbo.pr_CotizaDisenoPlacas.PlacaId = dbo.pr_GHPlacas.idPlaca WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoPlacas.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoPlacas.EstReg = 'True')</value>
     <comment>Carga el detalle de placas</comment>
   </data>
   <data name="cot_empleadoBusca" xml:space="preserve">

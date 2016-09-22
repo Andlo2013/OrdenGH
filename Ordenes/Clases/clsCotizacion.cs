@@ -588,7 +588,7 @@ namespace Ordenes.Clases
             DataRow [] rowCobertura=dtDisenoPorCOB.Select("Codigo="+coberturaTiro,"");
             if (rowCobertura != null && rowCobertura.Length == 1)
             {
-                rowColor["Gramos"] = rowCobertura[0]["Gramos"];
+                rowColor["GramosXcm2"] = rowCobertura[0]["Gramos"];
             }
         }
 
@@ -600,7 +600,7 @@ namespace Ordenes.Clases
             if (rowColorPlancha != null && rowColorPlancha.Length == 1)
             {
                 rowColor["Color"] = rowColorPlancha[0]["Codigo"];
-                rowColor["CostoColor"] = rowColorPlancha[0]["Costo"];
+                rowColor["CostoGramo"] = rowColorPlancha[0]["CostoGramo"];
             }
         }
 
@@ -611,14 +611,14 @@ namespace Ordenes.Clases
                 dtDisenoColor = objSQLServer._CargaDataTable(sqlCotizacion.cot_disColoresDET,
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
                 dtDisenoColor.Columns.Add("Area", Type.GetType("System.Decimal"), "TrabajoAncho*TrabajoAlto");
-                dtDisenoColor.Columns.Add("TotalGramos", Type.GetType("System.Decimal"), "Area*NumPaginas*Gramos");
+                dtDisenoColor.Columns.Add("TotalGramos", Type.GetType("System.Decimal"), "Area*NumPaginas*GramosXcm2");
                 dtDisenoColor.Columns.Add("Tiraje", Type.GetType("System.Decimal"));
-                dtDisenoColor.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "TotalGramos*CostoColor*Tiraje");
+                dtDisenoColor.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "TotalGramos*CostoGramo*Tiraje");
 
                 dtDisenoColor.Columns["Area"].DefaultValue = 0;
-                dtDisenoColor.Columns["Gramos"].DefaultValue=0;
+                dtDisenoColor.Columns["GramosXcm2"].DefaultValue=0;
                 dtDisenoColor.Columns["NumPaginas"].DefaultValue = 0;
-                dtDisenoColor.Columns["CostoColor"].DefaultValue = 0;
+                dtDisenoColor.Columns["CostoGramo"].DefaultValue = 0;
                 dtDisenoColor.Columns["Tiraje"].DefaultValue = tiraje;
 
                 _updateColumna(dtDisenoColor, "Tiraje", tiraje);
@@ -732,7 +732,8 @@ namespace Ordenes.Clases
             try
             {
                 dtDisenoPlaca = objSQLServer._CargaDataTable(sqlCotizacion.cot_disPlacasDET,
-                    new string[] { "@cotizaID" }, new object[] { cotizaID });
+                    new string[] {"@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa,cotizaID });
+                dtDisenoPlaca.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "CostoPlaca*NumColores");
                 return dtDisenoPlaca;
             }
             catch (Exception ex)

@@ -83,7 +83,8 @@ namespace Ordenes.Controles
             _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.EgrMat_Seccion);
 
             //COMBO LADO-IMPRESION
-            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueLadoImpresion }, optionsCMB.Lado_Impresion);
+            _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueLadoImpresion,
+                dis_rilueLadoImpresionP }, optionsCMB.Lado_Impresion);
 
             //COMBO COLOR-PLANCHA
             objCotiza._disenoColorCargaPlanchas(dis_rilueTipoColor);
@@ -93,9 +94,6 @@ namespace Ordenes.Controles
 
             //COMBO COLOR-HOJA
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { blo_rilueColorCopia }, optionsCMB.Color_Hoja);
-
-            //COMBOS PESTAÑA PLACAS
-            //_cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueTiroP,dis_rilueRetiroP, dis_rilueTiroRetiroP }, optionsCMB.TyR);
             
             //COMBO TIPO DE EMBLOCADO
             _cargaLookUpEdit(new LookUpEdit[] { blo_lueTipoEmblocado, }, optionsCMB.TipoBloque);
@@ -148,7 +146,7 @@ namespace Ordenes.Controles
         #endregion
 
         //Pestaña diseño
-        #region Diseno-Detalles
+        #region Tablas-Diseno
         
         //carga los detalles del diseno
         private void _disenoCarga()
@@ -167,6 +165,7 @@ namespace Ordenes.Controles
         {
             dis_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcPlacas.DataSource = objCotiza._disenoPlacaFiltrar(dis_lueComponente.EditValue.ToInt());
             //calcula los totales de los detalles
             _totales();
         }

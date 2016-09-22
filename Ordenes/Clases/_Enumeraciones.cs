@@ -30,11 +30,9 @@ namespace Ordenes.Clases
             Linea_Produccion=19,
             Grupo=20,
             Subgrupo=21,
-            TyR=22,
-            Numero_Lados=23,
-            Estado_Cotizacion=24,
-            Color_Hoja = 25,
-            Lado_Impresion=26
+            Estado_Cotizacion=22,
+            Color_Hoja = 23,
+            Lado_Impresion=24
     }
 
     
