@@ -151,7 +151,7 @@
     <comment>Busca cotizaciones</comment>
   </data>
   <data name="cot_cargaPlacas" xml:space="preserve">
-    <value>SELECT idPlaca AS Codigo,Descripcion AS Placa, Ancho,Alto FROM pr_GHPlacas WHERE EstReg='True'</value>
+    <value>SELECT idPlaca AS Codigo,Descripcion AS Placa, Ancho,Alto,CostoPlaca FROM pr_GHPlacas WHERE EstReg='True'</value>
     <comment>Carga las placas disponibles</comment>
   </data>
   <data name="cot_cliCargaTelefono" xml:space="preserve">
@@ -171,7 +171,7 @@
     <comment>Permite seleccionar los grupos (Talla) en DISENO-ARMADOS para poder procesar que tamano de material debe utilizar</comment>
   </data>
   <data name="cot_disArmadosCargaMAT" xml:space="preserve">
-    <value>SELECT ItmCod AS Codigo, ItmDsc AS Material, Secuencial AS SecMaterial,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=1),0) AS Ancho,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=2),0) AS Alto,ISNULL((SELECT Porcentaje FROM pr_GHPorcentajes WHERE CmbGrupo=@CodGrupo AND CmbComponente=@CodComponente AND SecMaterial=dbo.ItmMae.Secuencial),0) AS PorcentajeEXT,ISNULL(ItmCos,0) AS Costo FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (ItmTip='I') AND (IdTalla = @CodTalla)</value>
+    <value>SELECT ItmCod AS Codigo, ItmDsc AS Material, Secuencial AS SecMaterial,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=1),0) AS Ancho,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=2),0) AS Alto,ISNULL((SELECT Porcentaje FROM pr_GHPorcentajePliegoEXT WHERE CmbGrupo=@CodGrupo AND CmbComponente=@CodComponente AND SecMaterial=dbo.ItmMae.Secuencial),0) AS PorcentajeEXT,ISNULL(ItmCos,0) AS Costo FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (ItmTip='I') AND (IdTalla = @CodTalla)</value>
     <comment>Carga todos los materiales de una talla para hacer el cálculo</comment>
   </data>
   <data name="cot_disArmadosDET" xml:space="preserve">
@@ -187,7 +187,7 @@
     <comment>Carga el detalle de materiales que deja el cliente</comment>
   </data>
   <data name="cot_disPlacasDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaDisenoPlacas.SecDetalle, dbo.pr_CotizaDisenoPlacas.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoPlacas.CmbComponente AS Componente, dbo.pr_CotizaDisenoPlacas.PlacaId AS CodPlaca, dbo.pr_GHPlacas.Descripcion AS Maquina, dbo.pr_CotizaDisenoPlacas.CmbLadoImpresion AS LadoPlaca, dbo.pr_CotizaDisenoPlacas.NumColores, dbo.pr_CotizaDisenoPlacas.CostoPlaca FROM dbo.pr_CotizaDisenoPlacas INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoPlacas.SecMaterial = dbo.ItmMae.Secuencial INNER JOIN dbo.pr_GHPlacas ON dbo.pr_CotizaDisenoPlacas.PlacaId = dbo.pr_GHPlacas.idPlaca WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoPlacas.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoPlacas.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaDisenoPlacas.SecDetalle, dbo.pr_CotizaDisenoPlacas.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoPlacas.CmbComponente AS Componente, dbo.pr_CotizaDisenoPlacas.PlacaId AS CodPlaca, dbo.pr_GHPlacas.Descripcion AS Placa, dbo.pr_CotizaDisenoPlacas.CmbLadoImpresion AS LadoPlaca, dbo.pr_CotizaDisenoPlacas.NumColores,dbo.pr_CotizaDisenoPlacas.NumPlacas,dbo.pr_CotizaDisenoPlacas.NumPaginas,dbo.pr_CotizaDisenoPlacas.TrabajosXplaca,dbo.pr_CotizaDisenoPlacas.PaginasXtrabajo, dbo.pr_CotizaDisenoPlacas.CostoPlaca FROM dbo.pr_CotizaDisenoPlacas INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoPlacas.SecMaterial = dbo.ItmMae.Secuencial INNER JOIN dbo.pr_GHPlacas ON dbo.pr_CotizaDisenoPlacas.PlacaId = dbo.pr_GHPlacas.idPlaca WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoPlacas.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoPlacas.EstReg = 'True')</value>
     <comment>Carga el detalle de placas</comment>
   </data>
   <data name="cot_empleadoBusca" xml:space="preserve">
@@ -201,5 +201,21 @@
   <data name="cot_procCargaDET" xml:space="preserve">
     <value>SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Cantidad, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = 'True')</value>
     <comment>Carga el detalle de procesos</comment>
+  </data>
+  <data name="cot_disTroquelDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoTroquel.SecDetalle, dbo.pr_CotizaDisenoTroquel.CmbComponente AS Componente, dbo.pr_CotizaDisenoTroquel.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoTroquel.Longitud, dbo.pr_CotizaDisenoTroquel.NumCortes, dbo.pr_CotizaDisenoTroquel.CostoCorte FROM dbo.pr_CotizaDisenoTroquel INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoTroquel.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoTroquel.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoTroquel.EstReg = 'True')</value>
+    <comment>Carga el detalle de los troqueles</comment>
+  </data>
+  <data name="cot_disAcabadoADD" xml:space="preserve">
+    <value>SELECT idAcabado, Descripcion AS Descripción,idTalla, AplicaA, Costo FROM dbo.pr_GHAcabados WHERE (EstReg = 'True')</value>
+    <comment>Carga las opciones de acabado para el material seleccionado</comment>
+  </data>
+  <data name="cot_disAcabadosDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoAcabado.SecDetalle, dbo.pr_CotizaDisenoAcabado.CmComponente AS Componente, dbo.pr_CotizaDisenoAcabado.idTalla AS CodTalla, dbo.pr_CotizaDisenoAcabado.SecMaterial,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterial)) AS Material, dbo.pr_CotizaDisenoAcabado.idAcabado, dbo.pr_GHAcabados.Descripcion AS Acabado, dbo.pr_CotizaDisenoAcabado.areaAplica, dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado, dbo.pr_CotizaDisenoAcabado.idTallaAcabado,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado)) AS AcabadoMaterial, dbo.pr_CotizaDisenoAcabado.Costo, dbo.pr_CotizaDisenoAcabado.TotalLinea, ISNULL((SELECT CASE dbo.pr_CotizaDisenoAcabado.areaAplica WHEN 'T-FINAL' THEN TrabajoAncho WHEN 'PLIE-IMP' THEN TamanoAncho ELSE 0 END FROM dbo.pr_CotizaDisenoArmado WHERE (idCotiza = dbo.pr_CotizaDisenoAcabado.idCotiza) AND (CmbComponente = CmbComponente) AND (SecMaterial = dbo.pr_CotizaDisenoAcabado.SecMaterial)), 0) AS Ancho, ISNULL((SELECT CASE dbo.pr_CotizaDisenoAcabado.areaAplica WHEN 'T-FINAL' THEN TrabajoAlto WHEN 'PLIE-IMP' THEN TamanoAlto ELSE 0 END FROM dbo.pr_CotizaDisenoArmado AS pr_CotizaDisenoArmado WHERE (idCotiza = dbo.pr_CotizaDisenoAcabado.idCotiza) AND (CmbComponente = CmbComponente) AND (SecMaterial = dbo.pr_CotizaDisenoAcabado.SecMaterial)), 0) AS Alto FROM dbo.pr_CotizaDisenoAcabado INNER JOIN dbo.pr_GHAcabados ON dbo.pr_CotizaDisenoAcabado.idAcabado = dbo.pr_GHAcabados.idAcabado WHERE (dbo.pr_CotizaDisenoAcabado.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoAcabado.EstReg = 'True')</value>
+    <comment>Carga el detalle de los acabados de la orden</comment>
+  </data>
+  <data name="cot_disAcabadoCargaMAT" xml:space="preserve">
+    <value>SELECT ItmCod AS Codigo, ItmDsc AS Material, Secuencial AS SecMaterial,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=1),0) AS Ancho,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=2),0) AS Alto FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (ItmTip='I') AND (IdTalla=@CodTalla)</value>
+    <comment>Carga el detalle de materiales para seleccionar el que menos desperdicio genere</comment>
   </data>
 </root>

@@ -155,6 +155,8 @@ namespace Ordenes.Controles
             objCotiza._disenoArmadoCargaDET(model_Cotiza.id, model_Cotiza.Tiraje,model_Cotiza.Grupo);
             objCotiza._disenoColorCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
             objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
+            objCotiza._disenoTroquelCargaDET(model_Cotiza.id);
+            objCotiza._disenoAcabadoCargaDET(model_Cotiza.id);
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
             //para que cargue solo lo del combo
             _disenoFiltrar();
@@ -166,6 +168,8 @@ namespace Ordenes.Controles
             dis_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcPlacas.DataSource = objCotiza._disenoPlacaFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcTrqouel.DataSource = objCotiza._disenoTroquelFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcAcabados.DataSource = objCotiza._disenoAcabadoFiltrar(dis_lueComponente.EditValue.ToInt());
             //calcula los totales de los detalles
             _totales();
         }
@@ -220,6 +224,11 @@ namespace Ordenes.Controles
         //Métodos varios
         #region Métodos-Varios
 
+        private void _disenoArmadosTotales()
+        {
+            dis_seTotalCostoPapel.Value = objCotiza._disenoArmadoTotales();
+        }
+
         private void _disenoColorTotales()
         {
             decimal[] totales = objCotiza._disenoColorTotales();
@@ -229,12 +238,20 @@ namespace Ordenes.Controles
             dis_seTotalCostoTinta.Value = totales[3];
         }
 
-        private void _disenoArmadosTotales()
+        private void _disenoPlacasTotales()
         {
-            dis_seTotalCostoPapel.Value = objCotiza._disenoArmadoTotales();
-
+            decimal[] totales = objCotiza._disenoPlacaTotales();
+            dis_seNumPlacas.EditValue = totales[0];
+            dis_seTotalPlacas.EditValue = totales[1];
         }
 
+        private void _disenoTroquelTotales()
+        {
+            decimal[] totales = objCotiza._disenoTroquelTotales();
+            dis_seCorteLONG.EditValue = totales[0];
+            dis_seCortesTOT.EditValue = totales[1];
+        }
+        
         private void _forceUpdate(GridView dgvToForce)
         {
             txtCIRUCCLI.Focus();
@@ -271,6 +288,8 @@ namespace Ordenes.Controles
         {
             _disenoArmadosTotales();
             _disenoColorTotales();
+            _disenoPlacasTotales();
+            _disenoTroquelTotales();
         }
 
         //Validaciones
@@ -401,14 +420,26 @@ namespace Ordenes.Controles
 
         private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
+            if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
             {
-                _disenoArmadoCMenu("CALCULA");
-                _disenoArmadosTotales();
-            }
-            else if(e.Column.FieldName == "NumPaginas")
-            {
-                _disenoArmadosTotales();
+                DataRow row = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
+                if (!objCotiza._disenoArmadoVerificaDEP(row))
+                {
+                    if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
+                    {
+                        _disenoArmadoCMenu("CALCULA");
+                        _disenoArmadosTotales();
+                    }
+                    else if (e.Column.FieldName == "NumPaginas")
+                    {
+                        _disenoArmadosTotales();
+                    }
+                }
+                else
+                {
+                    clsMensaje._msjWarning("No puede modificar esta fila porque tiene registros dependientes","Modificar");
+                    row.RejectChanges();
+                }
             }
         }
 
@@ -628,6 +659,63 @@ namespace Ordenes.Controles
         }
         #endregion
 
+        #region cmDisenoPlaca
+
+        private void mnuAgregaPlaca_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoPlacaAddPlaca(dis_lueComponente.EditValue);
+            _disenoPlacasTotales();
+        }
+
+        private void mnuEliminaPlaca_Click(object sender, EventArgs e)
+        {
+            DataRow rowEliminar = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
+            objCotiza._disenoPlacaElimina(rowEliminar);
+            _disenoPlacasTotales();
+        }
+
+        #endregion
+
+        #region cmDisenoTroquel
+
+        private void mnuAgregaRegTroquel_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoTroquelAddTroquel(dis_lueComponente.EditValue);
+            _disenoTroquelTotales();
+        }
+
+        private void mnuEliminaRegTroquel_Click(object sender, EventArgs e)
+        {
+            DataRow rowEliminar = dis_gvTroquel.GetDataRow(dis_gvTroquel.FocusedRowHandle);
+            objCotiza._disenoTroquelElimina(rowEliminar);
+            _disenoTroquelTotales();
+        }
+
+        #endregion
+
+        #region cmDisenoAcabado
+
+        private void mnuAgregaAcabado_Click(object sender, EventArgs e)
+        {
+            if (dis_gvAcabados.IsValidRowHandle(dis_gvAcabados.FocusedRowHandle))
+            {
+                DataRow rowAcabado = dis_gvAcabados.GetDataRow(dis_gvAcabados.FocusedRowHandle);
+                objCotiza._disenoAcabadoAddAcabado(rowAcabado);
+            }
+        }
+
+        private void dis_mnuAgregaRegistro_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoAcabadoAddMaterial(dis_lueComponente.EditValue);
+        }
+
+        private void dis_mnuEliminaRegistro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
         //Procesos
         #region cmProcesos
         private void mnuAgregaProceso_Click(object sender, EventArgs e)
@@ -642,11 +730,16 @@ namespace Ordenes.Controles
         }
 
 
-        #endregion
+
+
+
+
+
+
 
         #endregion
 
-        
+        #endregion
 
         
     }

@@ -35,5 +35,10 @@ namespace Ordenes.Clases
             Lado_Impresion=24
     }
 
-    
+    public enum updateTablas
+    {
+        armados2color=1,
+        armados2placas=2
+    }
+ 
 }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using AutomatizerSQL.Utilidades;
 using Ordenes.Formularios;
 using DevExpress.XtraEditors.Repository;
+using System.Collections;
 
 namespace Ordenes.Clases
 {
@@ -19,25 +20,34 @@ namespace Ordenes.Clases
     {
         _SQLServer objSQLServer = Form1.getSQLServer;
         _Comunes objComunes = new _Comunes();
+        
+        //DATATABLES DETALLES
         DataTable dtClienteDEST = null;
         DataTable dtBlockColor = null;
         DataTable dtDisenoArmado = null;
         DataTable dtDisenoColor = null;
         DataTable dtDisenoPlaca = null;
+        DataTable dtDisenoTroquel = null;
+        DataTable dtDisenoAcabado = null;
         DataTable dtDisenoMaterialCLI = null;
         DataTable dtProcesoDET = null;
-
+        
+        //DATATABLES PARA OPCIONES Y COMBOS DE LAS GRILLAS
         DataTable dtDisenoPorCOB = null;
         DataTable dtTipoColor= null;
+        DataTable dtTipoPlacas = null;
+
         //////ordenMOD modelo_Orden = new ordenMOD();
         trabajoGenMOD modelo_TrabajoGEN = new trabajoGenMOD();
         blockMOD modelo_Block = new blockMOD();
         libroEncMOD modelo_LibroENC = new libroEncMOD();
         libroPorMOD modelo_LibroPOR = new libroPorMOD();
-
+        //VARIABLES GLOBALES
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
         private string m_Servidor = Form1.getSession.Servidor;
         private string m_Catalogo = Form1.getSession.Catalogo;
+        //FALTA DEFINIR DE DONDE SACA EL PARAMETRO COSTO DEL CORTE (DISENO-TROQUEL)
+        private decimal m_CostoCorte = 2;
         //VALOR DE PINZAS SOLICITADO POR GLADYS QUE SE SUME EN FORMA AUTOMATICA 
         //A LAS MEDIDAS DE ANCHO Y ALTO DEL TRABAJO
         private decimal m_margenPinza = 1;
@@ -47,9 +57,11 @@ namespace Ordenes.Clases
         private void _Inicializa()
         {
             dtDisenoPorCOB = objSQLServer._CargaDataTable(sqlCotizacion.cmb_cargaPorcentajeCOB,
-                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
             dtTipoColor = objSQLServer._CargaDataTable(sqlCotizacion.cmb_TipoColor,
-                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+            dtTipoPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
         }
 
         //CLIENTE
@@ -219,7 +231,6 @@ namespace Ordenes.Clases
         }
 
         #endregion
-
 
         //DISENO
         #region DISENO
@@ -500,6 +511,8 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //CALCULA EL COSTO DE LOS MATERIALES DEL ARMADO
+        #region disenoArmadoTotales
         public decimal _disenoArmadoTotales()
         {
             decimal totalCostoPliego = 0;
@@ -517,21 +530,68 @@ namespace Ordenes.Clases
             }
             return totalCostoPliego;
         }
+        #endregion
+
+        //LISTA LOS ITEMS DEL ARMADO PARA UTILIZAR EN OTRAS PESTANAS
+        #region disenoArmadoListarREG
+        /// <summary>
+        /// Permite listar los registros del armado para agregar en las demas pestanas
+        /// </summary>
+        /// <param name="CodComponente">Codigo del componente que desea listar</param>
+        /// <returns>DataRow[] con registros seleccionados</returns>
+        public DataRow[] _disenoArmadoListarREG(object CodComponente)
+        {
+            if (dtDisenoArmado != null)
+            {
+                DataView dvColores = new DataView(dtDisenoArmado);
+                dvColores.RowFilter = "Componente=" + CodComponente;
+                frmBuscar objBuscar = new frmBuscar(dvColores.ToTable());
+                objBuscar._setVisibleCOL(new string[] { "Material" }, true);
+                objBuscar._setMultiSelect(true);
+                objBuscar.ShowDialog();
+                return objBuscar.proFilasSEL;
+            }
+            return null;
+        }
+        #endregion
+
+        public bool _disenoArmadoVerificaDEP(DataRow rowArmado)
+        {
+            DataTable [] tablas=new DataTable[]{dtDisenoAcabado,dtDisenoColor,
+                dtDisenoPlaca,dtDisenoTroquel };
+            int secMaterial = rowArmado["SecMaterial"].ToInt();
+            foreach (DataTable dt in tablas)
+            {
+                if(_disenoArmadoTieneDependencia(dt, rowArmado["Componente"], secMaterial))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool _disenoArmadoTieneDependencia(DataTable dt,
+            object objComponente,int SecMaterial)
+        {
+            if (dt != null)
+            {
+                DataRow[] filasSEL = dt.Select("Componente=" + objComponente +
+                    " AND SecMaterial=" + SecMaterial);
+                return (filasSEL != null && filasSEL.Length > 0) ? true : false;
+            }
+            return false;
+        }
 
         #endregion
 
         //DISEÑO COLOR
         #region Diseno-Color
 
+        //Agrega un color
+        #region disenoColorAddColor
         public void _disenoColorAddColor(object CodComponente)
         {
-            DataView dvColores = new DataView(dtDisenoArmado);
-            dvColores.RowFilter = "Componente=" + CodComponente;
-            frmBuscar objBuscar = new frmBuscar(dvColores.ToTable());
-            objBuscar._setVisibleCOL(new string[] { "Material" }, true);
-            objBuscar._setMultiSelect(true);
-            objBuscar.ShowDialog();
-            DataRow [] drFilasSEL =objBuscar.proFilasSEL;
+            DataRow [] drFilasSEL = _disenoArmadoListarREG(CodComponente);
             if (dtDisenoColor != null && drFilasSEL!=null)
             {
                 foreach (DataRow rowFila in drFilasSEL)
@@ -549,6 +609,10 @@ namespace Ordenes.Clases
             }
         }
 
+        #endregion
+
+        //agrega un pantone
+        #region disenoColorAgregaPantone
         public void _disenoColorAgregaPantone(DataRow rowModifica)
         {
             try
@@ -564,7 +628,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar agregar materiales", "Agrega material", ex.Message);
             }
         }
+        #endregion
 
+        //agrega una cobertura
+        #region disenoColorCargaCobertura
         public void _disenoColorCargaCobertura(RepositoryItemLookUpEdit lueCobertura)
         {
             lueCobertura.DataSource = dtDisenoPorCOB;
@@ -572,7 +639,10 @@ namespace Ordenes.Clases
             lueCobertura.DisplayMember = "Descripcion";
             lueCobertura.ValueMember = "Codigo";
         }
+        #endregion
 
+        //carga las planchas
+        #region disenoColorCargaPlanchas
         public void _disenoColorCargaPlanchas(RepositoryItemLookUpEdit lueColorPlancha)
         {
             lueColorPlancha.DataSource = dtTipoColor;
@@ -580,7 +650,10 @@ namespace Ordenes.Clases
             lueColorPlancha.DisplayMember = "Descripcion";
             lueColorPlancha.ValueMember = "Codigo";
         }
+        #endregion
 
+        //cambia la cobertura
+        #region disenoColorCambiaCobertura
         public void _disenoColorCambiaCobertura(DataRow rowColor)
         {
             object coberturaTiro = rowColor["Cobertura"];
@@ -591,7 +664,10 @@ namespace Ordenes.Clases
                 rowColor["GramosXcm2"] = rowCobertura[0]["Gramos"];
             }
         }
+        #endregion
 
+        //Cambia la plancha
+        #region disenoColorCambiaPlancha
         public void _disenoColorCambiaPlancha(DataRow rowColor)
         {
             object tipoColor = rowColor["Color"];
@@ -603,7 +679,10 @@ namespace Ordenes.Clases
                 rowColor["CostoGramo"] = rowColorPlancha[0]["CostoGramo"];
             }
         }
+        #endregion
 
+        //carga el detalle de colores
+        #region disenoColorCargaDET
         public DataTable _disenoColorCargaDET(int cotizaID,int tiraje)
         {
             try
@@ -630,7 +709,10 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
+        //elimina un registro de colores
+        #region disenoColorElimina
         public void _disenoColorElimina(DataRow rowElimina)
         {
             try
@@ -645,14 +727,20 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
 
+        //filtra el detalle de acuerdo al componente seleccionado
+        #region disenoColorFiltrar
         public DataView _disenoColorFiltrar(int codComponente)
         {
             DataView dvFiltrar = new DataView(dtDisenoColor);
             dvFiltrar.RowFilter = "Componente=" + codComponente;
             return dvFiltrar;
         }
+        #endregion
 
+        //calcula el costo total de colores
+        #region disenoColorTotales
         public decimal[] _disenoColorTotales()
         {
             decimal gramosColor = 0;
@@ -680,7 +768,10 @@ namespace Ordenes.Clases
             }
             return new decimal[] {gramosColor,gramosMetalizado,gramosPantone, totalCostoTinta };
         }
+        #endregion
 
+        //validaciones de colores
+        #region disenoColorValida
         public bool _disenoColorValida()
         {
             try
@@ -721,19 +812,75 @@ namespace Ordenes.Clases
                 return false;
             }
         }
+        #endregion
 
         #endregion
 
         //DISEÑO PLACAS
         #region Diseno-Placas
 
+        //RECUPERA EL COSTO DE UNA PLACA
+        #region disenoPlaca_auxCostoPlaca
+        private object _disenoPlaca_auxCostoPlaca(object codPlaca)
+        {
+            if (dtTipoPlacas != null)
+            {
+                DataRow[] rowPlacas = dtTipoPlacas.Select("Codigo=" + codPlaca);
+                return (rowPlacas != null && rowPlacas.Length == 1) ? rowPlacas[0]["CostoPlaca"] : 0;
+            }
+            return 0;
+        }
+        #endregion
+
+        //AGREGA UNA PLACA
+        #region disenoPlacaAddPlaca
+        public void _disenoPlacaAddPlaca(object CodComponente)
+        {
+            DataRow[] drFilasSEL = _disenoArmadoListarREG(CodComponente);
+            if (dtDisenoPlaca != null && drFilasSEL != null)
+            {
+                foreach (DataRow rowFila in drFilasSEL)
+                {
+                    DataRow rowPlaca = dtDisenoPlaca.NewRow();
+                    rowPlaca["Componente"] = CodComponente;
+                    rowPlaca["SecMaterial"] = rowFila["SecMaterial"];
+                    rowPlaca["Material"] = rowFila["Material"];
+                    rowPlaca["CodPlaca"] = rowFila["CodPlaca"];
+                    rowPlaca["Placa"] = rowFila["Placa"];
+                    rowPlaca["NumPaginas"] = rowFila["NumPaginas"];
+                    rowPlaca["TrabajosXplaca"] = rowFila["TrabajosXtamano"];
+                    rowPlaca["PaginasXtrabajo"] = rowFila["PaginasXtrabajo"];
+                    rowPlaca["NumPlacas"] = 0;
+                    rowPlaca["CostoPlaca"] = _disenoPlaca_auxCostoPlaca(rowFila["CodPlaca"]);
+                    dtDisenoPlaca.Rows.Add(rowPlaca);
+                    //despues de agregar la fila asigna el valor de NumeroPlacas como valor recomendado
+                    rowPlaca["NumPlacas"] = rowPlaca["NumPlacasMIN"];
+                }
+            }
+        }
+        #endregion
+
+        //CARGA EL DETALLE DE PLACAS
+        #region disenoPlacaCargaDET
         public DataTable _disenoPlacaCargaDET(int cotizaID)
         {
             try
             {
+                string numPlacasAUX = "CONVERT(IIF(PaginasXplaca>0,NumPaginas/PaginasXplaca,0),'System.Int32')";
+                string numPlacasMIN = "IIF((NumPlacasAUX*PaginasXplaca)>=NumPaginas,NumPlacasAUX,(NumPlacasAUX+1))";
                 dtDisenoPlaca = objSQLServer._CargaDataTable(sqlCotizacion.cot_disPlacasDET,
-                    new string[] {"@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa,cotizaID });
-                dtDisenoPlaca.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "CostoPlaca*NumColores");
+                    new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
+
+                dtDisenoPlaca.Columns.Add("PaginasXplaca", Type.GetType("System.Int32"), "TrabajosXplaca*PaginasXtrabajo");
+                dtDisenoPlaca.Columns.Add("NumPlacasAUX", Type.GetType("System.Decimal"), numPlacasAUX);
+                dtDisenoPlaca.Columns.Add("NumPlacasMIN", Type.GetType("System.Decimal"), numPlacasMIN);
+
+                dtDisenoPlaca.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "CostoPlaca*NumPlacas*NumColores");
+
+                dtDisenoPlaca.Columns["NumPlacas"].DefaultValue = 0;
+                dtDisenoPlaca.Columns["NumColores"].DefaultValue = 1;
+                dtDisenoPlaca.Columns["CostoPlaca"].DefaultValue = 0;
+
                 return dtDisenoPlaca;
             }
             catch (Exception ex)
@@ -742,14 +889,20 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
+        //FILTRA EL DETALLE DE PLACAS DE ACUERDO AL COMPONENTE
+        #region disenoPlacaFiltrar
         public DataView _disenoPlacaFiltrar(int codComponente)
         {
             DataView dvFiltrar = new DataView(dtDisenoPlaca);
             dvFiltrar.RowFilter = "Componente=" + codComponente;
             return dvFiltrar;
         }
+        #endregion
 
+        //ELIMINA UN REGISTRO DEL DETALLE DE PLACAS
+        #region disenoPlacaElimina
         public void _disenoPlacaElimina(DataRow rowElimina)
         {
             try
@@ -764,11 +917,269 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
+
+        //calcula el costo total de placas
+        #region disenoPlacaTotales
+        public decimal[] _disenoPlacaTotales()
+        {
+            decimal numPlacas = 0;
+            decimal costoPlacas = 0;
+            try
+            {
+                if (dtDisenoPlaca != null)
+                {
+                    //suma el numero de placas
+                    numPlacas = dtDisenoPlaca.Compute("SUM(NumPlacas)", "").ToDecimal();
+                    //suma el costo de placas
+                    costoPlacas = dtDisenoPlaca.Compute("SUM(TotalLinea)", "").ToDecimal();
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar calcular los totales", "Totales", ex.Message);
+            }
+            return new decimal[] { numPlacas,costoPlacas};
+        }
+        #endregion
+
+        #endregion
+
+        #region Diseno-Acabado
+
+        public void _disenoAcabadoCargaDET(int cotizaID)
+        {
+            try
+            {
+                dtDisenoAcabado = objSQLServer._CargaDataTable(sqlCotizacion.cot_disAcabadosDET,
+                    new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
+                dtDisenoAcabado.Columns.Add("Area", Type.GetType("System.Decimal"),"Ancho*Alto");
+                dtDisenoAcabado.Columns["TotalLinea"].Expression = "Area*Costo";
+                dtDisenoAcabado.Columns["idAcabado"].DefaultValue = 0;
+                dtDisenoAcabado.Columns["idTallaAcabado"].DefaultValue = 0;
+                dtDisenoAcabado.Columns["SecMaterialAcabado"].DefaultValue = 0;
+                dtDisenoAcabado.Columns["Acabado"].DefaultValue = 0;
+                dtDisenoAcabado.Columns["Ancho"].DefaultValue = 0;
+                dtDisenoAcabado.Columns["Alto"].DefaultValue = 0;
+                dtDisenoAcabado.Columns["Costo"].DefaultValue = 0;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar recuperar el detalle de acabados", "Cargar Acabados", ex.Message);
+            }
+        }
+
+        public void _disenoAcabadoAddMaterial(object codComponente)
+        {
+            DataRow[] filasSEL = _disenoArmadoListarREG(codComponente);
+            if (filasSEL != null)
+            {
+                foreach(DataRow rowSEL in filasSEL)
+                {
+                    DataRow rowAcabado = dtDisenoAcabado.NewRow();
+                    rowAcabado["Componente"] = codComponente;
+                    rowAcabado["SecMaterial"] = rowSEL["SecMaterial"];
+                    rowAcabado["Material"] = rowSEL["Material"];
+                    rowAcabado["CodTalla"] = rowSEL["CodTalla"];
+                    dtDisenoAcabado.Rows.Add(rowAcabado);
+                }
+            }
+        }
+
+        public void _disenoAcabadoAddAcabado(DataRow rowDetalle)
+        {
+            DataTable dtAcabadoOPC = objSQLServer._CargaDataTable(sqlCotizacion.cot_disAcabadoADD,
+                new string[] { "@CodTalla" }, new object[] { rowDetalle["CodTalla"] });
+
+            frmBuscar objBuscar = new frmBuscar(dtAcabadoOPC);
+            objBuscar._setVisibleCOL(new string[] {"Descripción","Costo" },true);
+            objBuscar._setAnchoCOL(new string[] { "Descripción", "Costo" }, new int[] {800,200 });
+            objBuscar._setMultiSelect(false);
+            objBuscar.ShowDialog();
+            DataRow rowSEL = objBuscar.proFilaSEL;
+            if (rowSEL != null)
+            {
+                rowDetalle["idAcabado"] = rowSEL["idAcabado"];
+                rowDetalle["Acabado"] = rowSEL["Descripción"];
+                rowDetalle["areaAplica"] = rowSEL["AplicaA"];
+                rowDetalle["idTallaAcabado"] = rowSEL["idTalla"];
+                rowDetalle["Costo"] = rowSEL["Costo"];
+                _disenoAcabadoAreaAplicacion(rowDetalle);
+                _disenoAcabadoOptimizaMAT(rowDetalle);
+            }
+        }
+
+        private void _disenoAcabadoAreaAplicacion(DataRow rowDetalle)
+        {
+            object ancho = 0;
+            object alto = 0;
+            if (rowDetalle != null)
+            {
+                string strFiltro = "Componente=" + rowDetalle["Componente"] +
+                        " AND CodTalla=" + rowDetalle["CodTalla"] +
+                        " AND SecMaterial=" + rowDetalle["SecMaterial"];
+
+                DataRow[] rowArmados = dtDisenoArmado.Select(strFiltro);
+                if (rowArmados != null && rowArmados.Length == 1)
+                {
+                    switch (rowDetalle["areaAplica"].ToString().Trim())
+                    {
+                        //APLICA AREA DE TRABAJO FINAL
+                        case "T-FINAL":
+                            ancho = rowArmados[0]["TrabajoAncho"];
+                            alto = rowArmados[0]["TrabajoAlto"];
+                            break;
+                        //APLICA AREA DE PLIEGO DE IMPRESION
+                        case "PLIE-IMP":
+                            ancho = rowArmados[0]["TamanoAncho"];
+                            alto = rowArmados[0]["TamanoAlto"];
+                            break;
+                    }
+                }
+                rowDetalle["Ancho"] = ancho;
+                rowDetalle["Alto"] = alto;
+            }
+        }
+
+        private void _disenoAcabadoOptimizaMAT(DataRow rowDetalle)
+        {
+            //SI TALLA DE ACABADO IGUAL A CERO ENTONCES NO HAY NADA QUE OPTIMIZAR
+            if (rowDetalle != null && rowDetalle["idTallaAcabado"].ToInt() > 0)
+            {
+                DataTable dt = objSQLServer._CargaDataTable(sqlCotizacion.cot_disAcabadoCargaMAT,
+                    new string[] { "@CodEmpresa", "@CodTalla" }, new object[] { m_codEmpresa, rowDetalle["idTallaAcabado"] });
+
+                clsCalculaCorte objCorte = new clsCalculaCorte();
+                objCorte._EligeMaterialAUT(dt, rowDetalle["Ancho"].ToDecimal(), rowDetalle["Alto"].ToDecimal());
+                DataRow rowMaterial = objCorte.pro_MaterialSEL;
+                rowDetalle["SecMaterialAcabado"] = rowMaterial["SecMaterial"];
+                rowDetalle["AcabadoMaterial"] = rowMaterial["Material"];
+            }
+        }
+
+        public void _disenoAcabadoGraficar()
+        {
+            frmCortes objCortes = new frmCortes();
+            
+        }
+
+        //FILTRA LOS MATERIALES DEL ACABADO POR EL COMPONENTE
+        #region disenoAcabadoFiltrar
+        public DataView _disenoAcabadoFiltrar(int codComponente)
+        {
+            if (dtDisenoAcabado != null)
+            {
+                DataView dvFiltrar = new DataView(dtDisenoAcabado);
+                dvFiltrar.RowFilter = "Componente=" + codComponente;
+                return dvFiltrar;
+            }
+            return null;
+        }
+        #endregion
+
+        #endregion
+
+        //DISENO-TROQUEL
+        #region Diseno-Troquel
+
+        //Agrega un registro de troquel
+        #region disenoTroquelAddTroquel
+        public void _disenoTroquelAddTroquel(object CodComponente)
+        {
+            DataRow[] drFilasSEL = _disenoArmadoListarREG(CodComponente);
+            if (dtDisenoTroquel != null && drFilasSEL != null)
+            {
+                foreach (DataRow rowFila in drFilasSEL)
+                {
+                    DataRow rowTroquel = dtDisenoTroquel.NewRow();
+                    rowTroquel["Componente"] = CodComponente;
+                    rowTroquel["SecMaterial"] = rowFila["SecMaterial"];
+                    rowTroquel["Material"] = rowFila["Material"];
+                    rowTroquel["Longitud"] = (rowFila["TrabajoAncho"].ToDecimal()*2)+ (rowFila["TrabajoAlto"].ToDecimal()*2);
+                    rowTroquel["numCortes"] = 1;
+                    rowTroquel["CostoCorte"] = m_CostoCorte;
+                    dtDisenoTroquel.Rows.Add(rowTroquel);
+                }
+            }
+        }
+        #endregion
+
+        //Carga el detalle de troqueles
+        #region disenoTroquelCargaDET
+        public void _disenoTroquelCargaDET(int cotizaID)
+        {
+            try
+            {
+                dtDisenoTroquel = objSQLServer._CargaDataTable(sqlCotizacion.cot_disTroquelDET,
+                    new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa,cotizaID  });
+
+                dtDisenoTroquel.Columns["CostoCorte"].DefaultValue = m_CostoCorte;
+                dtDisenoTroquel.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "Longitud*NumCortes*CostoCorte");
+            }
+            catch(Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar cargar los registros", "Cargar troquel", ex.Message);
+            }
+        }
+        #endregion
+
+        //Elimina un registro de troquel
+        #region disenoTroquelEliminar
+        public void _disenoTroquelElimina(DataRow rowElimina)
+        {
+            try
+            {
+                if (rowElimina != null)
+                {
+                    dtDisenoTroquel.Rows.Remove(rowElimina);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
+            }
+        }
+        #endregion
+
+        //Filtra el detalle de los troqueles de acuerdo al componente
+        #region disenoTroquelFiltrar
+        public DataView _disenoTroquelFiltrar(int codComponente)
+        {
+            DataView dvFiltrar = new DataView(dtDisenoTroquel);
+            dvFiltrar.RowFilter = "Componente=" + codComponente;
+            return dvFiltrar;
+        }
+        #endregion
+
+        //calcula el costo total de placas
+        #region disenoTroquelTotaless
+        public decimal[] _disenoTroquelTotales()
+        {
+            decimal totalLongitud = 0;
+            decimal costoTroquel = 0;
+            try
+            {
+                if (dtDisenoTroquel != null)
+                {
+                    //suma el costo de placas
+                    totalLongitud = dtDisenoTroquel.Compute("SUM(Longitud)", "").ToDecimal();
+                    //suma el numero de placas
+                    costoTroquel = dtDisenoTroquel.Compute("SUM(TotalLinea)", "").ToDecimal();
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar calcular los totales", "Totales", ex.Message);
+            }
+            return new decimal[] { totalLongitud, costoTroquel };
+        }
+        #endregion
 
         #endregion
 
         //MATERIALES-CLIENTE
         #region Diseno-MaterialCliente
+
 
         public DataTable _disenoMATCLICargaDET(int cotizaID)
         {

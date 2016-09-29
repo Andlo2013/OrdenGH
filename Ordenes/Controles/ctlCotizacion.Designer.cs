@@ -136,25 +136,58 @@
             this.dis_gcColTotLinea = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColDetallePAG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpPlacas = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
+            this.dis_seTotalPlacas = new DevExpress.XtraEditors.SpinEdit();
+            this.dis_seNumPlacas = new DevExpress.XtraEditors.SpinEdit();
             this.dis_gcPlacas = new DevExpress.XtraGrid.GridControl();
+            this.cmDisenoPlaca = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAgregaPlaca = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEliminaPlaca = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_gvPlacas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dis_gcColMaterialP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColMaquinaP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColPlacaP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColLadoP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueLadoImpresionP = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.dis_gcColNumColoresP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_riseNumColores = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.dis_gcColNumPaginasP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColPaginasXplaca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColPlacasMIN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColNumPlacasP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColCostoPlaca = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcTotalLineaP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpTroquel = new DevExpress.XtraTab.XtraTabPage();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.dis_seCortesTOT = new DevExpress.XtraEditors.SpinEdit();
+            this.dis_seCorteLONG = new DevExpress.XtraEditors.SpinEdit();
             this.dis_gcTrqouel = new DevExpress.XtraGrid.GridControl();
+            this.cmDisenoTroquel = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAgregaRegTroquel = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEliminaRegTroquel = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_gvTroquel = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dis_gcColMaterialT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColLongitud = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColNumCortesT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColCostoCorteT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColTotaLineaT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.xtpControlPRD = new DevExpress.XtraTab.XtraTabPage();
+            this.dis_xtpAcabados = new DevExpress.XtraTab.XtraTabPage();
+            this.dis_gcAcabados = new DevExpress.XtraGrid.GridControl();
+            this.cmDisenoAcabado = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.dis_mnuAgregaRegistro = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAgregaAcabado = new System.Windows.Forms.ToolStripMenuItem();
+            this.dis_mnuEliminaRegistro = new System.Windows.Forms.ToolStripMenuItem();
+            this.dis_gvAcabados = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dis_gcMaterialA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcAreaA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcAcabadoA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColAcabadoMAT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcCostoA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcAplicaA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcTotalLineaA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_xtpAccesorios = new DevExpress.XtraTab.XtraTabPage();
+            this.dis_xtpProcesos = new DevExpress.XtraTab.XtraTabPage();
             this.gc_Procesos = new DevExpress.XtraGrid.GridControl();
             this.cmProcesos = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaProceso = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,6 +197,8 @@
             this.proc_gcColCosto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColTotal = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_xtpProcesosIMP = new DevExpress.XtraTab.XtraTabPage();
+            this.xtpControlPRD = new DevExpress.XtraTab.XtraTabPage();
             this.xtpServiciosEXT = new DevExpress.XtraTab.XtraTabPage();
             this.sext_chkMetalico = new DevExpress.XtraEditors.CheckEdit();
             this.sext_chkResina = new DevExpress.XtraEditors.CheckEdit();
@@ -296,14 +331,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueTipoColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueCobertura)).BeginInit();
             this.dis_xtpPlacas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalPlacas.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seNumPlacas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).BeginInit();
+            this.cmDisenoPlaca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresionP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseNumColores)).BeginInit();
             this.dis_xtpTroquel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seCortesTOT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seCorteLONG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcTrqouel)).BeginInit();
+            this.cmDisenoTroquel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvTroquel)).BeginInit();
-            this.xtpControlPRD.SuspendLayout();
+            this.dis_xtpAcabados.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAcabados)).BeginInit();
+            this.cmDisenoAcabado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAcabados)).BeginInit();
+            this.dis_xtpProcesos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).BeginInit();
             this.cmProcesos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvProcesos)).BeginInit();
@@ -900,7 +945,11 @@
             this.dis_xtpArmados,
             this.dis_xtpColores,
             this.dis_xtpPlacas,
-            this.dis_xtpTroquel});
+            this.dis_xtpTroquel,
+            this.dis_xtpAcabados,
+            this.dis_xtpAccesorios,
+            this.dis_xtpProcesos,
+            this.dis_xtpProcesosIMP});
             // 
             // dis_xtpArmados
             // 
@@ -1829,7 +1878,7 @@
             this.dis_gcColCostoGramoColor.OptionsFilter.AllowFilter = false;
             this.dis_gcColCostoGramoColor.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColCostoGramoColor.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColCostoGramoColor.ToolTip = "Costo aproximado del gramos en funcion del color";
+            this.dis_gcColCostoGramoColor.ToolTip = "Costo aproximado de cada gramo en funcion del color";
             this.dis_gcColCostoGramoColor.Visible = true;
             this.dis_gcColCostoGramoColor.VisibleIndex = 4;
             this.dis_gcColCostoGramoColor.Width = 72;
@@ -1981,31 +2030,146 @@
             // 
             // dis_xtpPlacas
             // 
+            this.dis_xtpPlacas.Controls.Add(this.labelControl22);
+            this.dis_xtpPlacas.Controls.Add(this.labelControl21);
+            this.dis_xtpPlacas.Controls.Add(this.dis_seTotalPlacas);
+            this.dis_xtpPlacas.Controls.Add(this.dis_seNumPlacas);
             this.dis_xtpPlacas.Controls.Add(this.dis_gcPlacas);
             this.dis_xtpPlacas.Name = "dis_xtpPlacas";
             this.dis_xtpPlacas.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpPlacas.Text = "Placas";
             // 
+            // labelControl22
+            // 
+            this.labelControl22.Location = new System.Drawing.Point(698, 219);
+            this.labelControl22.Name = "labelControl22";
+            this.labelControl22.Size = new System.Drawing.Size(28, 13);
+            this.labelControl22.TabIndex = 4;
+            this.labelControl22.Text = "Total:";
+            // 
+            // labelControl21
+            // 
+            this.labelControl21.Location = new System.Drawing.Point(475, 219);
+            this.labelControl21.Name = "labelControl21";
+            this.labelControl21.Size = new System.Drawing.Size(58, 13);
+            this.labelControl21.TabIndex = 3;
+            this.labelControl21.Text = "Nro. Placas:";
+            // 
+            // dis_seTotalPlacas
+            // 
+            this.dis_seTotalPlacas.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dis_seTotalPlacas.Location = new System.Drawing.Point(741, 216);
+            this.dis_seTotalPlacas.Name = "dis_seTotalPlacas";
+            this.dis_seTotalPlacas.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.dis_seTotalPlacas.Properties.Appearance.Options.UseBackColor = true;
+            this.dis_seTotalPlacas.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.dis_seTotalPlacas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dis_seTotalPlacas.Properties.DisplayFormat.FormatString = "N2";
+            this.dis_seTotalPlacas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seTotalPlacas.Properties.EditFormat.FormatString = "N2";
+            this.dis_seTotalPlacas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seTotalPlacas.Properties.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dis_seTotalPlacas.Properties.Mask.EditMask = "N2";
+            this.dis_seTotalPlacas.Properties.MaxValue = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            131072});
+            this.dis_seTotalPlacas.Properties.ReadOnly = true;
+            this.dis_seTotalPlacas.Size = new System.Drawing.Size(100, 20);
+            this.dis_seTotalPlacas.TabIndex = 2;
+            // 
+            // dis_seNumPlacas
+            // 
+            this.dis_seNumPlacas.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dis_seNumPlacas.Location = new System.Drawing.Point(550, 216);
+            this.dis_seNumPlacas.Name = "dis_seNumPlacas";
+            this.dis_seNumPlacas.Properties.Appearance.BackColor = System.Drawing.Color.White;
+            this.dis_seNumPlacas.Properties.Appearance.Options.UseBackColor = true;
+            this.dis_seNumPlacas.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.dis_seNumPlacas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dis_seNumPlacas.Properties.DisplayFormat.FormatString = "N2";
+            this.dis_seNumPlacas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seNumPlacas.Properties.EditFormat.FormatString = "N2";
+            this.dis_seNumPlacas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seNumPlacas.Properties.Increment = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dis_seNumPlacas.Properties.Mask.EditMask = "N2";
+            this.dis_seNumPlacas.Properties.MaxValue = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            131072});
+            this.dis_seNumPlacas.Properties.ReadOnly = true;
+            this.dis_seNumPlacas.Size = new System.Drawing.Size(100, 20);
+            this.dis_seNumPlacas.TabIndex = 1;
+            // 
             // dis_gcPlacas
             // 
+            this.dis_gcPlacas.ContextMenuStrip = this.cmDisenoPlaca;
             this.dis_gcPlacas.Location = new System.Drawing.Point(7, 4);
             this.dis_gcPlacas.MainView = this.dis_gvPlacas;
             this.dis_gcPlacas.Name = "dis_gcPlacas";
             this.dis_gcPlacas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.dis_rilueLadoImpresionP,
             this.dis_riseNumColores});
-            this.dis_gcPlacas.Size = new System.Drawing.Size(834, 200);
+            this.dis_gcPlacas.Size = new System.Drawing.Size(834, 207);
             this.dis_gcPlacas.TabIndex = 0;
             this.dis_gcPlacas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dis_gvPlacas});
+            // 
+            // cmDisenoPlaca
+            // 
+            this.cmDisenoPlaca.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAgregaPlaca,
+            this.mnuEliminaPlaca});
+            this.cmDisenoPlaca.Name = "contextMenuStrip1";
+            this.cmDisenoPlaca.Size = new System.Drawing.Size(220, 48);
+            // 
+            // mnuAgregaPlaca
+            // 
+            this.mnuAgregaPlaca.Name = "mnuAgregaPlaca";
+            this.mnuAgregaPlaca.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mnuAgregaPlaca.Size = new System.Drawing.Size(219, 22);
+            this.mnuAgregaPlaca.Text = "Agrega Registro";
+            this.mnuAgregaPlaca.Click += new System.EventHandler(this.mnuAgregaPlaca_Click);
+            // 
+            // mnuEliminaPlaca
+            // 
+            this.mnuEliminaPlaca.Name = "mnuEliminaPlaca";
+            this.mnuEliminaPlaca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
+            this.mnuEliminaPlaca.Size = new System.Drawing.Size(219, 22);
+            this.mnuEliminaPlaca.Text = "Eliminar Registro";
+            this.mnuEliminaPlaca.Click += new System.EventHandler(this.mnuEliminaPlaca_Click);
             // 
             // dis_gvPlacas
             // 
             this.dis_gvPlacas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.dis_gcColMaterialP,
-            this.dis_gcColMaquinaP,
+            this.dis_gcColPlacaP,
             this.dis_gcColLadoP,
             this.dis_gcColNumColoresP,
+            this.dis_gcColNumPaginasP,
+            this.dis_gcColPaginasXplaca,
+            this.dis_gcColPlacasMIN,
+            this.dis_gcColNumPlacasP,
             this.dis_gcColCostoPlaca,
             this.dis_gcTotalLineaP});
             this.dis_gvPlacas.GridControl = this.dis_gcPlacas;
@@ -2024,35 +2188,35 @@
             this.dis_gcColMaterialP.OptionsColumn.AllowMove = false;
             this.dis_gcColMaterialP.OptionsColumn.AllowShowHide = false;
             this.dis_gcColMaterialP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialP.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColMaterialP.OptionsColumn.ReadOnly = true;
             this.dis_gcColMaterialP.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcColMaterialP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColMaterialP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialP.ToolTip = "Material para el cual va hacer utilizada la placa";
             this.dis_gcColMaterialP.Visible = true;
             this.dis_gcColMaterialP.VisibleIndex = 0;
-            this.dis_gcColMaterialP.Width = 202;
+            this.dis_gcColMaterialP.Width = 158;
             // 
-            // dis_gcColMaquinaP
+            // dis_gcColPlacaP
             // 
-            this.dis_gcColMaquinaP.Caption = "Máquina";
-            this.dis_gcColMaquinaP.FieldName = "Maquina";
-            this.dis_gcColMaquinaP.Name = "dis_gcColMaquinaP";
-            this.dis_gcColMaquinaP.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaquinaP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaquinaP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaquinaP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaquinaP.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaquinaP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColMaquinaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaquinaP.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaquinaP.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaquinaP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMaquinaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaquinaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaquinaP.Visible = true;
-            this.dis_gcColMaquinaP.VisibleIndex = 1;
-            this.dis_gcColMaquinaP.Width = 86;
+            this.dis_gcColPlacaP.Caption = "Máquina";
+            this.dis_gcColPlacaP.FieldName = "Placa";
+            this.dis_gcColPlacaP.Name = "dis_gcColPlacaP";
+            this.dis_gcColPlacaP.OptionsColumn.AllowEdit = false;
+            this.dis_gcColPlacaP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacaP.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColPlacaP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacaP.OptionsColumn.AllowMove = false;
+            this.dis_gcColPlacaP.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColPlacaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacaP.OptionsColumn.ReadOnly = true;
+            this.dis_gcColPlacaP.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColPlacaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacaP.ToolTip = "Placa que se va a utilizar";
+            this.dis_gcColPlacaP.Visible = true;
+            this.dis_gcColPlacaP.VisibleIndex = 1;
+            this.dis_gcColPlacaP.Width = 67;
             // 
             // dis_gcColLadoP
             // 
@@ -2066,13 +2230,13 @@
             this.dis_gcColLadoP.OptionsColumn.AllowMove = false;
             this.dis_gcColLadoP.OptionsColumn.AllowShowHide = false;
             this.dis_gcColLadoP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLadoP.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColLadoP.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcColLadoP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColLadoP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLadoP.ToolTip = "Lado de impresión de la placa";
             this.dis_gcColLadoP.Visible = true;
             this.dis_gcColLadoP.VisibleIndex = 2;
-            this.dis_gcColLadoP.Width = 140;
+            this.dis_gcColLadoP.Width = 109;
             // 
             // dis_rilueLadoImpresionP
             // 
@@ -2091,7 +2255,7 @@
             this.dis_gcColNumColoresP.AppearanceCell.Options.UseTextOptions = true;
             this.dis_gcColNumColoresP.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
             this.dis_gcColNumColoresP.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.dis_gcColNumColoresP.Caption = "Nro. Colores";
+            this.dis_gcColNumColoresP.Caption = "N° Colores";
             this.dis_gcColNumColoresP.ColumnEdit = this.dis_riseNumColores;
             this.dis_gcColNumColoresP.DisplayFormat.FormatString = "N0";
             this.dis_gcColNumColoresP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -2103,13 +2267,13 @@
             this.dis_gcColNumColoresP.OptionsColumn.AllowMove = false;
             this.dis_gcColNumColoresP.OptionsColumn.AllowShowHide = false;
             this.dis_gcColNumColoresP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresP.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColNumColoresP.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcColNumColoresP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColNumColoresP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumColoresP.ToolTip = "Número de colores a utilizar (Valor entre 1-8)";
             this.dis_gcColNumColoresP.Visible = true;
             this.dis_gcColNumColoresP.VisibleIndex = 3;
-            this.dis_gcColNumColoresP.Width = 101;
+            this.dis_gcColNumColoresP.Width = 79;
             // 
             // dis_riseNumColores
             // 
@@ -2129,6 +2293,87 @@
             0});
             this.dis_riseNumColores.Name = "dis_riseNumColores";
             // 
+            // dis_gcColNumPaginasP
+            // 
+            this.dis_gcColNumPaginasP.Caption = "Páginas";
+            this.dis_gcColNumPaginasP.FieldName = "NumPaginas";
+            this.dis_gcColNumPaginasP.Name = "dis_gcColNumPaginasP";
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowEdit = false;
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowMove = false;
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColNumPaginasP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPaginasP.OptionsColumn.ReadOnly = true;
+            this.dis_gcColNumPaginasP.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColNumPaginasP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPaginasP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPaginasP.ToolTip = "Número de paginas a imprimir. (Recupera de la fila de los armados)";
+            this.dis_gcColNumPaginasP.Visible = true;
+            this.dis_gcColNumPaginasP.VisibleIndex = 4;
+            // 
+            // dis_gcColPaginasXplaca
+            // 
+            this.dis_gcColPaginasXplaca.Caption = "Pag X Placa";
+            this.dis_gcColPaginasXplaca.FieldName = "PaginasXplaca";
+            this.dis_gcColPaginasXplaca.Name = "dis_gcColPaginasXplaca";
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowEdit = false;
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowMove = false;
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColPaginasXplaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPaginasXplaca.OptionsColumn.ReadOnly = true;
+            this.dis_gcColPaginasXplaca.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColPaginasXplaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPaginasXplaca.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPaginasXplaca.ToolTip = "Número de páginas que se imprimen en una placa";
+            this.dis_gcColPaginasXplaca.Visible = true;
+            this.dis_gcColPaginasXplaca.VisibleIndex = 5;
+            this.dis_gcColPaginasXplaca.Width = 84;
+            // 
+            // dis_gcColPlacasMIN
+            // 
+            this.dis_gcColPlacasMIN.Caption = "Placas MIN";
+            this.dis_gcColPlacasMIN.FieldName = "NumPlacasMIN";
+            this.dis_gcColPlacasMIN.Name = "dis_gcColPlacasMIN";
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowEdit = false;
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowMove = false;
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColPlacasMIN.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacasMIN.OptionsColumn.ReadOnly = true;
+            this.dis_gcColPlacasMIN.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColPlacasMIN.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacasMIN.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColPlacasMIN.ToolTip = "Mínimo de placas sugerido por sistema (NroPlacas/PáginasXplaca)";
+            this.dis_gcColPlacasMIN.Visible = true;
+            this.dis_gcColPlacasMIN.VisibleIndex = 6;
+            // 
+            // dis_gcColNumPlacasP
+            // 
+            this.dis_gcColNumPlacasP.Caption = "N° Placas";
+            this.dis_gcColNumPlacasP.FieldName = "NumPlacas";
+            this.dis_gcColNumPlacasP.Name = "dis_gcColNumPlacasP";
+            this.dis_gcColNumPlacasP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPlacasP.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColNumPlacasP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPlacasP.OptionsColumn.AllowMove = false;
+            this.dis_gcColNumPlacasP.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColNumPlacasP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPlacasP.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColNumPlacasP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPlacasP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumPlacasP.ToolTip = "Número de placas registradas por el usuario (Mayor o igual al mínimo de placas su" +
+    "gerido)";
+            this.dis_gcColNumPlacasP.Visible = true;
+            this.dis_gcColNumPlacasP.VisibleIndex = 7;
+            this.dis_gcColNumPlacasP.Width = 77;
+            // 
             // dis_gcColCostoPlaca
             // 
             this.dis_gcColCostoPlaca.Caption = "Costo";
@@ -2143,14 +2388,13 @@
             this.dis_gcColCostoPlaca.OptionsColumn.AllowMove = false;
             this.dis_gcColCostoPlaca.OptionsColumn.AllowShowHide = false;
             this.dis_gcColCostoPlaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoPlaca.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColCostoPlaca.OptionsColumn.ReadOnly = true;
             this.dis_gcColCostoPlaca.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcColCostoPlaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcColCostoPlaca.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoPlaca.ToolTip = "Costo aproximado de la placa viene de la BD";
             this.dis_gcColCostoPlaca.Visible = true;
-            this.dis_gcColCostoPlaca.VisibleIndex = 4;
-            this.dis_gcColCostoPlaca.Width = 136;
+            this.dis_gcColCostoPlaca.VisibleIndex = 8;
             // 
             // dis_gcTotalLineaP
             // 
@@ -2166,24 +2410,85 @@
             this.dis_gcTotalLineaP.OptionsColumn.AllowMove = false;
             this.dis_gcTotalLineaP.OptionsColumn.AllowShowHide = false;
             this.dis_gcTotalLineaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaP.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcTotalLineaP.OptionsColumn.ReadOnly = true;
             this.dis_gcTotalLineaP.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcTotalLineaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
             this.dis_gcTotalLineaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcTotalLineaP.ToolTip = "NumeroColores*NumeroPlacas*CostoPlaca";
             this.dis_gcTotalLineaP.Visible = true;
-            this.dis_gcTotalLineaP.VisibleIndex = 5;
-            this.dis_gcTotalLineaP.Width = 151;
+            this.dis_gcTotalLineaP.VisibleIndex = 9;
+            this.dis_gcTotalLineaP.Width = 92;
             // 
             // dis_xtpTroquel
             // 
+            this.dis_xtpTroquel.Controls.Add(this.labelControl24);
+            this.dis_xtpTroquel.Controls.Add(this.labelControl23);
+            this.dis_xtpTroquel.Controls.Add(this.dis_seCortesTOT);
+            this.dis_xtpTroquel.Controls.Add(this.dis_seCorteLONG);
             this.dis_xtpTroquel.Controls.Add(this.dis_gcTrqouel);
             this.dis_xtpTroquel.Name = "dis_xtpTroquel";
             this.dis_xtpTroquel.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpTroquel.Text = "Troquel";
             // 
+            // labelControl24
+            // 
+            this.labelControl24.Location = new System.Drawing.Point(691, 219);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(28, 13);
+            this.labelControl24.TabIndex = 4;
+            this.labelControl24.Text = "Total:";
+            // 
+            // labelControl23
+            // 
+            this.labelControl23.Location = new System.Drawing.Point(494, 219);
+            this.labelControl23.Name = "labelControl23";
+            this.labelControl23.Size = new System.Drawing.Size(47, 13);
+            this.labelControl23.TabIndex = 3;
+            this.labelControl23.Text = "Corte cm:";
+            // 
+            // dis_seCortesTOT
+            // 
+            this.dis_seCortesTOT.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dis_seCortesTOT.Location = new System.Drawing.Point(730, 216);
+            this.dis_seCortesTOT.Name = "dis_seCortesTOT";
+            this.dis_seCortesTOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.dis_seCortesTOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dis_seCortesTOT.Properties.DisplayFormat.FormatString = "N2";
+            this.dis_seCortesTOT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seCortesTOT.Properties.EditFormat.FormatString = "N2";
+            this.dis_seCortesTOT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seCortesTOT.Properties.Mask.EditMask = "N2";
+            this.dis_seCortesTOT.Size = new System.Drawing.Size(100, 20);
+            this.dis_seCortesTOT.TabIndex = 2;
+            // 
+            // dis_seCorteLONG
+            // 
+            this.dis_seCorteLONG.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.dis_seCorteLONG.Location = new System.Drawing.Point(547, 216);
+            this.dis_seCorteLONG.Name = "dis_seCorteLONG";
+            this.dis_seCorteLONG.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.dis_seCorteLONG.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dis_seCorteLONG.Properties.DisplayFormat.FormatString = "N2";
+            this.dis_seCorteLONG.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seCorteLONG.Properties.EditFormat.FormatString = "N2";
+            this.dis_seCorteLONG.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_seCorteLONG.Properties.Mask.EditMask = "N2";
+            this.dis_seCorteLONG.Size = new System.Drawing.Size(100, 20);
+            this.dis_seCorteLONG.TabIndex = 1;
+            // 
             // dis_gcTrqouel
             // 
+            this.dis_gcTrqouel.ContextMenuStrip = this.cmDisenoTroquel;
             this.dis_gcTrqouel.Location = new System.Drawing.Point(7, 4);
             this.dis_gcTrqouel.MainView = this.dis_gvTroquel;
             this.dis_gcTrqouel.Name = "dis_gcTrqouel";
@@ -2191,6 +2496,30 @@
             this.dis_gcTrqouel.TabIndex = 0;
             this.dis_gcTrqouel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dis_gvTroquel});
+            // 
+            // cmDisenoTroquel
+            // 
+            this.cmDisenoTroquel.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAgregaRegTroquel,
+            this.mnuEliminaRegTroquel});
+            this.cmDisenoTroquel.Name = "cmDisenoTroquel";
+            this.cmDisenoTroquel.Size = new System.Drawing.Size(220, 48);
+            // 
+            // mnuAgregaRegTroquel
+            // 
+            this.mnuAgregaRegTroquel.Name = "mnuAgregaRegTroquel";
+            this.mnuAgregaRegTroquel.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mnuAgregaRegTroquel.Size = new System.Drawing.Size(219, 22);
+            this.mnuAgregaRegTroquel.Text = "Agregar Registro";
+            this.mnuAgregaRegTroquel.Click += new System.EventHandler(this.mnuAgregaRegTroquel_Click);
+            // 
+            // mnuEliminaRegTroquel
+            // 
+            this.mnuEliminaRegTroquel.Name = "mnuEliminaRegTroquel";
+            this.mnuEliminaRegTroquel.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
+            this.mnuEliminaRegTroquel.Size = new System.Drawing.Size(219, 22);
+            this.mnuEliminaRegTroquel.Text = "Eliminar Registro";
+            this.mnuEliminaRegTroquel.Click += new System.EventHandler(this.mnuEliminaRegTroquel_Click);
             // 
             // dis_gvTroquel
             // 
@@ -2209,55 +2538,312 @@
             this.dis_gcColMaterialT.Caption = "Material";
             this.dis_gcColMaterialT.FieldName = "Material";
             this.dis_gcColMaterialT.Name = "dis_gcColMaterialT";
+            this.dis_gcColMaterialT.OptionsColumn.AllowEdit = false;
+            this.dis_gcColMaterialT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColMaterialT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.OptionsColumn.AllowMove = false;
+            this.dis_gcColMaterialT.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColMaterialT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.OptionsColumn.ReadOnly = true;
+            this.dis_gcColMaterialT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialT.ToolTip = "Material al cual se va a aplicar el corte (Viene de los armados)";
             this.dis_gcColMaterialT.Visible = true;
             this.dis_gcColMaterialT.VisibleIndex = 0;
             // 
             // dis_gcColLongitud
             // 
             this.dis_gcColLongitud.Caption = "Longitud";
+            this.dis_gcColLongitud.DisplayFormat.FormatString = "N2";
+            this.dis_gcColLongitud.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dis_gcColLongitud.FieldName = "Longitud";
             this.dis_gcColLongitud.Name = "dis_gcColLongitud";
+            this.dis_gcColLongitud.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColLongitud.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.OptionsColumn.AllowMove = false;
+            this.dis_gcColLongitud.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColLongitud.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColLongitud.ToolTip = "Suma de todas las longitudes de los cortes que se van a aplicar al material";
             this.dis_gcColLongitud.Visible = true;
             this.dis_gcColLongitud.VisibleIndex = 1;
             // 
             // dis_gcColNumCortesT
             // 
             this.dis_gcColNumCortesT.Caption = "Cortes";
-            this.dis_gcColNumCortesT.FieldName = "Cortes";
+            this.dis_gcColNumCortesT.FieldName = "NumCortes";
             this.dis_gcColNumCortesT.Name = "dis_gcColNumCortesT";
+            this.dis_gcColNumCortesT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColNumCortesT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.OptionsColumn.AllowMove = false;
+            this.dis_gcColNumCortesT.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColNumCortesT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColNumCortesT.ToolTip = "Número de cortes que se van a realizar";
             this.dis_gcColNumCortesT.Visible = true;
             this.dis_gcColNumCortesT.VisibleIndex = 2;
             // 
             // dis_gcColCostoCorteT
             // 
             this.dis_gcColCostoCorteT.Caption = "Costo";
-            this.dis_gcColCostoCorteT.FieldName = "Costo";
+            this.dis_gcColCostoCorteT.DisplayFormat.FormatString = "N2";
+            this.dis_gcColCostoCorteT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcColCostoCorteT.FieldName = "CostoCorte";
             this.dis_gcColCostoCorteT.Name = "dis_gcColCostoCorteT";
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowEdit = false;
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowMove = false;
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColCostoCorteT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.OptionsColumn.ReadOnly = true;
+            this.dis_gcColCostoCorteT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoCorteT.ToolTip = "Costo aproximado de cada corte (Viene de la Base de datos)";
             this.dis_gcColCostoCorteT.Visible = true;
             this.dis_gcColCostoCorteT.VisibleIndex = 3;
             // 
             // dis_gcColTotaLineaT
             // 
             this.dis_gcColTotaLineaT.Caption = "Total";
+            this.dis_gcColTotaLineaT.DisplayFormat.FormatString = "N2";
+            this.dis_gcColTotaLineaT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.dis_gcColTotaLineaT.FieldName = "TotalLinea";
             this.dis_gcColTotaLineaT.Name = "dis_gcColTotaLineaT";
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowEdit = false;
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowMove = false;
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColTotaLineaT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.OptionsColumn.ReadOnly = true;
+            this.dis_gcColTotaLineaT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotaLineaT.ToolTip = "Longitud*NumCortes*CostoCorte";
             this.dis_gcColTotaLineaT.Visible = true;
             this.dis_gcColTotaLineaT.VisibleIndex = 4;
             // 
-            // xtpControlPRD
+            // dis_xtpAcabados
             // 
-            this.xtpControlPRD.Controls.Add(this.gc_Procesos);
-            this.xtpControlPRD.Name = "xtpControlPRD";
-            this.xtpControlPRD.Size = new System.Drawing.Size(859, 313);
-            this.xtpControlPRD.Text = "Procesos";
+            this.dis_xtpAcabados.Controls.Add(this.dis_gcAcabados);
+            this.dis_xtpAcabados.Name = "dis_xtpAcabados";
+            this.dis_xtpAcabados.Size = new System.Drawing.Size(844, 242);
+            this.dis_xtpAcabados.Text = "Acabados";
+            // 
+            // dis_gcAcabados
+            // 
+            this.dis_gcAcabados.ContextMenuStrip = this.cmDisenoAcabado;
+            this.dis_gcAcabados.Location = new System.Drawing.Point(7, 4);
+            this.dis_gcAcabados.MainView = this.dis_gvAcabados;
+            this.dis_gcAcabados.Name = "dis_gcAcabados";
+            this.dis_gcAcabados.Size = new System.Drawing.Size(834, 235);
+            this.dis_gcAcabados.TabIndex = 0;
+            this.dis_gcAcabados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dis_gvAcabados});
+            // 
+            // cmDisenoAcabado
+            // 
+            this.cmDisenoAcabado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dis_mnuAgregaRegistro,
+            this.mnuAgregaAcabado,
+            this.dis_mnuEliminaRegistro});
+            this.cmDisenoAcabado.Name = "cmDisenoAcabado";
+            this.cmDisenoAcabado.Size = new System.Drawing.Size(220, 70);
+            // 
+            // dis_mnuAgregaRegistro
+            // 
+            this.dis_mnuAgregaRegistro.Name = "dis_mnuAgregaRegistro";
+            this.dis_mnuAgregaRegistro.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.dis_mnuAgregaRegistro.Size = new System.Drawing.Size(219, 22);
+            this.dis_mnuAgregaRegistro.Text = "Agregar Registro";
+            this.dis_mnuAgregaRegistro.Click += new System.EventHandler(this.dis_mnuAgregaRegistro_Click);
+            // 
+            // mnuAgregaAcabado
+            // 
+            this.mnuAgregaAcabado.Name = "mnuAgregaAcabado";
+            this.mnuAgregaAcabado.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.mnuAgregaAcabado.Size = new System.Drawing.Size(219, 22);
+            this.mnuAgregaAcabado.Text = "Agrega Acabado";
+            this.mnuAgregaAcabado.Click += new System.EventHandler(this.mnuAgregaAcabado_Click);
+            // 
+            // dis_mnuEliminaRegistro
+            // 
+            this.dis_mnuEliminaRegistro.Name = "dis_mnuEliminaRegistro";
+            this.dis_mnuEliminaRegistro.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
+            this.dis_mnuEliminaRegistro.Size = new System.Drawing.Size(219, 22);
+            this.dis_mnuEliminaRegistro.Text = "Eliminar Registro";
+            this.dis_mnuEliminaRegistro.Click += new System.EventHandler(this.dis_mnuEliminaRegistro_Click);
+            // 
+            // dis_gvAcabados
+            // 
+            this.dis_gvAcabados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dis_gcMaterialA,
+            this.dis_gcAreaA,
+            this.dis_gcAcabadoA,
+            this.dis_gcColAcabadoMAT,
+            this.dis_gcCostoA,
+            this.dis_gcAplicaA,
+            this.dis_gcTotalLineaA});
+            this.dis_gvAcabados.GridControl = this.dis_gcAcabados;
+            this.dis_gvAcabados.Name = "dis_gvAcabados";
+            this.dis_gvAcabados.OptionsView.ShowGroupPanel = false;
+            // 
+            // dis_gcMaterialA
+            // 
+            this.dis_gcMaterialA.Caption = "Material Armado";
+            this.dis_gcMaterialA.FieldName = "Material";
+            this.dis_gcMaterialA.Name = "dis_gcMaterialA";
+            this.dis_gcMaterialA.OptionsColumn.AllowEdit = false;
+            this.dis_gcMaterialA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcMaterialA.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcMaterialA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcMaterialA.OptionsColumn.AllowMove = false;
+            this.dis_gcMaterialA.OptionsColumn.AllowShowHide = false;
+            this.dis_gcMaterialA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcMaterialA.Visible = true;
+            this.dis_gcMaterialA.VisibleIndex = 0;
+            this.dis_gcMaterialA.Width = 181;
+            // 
+            // dis_gcAreaA
+            // 
+            this.dis_gcAreaA.Caption = "Area";
+            this.dis_gcAreaA.DisplayFormat.FormatString = "N2";
+            this.dis_gcAreaA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcAreaA.FieldName = "Area";
+            this.dis_gcAreaA.Name = "dis_gcAreaA";
+            this.dis_gcAreaA.OptionsColumn.AllowEdit = false;
+            this.dis_gcAreaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAreaA.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcAreaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAreaA.OptionsColumn.AllowMove = false;
+            this.dis_gcAreaA.OptionsColumn.AllowShowHide = false;
+            this.dis_gcAreaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAreaA.Visible = true;
+            this.dis_gcAreaA.VisibleIndex = 1;
+            this.dis_gcAreaA.Width = 69;
+            // 
+            // dis_gcAcabadoA
+            // 
+            this.dis_gcAcabadoA.Caption = "Acabado";
+            this.dis_gcAcabadoA.FieldName = "Acabado";
+            this.dis_gcAcabadoA.Name = "dis_gcAcabadoA";
+            this.dis_gcAcabadoA.OptionsColumn.AllowEdit = false;
+            this.dis_gcAcabadoA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAcabadoA.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcAcabadoA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAcabadoA.OptionsColumn.AllowMove = false;
+            this.dis_gcAcabadoA.OptionsColumn.AllowShowHide = false;
+            this.dis_gcAcabadoA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAcabadoA.Visible = true;
+            this.dis_gcAcabadoA.VisibleIndex = 2;
+            this.dis_gcAcabadoA.Width = 131;
+            // 
+            // dis_gcColAcabadoMAT
+            // 
+            this.dis_gcColAcabadoMAT.Caption = "Material Acabado";
+            this.dis_gcColAcabadoMAT.FieldName = "AcabadoMaterial";
+            this.dis_gcColAcabadoMAT.Name = "dis_gcColAcabadoMAT";
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowEdit = false;
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowMove = false;
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColAcabadoMAT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColAcabadoMAT.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColAcabadoMAT.Visible = true;
+            this.dis_gcColAcabadoMAT.VisibleIndex = 3;
+            this.dis_gcColAcabadoMAT.Width = 205;
+            // 
+            // dis_gcCostoA
+            // 
+            this.dis_gcCostoA.Caption = "Costo";
+            this.dis_gcCostoA.DisplayFormat.FormatString = "N2";
+            this.dis_gcCostoA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcCostoA.FieldName = "Costo";
+            this.dis_gcCostoA.Name = "dis_gcCostoA";
+            this.dis_gcCostoA.OptionsColumn.AllowEdit = false;
+            this.dis_gcCostoA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcCostoA.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcCostoA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcCostoA.OptionsColumn.AllowMove = false;
+            this.dis_gcCostoA.OptionsColumn.AllowShowHide = false;
+            this.dis_gcCostoA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcCostoA.Visible = true;
+            this.dis_gcCostoA.VisibleIndex = 5;
+            this.dis_gcCostoA.Width = 64;
+            // 
+            // dis_gcAplicaA
+            // 
+            this.dis_gcAplicaA.Caption = "Aplica";
+            this.dis_gcAplicaA.FieldName = "areaAplica";
+            this.dis_gcAplicaA.Name = "dis_gcAplicaA";
+            this.dis_gcAplicaA.OptionsColumn.AllowEdit = false;
+            this.dis_gcAplicaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAplicaA.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcAplicaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAplicaA.OptionsColumn.AllowMove = false;
+            this.dis_gcAplicaA.OptionsColumn.AllowShowHide = false;
+            this.dis_gcAplicaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcAplicaA.Visible = true;
+            this.dis_gcAplicaA.VisibleIndex = 4;
+            this.dis_gcAplicaA.Width = 60;
+            // 
+            // dis_gcTotalLineaA
+            // 
+            this.dis_gcTotalLineaA.Caption = "Total";
+            this.dis_gcTotalLineaA.DisplayFormat.FormatString = "N2";
+            this.dis_gcTotalLineaA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcTotalLineaA.FieldName = "TotalLinea";
+            this.dis_gcTotalLineaA.Name = "dis_gcTotalLineaA";
+            this.dis_gcTotalLineaA.OptionsColumn.AllowEdit = false;
+            this.dis_gcTotalLineaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcTotalLineaA.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcTotalLineaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcTotalLineaA.OptionsColumn.AllowMove = false;
+            this.dis_gcTotalLineaA.OptionsColumn.AllowShowHide = false;
+            this.dis_gcTotalLineaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcTotalLineaA.Visible = true;
+            this.dis_gcTotalLineaA.VisibleIndex = 6;
+            this.dis_gcTotalLineaA.Width = 106;
+            // 
+            // dis_xtpAccesorios
+            // 
+            this.dis_xtpAccesorios.Name = "dis_xtpAccesorios";
+            this.dis_xtpAccesorios.Size = new System.Drawing.Size(844, 242);
+            this.dis_xtpAccesorios.Text = "Accesorios";
+            // 
+            // dis_xtpProcesos
+            // 
+            this.dis_xtpProcesos.Controls.Add(this.gc_Procesos);
+            this.dis_xtpProcesos.Name = "dis_xtpProcesos";
+            this.dis_xtpProcesos.Size = new System.Drawing.Size(844, 242);
+            this.dis_xtpProcesos.Text = "Procesos";
             // 
             // gc_Procesos
             // 
             this.gc_Procesos.ContextMenuStrip = this.cmProcesos;
-            this.gc_Procesos.Location = new System.Drawing.Point(6, 4);
+            this.gc_Procesos.Location = new System.Drawing.Point(3, 3);
             this.gc_Procesos.MainView = this.gvProcesos;
             this.gc_Procesos.Name = "gc_Procesos";
-            this.gc_Procesos.Size = new System.Drawing.Size(850, 240);
+            this.gc_Procesos.Size = new System.Drawing.Size(838, 239);
             this.gc_Procesos.TabIndex = 0;
             this.gc_Procesos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProcesos});
@@ -2365,6 +2951,18 @@
             this.proc_gcColTotal.Visible = true;
             this.proc_gcColTotal.VisibleIndex = 3;
             this.proc_gcColTotal.Width = 164;
+            // 
+            // dis_xtpProcesosIMP
+            // 
+            this.dis_xtpProcesosIMP.Name = "dis_xtpProcesosIMP";
+            this.dis_xtpProcesosIMP.Size = new System.Drawing.Size(844, 242);
+            this.dis_xtpProcesosIMP.Text = "Procesos Impresión";
+            // 
+            // xtpControlPRD
+            // 
+            this.xtpControlPRD.Name = "xtpControlPRD";
+            this.xtpControlPRD.Size = new System.Drawing.Size(859, 313);
+            this.xtpControlPRD.Text = "Procesos";
             // 
             // xtpServiciosEXT
             // 
@@ -3515,14 +4113,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueTipoColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueCobertura)).EndInit();
             this.dis_xtpPlacas.ResumeLayout(false);
+            this.dis_xtpPlacas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalPlacas.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seNumPlacas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).EndInit();
+            this.cmDisenoPlaca.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresionP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseNumColores)).EndInit();
             this.dis_xtpTroquel.ResumeLayout(false);
+            this.dis_xtpTroquel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seCortesTOT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_seCorteLONG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcTrqouel)).EndInit();
+            this.cmDisenoTroquel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvTroquel)).EndInit();
-            this.xtpControlPRD.ResumeLayout(false);
+            this.dis_xtpAcabados.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAcabados)).EndInit();
+            this.cmDisenoAcabado.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAcabados)).EndInit();
+            this.dis_xtpProcesos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).EndInit();
             this.cmProcesos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvProcesos)).EndInit();
@@ -3794,7 +4404,7 @@
         private DevExpress.XtraGrid.GridControl dis_gcPlacas;
         private DevExpress.XtraGrid.Views.Grid.GridView dis_gvPlacas;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaquinaP;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPlacaP;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColLadoP;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumColoresP;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCostoPlaca;
@@ -3810,5 +4420,40 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueLadoImpresionP;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_riseNumColores;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotLinea;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoPlaca;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregaPlaca;
+        private System.Windows.Forms.ToolStripMenuItem mnuEliminaPlaca;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPlacasP;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPaginasP;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPaginasXplaca;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPlacasMIN;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoTroquel;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregaRegTroquel;
+        private System.Windows.Forms.ToolStripMenuItem mnuEliminaRegTroquel;
+        private DevExpress.XtraEditors.LabelControl labelControl22;
+        private DevExpress.XtraEditors.LabelControl labelControl21;
+        private DevExpress.XtraEditors.SpinEdit dis_seTotalPlacas;
+        private DevExpress.XtraEditors.SpinEdit dis_seNumPlacas;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.SpinEdit dis_seCortesTOT;
+        private DevExpress.XtraEditors.SpinEdit dis_seCorteLONG;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpAcabados;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpAccesorios;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpProcesos;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpProcesosIMP;
+        private DevExpress.XtraGrid.GridControl dis_gcAcabados;
+        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvAcabados;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcMaterialA;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcAreaA;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcAcabadoA;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcCostoA;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcAplicaA;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcTotalLineaA;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoAcabado;
+        private System.Windows.Forms.ToolStripMenuItem dis_mnuAgregaRegistro;
+        private System.Windows.Forms.ToolStripMenuItem dis_mnuEliminaRegistro;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregaAcabado;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAcabadoMAT;
     }
 }

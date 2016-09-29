@@ -160,7 +160,7 @@ namespace Ordenes.Modelos
             catch(Exception ex)
             {
                 clsMensaje._msjWarning("ERROR: Al intentar buscar los registros", "Buscar", ex.Message);
-                return null;
+                return new cotizaMOD();
             }
 
         }
