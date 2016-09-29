@@ -133,6 +133,15 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT idProcesoIMP, idPlaca, NumColores, idTalla, CostoImpMin, NumPliegosXmin, CostoMinPP, NumMinPP FROM dbo.pr_GHCostoProcesoIMP WHERE (EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string cot_cargaCostosProcesoIMP {
+            get {
+                return ResourceManager.GetString("cot_cargaCostosProcesoIMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT idPlaca AS Codigo,Descripcion AS Placa, Ancho,Alto,CostoPlaca FROM pr_GHPlacas WHERE EstReg=&apos;True&apos;.
         /// </summary>
         internal static string cot_cargaPlacas {
@@ -246,6 +255,15 @@ namespace Ordenes.Properties {
         internal static string cot_disPlacasDET {
             get {
                 return ResourceManager.GetString("cot_disPlacasDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoProcesoIMP.SecDetalle, dbo.pr_CotizaDisenoProcesoIMP.CmbComponente AS Componente, dbo.pr_CotizaDisenoProcesoIMP.idTalla, dbo.ItmTallas.Talla, dbo.pr_CotizaDisenoProcesoIMP.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoProcesoIMP.PlacaId, dbo.pr_GHPlacas.Descripcion AS Placa, dbo.pr_CotizaDisenoProcesoIMP.NumColores, dbo.pr_CotizaDisenoProcesoIMP.CostoMinIMP, dbo.pr_CotizaDisenoProcesoIMP.PliegosXmin, dbo.pr_CotizaDisenoProcesoIMP.NumPliegos,dbo.pr_CotizaDisenoProce [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string cot_disProcesoIMPDET {
+            get {
+                return ResourceManager.GetString("cot_disProcesoIMPDET", resourceCulture);
             }
         }
         

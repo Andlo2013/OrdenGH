@@ -218,4 +218,12 @@
     <value>SELECT ItmCod AS Codigo, ItmDsc AS Material, Secuencial AS SecMaterial,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=1),0) AS Ancho,ISNULL ((SELECT MedVal FROM ItmMed WHERE EmpCod= dbo.ItmMae.EmpCod AND ItmTip='I' AND ItmCod=dbo.ItmMae.ItmCod AND MedSec=2),0) AS Alto FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (ItmTip='I') AND (IdTalla=@CodTalla)</value>
     <comment>Carga el detalle de materiales para seleccionar el que menos desperdicio genere</comment>
   </data>
+  <data name="cot_cargaCostosProcesoIMP" xml:space="preserve">
+    <value>SELECT idProcesoIMP, idPlaca, NumColores, idTalla, CostoImpMin, NumPliegosXmin, CostoMinPP, NumMinPP FROM dbo.pr_GHCostoProcesoIMP WHERE (EstReg = 'True')</value>
+    <comment>Carga los aproximados de costos de impresio</comment>
+  </data>
+  <data name="cot_disProcesoIMPDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoProcesoIMP.SecDetalle, dbo.pr_CotizaDisenoProcesoIMP.CmbComponente AS Componente, dbo.pr_CotizaDisenoProcesoIMP.idTalla, dbo.ItmTallas.Talla, dbo.pr_CotizaDisenoProcesoIMP.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoProcesoIMP.PlacaId, dbo.pr_GHPlacas.Descripcion AS Placa, dbo.pr_CotizaDisenoProcesoIMP.NumColores, dbo.pr_CotizaDisenoProcesoIMP.CostoMinIMP, dbo.pr_CotizaDisenoProcesoIMP.PliegosXmin, dbo.pr_CotizaDisenoProcesoIMP.NumPliegos,dbo.pr_CotizaDisenoProcesoIMP.NumMinIMP, dbo.pr_CotizaDisenoProcesoIMP.CostoXminPP, dbo.pr_CotizaDisenoProcesoIMP.MinutosPP, dbo.pr_CotizaDisenoProcesoIMP.TotalLinea, dbo.ItmMae.EmpCod, dbo.pr_CotizaDisenoProcesoIMP.idCotiza, dbo.pr_CotizaDisenoProcesoIMP.EstReg FROM dbo.pr_CotizaDisenoProcesoIMP INNER JOIN dbo.ItmTallas ON dbo.pr_CotizaDisenoProcesoIMP.idTalla = dbo.ItmTallas.IdTalla INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoProcesoIMP.SecMaterial = dbo.ItmMae.Secuencial INNER JOIN dbo.pr_GHPlacas ON dbo.pr_CotizaDisenoProcesoIMP.PlacaId = dbo.pr_GHPlacas.idPlaca WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProcesoIMP.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProcesoIMP.EstReg = 'True')</value>
+    <comment>Carga el detalle de procesos de impresion</comment>
+  </data>
 </root>

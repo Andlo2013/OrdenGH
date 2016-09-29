@@ -157,6 +157,7 @@ namespace Ordenes.Controles
             objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
             objCotiza._disenoTroquelCargaDET(model_Cotiza.id);
             objCotiza._disenoAcabadoCargaDET(model_Cotiza.id);
+            objCotiza._disenoProcesoIMPCargaDET(model_Cotiza.id);
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
             //para que cargue solo lo del combo
             _disenoFiltrar();
@@ -170,6 +171,7 @@ namespace Ordenes.Controles
             dis_gcPlacas.DataSource = objCotiza._disenoPlacaFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcTrqouel.DataSource = objCotiza._disenoTroquelFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcAcabados.DataSource = objCotiza._disenoAcabadoFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcProcesoIMP.DataSource = objCotiza._disenoProcesoIMPFiltrar(dis_lueComponente.EditValue.ToInt());
             //calcula los totales de los detalles
             _totales();
         }
@@ -373,6 +375,11 @@ namespace Ordenes.Controles
                 model_Cotiza.Vendedor = rowEmpleado["Nombre"].ToString().Trim();
                 beEplVendedor.Text = rowEmpleado["Nombre"].ToString().Trim();
             }
+        }
+
+        private void dis_btnProcesoIMP_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoProcesoIMPCalcula();
         }
 
         private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
@@ -737,10 +744,11 @@ namespace Ordenes.Controles
 
 
 
-        #endregion
 
         #endregion
 
-        
+        #endregion
+
+       
     }
 }

@@ -30,12 +30,14 @@ namespace Ordenes.Clases
         DataTable dtDisenoTroquel = null;
         DataTable dtDisenoAcabado = null;
         DataTable dtDisenoMaterialCLI = null;
+        DataTable dtDisenoProcesoIMP = null;
         DataTable dtProcesoDET = null;
         
         //DATATABLES PARA OPCIONES Y COMBOS DE LAS GRILLAS
         DataTable dtDisenoPorCOB = null;
         DataTable dtTipoColor= null;
         DataTable dtTipoPlacas = null;
+        DataTable dtCostosProcesoIMP = null;
 
         //////ordenMOD modelo_Orden = new ordenMOD();
         trabajoGenMOD modelo_TrabajoGEN = new trabajoGenMOD();
@@ -61,6 +63,8 @@ namespace Ordenes.Clases
             dtTipoColor = objSQLServer._CargaDataTable(sqlCotizacion.cmb_TipoColor,
                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
             dtTipoPlacas = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPlacas,
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+            dtCostosProcesoIMP = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaCostosProcesoIMP,
                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
         }
 
@@ -602,7 +606,6 @@ namespace Ordenes.Clases
                     rowColor["Material"] = rowFila["Material"];
                     rowColor["TrabajoAncho"] = rowFila["TrabajoAncho"];
                     rowColor["TrabajoAlto"] = rowFila["TrabajoAlto"];
-                    rowColor["Cobertura"] = 0;
                     rowColor["NumPaginas"] = rowFila["NumPaginas"];
                     dtDisenoColor.Rows.Add(rowColor);
                 }
@@ -698,6 +701,7 @@ namespace Ordenes.Clases
                 dtDisenoColor.Columns["GramosXcm2"].DefaultValue=0;
                 dtDisenoColor.Columns["NumPaginas"].DefaultValue = 0;
                 dtDisenoColor.Columns["CostoGramo"].DefaultValue = 0;
+                dtDisenoColor.Columns["Cobertura"].DefaultValue = 0;
                 dtDisenoColor.Columns["Tiraje"].DefaultValue = tiraje;
 
                 _updateColumna(dtDisenoColor, "Tiraje", tiraje);
@@ -1004,12 +1008,12 @@ namespace Ordenes.Clases
                 rowDetalle["areaAplica"] = rowSEL["AplicaA"];
                 rowDetalle["idTallaAcabado"] = rowSEL["idTalla"];
                 rowDetalle["Costo"] = rowSEL["Costo"];
-                _disenoAcabadoAreaAplicacion(rowDetalle);
+                _disenoAcabadoAreaAplica(rowDetalle);
                 _disenoAcabadoOptimizaMAT(rowDetalle);
             }
         }
 
-        private void _disenoAcabadoAreaAplicacion(DataRow rowDetalle)
+        private void _disenoAcabadoAreaAplica(DataRow rowDetalle)
         {
             object ancho = 0;
             object alto = 0;
@@ -1055,12 +1059,12 @@ namespace Ordenes.Clases
                 rowDetalle["SecMaterialAcabado"] = rowMaterial["SecMaterial"];
                 rowDetalle["AcabadoMaterial"] = rowMaterial["Material"];
             }
-        }
-
-        public void _disenoAcabadoGraficar()
-        {
-            frmCortes objCortes = new frmCortes();
-            
+            else
+            {
+                //esto para limpiar en caso previamente tenia un acabado para optimizar el material
+                rowDetalle["SecMaterialAcabado"] = 0;
+                rowDetalle["AcabadoMaterial"] = "";
+            }
         }
 
         //FILTRA LOS MATERIALES DEL ACABADO POR EL COMPONENTE
@@ -1076,6 +1080,96 @@ namespace Ordenes.Clases
             return null;
         }
         #endregion
+
+        #endregion
+
+        #region Diseno-ProcesosImpresion
+
+        public void _disenoProcesoIMPCargaDET(int cotizaID)
+        {
+            try
+            {
+                dtDisenoProcesoIMP = objSQLServer._CargaDataTable(sqlCotizacion.cot_disProcesoIMPDET,
+                    new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
+                dtDisenoProcesoIMP.Columns["NumMinIMP"].Expression = "IIF(NumPliegos<=PliegosXmin OR PliegosXmin=0,1,NumPliegos/PliegosXmin)";
+                dtDisenoProcesoIMP.Columns["TotalLinea"].Expression = "(CostoMinIMP*NumMinIMP)+(CostoXminPP*MinutosPP)";
+
+                dtDisenoProcesoIMP.Columns["PliegosXmin"].DefaultValue = 0;
+                dtDisenoProcesoIMP.Columns["CostoMinIMP"].DefaultValue = 0;
+                dtDisenoProcesoIMP.Columns["CostoXminPP"].DefaultValue = 0;
+                dtDisenoProcesoIMP.Columns["MinutosPP"].DefaultValue = 0;
+
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar recuperar el detalle de acabados", "Cargar Acabados", ex.Message);
+            }
+        }
+
+        //FILTRA LOS PROCESOS DE IMPRESION POR EL COMPONENTE
+        #region disenoProcesoIMPFiltrar
+        public DataView _disenoProcesoIMPFiltrar(int codComponente)
+        {
+            if (dtDisenoProcesoIMP != null)
+            {
+                DataView dvFiltrar = new DataView(dtDisenoProcesoIMP);
+                dvFiltrar.RowFilter = "Componente=" + codComponente;
+                return dvFiltrar;
+            }
+            return null;
+        }
+        #endregion
+
+
+        public void _disenoProcesoIMPCalcula()
+        {
+            dtDisenoProcesoIMP.Rows.Clear();
+            if(dtDisenoArmado!=null && dtDisenoColor != null)
+            {
+                foreach (DataRow rowArmado in dtDisenoArmado.Rows)
+                {
+                    DataRow []rowsPlacas = dtDisenoPlaca.Select("Componente=" + rowArmado["Componente"] +
+                                            "AND SecMaterial=" + rowArmado["SecMaterial"]);
+                    if (rowsPlacas != null)
+                    {
+                        foreach(DataRow rowPlaca in rowsPlacas)
+                        {
+                            DataRow rowProcesoIMP = dtDisenoProcesoIMP.NewRow();
+                            rowProcesoIMP["Componente"] = rowArmado["Componente"];
+                            rowProcesoIMP["idTalla"] = rowArmado["CodTalla"];
+                            rowProcesoIMP["Talla"] = rowArmado["Talla"];
+                            rowProcesoIMP["SecMaterial"] = rowArmado["SecMaterial"];
+                            rowProcesoIMP["Material"] = rowArmado["Material"];
+                            rowProcesoIMP["PlacaID"] = rowArmado["CodPlaca"];
+                            rowProcesoIMP["Placa"] = rowArmado["Placa"];
+                            rowProcesoIMP["NumColores"] = rowPlaca["NumColores"];
+                            rowProcesoIMP["NumPliegos"] = rowArmado["PliegoCotizados"];
+                            
+                            dtDisenoProcesoIMP.Rows.Add(rowProcesoIMP);
+                            _disenoProcesoIMPCostos(rowProcesoIMP);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void _disenoProcesoIMPCostos(DataRow rowProcesoIMP)
+        {
+            if (dtCostosProcesoIMP != null)
+            {
+                //BUSCA LOS COSTOS DE PROCESO DE IMPRESION FILTRADO POR: TALLA(GRUPO DE MATERIAL A IMPRIMIR), PLACA, NUMERO DE COLORES
+                DataRow [] rowCosto = dtCostosProcesoIMP.Select("idTalla=" + rowProcesoIMP["idTalla"] +
+                    "AND idPlaca=" + rowProcesoIMP["PlacaID"]+" AND NumColores="+rowProcesoIMP["NumColores"]);
+
+                if (rowCosto != null && rowCosto.Length == 1)
+                {
+                    rowProcesoIMP["PliegosXmin"] = rowCosto[0]["NumPliegosXmin"];
+                    rowProcesoIMP["CostoMinIMP"] = rowCosto[0]["CostoImpMin"];
+                    rowProcesoIMP["CostoXminPP"] = rowCosto[0]["CostoMinPP"];
+                    rowProcesoIMP["MinutosPP"] = rowCosto[0]["NumMinPP"];
+                }
+            }
+        }
 
         #endregion
 
