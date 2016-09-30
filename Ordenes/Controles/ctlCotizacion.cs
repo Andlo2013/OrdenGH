@@ -379,7 +379,7 @@ namespace Ordenes.Controles
 
         private void dis_btnProcesoIMP_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoProcesoIMPCalcula();
+            objCotiza._eli_disenoProcesoIMPCalcula();
         }
 
         private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
@@ -670,14 +670,14 @@ namespace Ordenes.Controles
 
         private void mnuAgregaPlaca_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoPlacaAddPlaca(dis_lueComponente.EditValue);
+            objCotiza._eli_disenoPlacaAddPlaca(dis_lueComponente.EditValue);
             _disenoPlacasTotales();
         }
 
         private void mnuEliminaPlaca_Click(object sender, EventArgs e)
         {
             DataRow rowEliminar = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
-            objCotiza._disenoPlacaElimina(rowEliminar);
+            objCotiza._eli_disenoPlacaElimina(rowEliminar);
             _disenoPlacasTotales();
         }
 
@@ -745,10 +745,21 @@ namespace Ordenes.Controles
 
 
 
-        #endregion
 
         #endregion
 
-       
+        #endregion
+
+        private void dis_gvPlacas_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "NumColores")
+            {
+                if (dis_gvPlacas.IsValidRowHandle(dis_gvPlacas.FocusedRowHandle))
+                {
+                    DataRow rowPlaca = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
+                    objCotiza._disenoPlacaCambiaNumColores(rowPlaca);
+                }
+            }
+        }
     }
 }

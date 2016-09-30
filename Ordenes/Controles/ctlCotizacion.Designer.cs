@@ -201,15 +201,20 @@
             this.dis_btnProcesoIMP = new DevExpress.XtraEditors.SimpleButton();
             this.dis_gcProcesoIMP = new DevExpress.XtraGrid.GridControl();
             this.dis_bgvProcesoIMP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.dis_bandaMaterial = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.dis_gcColTallaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColMaterialI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColNumColoresI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dis_gcColPlacaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dis_bandaImpresion = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.dis_gcColCostoXminuto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColMinImpresion = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColPliegosXminuto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColNumPliegos = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dis_bandaPuestaPunto = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.dis_gcColCostoXminutoPP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_gcColMinutosPP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.dis_bandaTotal = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.dis_gcColTotalLineaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.xtpControlPRD = new DevExpress.XtraTab.XtraTabPage();
             this.xtpServiciosEXT = new DevExpress.XtraTab.XtraTabPage();
@@ -300,11 +305,6 @@
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
             this.deFechaENT = new DevExpress.XtraEditors.DateEdit();
             this.beArticulo = new DevExpress.XtraEditors.ButtonEdit();
-            this.dis_gcColPlacaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_bandaMaterial = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_bandaImpresion = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_bandaPuestaPunto = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_bandaTotal = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcPestanas)).BeginInit();
@@ -2196,6 +2196,7 @@
             this.dis_gvPlacas.GridControl = this.dis_gcPlacas;
             this.dis_gvPlacas.Name = "dis_gvPlacas";
             this.dis_gvPlacas.OptionsView.ShowGroupPanel = false;
+            this.dis_gvPlacas.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dis_gvPlacas_CellValueChanged);
             // 
             // dis_gcColMaterialP
             // 
@@ -3024,6 +3025,20 @@
             this.dis_bgvProcesoIMP.OptionsView.ColumnAutoWidth = false;
             this.dis_bgvProcesoIMP.OptionsView.ShowGroupPanel = false;
             // 
+            // dis_bandaMaterial
+            // 
+            this.dis_bandaMaterial.Columns.Add(this.dis_gcColTallaI);
+            this.dis_bandaMaterial.Columns.Add(this.dis_gcColMaterialI);
+            this.dis_bandaMaterial.Columns.Add(this.dis_gcColNumColoresI);
+            this.dis_bandaMaterial.Columns.Add(this.dis_gcColPlacaI);
+            this.dis_bandaMaterial.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.dis_bandaMaterial.Name = "dis_bandaMaterial";
+            this.dis_bandaMaterial.OptionsBand.AllowHotTrack = false;
+            this.dis_bandaMaterial.OptionsBand.AllowMove = false;
+            this.dis_bandaMaterial.OptionsBand.AllowPress = false;
+            this.dis_bandaMaterial.VisibleIndex = 0;
+            this.dis_bandaMaterial.Width = 380;
+            // 
             // dis_gcColTallaI
             // 
             this.dis_gcColTallaI.Caption = "Grupo";
@@ -3073,6 +3088,27 @@
             this.dis_gcColNumColoresI.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcColNumColoresI.Visible = true;
             this.dis_gcColNumColoresI.Width = 70;
+            // 
+            // dis_gcColPlacaI
+            // 
+            this.dis_gcColPlacaI.Caption = "Placa";
+            this.dis_gcColPlacaI.FieldName = "Placa";
+            this.dis_gcColPlacaI.Name = "dis_gcColPlacaI";
+            this.dis_gcColPlacaI.Visible = true;
+            this.dis_gcColPlacaI.Width = 60;
+            // 
+            // dis_bandaImpresion
+            // 
+            this.dis_bandaImpresion.Caption = "Proceso de Impresión";
+            this.dis_bandaImpresion.Columns.Add(this.dis_gcColCostoXminuto);
+            this.dis_bandaImpresion.Columns.Add(this.dis_gcColMinImpresion);
+            this.dis_bandaImpresion.Columns.Add(this.dis_gcColPliegosXminuto);
+            this.dis_bandaImpresion.Columns.Add(this.dis_gcColNumPliegos);
+            this.dis_bandaImpresion.Name = "dis_bandaImpresion";
+            this.dis_bandaImpresion.OptionsBand.AllowMove = false;
+            this.dis_bandaImpresion.OptionsBand.AllowPress = false;
+            this.dis_bandaImpresion.VisibleIndex = 1;
+            this.dis_bandaImpresion.Width = 270;
             // 
             // dis_gcColCostoXminuto
             // 
@@ -3146,6 +3182,17 @@
             this.dis_gcColNumPliegos.Visible = true;
             this.dis_gcColNumPliegos.Width = 70;
             // 
+            // dis_bandaPuestaPunto
+            // 
+            this.dis_bandaPuestaPunto.Caption = "Prepara Máquina";
+            this.dis_bandaPuestaPunto.Columns.Add(this.dis_gcColCostoXminutoPP);
+            this.dis_bandaPuestaPunto.Columns.Add(this.dis_gcColMinutosPP);
+            this.dis_bandaPuestaPunto.Name = "dis_bandaPuestaPunto";
+            this.dis_bandaPuestaPunto.OptionsBand.AllowMove = false;
+            this.dis_bandaPuestaPunto.OptionsBand.AllowPress = false;
+            this.dis_bandaPuestaPunto.VisibleIndex = 2;
+            this.dis_bandaPuestaPunto.Width = 130;
+            // 
             // dis_gcColCostoXminutoPP
             // 
             this.dis_gcColCostoXminutoPP.Caption = "Costo Min";
@@ -3181,6 +3228,16 @@
             this.dis_gcColMinutosPP.OptionsFilter.AllowAutoFilter = false;
             this.dis_gcColMinutosPP.Visible = true;
             this.dis_gcColMinutosPP.Width = 60;
+            // 
+            // dis_bandaTotal
+            // 
+            this.dis_bandaTotal.Columns.Add(this.dis_gcColTotalLineaI);
+            this.dis_bandaTotal.Name = "dis_bandaTotal";
+            this.dis_bandaTotal.OptionsBand.AllowHotTrack = false;
+            this.dis_bandaTotal.OptionsBand.AllowMove = false;
+            this.dis_bandaTotal.OptionsBand.AllowPress = false;
+            this.dis_bandaTotal.VisibleIndex = 3;
+            this.dis_bandaTotal.Width = 80;
             // 
             // dis_gcColTotalLineaI
             // 
@@ -4296,62 +4353,6 @@
             this.beArticulo.Size = new System.Drawing.Size(342, 20);
             this.beArticulo.TabIndex = 70;
             this.beArticulo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beArticulo_ButtonClick);
-            // 
-            // dis_gcColPlacaI
-            // 
-            this.dis_gcColPlacaI.Caption = "Placa";
-            this.dis_gcColPlacaI.FieldName = "Placa";
-            this.dis_gcColPlacaI.Name = "dis_gcColPlacaI";
-            this.dis_gcColPlacaI.Visible = true;
-            this.dis_gcColPlacaI.Width = 60;
-            // 
-            // dis_bandaMaterial
-            // 
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColTallaI);
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColMaterialI);
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColNumColoresI);
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColPlacaI);
-            this.dis_bandaMaterial.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.dis_bandaMaterial.Name = "dis_bandaMaterial";
-            this.dis_bandaMaterial.OptionsBand.AllowHotTrack = false;
-            this.dis_bandaMaterial.OptionsBand.AllowMove = false;
-            this.dis_bandaMaterial.OptionsBand.AllowPress = false;
-            this.dis_bandaMaterial.VisibleIndex = 0;
-            this.dis_bandaMaterial.Width = 380;
-            // 
-            // dis_bandaImpresion
-            // 
-            this.dis_bandaImpresion.Caption = "Proceso de Impresión";
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColCostoXminuto);
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColMinImpresion);
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColPliegosXminuto);
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColNumPliegos);
-            this.dis_bandaImpresion.Name = "dis_bandaImpresion";
-            this.dis_bandaImpresion.OptionsBand.AllowMove = false;
-            this.dis_bandaImpresion.OptionsBand.AllowPress = false;
-            this.dis_bandaImpresion.VisibleIndex = 1;
-            this.dis_bandaImpresion.Width = 270;
-            // 
-            // dis_bandaPuestaPunto
-            // 
-            this.dis_bandaPuestaPunto.Caption = "Prepara Máquina";
-            this.dis_bandaPuestaPunto.Columns.Add(this.dis_gcColCostoXminutoPP);
-            this.dis_bandaPuestaPunto.Columns.Add(this.dis_gcColMinutosPP);
-            this.dis_bandaPuestaPunto.Name = "dis_bandaPuestaPunto";
-            this.dis_bandaPuestaPunto.OptionsBand.AllowMove = false;
-            this.dis_bandaPuestaPunto.OptionsBand.AllowPress = false;
-            this.dis_bandaPuestaPunto.VisibleIndex = 2;
-            this.dis_bandaPuestaPunto.Width = 130;
-            // 
-            // dis_bandaTotal
-            // 
-            this.dis_bandaTotal.Columns.Add(this.dis_gcColTotalLineaI);
-            this.dis_bandaTotal.Name = "dis_bandaTotal";
-            this.dis_bandaTotal.OptionsBand.AllowHotTrack = false;
-            this.dis_bandaTotal.OptionsBand.AllowMove = false;
-            this.dis_bandaTotal.OptionsBand.AllowPress = false;
-            this.dis_bandaTotal.VisibleIndex = 3;
-            this.dis_bandaTotal.Width = 80;
             // 
             // ctlCotizacion
             // 
