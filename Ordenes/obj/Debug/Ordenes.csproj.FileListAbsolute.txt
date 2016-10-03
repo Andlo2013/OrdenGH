@@ -288,3 +288,15 @@ C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.PivotGrid.v16.1.Core.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraPivotGrid.v16.1.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.PivotGrid.v16.1.Core.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\DevExpress.XtraPivotGrid.v16.1.xml
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.PivotGrid.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.PivotGrid.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.PivotGrid.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.PivotGrid.v16.1.Core.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraPivotGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraPivotGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraPivotGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraPivotGrid.v16.1.resources.dll

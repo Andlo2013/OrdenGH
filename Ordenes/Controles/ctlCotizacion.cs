@@ -27,6 +27,8 @@ namespace Ordenes.Controles
 
         private void ctlCotizacion_Load(object sender, EventArgs e)
         {
+            pgf_CostoComponente.DataSource = objCotiza._pivot();
+            pgf_CostoComponente.get
             _inicializa();
         }
 
@@ -158,7 +160,10 @@ namespace Ordenes.Controles
             objCotiza._disenoTroquelCargaDET(model_Cotiza.id);
             objCotiza._disenoAcabadoCargaDET(model_Cotiza.id);
             objCotiza._disenoProcesoIMPCargaDET(model_Cotiza.id);
+            objCotiza._disenoAccesoriosCargaDET(model_Cotiza.id);
+
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
+            
             //para que cargue solo lo del combo
             _disenoFiltrar();
         }
@@ -172,6 +177,7 @@ namespace Ordenes.Controles
             dis_gcTrqouel.DataSource = objCotiza._disenoTroquelFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcAcabados.DataSource = objCotiza._disenoAcabadoFiltrar(dis_lueComponente.EditValue.ToInt());
             dis_gcProcesoIMP.DataSource = objCotiza._disenoProcesoIMPFiltrar(dis_lueComponente.EditValue.ToInt());
+            dis_gcAccesorios.DataSource = objCotiza._disenoAccesoriosFiltrar(dis_lueComponente.EditValue.ToInt());
             //calcula los totales de los detalles
             _totales();
         }
@@ -323,15 +329,9 @@ namespace Ordenes.Controles
         #endregion
 
         //Controles
-        #region Controles
+        #region EVENTOS-CONTROLES
 
         #region EVENTOS-CONTROLES-GENERALES
-
-        private void btnVistaPRV_Click(object sender, EventArgs e)
-        {
-            frmCortes obj = new frmCortes();
-            obj.ShowDialog();
-        }
 
         private void beNumeroCOT_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
@@ -375,11 +375,6 @@ namespace Ordenes.Controles
                 model_Cotiza.Vendedor = rowEmpleado["Nombre"].ToString().Trim();
                 beEplVendedor.Text = rowEmpleado["Nombre"].ToString().Trim();
             }
-        }
-
-        private void dis_btnProcesoIMP_Click(object sender, EventArgs e)
-        {
-            objCotiza._eli_disenoProcesoIMPCalcula();
         }
 
         private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
@@ -488,6 +483,20 @@ namespace Ordenes.Controles
 
         #endregion
 
+        #region EVENTOS-DISENO-PLACAS
+        private void dis_gvPlacas_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            if (e.Column.FieldName == "NumColores")
+            {
+                if (dis_gvPlacas.IsValidRowHandle(dis_gvPlacas.FocusedRowHandle))
+                {
+                    DataRow rowPlaca = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
+                    objCotiza._disenoPlacaCambiaNumColores(rowPlaca);
+                }
+            }
+        }
+        #endregion
+
         #endregion
 
         //Barra-Estandar
@@ -539,8 +548,7 @@ namespace Ordenes.Controles
         #region cmBlockElimina
         private void mnuEliminaRegBlock_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = blo_gvCopias.GetDataRow(blo_gvCopias.FocusedRowHandle);
-            objCotiza._blockColorElimina(rowEliminar);
+            objCotiza._blockColorElimina(_getDataRow(blo_gvCopias));
         }
         #endregion
 
@@ -554,8 +562,7 @@ namespace Ordenes.Controles
 
         private void mnuQuitarDestino_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = cli_gvDestino.GetDataRow(cli_gvDestino.FocusedRowHandle);
-            objCotiza._clienteDESTElimina(rowEliminar);
+            objCotiza._clienteDESTElimina(_getDataRow(cli_gvDestino));
         }
 
         #endregion
@@ -611,7 +618,7 @@ namespace Ordenes.Controles
         {
             if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
             {
-                DataRow rowSEL = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
+                DataRow rowSEL = _getDataRow(dis_bgvArmados);
                 switch (accion)
                 {
                     case "CALCULA":
@@ -660,29 +667,13 @@ namespace Ordenes.Controles
 
         private void mnuEliminaRegDisenoColor_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
-            objCotiza._disenoColorElimina(rowEliminar);
+            objCotiza._disenoColorElimina(_getDataRow(dis_gvColores));
             _disenoColorTotales();
         }
-        #endregion
-
-        #region cmDisenoPlaca
-
-        private void mnuAgregaPlaca_Click(object sender, EventArgs e)
-        {
-            objCotiza._eli_disenoPlacaAddPlaca(dis_lueComponente.EditValue);
-            _disenoPlacasTotales();
-        }
-
-        private void mnuEliminaPlaca_Click(object sender, EventArgs e)
-        {
-            DataRow rowEliminar = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
-            objCotiza._eli_disenoPlacaElimina(rowEliminar);
-            _disenoPlacasTotales();
-        }
 
         #endregion
 
+        //Diseño-Troquel
         #region cmDisenoTroquel
 
         private void mnuAgregaRegTroquel_Click(object sender, EventArgs e)
@@ -693,13 +684,13 @@ namespace Ordenes.Controles
 
         private void mnuEliminaRegTroquel_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = dis_gvTroquel.GetDataRow(dis_gvTroquel.FocusedRowHandle);
-            objCotiza._disenoTroquelElimina(rowEliminar);
+            objCotiza._disenoTroquelElimina(_getDataRow(dis_gvTroquel));
             _disenoTroquelTotales();
         }
 
         #endregion
 
+        //Diseño-Acabado
         #region cmDisenoAcabado
 
         private void mnuAgregaAcabado_Click(object sender, EventArgs e)
@@ -725,6 +716,7 @@ namespace Ordenes.Controles
 
         //Procesos
         #region cmProcesos
+
         private void mnuAgregaProceso_Click(object sender, EventArgs e)
         {
             objCotiza._procesoAgregaMAQ(Convert.ToInt32(seTiraje.Value));
@@ -732,34 +724,31 @@ namespace Ordenes.Controles
 
         private void mnuQuitarProceso_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = gvProcesos.GetDataRow(gvProcesos.FocusedRowHandle);
-            objCotiza._procesoElimina(rowEliminar);
+            objCotiza._procesoElimina(_getDataRow(gvProcesos));
         }
 
-
-
-
-
-
-
-
-
-
-
         #endregion
 
         #endregion
 
-        private void dis_gvPlacas_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void mnuAgregaAccesorio_Click(object sender, EventArgs e)
         {
-            if (e.Column.FieldName == "NumColores")
+            objCotiza._disenoAccesorioAgregar(dis_lueComponente.EditValue,seTiraje.EditValue.ToInt());
+        }
+
+        private void mnuEliminaAccesorio_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoAccesorioEliminar(_getDataRow(dis_gvAccesorios));
+        }
+
+        private DataRow _getDataRow(GridView gvGrilla)
+        {
+            if (gvGrilla.IsValidRowHandle(gvGrilla.FocusedRowHandle))
             {
-                if (dis_gvPlacas.IsValidRowHandle(dis_gvPlacas.FocusedRowHandle))
-                {
-                    DataRow rowPlaca = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
-                    objCotiza._disenoPlacaCambiaNumColores(rowPlaca);
-                }
+                DataRow row = gvGrilla.GetDataRow(gvGrilla.FocusedRowHandle);
+                return row;
             }
+            return null;
         }
     }
 }

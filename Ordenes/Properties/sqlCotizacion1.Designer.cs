@@ -196,11 +196,29 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoAcabado.SecDetalle, dbo.pr_CotizaDisenoAcabado.CmComponente AS Componente, dbo.pr_CotizaDisenoAcabado.idTalla AS CodTalla, dbo.pr_CotizaDisenoAcabado.SecMaterial,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterial)) AS Material, dbo.pr_CotizaDisenoAcabado.idAcabado, dbo.pr_GHAcabados.Descripcion AS Acabado, dbo.pr_CotizaDisenoAcabado.areaAplica, dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado, dbo.pr_CotizaDisenoAcabado [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoAcabado.SecDetalle, dbo.pr_CotizaDisenoAcabado.CmbComponente AS Componente, dbo.pr_CotizaDisenoAcabado.idTalla AS CodTalla, dbo.pr_CotizaDisenoAcabado.SecMaterial,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterial)) AS Material, dbo.pr_CotizaDisenoAcabado.idAcabado, dbo.pr_GHAcabados.Descripcion AS Acabado, dbo.pr_CotizaDisenoAcabado.areaAplica, dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado, dbo.pr_CotizaDisenoAcabad [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string cot_disAcabadosDET {
             get {
                 return ResourceManager.GetString("cot_disAcabadosDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT TOP 20 dbo.ItmMae.IdTalla, dbo.ItmMae.ItmCod AS Código, dbo.ItmMae.ItmDsc AS Descripción, dbo.ItmMae.Secuencial, dbo.ItmBod.ItmCos AS Costo FROM dbo.ItmMae INNER JOIN dbo.ItmBod ON dbo.ItmMae.EmpCod = dbo.ItmBod.EmpCod AND dbo.ItmMae.ItmCod = dbo.ItmBod.ItmCod WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.ItmBod.EmpCod = @CodEmpresa) AND (dbo.ItmBod.BodCod = @CodBodega) AND (dbo.ItmMae.ItmTip = &apos;I&apos;) AND {0} LIKE @paramExtra ORDER BY dbo.ItmMae.ItmDsc ASC.
+        /// </summary>
+        internal static string cot_disAccesoriosAddAccesorio {
+            get {
+                return ResourceManager.GetString("cot_disAccesoriosAddAccesorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoAccesorio.SecDetalle, dbo.pr_CotizaDisenoAccesorio.CmbComponente AS Componente, dbo.pr_CotizaDisenoAccesorio.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoAccesorio.Tiraje, dbo.pr_CotizaDisenoAccesorio.Cantidad, dbo.pr_CotizaDisenoAccesorio.Costo, dbo.pr_CotizaDisenoAccesorio.TotalLinea FROM dbo.pr_CotizaDisenoAccesorio INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoAccesorio.SecMaterial = dbo.ItmMae.Secuencial WHERE (dbo.pr_CotizaDisenoAccesorio.idCotiza = @cotizaID) [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string cot_disAccesoriosDET {
+            get {
+                return ResourceManager.GetString("cot_disAccesoriosDET", resourceCulture);
             }
         }
         

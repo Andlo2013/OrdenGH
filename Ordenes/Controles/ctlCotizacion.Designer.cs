@@ -141,9 +141,6 @@
             this.dis_seTotalPlacas = new DevExpress.XtraEditors.SpinEdit();
             this.dis_seNumPlacas = new DevExpress.XtraEditors.SpinEdit();
             this.dis_gcPlacas = new DevExpress.XtraGrid.GridControl();
-            this.cmDisenoPlaca = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuAgregaPlaca = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuEliminaPlaca = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_gvPlacas = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dis_gcColMaterialP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcColPlacaP = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -187,6 +184,14 @@
             this.dis_gcAplicaA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gcTotalLineaA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpAccesorios = new DevExpress.XtraTab.XtraTabPage();
+            this.dis_gcAccesorios = new DevExpress.XtraGrid.GridControl();
+            this.dis_gvAccesorios = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dis_gcColMaterialS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColTirajeS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColCantidadS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_riseCantAccesorio = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.dis_gcColCostoS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gcColTotalLineaS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpProcesos = new DevExpress.XtraTab.XtraTabPage();
             this.gc_Procesos = new DevExpress.XtraGrid.GridControl();
             this.cmProcesos = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -198,7 +203,6 @@
             this.proc_gcColCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpProcesosIMP = new DevExpress.XtraTab.XtraTabPage();
-            this.dis_btnProcesoIMP = new DevExpress.XtraEditors.SimpleButton();
             this.dis_gcProcesoIMP = new DevExpress.XtraGrid.GridControl();
             this.dis_bgvProcesoIMP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.dis_bandaMaterial = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
@@ -301,10 +305,18 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtNombreCLI = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.btnVistaPRV = new DevExpress.XtraEditors.SimpleButton();
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
             this.deFechaENT = new DevExpress.XtraEditors.DateEdit();
             this.beArticulo = new DevExpress.XtraEditors.ButtonEdit();
+            this.cmDisenoAccesorios = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAgregaAccesorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEliminaAccesorio = new System.Windows.Forms.ToolStripMenuItem();
+            this.pgf_CostoComponente = new DevExpress.XtraPivotGrid.PivotGridControl();
+            this.pgfArmados = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pgfColores = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pgfPlacas = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pgfTroquel = new DevExpress.XtraPivotGrid.PivotGridField();
+            this.pgfComponente = new DevExpress.XtraPivotGrid.PivotGridField();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtcPestanas)).BeginInit();
@@ -352,7 +364,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalPlacas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seNumPlacas.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).BeginInit();
-            this.cmDisenoPlaca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresionP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseNumColores)).BeginInit();
@@ -366,6 +377,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcAcabados)).BeginInit();
             this.cmDisenoAcabado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvAcabados)).BeginInit();
+            this.dis_xtpAccesorios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAccesorios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAccesorios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_riseCantAccesorio)).BeginInit();
             this.dis_xtpProcesos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).BeginInit();
             this.cmProcesos.SuspendLayout();
@@ -426,6 +441,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beArticulo.Properties)).BeginInit();
+            this.cmDisenoAccesorios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pgf_CostoComponente)).BeginInit();
             this.SuspendLayout();
             // 
             // barraStandar
@@ -462,7 +479,6 @@
             this.panel1.Controls.Add(this.labelControl6);
             this.panel1.Controls.Add(this.txtNombreCLI);
             this.panel1.Controls.Add(this.labelControl8);
-            this.panel1.Controls.Add(this.btnVistaPRV);
             this.panel1.Controls.Add(this.beNumeroCOT);
             this.panel1.Controls.Add(this.deFechaENT);
             this.panel1.Controls.Add(this.beArticulo);
@@ -2144,7 +2160,6 @@
             // 
             // dis_gcPlacas
             // 
-            this.dis_gcPlacas.ContextMenuStrip = this.cmDisenoPlaca;
             this.dis_gcPlacas.Location = new System.Drawing.Point(7, 4);
             this.dis_gcPlacas.MainView = this.dis_gvPlacas;
             this.dis_gcPlacas.Name = "dis_gcPlacas";
@@ -2155,30 +2170,6 @@
             this.dis_gcPlacas.TabIndex = 0;
             this.dis_gcPlacas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dis_gvPlacas});
-            // 
-            // cmDisenoPlaca
-            // 
-            this.cmDisenoPlaca.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuAgregaPlaca,
-            this.mnuEliminaPlaca});
-            this.cmDisenoPlaca.Name = "contextMenuStrip1";
-            this.cmDisenoPlaca.Size = new System.Drawing.Size(220, 48);
-            // 
-            // mnuAgregaPlaca
-            // 
-            this.mnuAgregaPlaca.Name = "mnuAgregaPlaca";
-            this.mnuAgregaPlaca.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.mnuAgregaPlaca.Size = new System.Drawing.Size(219, 22);
-            this.mnuAgregaPlaca.Text = "Agrega Registro";
-            this.mnuAgregaPlaca.Click += new System.EventHandler(this.mnuAgregaPlaca_Click);
-            // 
-            // mnuEliminaPlaca
-            // 
-            this.mnuEliminaPlaca.Name = "mnuEliminaPlaca";
-            this.mnuEliminaPlaca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
-            this.mnuEliminaPlaca.Size = new System.Drawing.Size(219, 22);
-            this.mnuEliminaPlaca.Text = "Eliminar Registro";
-            this.mnuEliminaPlaca.Click += new System.EventHandler(this.mnuEliminaPlaca_Click);
             // 
             // dis_gvPlacas
             // 
@@ -2848,9 +2839,157 @@
             // 
             // dis_xtpAccesorios
             // 
+            this.dis_xtpAccesorios.Controls.Add(this.dis_gcAccesorios);
             this.dis_xtpAccesorios.Name = "dis_xtpAccesorios";
             this.dis_xtpAccesorios.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpAccesorios.Text = "Accesorios";
+            // 
+            // dis_gcAccesorios
+            // 
+            this.dis_gcAccesorios.ContextMenuStrip = this.cmDisenoAccesorios;
+            this.dis_gcAccesorios.Location = new System.Drawing.Point(7, 4);
+            this.dis_gcAccesorios.MainView = this.dis_gvAccesorios;
+            this.dis_gcAccesorios.Name = "dis_gcAccesorios";
+            this.dis_gcAccesorios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.dis_riseCantAccesorio});
+            this.dis_gcAccesorios.Size = new System.Drawing.Size(834, 235);
+            this.dis_gcAccesorios.TabIndex = 0;
+            this.dis_gcAccesorios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dis_gvAccesorios});
+            // 
+            // dis_gvAccesorios
+            // 
+            this.dis_gvAccesorios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dis_gcColMaterialS,
+            this.dis_gcColTirajeS,
+            this.dis_gcColCantidadS,
+            this.dis_gcColCostoS,
+            this.dis_gcColTotalLineaS});
+            this.dis_gvAccesorios.GridControl = this.dis_gcAccesorios;
+            this.dis_gvAccesorios.Name = "dis_gvAccesorios";
+            this.dis_gvAccesorios.OptionsView.ShowGroupPanel = false;
+            // 
+            // dis_gcColMaterialS
+            // 
+            this.dis_gcColMaterialS.Caption = "Descripción";
+            this.dis_gcColMaterialS.FieldName = "Material";
+            this.dis_gcColMaterialS.Name = "dis_gcColMaterialS";
+            this.dis_gcColMaterialS.OptionsColumn.AllowEdit = false;
+            this.dis_gcColMaterialS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialS.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColMaterialS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialS.OptionsColumn.AllowMove = false;
+            this.dis_gcColMaterialS.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColMaterialS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColMaterialS.OptionsColumn.ReadOnly = true;
+            this.dis_gcColMaterialS.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColMaterialS.ToolTip = "Descripción del accesorio";
+            this.dis_gcColMaterialS.Visible = true;
+            this.dis_gcColMaterialS.VisibleIndex = 0;
+            this.dis_gcColMaterialS.Width = 436;
+            // 
+            // dis_gcColTirajeS
+            // 
+            this.dis_gcColTirajeS.Caption = "Tiraje";
+            this.dis_gcColTirajeS.DisplayFormat.FormatString = "N0";
+            this.dis_gcColTirajeS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcColTirajeS.FieldName = "Tiraje";
+            this.dis_gcColTirajeS.Name = "dis_gcColTirajeS";
+            this.dis_gcColTirajeS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTirajeS.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColTirajeS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTirajeS.OptionsColumn.AllowMove = false;
+            this.dis_gcColTirajeS.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColTirajeS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTirajeS.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColTirajeS.ToolTip = "Cantidad de items que se va a producir";
+            this.dis_gcColTirajeS.Visible = true;
+            this.dis_gcColTirajeS.VisibleIndex = 1;
+            this.dis_gcColTirajeS.Width = 138;
+            // 
+            // dis_gcColCantidadS
+            // 
+            this.dis_gcColCantidadS.Caption = "Cantidad";
+            this.dis_gcColCantidadS.ColumnEdit = this.dis_riseCantAccesorio;
+            this.dis_gcColCantidadS.DisplayFormat.FormatString = "N2";
+            this.dis_gcColCantidadS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcColCantidadS.FieldName = "Cantidad";
+            this.dis_gcColCantidadS.Name = "dis_gcColCantidadS";
+            this.dis_gcColCantidadS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCantidadS.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColCantidadS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCantidadS.OptionsColumn.AllowMove = false;
+            this.dis_gcColCantidadS.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColCantidadS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCantidadS.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColCantidadS.ToolTip = "Cantidad necesaria";
+            this.dis_gcColCantidadS.Visible = true;
+            this.dis_gcColCantidadS.VisibleIndex = 2;
+            this.dis_gcColCantidadS.Width = 158;
+            // 
+            // dis_riseCantAccesorio
+            // 
+            this.dis_riseCantAccesorio.AutoHeight = false;
+            this.dis_riseCantAccesorio.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dis_riseCantAccesorio.DisplayFormat.FormatString = "N2";
+            this.dis_riseCantAccesorio.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_riseCantAccesorio.EditFormat.FormatString = "N2";
+            this.dis_riseCantAccesorio.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_riseCantAccesorio.Mask.EditMask = "N2";
+            this.dis_riseCantAccesorio.MaxValue = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            131072});
+            this.dis_riseCantAccesorio.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.dis_riseCantAccesorio.Name = "dis_riseCantAccesorio";
+            // 
+            // dis_gcColCostoS
+            // 
+            this.dis_gcColCostoS.Caption = "Costo";
+            this.dis_gcColCostoS.DisplayFormat.FormatString = "e3";
+            this.dis_gcColCostoS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcColCostoS.FieldName = "Costo";
+            this.dis_gcColCostoS.Name = "dis_gcColCostoS";
+            this.dis_gcColCostoS.OptionsColumn.AllowEdit = false;
+            this.dis_gcColCostoS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoS.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColCostoS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoS.OptionsColumn.AllowMove = false;
+            this.dis_gcColCostoS.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColCostoS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColCostoS.OptionsColumn.ReadOnly = true;
+            this.dis_gcColCostoS.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColCostoS.ToolTip = "Costo del accesorio";
+            this.dis_gcColCostoS.Visible = true;
+            this.dis_gcColCostoS.VisibleIndex = 3;
+            this.dis_gcColCostoS.Width = 166;
+            // 
+            // dis_gcColTotalLineaS
+            // 
+            this.dis_gcColTotalLineaS.Caption = "Total";
+            this.dis_gcColTotalLineaS.DisplayFormat.FormatString = "N2";
+            this.dis_gcColTotalLineaS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.dis_gcColTotalLineaS.FieldName = "TotalLinea";
+            this.dis_gcColTotalLineaS.Name = "dis_gcColTotalLineaS";
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowEdit = false;
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowMove = false;
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColTotalLineaS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColTotalLineaS.OptionsColumn.ReadOnly = true;
+            this.dis_gcColTotalLineaS.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColTotalLineaS.ToolTip = "Tiraje*Cantidad*Costo";
+            this.dis_gcColTotalLineaS.Visible = true;
+            this.dis_gcColTotalLineaS.VisibleIndex = 4;
+            this.dis_gcColTotalLineaS.Width = 180;
             // 
             // dis_xtpProcesos
             // 
@@ -2976,27 +3115,17 @@
             // 
             // dis_xtpProcesosIMP
             // 
-            this.dis_xtpProcesosIMP.Controls.Add(this.dis_btnProcesoIMP);
             this.dis_xtpProcesosIMP.Controls.Add(this.dis_gcProcesoIMP);
             this.dis_xtpProcesosIMP.Name = "dis_xtpProcesosIMP";
             this.dis_xtpProcesosIMP.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpProcesosIMP.Text = "Procesos Impresión";
-            // 
-            // dis_btnProcesoIMP
-            // 
-            this.dis_btnProcesoIMP.Location = new System.Drawing.Point(663, 216);
-            this.dis_btnProcesoIMP.Name = "dis_btnProcesoIMP";
-            this.dis_btnProcesoIMP.Size = new System.Drawing.Size(178, 23);
-            this.dis_btnProcesoIMP.TabIndex = 1;
-            this.dis_btnProcesoIMP.Text = "Generar Proceso Impresión";
-            this.dis_btnProcesoIMP.Click += new System.EventHandler(this.dis_btnProcesoIMP_Click);
             // 
             // dis_gcProcesoIMP
             // 
             this.dis_gcProcesoIMP.Location = new System.Drawing.Point(3, 3);
             this.dis_gcProcesoIMP.MainView = this.dis_bgvProcesoIMP;
             this.dis_gcProcesoIMP.Name = "dis_gcProcesoIMP";
-            this.dis_gcProcesoIMP.Size = new System.Drawing.Size(838, 207);
+            this.dis_gcProcesoIMP.Size = new System.Drawing.Size(838, 236);
             this.dis_gcProcesoIMP.TabIndex = 0;
             this.dis_gcProcesoIMP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.dis_bgvProcesoIMP});
@@ -3818,6 +3947,7 @@
             // 
             // xtpOtros
             // 
+            this.xtpOtros.Controls.Add(this.pgf_CostoComponente);
             this.xtpOtros.Controls.Add(this.lueLineaPRD);
             this.xtpOtros.Controls.Add(this.labelControl13);
             this.xtpOtros.Controls.Add(this.txtEplCotizador);
@@ -3868,7 +3998,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(6, 87);
+            this.labelControl12.Location = new System.Drawing.Point(470, 117);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(50, 13);
             this.labelControl12.TabIndex = 74;
@@ -3876,14 +4006,14 @@
             // 
             // beEplVendedor
             // 
-            this.beEplVendedor.Location = new System.Drawing.Point(89, 84);
+            this.beEplVendedor.Location = new System.Drawing.Point(573, 110);
             this.beEplVendedor.Name = "beEplVendedor";
             this.beEplVendedor.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.beEplVendedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.beEplVendedor.Properties.MaxLength = 50;
             this.beEplVendedor.Properties.ReadOnly = true;
-            this.beEplVendedor.Size = new System.Drawing.Size(342, 20);
+            this.beEplVendedor.Size = new System.Drawing.Size(103, 20);
             this.beEplVendedor.TabIndex = 73;
             this.beEplVendedor.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beEplVendedor_ButtonClick);
             // 
@@ -4300,15 +4430,6 @@
             this.labelControl8.TabIndex = 72;
             this.labelControl8.Text = "Fec. Entrega:";
             // 
-            // btnVistaPRV
-            // 
-            this.btnVistaPRV.Location = new System.Drawing.Point(667, 2);
-            this.btnVistaPRV.Name = "btnVistaPRV";
-            this.btnVistaPRV.Size = new System.Drawing.Size(73, 22);
-            this.btnVistaPRV.TabIndex = 7;
-            this.btnVistaPRV.Text = "Vista Previa";
-            this.btnVistaPRV.Click += new System.EventHandler(this.btnVistaPRV_Click);
-            // 
             // beNumeroCOT
             // 
             this.beNumeroCOT.EditValue = "";
@@ -4353,6 +4474,84 @@
             this.beArticulo.Size = new System.Drawing.Size(342, 20);
             this.beArticulo.TabIndex = 70;
             this.beArticulo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beArticulo_ButtonClick);
+            // 
+            // cmDisenoAccesorios
+            // 
+            this.cmDisenoAccesorios.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAgregaAccesorio,
+            this.mnuEliminaAccesorio});
+            this.cmDisenoAccesorios.Name = "cmDisenoAccesorios";
+            this.cmDisenoAccesorios.Size = new System.Drawing.Size(220, 48);
+            // 
+            // mnuAgregaAccesorio
+            // 
+            this.mnuAgregaAccesorio.Name = "mnuAgregaAccesorio";
+            this.mnuAgregaAccesorio.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mnuAgregaAccesorio.Size = new System.Drawing.Size(219, 22);
+            this.mnuAgregaAccesorio.Text = "Agregar Accesorios";
+            this.mnuAgregaAccesorio.Click += new System.EventHandler(this.mnuAgregaAccesorio_Click);
+            // 
+            // mnuEliminaAccesorio
+            // 
+            this.mnuEliminaAccesorio.Name = "mnuEliminaAccesorio";
+            this.mnuEliminaAccesorio.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
+            this.mnuEliminaAccesorio.Size = new System.Drawing.Size(219, 22);
+            this.mnuEliminaAccesorio.Text = "Eliminar Registro";
+            this.mnuEliminaAccesorio.Click += new System.EventHandler(this.mnuEliminaAccesorio_Click);
+            // 
+            // pgf_CostoComponente
+            // 
+            this.pgf_CostoComponente.Fields.AddRange(new DevExpress.XtraPivotGrid.PivotGridField[] {
+            this.pgfArmados,
+            this.pgfColores,
+            this.pgfPlacas,
+            this.pgfTroquel,
+            this.pgfComponente});
+            this.pgf_CostoComponente.Location = new System.Drawing.Point(11, 3);
+            this.pgf_CostoComponente.Name = "pgf_CostoComponente";
+            this.pgf_CostoComponente.OptionsView.ShowColumnGrandTotalHeader = false;
+            this.pgf_CostoComponente.Size = new System.Drawing.Size(665, 278);
+            this.pgf_CostoComponente.TabIndex = 77;
+            // 
+            // pgfArmados
+            // 
+            this.pgfArmados.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.pgfArmados.AreaIndex = 0;
+            this.pgfArmados.Caption = "Armados";
+            this.pgfArmados.FieldName = "Armados";
+            this.pgfArmados.Name = "pgfArmados";
+            // 
+            // pgfColores
+            // 
+            this.pgfColores.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.pgfColores.AreaIndex = 1;
+            this.pgfColores.Caption = "Colores";
+            this.pgfColores.FieldName = "Colores";
+            this.pgfColores.Name = "pgfColores";
+            this.pgfColores.TopValueType = DevExpress.XtraPivotGrid.PivotTopValueType.Sum;
+            // 
+            // pgfPlacas
+            // 
+            this.pgfPlacas.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.pgfPlacas.AreaIndex = 2;
+            this.pgfPlacas.Caption = "Placas";
+            this.pgfPlacas.FieldName = "Placas";
+            this.pgfPlacas.Name = "pgfPlacas";
+            // 
+            // pgfTroquel
+            // 
+            this.pgfTroquel.Area = DevExpress.XtraPivotGrid.PivotArea.DataArea;
+            this.pgfTroquel.AreaIndex = 3;
+            this.pgfTroquel.Caption = "Troquel";
+            this.pgfTroquel.FieldName = "Troquel";
+            this.pgfTroquel.Name = "pgfTroquel";
+            // 
+            // pgfComponente
+            // 
+            this.pgfComponente.Area = DevExpress.XtraPivotGrid.PivotArea.RowArea;
+            this.pgfComponente.AreaIndex = 0;
+            this.pgfComponente.FieldName = "Componente";
+            this.pgfComponente.Name = "pgfComponente";
             // 
             // ctlCotizacion
             // 
@@ -4416,7 +4615,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalPlacas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seNumPlacas.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).EndInit();
-            this.cmDisenoPlaca.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresionP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseNumColores)).EndInit();
@@ -4431,6 +4629,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcAcabados)).EndInit();
             this.cmDisenoAcabado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvAcabados)).EndInit();
+            this.dis_xtpAccesorios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAccesorios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAccesorios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_riseCantAccesorio)).EndInit();
             this.dis_xtpProcesos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).EndInit();
             this.cmProcesos.ResumeLayout(false);
@@ -4493,6 +4695,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beArticulo.Properties)).EndInit();
+            this.cmDisenoAccesorios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pgf_CostoComponente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4518,7 +4722,6 @@
         private DevExpress.XtraEditors.LookUpEdit lueSubgrupo;
         private DevExpress.XtraEditors.LookUpEdit lueGrupo;
         private DevExpress.XtraEditors.LookUpEdit lueLineaPRD;
-        private DevExpress.XtraEditors.SimpleButton btnVistaPRV;
         private DevExpress.XtraTab.XtraTabControl xtcPestanas;
         private DevExpress.XtraTab.XtraTabPage xtpDatosCLI;
         private DevExpress.XtraGrid.GridControl cli_gcDestinos;
@@ -4722,9 +4925,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueLadoImpresionP;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_riseNumColores;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotLinea;
-        private System.Windows.Forms.ContextMenuStrip cmDisenoPlaca;
-        private System.Windows.Forms.ToolStripMenuItem mnuAgregaPlaca;
-        private System.Windows.Forms.ToolStripMenuItem mnuEliminaPlaca;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPlacasP;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPaginasP;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPaginasXplaca;
@@ -4741,7 +4941,6 @@
         private DevExpress.XtraEditors.SpinEdit dis_seCortesTOT;
         private DevExpress.XtraEditors.SpinEdit dis_seCorteLONG;
         private DevExpress.XtraTab.XtraTabPage dis_xtpAcabados;
-        private DevExpress.XtraTab.XtraTabPage dis_xtpAccesorios;
         private DevExpress.XtraTab.XtraTabPage dis_xtpProcesos;
         private DevExpress.XtraTab.XtraTabPage dis_xtpProcesosIMP;
         private DevExpress.XtraGrid.GridControl dis_gcAcabados;
@@ -4769,11 +4968,28 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColCostoXminutoPP;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColMinutosPP;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColTotalLineaI;
-        private DevExpress.XtraEditors.SimpleButton dis_btnProcesoIMP;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPlacaI;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaMaterial;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaImpresion;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaPuestaPunto;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaTotal;
+        private DevExpress.XtraTab.XtraTabPage dis_xtpAccesorios;
+        private DevExpress.XtraGrid.GridControl dis_gcAccesorios;
+        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvAccesorios;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialS;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCantidadS;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCostoS;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotalLineaS;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTirajeS;
+        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_riseCantAccesorio;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoAccesorios;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregaAccesorio;
+        private System.Windows.Forms.ToolStripMenuItem mnuEliminaAccesorio;
+        private DevExpress.XtraPivotGrid.PivotGridControl pgf_CostoComponente;
+        private DevExpress.XtraPivotGrid.PivotGridField pgfArmados;
+        private DevExpress.XtraPivotGrid.PivotGridField pgfColores;
+        private DevExpress.XtraPivotGrid.PivotGridField pgfPlacas;
+        private DevExpress.XtraPivotGrid.PivotGridField pgfTroquel;
+        private DevExpress.XtraPivotGrid.PivotGridField pgfComponente;
     }
 }
