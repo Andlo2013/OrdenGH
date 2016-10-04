@@ -73,7 +73,7 @@ namespace Ordenes.Controles
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.LibroForma, 0);
             objVentas._cargaCMB(dt_optionsCMB, lib_lueForma);
             //EGRESO DE MATERIALES
-            dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.EgrMat_Seccion, 0);
+            dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.Diseno_Seccion, 0);
             objVentas._cargaCMBLUE(dt_optionsCMB, em_rilueSeccion);
             objVentas._cargaCMBLUE(dt_optionsCMB, dis_rilueSeccionARM);
             dt_optionsCMB = objVentas._cargaCMBOPC(optionsCMB.Diseno_Maquina, 0);

@@ -22,7 +22,7 @@ namespace Ordenes.Clases
             BlockAcabado=11,
             LibroEncuadernado=12,
             Color_Maquina = 13,
-            EgrMat_Seccion=14,
+            Diseno_Seccion = 14,
             Diseno_Maquina = 15,
             DisenoChkGH=16,
             DisenoChkORI=17,

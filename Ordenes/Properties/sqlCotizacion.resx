@@ -234,4 +234,28 @@
     <value>SELECT TOP 20 dbo.ItmMae.IdTalla, dbo.ItmMae.ItmCod AS Código, dbo.ItmMae.ItmDsc AS Descripción, dbo.ItmMae.Secuencial, dbo.ItmBod.ItmCos AS Costo FROM dbo.ItmMae INNER JOIN dbo.ItmBod ON dbo.ItmMae.EmpCod = dbo.ItmBod.EmpCod AND dbo.ItmMae.ItmCod = dbo.ItmBod.ItmCod WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.ItmBod.EmpCod = @CodEmpresa) AND (dbo.ItmBod.BodCod = @CodBodega) AND (dbo.ItmMae.ItmTip = 'I') AND {0} LIKE @paramExtra ORDER BY dbo.ItmMae.ItmDsc ASC</value>
     <comment>Carga la lista de accesorios que se pueden agregar</comment>
   </data>
+  <data name="cot_guardaCAB" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,'True')</value>
+    <comment>Guarda la cabecera de las cotizaciones</comment>
+  </data>
+  <data name="cot_guardaDET_Armados" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoArmado VALUES (@idCotiza,@Componente,@idTalla,@SecMaterial,@NumPaginas,@TrabajoAncho,@TrabajoAlto,@paginasXtrabajo,@TamanoAncho,@TamanoAlto,@trabajosXtamano,@PliegoAncho,@PliegoAlto,@tamanosXpliego,@pliegoCant,@pliegoPorcentajeEXT,@pliegoCotizados,@pliegoCosto,@TotalLinea,@seleccionAUT,@idPlaca,'True')</value>
+    <comment>Guarda el detalle de armados o papel</comment>
+  </data>
+  <data name="cot_guardaDET_CliDestino" xml:space="preserve">
+    <value>INSERT INTO pr_CotizaCLIDestino VALUES (@idCotiza,@SecDestino,@SucNumero,@Direccion,@Cantidad,'True')</value>
+    <comment>Guarda el detalle de los destinos de las direcciones destino del cliente</comment>
+  </data>
+  <data name="cot_guardaDET_Color" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoColores VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@LadoImpresion,@TipoColor,@CostoGramo,@Cobertura,@Pantone,@NumPaginas,@gramosXcm2,@TotalGramos,@TotalLinea,@DetallePag,'True')</value>
+    <comment>Guarda el detalle de colores</comment>
+  </data>
+  <data name="cot_guardaDET_Placas" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoPlacas VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@idPlaca,@LadoImpresion,@NumColores,@NumPlacas,@CostoPlaca,@Numpaginas,@trabajosXplaca,@paginasXtrabajo,@TotalLinea,'True')</value>
+    <comment>Guarda el detalle de las placas</comment>
+  </data>
+  <data name="cot_guardaDET_Troquel" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoTroquel VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@Longitud,@NumCortes,@CostoCorte,@TotalLinea,'True')</value>
+    <comment>Guarda el detalle de troqueles</comment>
+  </data>
 </root>

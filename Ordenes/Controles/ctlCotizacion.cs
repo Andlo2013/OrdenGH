@@ -27,8 +27,7 @@ namespace Ordenes.Controles
 
         private void ctlCotizacion_Load(object sender, EventArgs e)
         {
-            pgf_CostoComponente.DataSource = objCotiza._pivot();
-            pgf_CostoComponente.get
+           
             _inicializa();
         }
 
@@ -82,7 +81,7 @@ namespace Ordenes.Controles
             _cargaLookUpEdit(new LookUpEdit[] { lueLineaPRD }, optionsCMB.Linea_Produccion);
 
             //CARGA EL COMBO DE COMPONENTES
-            _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.EgrMat_Seccion);
+            _cargaLookUpEdit(new LookUpEdit[] { dis_lueComponente }, optionsCMB.Diseno_Seccion);
 
             //COMBO LADO-IMPRESION
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { dis_rilueLadoImpresion,
@@ -510,7 +509,6 @@ namespace Ordenes.Controles
             
             beNumeroCOT.EditValue = model_Cotiza.Cotizacion;
             _CargaDetalle();
-
         }
 
         private void barraStandar_onSave()
@@ -519,9 +517,9 @@ namespace Ordenes.Controles
             {
                 _asignaCotizaMOD();
                 _asignaBlockMOD();
-                model_Cotiza._guardaCOT();
+                objCotiza._Guardar(model_Cotiza);
+                
             }
-            
         }
 
         private void barraStandar_onEdit()
@@ -750,5 +748,11 @@ namespace Ordenes.Controles
             }
             return null;
         }
+
+        private void btnTotales_Click(object sender, EventArgs e)
+        {
+            dis_gcTotales.DataSource = objCotiza._totales();
+        }
+
     }
 }

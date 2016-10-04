@@ -14,7 +14,7 @@ namespace Ordenes.Modelos
 {
     public class cotizaMOD:_modelo
     {
-        _SQLServer objSQLServer = new _SQLServer();
+        _SQLServer objSQLServer = Form1.getSQLServer;
         //PEDIDO ING. VELEZ DEFINIR EL NÚMERO COTIZACIÓN INICIA Y DESPUÉS SEA AUTOMÁTICO
         private int CotizaINI = 1;
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
@@ -121,7 +121,7 @@ namespace Ordenes.Modelos
         {
             try
             {
-                this.id = objSQLServer._CalculaCodigo("pr_Cotiza", "NumCotiza", "",
+                this.id = objSQLServer._CalculaCodigo("pr_Cotiza", "id", "",
                     new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
             }
             catch (Exception ex)
@@ -169,7 +169,21 @@ namespace Ordenes.Modelos
         {
             if (this._isValid())
             {
-                clsMensaje._msjInformation("Haz guardado el registro :) ", "Felicitaciones");
+                /**/
+
+                string [] paramsName=new string[] {"@idCotiza","@CodEmpresa","@NumCotiza",
+                    "@CodCliente","@LinProduccion","@GrupoProduccion","@SubgrupoProduccion",
+                    "@ItemSecuencial","@ItemDescripcion","@Tiraje","@Ancho","@Alto",
+                    "@FecCotiza","@FecEntrega","@EstadoCOT","@CodEplCotiza","@CodEplVendededor" };
+
+                object [] paramsValue = new object[] {this.id,this.m_codEmpresa,this.Cotizacion,
+                    this.CodigoCLI,this.LineaPRD,this.Grupo,this.Subgrupo,this.SecuencialITEM,
+                    this.Articulo,this.Tiraje,this.Ancho,this.Alto,this.FecCotiza,this.FecEntrega,
+                    this.EstadoCOT,this.EplCotiza,this.EplVendedor};
+
+                objSQLServer._Ejecutar(sqlCotizacion.cot_guardaCAB, paramsName, paramsValue);
+
+                
             }
             else
             {
