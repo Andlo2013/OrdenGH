@@ -130,6 +130,11 @@
     </Compile>
     <Compile Include="Modelos\trabajoGenMOD.cs" />
     <Compile Include="Modelos\_modelo.cs" />
+    <Compile Include="Properties\paramsSQL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>paramsSQL.resx</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controles\ctlCotizacion.resx">
@@ -149,6 +154,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmCortes.resx">
       <DependentUpon>frmCortes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\paramsSQL.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>paramsSQL.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\sqlQuery.resx">

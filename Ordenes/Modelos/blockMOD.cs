@@ -53,19 +53,24 @@ namespace Ordenes.Modelos
             }
         }
 
-        public void _guardarDET(blockMOD modelo, int ordenID)
+        public void _guardaBlock(int idCotiza)
         {
-            //////string[] paramsNames = new string[] { "@CodEmpresa", "@ordenID",
-            //////    "@NumCopias","@Juego","@TipoEmblocado","@Serie","@Inicia","@Termina",
-            //////    "@Acabado","@Tamano","@Ancho","@Alto","@ItmSecuencial","@Gramos","@Tiraje",
-            //////    "@CmbTroquel","@OrdenTroquel","@Color","@Pantones"};
+            if (this._isValid())
+            {
+                string[] paramsName = new string[] {"@idCotiza", "@Serie",
+                    "@Inicia", "@Termina", "@Juego", "@CmbEmblocado" };
 
-            //////object[] paramsValues = new object[] {m_codEmpresa,ordenID,
-            //////modelo.NumCopias,modelo.Juego,modelo.TipoEmblocado,modelo.Serie,modelo.Inicia,modelo.Termina,
-            //////modelo.TipoAcabado,modelo.TipoTamano,modelo.Ancho,modelo.Alto,modelo.CodMaterial,modelo.Gramos,modelo.Tiraje,
-            //////modelo.TipoTroquel,modelo.OrdenTroquel,modelo.Color,modelo.Pantones};
+                object[] paramsValue = new object[] {idCotiza,this.Serie,
+                    this.Inicia,this.Termina,this.Juego,this.CmbEmblocado};
 
-            //////objSQLServer._Ejecutar(sqlQuery.ord_BlockGuarda, paramsNames, paramsValues);
+                objSQLServer._Ejecutar(sqlCotizacion.cot_guardaBlock, paramsName, paramsValue);
+            }
+            else
+            {
+                clsMensaje._msjWarning("Se ha encontrado " + pro_getTotalErrors.ToString() + " errores",
+                    "Verificar datos", pro_getErrrors);
+            }
+            
         }
 
     }

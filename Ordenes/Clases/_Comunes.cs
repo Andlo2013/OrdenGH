@@ -31,6 +31,17 @@ namespace Ordenes.Clases
             }
         }
 
+        public void _unChecked_CheckedList(CheckedListBoxControl chkLista)
+        {
+            if (chkLista != null)
+            {
+                for(int i = 0; i < chkLista.Items.Count; i++)
+                {
+                    chkLista.Items[i].CheckState = System.Windows.Forms.CheckState.Unchecked;
+                }
+            }
+        }
+
         public DataRow _agregaMATSimple()
         {
             try
@@ -60,6 +71,8 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+
+        
 
 
         public void _cargaCtlCMB(LookUpEdit lueCombo,DataTable data,
@@ -93,8 +106,6 @@ namespace Ordenes.Clases
                 new string[] { "@NodoPadre" }, new object[] { nodoPadre });
             return dtCargaCMB;
         }
-
-        
 
         private frmBuscarITEM _materialBuscar(bool isMultiple)
         {

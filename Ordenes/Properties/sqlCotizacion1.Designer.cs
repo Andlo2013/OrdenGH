@@ -259,6 +259,24 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT dbo.pr_GHOpcionesCMB.id,dbo.pr_GHOpcionesCMB.Descripcion AS Descripción FROM dbo.pr_GHOpcionesCMB WHERE dbo.pr_GHOpcionesCMB.CodCategoria =@Categoria AND dbo.pr_GHOpcionesCMB.EstReg=&apos;True&apos;.
+        /// </summary>
+        internal static string cot_disGeneralAgregaDET {
+            get {
+                return ResourceManager.GetString("cot_disGeneralAgregaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoGeneral.CmbOpcion AS Codigo, dbo.pr_GHOpcionesCMB.Descripcion FROM dbo.pr_CotizaDisenoGeneral INNER JOIN dbo.pr_GHOpcionesCMB ON dbo.pr_CotizaDisenoGeneral.CategoriaID = dbo.pr_GHOpcionesCMB.CodCategoria AND dbo.pr_CotizaDisenoGeneral.CmbOpcion = dbo.pr_GHOpcionesCMB.id WHERE (dbo.pr_CotizaDisenoGeneral.idCotiza = @idCotiza) AND (dbo.pr_CotizaDisenoGeneral.CategoriaID = @CategoriaID) AND (dbo.pr_CotizaDisenoGeneral.EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string cot_disGeneralDET {
+            get {
+                return ResourceManager.GetString("cot_disGeneralDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoMaterialCLI.ItmSecuencial AS SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_CotizaDisenoMaterialCLI.CantMaterial AS Cantidad FROM dbo.pr_CotizaDisenoMaterialCLI INNER JOIN dbo.ItmMae ON dbo.pr_CotizaDisenoMaterialCLI.ItmSecuencial = dbo.ItmMae.Secuencial WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoMaterialCLI.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoMaterialCLI.EstReg = &apos;True&apos;).
         /// </summary>
         internal static string cot_disMATCLICargaDET {
@@ -273,6 +291,15 @@ namespace Ordenes.Properties {
         internal static string cot_disPlacasDET {
             get {
                 return ResourceManager.GetString("cot_disPlacasDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaDisenoProceso.Cantidad, dbo.pr_CotizaDisenoProceso.Costo FROM dbo.pr_CotizaDisenoProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaDisenoProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProceso.EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string cot_disProcesoDET {
+            get {
+                return ResourceManager.GetString("cot_disProcesoDET", resourceCulture);
             }
         }
         
@@ -304,11 +331,47 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO pr_CotizaBlock VALUES (@idCotiza,@Serie,@Inicia,@Termina,@Juego,@CmbEmblocado,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaBlock {
+            get {
+                return ResourceManager.GetString("cot_guardaBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO pr_CotizaBlockColor VALUES (@idCotiza,@SecDetalle,@CodColor,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaBlockDET {
+            get {
+                return ResourceManager.GetString("cot_guardaBlockDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,&apos;True&apos;).
         /// </summary>
         internal static string cot_guardaCAB {
             get {
                 return ResourceManager.GetString("cot_guardaCAB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoAcabado VALUES (@idCotiza,@SecDetalle,@Componente,@TallaId,@SecMaterial,@AcabadoId,@areaAplica,@TallaAcabadoId,@SecMaterialAcabado,@Costo,@TotalLinea,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaDET_Acabado {
+            get {
+                return ResourceManager.GetString("cot_guardaDET_Acabado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoAccesorio VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@Tiraje,@Cantidad,@Costo,@TotalLinea,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaDET_Accesorios {
+            get {
+                return ResourceManager.GetString("cot_guardaDET_Accesorios", resourceCulture);
             }
         }
         
@@ -340,11 +403,47 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO pr_CotizaDisenoGeneral VALUES (@idCotiza,@idOpcion,@CatOpcion,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaDET_General {
+            get {
+                return ResourceManager.GetString("cot_guardaDET_General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO pr_CotizaDisenoMaterialCLI VALUES (@idCotiza,@SecDetalle,@CantMaterial,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaDET_MaterialCLI {
+            get {
+                return ResourceManager.GetString("cot_guardaDET_MaterialCLI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoPlacas VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@idPlaca,@LadoImpresion,@NumColores,@NumPlacas,@CostoPlaca,@Numpaginas,@trabajosXplaca,@paginasXtrabajo,@TotalLinea,&apos;True&apos;).
         /// </summary>
         internal static string cot_guardaDET_Placas {
             get {
                 return ResourceManager.GetString("cot_guardaDET_Placas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoProceso VALUES (@idCotiza,@MaqCod,@Costo,@Cantidad,@Total,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaDET_Proceso {
+            get {
+                return ResourceManager.GetString("cot_guardaDET_Proceso", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoProcesoIMP VALUES (@idCotiza,@SecDetalle,@Componente,@TallaId,@SecMaterial,@PlacaId,@NumColores,@pliegosXmin,@CostoMinIMP,@NumPliegos,@NumMinIMP,@CostoXminPP,@MinutosPP,@TotalLinea,&apos;True&apos;).
+        /// </summary>
+        internal static string cot_guardaDET_ProcesoIMP {
+            get {
+                return ResourceManager.GetString("cot_guardaDET_ProcesoIMP", resourceCulture);
             }
         }
         
@@ -363,15 +462,6 @@ namespace Ordenes.Properties {
         internal static string cot_procBuscaMAQ {
             get {
                 return ResourceManager.GetString("cot_procBuscaMAQ", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Cantidad, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = &apos;True&apos;).
-        /// </summary>
-        internal static string cot_procCargaDET {
-            get {
-                return ResourceManager.GetString("cot_procCargaDET", resourceCulture);
             }
         }
     }

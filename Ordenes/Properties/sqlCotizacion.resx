@@ -198,8 +198,8 @@
     <value>SELECT MaqCod AS Código, MaqDsc AS Máquina, CostoHora AS Costo FROM dbo.MaqMae WHERE (EmpCod = @CodEmpresa) AND (MaqTip = 'I')</value>
     <comment>Lista las máquinas para buscar</comment>
   </data>
-  <data name="cot_procCargaDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaProceso.Cantidad, dbo.pr_CotizaProceso.Costo FROM dbo.pr_CotizaProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaProceso.EstReg = 'True')</value>
+  <data name="cot_disProcesoDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaDisenoProceso.Cantidad, dbo.pr_CotizaDisenoProceso.Costo FROM dbo.pr_CotizaDisenoProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaDisenoProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProceso.EstReg = 'True')</value>
     <comment>Carga el detalle de procesos</comment>
   </data>
   <data name="cot_disTroquelDET" xml:space="preserve">
@@ -211,7 +211,7 @@
     <comment>Carga las opciones de acabado para el material seleccionado</comment>
   </data>
   <data name="cot_disAcabadosDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaDisenoAcabado.SecDetalle, dbo.pr_CotizaDisenoAcabado.CmbComponente AS Componente, dbo.pr_CotizaDisenoAcabado.idTalla AS CodTalla, dbo.pr_CotizaDisenoAcabado.SecMaterial,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterial)) AS Material, dbo.pr_CotizaDisenoAcabado.idAcabado, dbo.pr_GHAcabados.Descripcion AS Acabado, dbo.pr_CotizaDisenoAcabado.areaAplica, dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado, dbo.pr_CotizaDisenoAcabado.idTallaAcabado,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado)) AS AcabadoMaterial, dbo.pr_CotizaDisenoAcabado.Costo, dbo.pr_CotizaDisenoAcabado.TotalLinea, ISNULL((SELECT CASE dbo.pr_CotizaDisenoAcabado.areaAplica WHEN 'T-FINAL' THEN TrabajoAncho WHEN 'PLIE-IMP' THEN TamanoAncho ELSE 0 END FROM dbo.pr_CotizaDisenoArmado WHERE (idCotiza = dbo.pr_CotizaDisenoAcabado.idCotiza) AND (CmbComponente = CmbComponente) AND (SecMaterial = dbo.pr_CotizaDisenoAcabado.SecMaterial)), 0) AS Ancho, ISNULL((SELECT CASE dbo.pr_CotizaDisenoAcabado.areaAplica WHEN 'T-FINAL' THEN TrabajoAlto WHEN 'PLIE-IMP' THEN TamanoAlto ELSE 0 END FROM dbo.pr_CotizaDisenoArmado AS pr_CotizaDisenoArmado WHERE (idCotiza = dbo.pr_CotizaDisenoAcabado.idCotiza) AND (CmbComponente = CmbComponente) AND (SecMaterial = dbo.pr_CotizaDisenoAcabado.SecMaterial)), 0) AS Alto FROM dbo.pr_CotizaDisenoAcabado INNER JOIN dbo.pr_GHAcabados ON dbo.pr_CotizaDisenoAcabado.idAcabado = dbo.pr_GHAcabados.idAcabado WHERE (dbo.pr_CotizaDisenoAcabado.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoAcabado.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaDisenoAcabado.SecDetalle, dbo.pr_CotizaDisenoAcabado.CmbComponente AS Componente, dbo.pr_CotizaDisenoAcabado.idTalla AS CodTalla, dbo.pr_CotizaDisenoAcabado.SecMaterial,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterial)) AS Material, dbo.pr_CotizaDisenoAcabado.idAcabado, dbo.pr_GHAcabados.Descripcion AS Acabado, dbo.pr_CotizaDisenoAcabado.areaAplica, dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado, dbo.pr_CotizaDisenoAcabado.idTallaAcabado,(SELECT ItmDsc FROM dbo.ItmMae WHERE (EmpCod = @CodEmpresa) AND (Secuencial = dbo.pr_CotizaDisenoAcabado.SecMaterialAcabado)) AS AcabadoMaterial, dbo.pr_CotizaDisenoAcabado.Costo, dbo.pr_CotizaDisenoAcabado.TotalLinea, ISNULL((SELECT CASE dbo.pr_CotizaDisenoAcabado.areaAplica WHEN 'T-FINAL' THEN TrabajoAncho WHEN 'PLIE-IMP' THEN TamanoAncho ELSE 0 END FROM dbo.pr_CotizaDisenoArmado WHERE (idCotiza = dbo.pr_CotizaDisenoAcabado.idCotiza) AND (CmbComponente = dbo.pr_CotizaDisenoAcabado.CmbComponente) AND (SecMaterial = dbo.pr_CotizaDisenoAcabado.SecMaterial)), 0) AS Ancho, ISNULL((SELECT CASE dbo.pr_CotizaDisenoAcabado.areaAplica WHEN 'T-FINAL' THEN TrabajoAlto WHEN 'PLIE-IMP' THEN TamanoAlto ELSE 0 END FROM dbo.pr_CotizaDisenoArmado AS pr_CotizaDisenoArmado WHERE (idCotiza = dbo.pr_CotizaDisenoAcabado.idCotiza) AND (CmbComponente = dbo.pr_CotizaDisenoAcabado.CmbComponente) AND (SecMaterial = dbo.pr_CotizaDisenoAcabado.SecMaterial)), 0) AS Alto FROM dbo.pr_CotizaDisenoAcabado INNER JOIN dbo.pr_GHAcabados ON dbo.pr_CotizaDisenoAcabado.idAcabado = dbo.pr_GHAcabados.idAcabado WHERE (dbo.pr_CotizaDisenoAcabado.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoAcabado.EstReg = 'True')</value>
     <comment>Carga el detalle de los acabados de la orden</comment>
   </data>
   <data name="cot_disAcabadoCargaMAT" xml:space="preserve">
@@ -234,9 +234,21 @@
     <value>SELECT TOP 20 dbo.ItmMae.IdTalla, dbo.ItmMae.ItmCod AS Código, dbo.ItmMae.ItmDsc AS Descripción, dbo.ItmMae.Secuencial, dbo.ItmBod.ItmCos AS Costo FROM dbo.ItmMae INNER JOIN dbo.ItmBod ON dbo.ItmMae.EmpCod = dbo.ItmBod.EmpCod AND dbo.ItmMae.ItmCod = dbo.ItmBod.ItmCod WHERE (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.ItmBod.EmpCod = @CodEmpresa) AND (dbo.ItmBod.BodCod = @CodBodega) AND (dbo.ItmMae.ItmTip = 'I') AND {0} LIKE @paramExtra ORDER BY dbo.ItmMae.ItmDsc ASC</value>
     <comment>Carga la lista de accesorios que se pueden agregar</comment>
   </data>
+  <data name="cot_disGeneralDET" xml:space="preserve">
+    <value>SELECT dbo.pr_CotizaDisenoGeneral.CmbOpcion AS Codigo, dbo.pr_GHOpcionesCMB.Descripcion FROM dbo.pr_CotizaDisenoGeneral INNER JOIN dbo.pr_GHOpcionesCMB ON dbo.pr_CotizaDisenoGeneral.CategoriaID = dbo.pr_GHOpcionesCMB.CodCategoria AND dbo.pr_CotizaDisenoGeneral.CmbOpcion = dbo.pr_GHOpcionesCMB.id WHERE (dbo.pr_CotizaDisenoGeneral.idCotiza = @idCotiza) AND (dbo.pr_CotizaDisenoGeneral.CategoriaID = @CategoriaID) AND (dbo.pr_CotizaDisenoGeneral.EstReg = 'True')</value>
+    <comment>Carga el detalle de las tablas de la pestana Diseno-General</comment>
+  </data>
   <data name="cot_guardaCAB" xml:space="preserve">
     <value>INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,'True')</value>
     <comment>Guarda la cabecera de las cotizaciones</comment>
+  </data>
+  <data name="cot_guardaDET_Acabado" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoAcabado VALUES (@idCotiza,@SecDetalle,@Componente,@TallaId,@SecMaterial,@AcabadoId,@areaAplica,@TallaAcabadoId,@SecMaterialAcabado,@Costo,@TotalLinea,'True')</value>
+    <comment>Guarda el detalle de acabados</comment>
+  </data>
+  <data name="cot_guardaDET_Accesorios" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoAccesorio VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@Tiraje,@Cantidad,@Costo,@TotalLinea,'True')</value>
+    <comment>Guarda el detalle de accesorios</comment>
   </data>
   <data name="cot_guardaDET_Armados" xml:space="preserve">
     <value>INSERT INTO dbo.pr_CotizaDisenoArmado VALUES (@idCotiza,@Componente,@idTalla,@SecMaterial,@NumPaginas,@TrabajoAncho,@TrabajoAlto,@paginasXtrabajo,@TamanoAncho,@TamanoAlto,@trabajosXtamano,@PliegoAncho,@PliegoAlto,@tamanosXpliego,@pliegoCant,@pliegoPorcentajeEXT,@pliegoCotizados,@pliegoCosto,@TotalLinea,@seleccionAUT,@idPlaca,'True')</value>
@@ -254,8 +266,36 @@
     <value>INSERT INTO dbo.pr_CotizaDisenoPlacas VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@idPlaca,@LadoImpresion,@NumColores,@NumPlacas,@CostoPlaca,@Numpaginas,@trabajosXplaca,@paginasXtrabajo,@TotalLinea,'True')</value>
     <comment>Guarda el detalle de las placas</comment>
   </data>
+  <data name="cot_guardaDET_Proceso" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoProceso VALUES (@idCotiza,@MaqCod,@Costo,@Cantidad,@Total,'True')</value>
+    <comment>Guarda el detalle de procesos</comment>
+  </data>
+  <data name="cot_guardaDET_ProcesoIMP" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_CotizaDisenoProcesoIMP VALUES (@idCotiza,@SecDetalle,@Componente,@TallaId,@SecMaterial,@PlacaId,@NumColores,@pliegosXmin,@CostoMinIMP,@NumPliegos,@NumMinIMP,@CostoXminPP,@MinutosPP,@TotalLinea,'True')</value>
+    <comment>Guarda el detalle de procesos de impresion</comment>
+  </data>
   <data name="cot_guardaDET_Troquel" xml:space="preserve">
     <value>INSERT INTO dbo.pr_CotizaDisenoTroquel VALUES (@idCotiza,@SecDetalle,@Componente,@SecMaterial,@Longitud,@NumCortes,@CostoCorte,@TotalLinea,'True')</value>
     <comment>Guarda el detalle de troqueles</comment>
+  </data>
+  <data name="cot_guardaDET_MaterialCLI" xml:space="preserve">
+    <value>INSERT INTO pr_CotizaDisenoMaterialCLI VALUES (@idCotiza,@SecDetalle,@CantMaterial,'True')</value>
+    <comment>Guarda el detalle de materiales entregados por el cliente</comment>
+  </data>
+  <data name="cot_disGeneralAgregaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_GHOpcionesCMB.id,dbo.pr_GHOpcionesCMB.Descripcion AS Descripción FROM dbo.pr_GHOpcionesCMB WHERE dbo.pr_GHOpcionesCMB.CodCategoria =@Categoria AND dbo.pr_GHOpcionesCMB.EstReg='True'</value>
+    <comment>Lista el detalle de opciones para agregar a Graficas Hernandez u Originales en DISENO-GENERAL</comment>
+  </data>
+  <data name="cot_guardaBlock" xml:space="preserve">
+    <value>INSERT INTO pr_CotizaBlock VALUES (@idCotiza,@Serie,@Inicia,@Termina,@Juego,@CmbEmblocado,'True')</value>
+    <comment>Guarda la cabecera de los blocks</comment>
+  </data>
+  <data name="cot_guardaBlockDET" xml:space="preserve">
+    <value>INSERT INTO pr_CotizaBlockColor VALUES (@idCotiza,@SecDetalle,@CodColor,'True')</value>
+    <comment>Guarda el detalle de los blocks</comment>
+  </data>
+  <data name="cot_guardaDET_General" xml:space="preserve">
+    <value>INSERT INTO pr_CotizaDisenoGeneral VALUES (@idCotiza,@idOpcion,@CatOpcion,'True')</value>
+    <comment>Guarda el detalle de las opciones pestana DISENO-GENERAL GraficasHernandez y Originales</comment>
   </data>
 </root>

@@ -34,21 +34,6 @@ namespace Ordenes.Controles
         //METODOS DEL FORMULARIO
         #region METODOS
 
-        //Métodos para iniciar el formulario
-        #region Métodos-Inicializacion
-
-        //carga CheckedList
-        #region cargaCHKList
-        private void _cargaCheckedList()
-        {
-            DataTable dt_optionsCMB = objComunes._cargaDataCMB(optionsCMB.DisenoChkGH);
-            objComunes._addItemCheckedList(dt_optionsCMB, dis_chklGraficasH);
-
-            dt_optionsCMB = objComunes._cargaDataCMB(optionsCMB.DisenoChkORI);
-            objComunes._addItemCheckedList(dt_optionsCMB, dis_chklOriginales);
-        }
-        #endregion
-
         //carga un LookUpEdit
         #region cargaLookUpEdit
         private void _cargaLookUpEdit(LookUpEdit[] lueCombos,optionsCMB opcion)
@@ -99,8 +84,6 @@ namespace Ordenes.Controles
             //COMBO TIPO DE EMBLOCADO
             _cargaLookUpEdit(new LookUpEdit[] { blo_lueTipoEmblocado, }, optionsCMB.TipoBloque);
 
-            //carga checkedList
-            _cargaCheckedList();
 
         }
         #endregion
@@ -117,7 +100,7 @@ namespace Ordenes.Controles
             _clienteCarga();
             _blockCarga();
             _disenoCarga();
-            _procesoCarga();
+            
         }
         #endregion
 
@@ -160,9 +143,11 @@ namespace Ordenes.Controles
             objCotiza._disenoAcabadoCargaDET(model_Cotiza.id);
             objCotiza._disenoProcesoIMPCargaDET(model_Cotiza.id);
             objCotiza._disenoAccesoriosCargaDET(model_Cotiza.id);
-
+            objCotiza._disenoGeneralDET(model_Cotiza.id);
+            gc_Procesos.DataSource = objCotiza._disenoProcesoCargaDET(model_Cotiza.id);
+            dis_gcGraficasH.DataSource = objCotiza.pro_disenoGeneralGH;
+            dis_gcOriginales.DataSource = objCotiza.pro_disenoGeneralORI;
             dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
-            
             //para que cargue solo lo del combo
             _disenoFiltrar();
         }
@@ -181,15 +166,11 @@ namespace Ordenes.Controles
             _totales();
         }
 
+        
+
         #endregion
 
-        //Pestaña proceso
-        #region Proceso-Detalles
-        private void _procesoCarga()
-        {
-            gc_Procesos.DataSource = objCotiza._procesoCargaDET(model_Cotiza.id);
-        }
-        #endregion
+
 
         #endregion
 
@@ -265,6 +246,16 @@ namespace Ordenes.Controles
             dgvToForce.Focus();
         }
 
+        private DataRow _getDataRow(GridView gvGrilla)
+        {
+            if (gvGrilla.IsValidRowHandle(gvGrilla.FocusedRowHandle))
+            {
+                DataRow row = gvGrilla.GetDataRow(gvGrilla.FocusedRowHandle);
+                return row;
+            }
+            return null;
+        }
+
         //Limpia los controles y propiedades de los modelos
         #region LimpiarControles
         private void _LimpiarControles()
@@ -325,7 +316,7 @@ namespace Ordenes.Controles
 
         #endregion
 
-        #endregion
+ 
 
         //Controles
         #region EVENTOS-CONTROLES
@@ -374,6 +365,11 @@ namespace Ordenes.Controles
                 model_Cotiza.Vendedor = rowEmpleado["Nombre"].ToString().Trim();
                 beEplVendedor.Text = rowEmpleado["Nombre"].ToString().Trim();
             }
+        }
+
+        private void btnTotales_Click(object sender, EventArgs e)
+        {
+            dis_gcTotales.DataSource = objCotiza._totales();
         }
 
         private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
@@ -517,7 +513,7 @@ namespace Ordenes.Controles
             {
                 _asignaCotizaMOD();
                 _asignaBlockMOD();
-                objCotiza._Guardar(model_Cotiza);
+                objCotiza._Guardar(model_Cotiza,model_Block);
                 
             }
         }
@@ -707,31 +703,32 @@ namespace Ordenes.Controles
 
         private void dis_mnuEliminaRegistro_Click(object sender, EventArgs e)
         {
-
+            objCotiza._disenoAcabadoElimina(_getDataRow(dis_gvAcabados));
         }
 
         #endregion
 
-        //Procesos
-        #region cmProcesos
+        //Diseño-Procesos
+        #region cmDisenoProcesos
 
         private void mnuAgregaProceso_Click(object sender, EventArgs e)
         {
-            objCotiza._procesoAgregaMAQ(Convert.ToInt32(seTiraje.Value));
+            objCotiza._disenoProcesoAgregaMAQ(Convert.ToInt32(seTiraje.Value));
         }
 
         private void mnuQuitarProceso_Click(object sender, EventArgs e)
         {
-            objCotiza._procesoElimina(_getDataRow(gvProcesos));
+            objCotiza._disenoProcesoElimina(_getDataRow(gvProcesos));
         }
 
         #endregion
 
-        #endregion
+        //Diseño-Accesorios
+        #region cmDisenoAccesorio
 
         private void mnuAgregaAccesorio_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoAccesorioAgregar(dis_lueComponente.EditValue,seTiraje.EditValue.ToInt());
+            objCotiza._disenoAccesorioAgregar(dis_lueComponente.EditValue, seTiraje.EditValue.ToInt());
         }
 
         private void mnuEliminaAccesorio_Click(object sender, EventArgs e)
@@ -739,20 +736,42 @@ namespace Ordenes.Controles
             objCotiza._disenoAccesorioEliminar(_getDataRow(dis_gvAccesorios));
         }
 
-        private DataRow _getDataRow(GridView gvGrilla)
+
+
+
+
+        #endregion
+
+        //Diseno-General_ORI
+        #region cmDisenoGENORI
+
+        private void mnuAgregaRegistroORI_Click(object sender, EventArgs e)
         {
-            if (gvGrilla.IsValidRowHandle(gvGrilla.FocusedRowHandle))
-            {
-                DataRow row = gvGrilla.GetDataRow(gvGrilla.FocusedRowHandle);
-                return row;
-            }
-            return null;
+            objCotiza._disenoGeneralAddORI();
         }
 
-        private void btnTotales_Click(object sender, EventArgs e)
+        private void mnuEliminaRegistroORI_Click(object sender, EventArgs e)
         {
-            dis_gcTotales.DataSource = objCotiza._totales();
+            objCotiza._disenoGeneralEliminaREG(optionsCMB.DisenoChkORI, _getDataRow(dis_gvOriginales));
         }
+
+        #endregion
+
+        //Diseno-General_GH
+        #region DisenoGENGH
+        private void mnuAgregaRegistroGH_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoGeneralAddGH();
+        }
+
+        private void mnuEliminaRegistroGH_Click(object sender, EventArgs e)
+        {
+            objCotiza._disenoGeneralEliminaREG(optionsCMB.DisenoChkGH, _getDataRow(dis_gvGraficasH));
+        }
+        #endregion
+
+        #endregion
+
 
     }
 }

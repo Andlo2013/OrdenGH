@@ -300,3 +300,4 @@ C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.XtraPivotGrid.v16.1.resour
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.XtraPivotGrid.v16.1.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.XtraPivotGrid.v16.1.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.XtraPivotGrid.v16.1.resources.dll
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.paramsSQL.resources

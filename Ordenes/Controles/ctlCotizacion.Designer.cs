@@ -77,10 +77,20 @@
             this.dis_lueComponente = new DevExpress.XtraEditors.LookUpEdit();
             this.xtcDiseno = new DevExpress.XtraTab.XtraTabControl();
             this.dis_xtpGeneral = new DevExpress.XtraTab.XtraTabPage();
-            this.gbOrginales = new DevExpress.XtraEditors.GroupControl();
-            this.dis_chklOriginales = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.gbGraficas = new DevExpress.XtraEditors.GroupControl();
-            this.dis_chklGraficasH = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.dis_gpGraficasH = new DevExpress.XtraEditors.GroupControl();
+            this.dis_gcGraficasH = new DevExpress.XtraGrid.GridControl();
+            this.cmDisenoGeneralGH = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAgregaRegistroGH = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEliminaRegistroGH = new System.Windows.Forms.ToolStripMenuItem();
+            this.dis_gvGraficasH = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dis_gcColDescripcionGH = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dis_gpOriginales = new DevExpress.XtraEditors.GroupControl();
+            this.dis_gcOriginales = new DevExpress.XtraGrid.GridControl();
+            this.cmDisenoGeneralORI = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAgregaRegistroORI = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEliminaRegistroORI = new System.Windows.Forms.ToolStripMenuItem();
+            this.dis_gvOriginales = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dis_gcColDescripcionORI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpArmados = new DevExpress.XtraTab.XtraTabPage();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.dis_seTotalCostoPapel = new DevExpress.XtraEditors.SpinEdit();
@@ -208,7 +218,7 @@
             this.dis_gcColTotalLineaS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpProcesos = new DevExpress.XtraTab.XtraTabPage();
             this.gc_Procesos = new DevExpress.XtraGrid.GridControl();
-            this.cmProcesos = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmDisenoProcesos = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaProceso = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQuitarProceso = new System.Windows.Forms.ToolStripMenuItem();
             this.gvProcesos = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -260,21 +270,6 @@
             this.blo_lueTipoEmblocado = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl26 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
-            this.xtpMateriales = new DevExpress.XtraTab.XtraTabPage();
-            this.em_gcDetalleEGR = new DevExpress.XtraGrid.GridControl();
-            this.em_gvDetalleEGR = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.em_gcColSeccion = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_rilueSeccion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.em_gcColMaterial = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_ribeBuscaMAT = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-            this.em_gcColCantPliego = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_gcColExtras = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_gcColCantTamano = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_gcColAncho = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_gcColAlto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_gcColPlacasMQ = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.em_rilueMaquina = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.em_gcColCntPlacas = new DevExpress.XtraGrid.Columns.GridColumn();
             this.seTiraje = new DevExpress.XtraEditors.SpinEdit();
             this.seAlto = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -316,12 +311,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtcDiseno)).BeginInit();
             this.xtcDiseno.SuspendLayout();
             this.dis_xtpGeneral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gbOrginales)).BeginInit();
-            this.gbOrginales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_chklOriginales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbGraficas)).BeginInit();
-            this.gbGraficas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_chklGraficasH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gpGraficasH)).BeginInit();
+            this.dis_gpGraficasH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcGraficasH)).BeginInit();
+            this.cmDisenoGeneralGH.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvGraficasH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gpOriginales)).BeginInit();
+            this.dis_gpOriginales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcOriginales)).BeginInit();
+            this.cmDisenoGeneralORI.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvOriginales)).BeginInit();
             this.dis_xtpArmados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalCostoPapel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcArmados)).BeginInit();
@@ -365,7 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseCantAccesorio)).BeginInit();
             this.dis_xtpProcesos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).BeginInit();
-            this.cmProcesos.SuspendLayout();
+            this.cmDisenoProcesos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvProcesos)).BeginInit();
             this.dis_xtpProcesosIMP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcProcesoIMP)).BeginInit();
@@ -384,12 +383,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.blo_rilueColorCopia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blo_txtSerie.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blo_lueTipoEmblocado.Properties)).BeginInit();
-            this.xtpMateriales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.em_gcDetalleEGR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_gvDetalleEGR)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_rilueSeccion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_ribeBuscaMAT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_rilueMaquina)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seTiraje.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAlto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAncho.Properties)).BeginInit();
@@ -487,8 +480,7 @@
             this.xtpDatosCLI,
             this.xtpResumen,
             this.xtpDiseno,
-            this.xtpBlocks,
-            this.xtpMateriales});
+            this.xtpBlocks});
             // 
             // xtpDatosCLI
             // 
@@ -1081,51 +1073,151 @@
             // 
             // dis_xtpGeneral
             // 
-            this.dis_xtpGeneral.Controls.Add(this.gbOrginales);
-            this.dis_xtpGeneral.Controls.Add(this.gbGraficas);
+            this.dis_xtpGeneral.Controls.Add(this.dis_gpGraficasH);
+            this.dis_xtpGeneral.Controls.Add(this.dis_gpOriginales);
             this.dis_xtpGeneral.Name = "dis_xtpGeneral";
             this.dis_xtpGeneral.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpGeneral.Text = "General";
             // 
-            // gbOrginales
+            // dis_gpGraficasH
             // 
-            this.gbOrginales.Controls.Add(this.dis_chklOriginales);
-            this.gbOrginales.Location = new System.Drawing.Point(214, 16);
-            this.gbOrginales.Name = "gbOrginales";
-            this.gbOrginales.Size = new System.Drawing.Size(200, 126);
-            this.gbOrginales.TabIndex = 30;
-            this.gbOrginales.Text = "Originales";
+            this.dis_gpGraficasH.Controls.Add(this.dis_gcGraficasH);
+            this.dis_gpGraficasH.Location = new System.Drawing.Point(431, 5);
+            this.dis_gpGraficasH.Name = "dis_gpGraficasH";
+            this.dis_gpGraficasH.Size = new System.Drawing.Size(404, 232);
+            this.dis_gpGraficasH.TabIndex = 35;
+            this.dis_gpGraficasH.Text = "Gráficas Hernández";
             // 
-            // dis_chklOriginales
+            // dis_gcGraficasH
             // 
-            this.dis_chklOriginales.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dis_chklOriginales.DisplayMember = "Descripcion";
-            this.dis_chklOriginales.Location = new System.Drawing.Point(5, 23);
-            this.dis_chklOriginales.MultiColumn = true;
-            this.dis_chklOriginales.Name = "dis_chklOriginales";
-            this.dis_chklOriginales.Size = new System.Drawing.Size(180, 93);
-            this.dis_chklOriginales.TabIndex = 25;
-            this.dis_chklOriginales.ValueMember = "Codigo";
+            this.dis_gcGraficasH.ContextMenuStrip = this.cmDisenoGeneralGH;
+            this.dis_gcGraficasH.Location = new System.Drawing.Point(7, 23);
+            this.dis_gcGraficasH.MainView = this.dis_gvGraficasH;
+            this.dis_gcGraficasH.Name = "dis_gcGraficasH";
+            this.dis_gcGraficasH.Size = new System.Drawing.Size(392, 204);
+            this.dis_gcGraficasH.TabIndex = 32;
+            this.dis_gcGraficasH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dis_gvGraficasH});
             // 
-            // gbGraficas
+            // cmDisenoGeneralGH
             // 
-            this.gbGraficas.Controls.Add(this.dis_chklGraficasH);
-            this.gbGraficas.Location = new System.Drawing.Point(8, 16);
-            this.gbGraficas.Name = "gbGraficas";
-            this.gbGraficas.Size = new System.Drawing.Size(200, 126);
-            this.gbGraficas.TabIndex = 31;
-            this.gbGraficas.Text = "Gráficas Hernández";
+            this.cmDisenoGeneralGH.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAgregaRegistroGH,
+            this.mnuEliminaRegistroGH});
+            this.cmDisenoGeneralGH.Name = "cmDisenoGeneralGH";
+            this.cmDisenoGeneralGH.Size = new System.Drawing.Size(220, 70);
             // 
-            // dis_chklGraficasH
+            // mnuAgregaRegistroGH
             // 
-            this.dis_chklGraficasH.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dis_chklGraficasH.DisplayMember = "Descripcion";
-            this.dis_chklGraficasH.Location = new System.Drawing.Point(5, 23);
-            this.dis_chklGraficasH.MultiColumn = true;
-            this.dis_chklGraficasH.Name = "dis_chklGraficasH";
-            this.dis_chklGraficasH.Size = new System.Drawing.Size(180, 93);
-            this.dis_chklGraficasH.TabIndex = 26;
-            this.dis_chklGraficasH.ValueMember = "Codigo";
+            this.mnuAgregaRegistroGH.Name = "mnuAgregaRegistroGH";
+            this.mnuAgregaRegistroGH.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mnuAgregaRegistroGH.Size = new System.Drawing.Size(219, 22);
+            this.mnuAgregaRegistroGH.Text = "Agregar Registro";
+            this.mnuAgregaRegistroGH.Click += new System.EventHandler(this.mnuAgregaRegistroGH_Click);
+            // 
+            // mnuEliminaRegistroGH
+            // 
+            this.mnuEliminaRegistroGH.Name = "mnuEliminaRegistroGH";
+            this.mnuEliminaRegistroGH.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
+            this.mnuEliminaRegistroGH.Size = new System.Drawing.Size(219, 22);
+            this.mnuEliminaRegistroGH.Text = "Eliminar Registro";
+            this.mnuEliminaRegistroGH.Click += new System.EventHandler(this.mnuEliminaRegistroGH_Click);
+            // 
+            // dis_gvGraficasH
+            // 
+            this.dis_gvGraficasH.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dis_gcColDescripcionGH});
+            this.dis_gvGraficasH.GridControl = this.dis_gcGraficasH;
+            this.dis_gvGraficasH.Name = "dis_gvGraficasH";
+            this.dis_gvGraficasH.OptionsView.ShowGroupPanel = false;
+            // 
+            // dis_gcColDescripcionGH
+            // 
+            this.dis_gcColDescripcionGH.Caption = "Descripción";
+            this.dis_gcColDescripcionGH.FieldName = "Descripcion";
+            this.dis_gcColDescripcionGH.Name = "dis_gcColDescripcionGH";
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowEdit = false;
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowMove = false;
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColDescripcionGH.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColDescripcionGH.OptionsColumn.ReadOnly = true;
+            this.dis_gcColDescripcionGH.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColDescripcionGH.OptionsFilter.AllowFilter = false;
+            this.dis_gcColDescripcionGH.Visible = true;
+            this.dis_gcColDescripcionGH.VisibleIndex = 0;
+            // 
+            // dis_gpOriginales
+            // 
+            this.dis_gpOriginales.Controls.Add(this.dis_gcOriginales);
+            this.dis_gpOriginales.Location = new System.Drawing.Point(11, 5);
+            this.dis_gpOriginales.Name = "dis_gpOriginales";
+            this.dis_gpOriginales.Size = new System.Drawing.Size(404, 232);
+            this.dis_gpOriginales.TabIndex = 34;
+            this.dis_gpOriginales.Text = "Originales";
+            // 
+            // dis_gcOriginales
+            // 
+            this.dis_gcOriginales.ContextMenuStrip = this.cmDisenoGeneralORI;
+            this.dis_gcOriginales.Location = new System.Drawing.Point(5, 23);
+            this.dis_gcOriginales.MainView = this.dis_gvOriginales;
+            this.dis_gcOriginales.Name = "dis_gcOriginales";
+            this.dis_gcOriginales.Size = new System.Drawing.Size(394, 204);
+            this.dis_gcOriginales.TabIndex = 33;
+            this.dis_gcOriginales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.dis_gvOriginales});
+            // 
+            // cmDisenoGeneralORI
+            // 
+            this.cmDisenoGeneralORI.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAgregaRegistroORI,
+            this.mnuEliminaRegistroORI});
+            this.cmDisenoGeneralORI.Name = "cmDisenoGeneralORI";
+            this.cmDisenoGeneralORI.Size = new System.Drawing.Size(220, 48);
+            // 
+            // mnuAgregaRegistroORI
+            // 
+            this.mnuAgregaRegistroORI.Name = "mnuAgregaRegistroORI";
+            this.mnuAgregaRegistroORI.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.mnuAgregaRegistroORI.Size = new System.Drawing.Size(219, 22);
+            this.mnuAgregaRegistroORI.Text = "Agregar Registro";
+            this.mnuAgregaRegistroORI.Click += new System.EventHandler(this.mnuAgregaRegistroORI_Click);
+            // 
+            // mnuEliminaRegistroORI
+            // 
+            this.mnuEliminaRegistroORI.Name = "mnuEliminaRegistroORI";
+            this.mnuEliminaRegistroORI.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.Delete)));
+            this.mnuEliminaRegistroORI.Size = new System.Drawing.Size(219, 22);
+            this.mnuEliminaRegistroORI.Text = "Eliminar Registro";
+            this.mnuEliminaRegistroORI.Click += new System.EventHandler(this.mnuEliminaRegistroORI_Click);
+            // 
+            // dis_gvOriginales
+            // 
+            this.dis_gvOriginales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.dis_gcColDescripcionORI});
+            this.dis_gvOriginales.GridControl = this.dis_gcOriginales;
+            this.dis_gvOriginales.Name = "dis_gvOriginales";
+            this.dis_gvOriginales.OptionsView.ShowGroupPanel = false;
+            // 
+            // dis_gcColDescripcionORI
+            // 
+            this.dis_gcColDescripcionORI.Caption = "Descripción";
+            this.dis_gcColDescripcionORI.FieldName = "Descripcion";
+            this.dis_gcColDescripcionORI.Name = "dis_gcColDescripcionORI";
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowEdit = false;
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowIncrementalSearch = false;
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowMove = false;
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowShowHide = false;
+            this.dis_gcColDescripcionORI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.dis_gcColDescripcionORI.OptionsColumn.ReadOnly = true;
+            this.dis_gcColDescripcionORI.OptionsFilter.AllowAutoFilter = false;
+            this.dis_gcColDescripcionORI.OptionsFilter.AllowFilter = false;
+            this.dis_gcColDescripcionORI.Visible = true;
+            this.dis_gcColDescripcionORI.VisibleIndex = 0;
             // 
             // dis_xtpArmados
             // 
@@ -3209,7 +3301,7 @@
             // 
             // gc_Procesos
             // 
-            this.gc_Procesos.ContextMenuStrip = this.cmProcesos;
+            this.gc_Procesos.ContextMenuStrip = this.cmDisenoProcesos;
             this.gc_Procesos.Location = new System.Drawing.Point(3, 3);
             this.gc_Procesos.MainView = this.gvProcesos;
             this.gc_Procesos.Name = "gc_Procesos";
@@ -3218,13 +3310,13 @@
             this.gc_Procesos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProcesos});
             // 
-            // cmProcesos
+            // cmDisenoProcesos
             // 
-            this.cmProcesos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cmDisenoProcesos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAgregaProceso,
             this.mnuQuitarProceso});
-            this.cmProcesos.Name = "contextMenuStrip3";
-            this.cmProcesos.Size = new System.Drawing.Size(219, 48);
+            this.cmDisenoProcesos.Name = "contextMenuStrip3";
+            this.cmDisenoProcesos.Size = new System.Drawing.Size(219, 48);
             // 
             // mnuAgregaProceso
             // 
@@ -3309,7 +3401,7 @@
             this.proc_gcColTotal.Caption = "Total";
             this.proc_gcColTotal.DisplayFormat.FormatString = "N2";
             this.proc_gcColTotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.proc_gcColTotal.FieldName = "Total";
+            this.proc_gcColTotal.FieldName = "TotalLinea";
             this.proc_gcColTotal.Name = "proc_gcColTotal";
             this.proc_gcColTotal.OptionsColumn.AllowEdit = false;
             this.proc_gcColTotal.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
@@ -3906,205 +3998,6 @@
             this.labelControl25.TabIndex = 3;
             this.labelControl25.Text = "Juego:";
             // 
-            // xtpMateriales
-            // 
-            this.xtpMateriales.Controls.Add(this.em_gcDetalleEGR);
-            this.xtpMateriales.Name = "xtpMateriales";
-            this.xtpMateriales.Size = new System.Drawing.Size(859, 313);
-            this.xtpMateriales.Text = "Materiales";
-            // 
-            // em_gcDetalleEGR
-            // 
-            this.em_gcDetalleEGR.Location = new System.Drawing.Point(3, 3);
-            this.em_gcDetalleEGR.MainView = this.em_gvDetalleEGR;
-            this.em_gcDetalleEGR.Name = "em_gcDetalleEGR";
-            this.em_gcDetalleEGR.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.em_rilueSeccion,
-            this.em_rilueMaquina,
-            this.em_ribeBuscaMAT});
-            this.em_gcDetalleEGR.Size = new System.Drawing.Size(796, 220);
-            this.em_gcDetalleEGR.TabIndex = 0;
-            this.em_gcDetalleEGR.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.em_gvDetalleEGR});
-            // 
-            // em_gvDetalleEGR
-            // 
-            this.em_gvDetalleEGR.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.em_gcColSeccion,
-            this.em_gcColMaterial,
-            this.em_gcColCantPliego,
-            this.em_gcColExtras,
-            this.em_gcColCantTamano,
-            this.em_gcColAncho,
-            this.em_gcColAlto,
-            this.em_gcColPlacasMQ,
-            this.em_gcColCntPlacas});
-            this.em_gvDetalleEGR.GridControl = this.em_gcDetalleEGR;
-            this.em_gvDetalleEGR.Name = "em_gvDetalleEGR";
-            this.em_gvDetalleEGR.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            this.em_gvDetalleEGR.OptionsView.ShowGroupPanel = false;
-            // 
-            // em_gcColSeccion
-            // 
-            this.em_gcColSeccion.Caption = "Trabajo";
-            this.em_gcColSeccion.ColumnEdit = this.em_rilueSeccion;
-            this.em_gcColSeccion.FieldName = "CodigoSEC";
-            this.em_gcColSeccion.Name = "em_gcColSeccion";
-            this.em_gcColSeccion.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColSeccion.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColSeccion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColSeccion.OptionsColumn.AllowMove = false;
-            this.em_gcColSeccion.OptionsColumn.AllowShowHide = false;
-            this.em_gcColSeccion.Visible = true;
-            this.em_gcColSeccion.VisibleIndex = 0;
-            this.em_gcColSeccion.Width = 154;
-            // 
-            // em_rilueSeccion
-            // 
-            this.em_rilueSeccion.AutoHeight = false;
-            this.em_rilueSeccion.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.em_rilueSeccion.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Sección")});
-            this.em_rilueSeccion.DisplayMember = "Descripcion";
-            this.em_rilueSeccion.Name = "em_rilueSeccion";
-            this.em_rilueSeccion.NullText = "";
-            this.em_rilueSeccion.ValueMember = "Codigo";
-            // 
-            // em_gcColMaterial
-            // 
-            this.em_gcColMaterial.Caption = "Material";
-            this.em_gcColMaterial.ColumnEdit = this.em_ribeBuscaMAT;
-            this.em_gcColMaterial.FieldName = "Material";
-            this.em_gcColMaterial.Name = "em_gcColMaterial";
-            this.em_gcColMaterial.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColMaterial.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColMaterial.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColMaterial.OptionsColumn.AllowMove = false;
-            this.em_gcColMaterial.OptionsColumn.AllowShowHide = false;
-            this.em_gcColMaterial.OptionsColumn.ReadOnly = true;
-            this.em_gcColMaterial.Visible = true;
-            this.em_gcColMaterial.VisibleIndex = 1;
-            this.em_gcColMaterial.Width = 222;
-            // 
-            // em_ribeBuscaMAT
-            // 
-            this.em_ribeBuscaMAT.AutoHeight = false;
-            this.em_ribeBuscaMAT.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.em_ribeBuscaMAT.Name = "em_ribeBuscaMAT";
-            // 
-            // em_gcColCantPliego
-            // 
-            this.em_gcColCantPliego.Caption = "Pliegos";
-            this.em_gcColCantPliego.FieldName = "CntPliego";
-            this.em_gcColCantPliego.Name = "em_gcColCantPliego";
-            this.em_gcColCantPliego.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColCantPliego.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColCantPliego.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColCantPliego.OptionsColumn.AllowMove = false;
-            this.em_gcColCantPliego.OptionsColumn.AllowShowHide = false;
-            this.em_gcColCantPliego.Visible = true;
-            this.em_gcColCantPliego.VisibleIndex = 2;
-            this.em_gcColCantPliego.Width = 102;
-            // 
-            // em_gcColExtras
-            // 
-            this.em_gcColExtras.Caption = "Extras";
-            this.em_gcColExtras.FieldName = "CntExtra";
-            this.em_gcColExtras.Name = "em_gcColExtras";
-            this.em_gcColExtras.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColExtras.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColExtras.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColExtras.OptionsColumn.AllowMove = false;
-            this.em_gcColExtras.OptionsColumn.AllowShowHide = false;
-            this.em_gcColExtras.Visible = true;
-            this.em_gcColExtras.VisibleIndex = 3;
-            this.em_gcColExtras.Width = 87;
-            // 
-            // em_gcColCantTamano
-            // 
-            this.em_gcColCantTamano.Caption = "Tamaños";
-            this.em_gcColCantTamano.FieldName = "CntTamano";
-            this.em_gcColCantTamano.Name = "em_gcColCantTamano";
-            this.em_gcColCantTamano.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColCantTamano.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColCantTamano.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColCantTamano.OptionsColumn.AllowMove = false;
-            this.em_gcColCantTamano.OptionsColumn.AllowShowHide = false;
-            this.em_gcColCantTamano.Visible = true;
-            this.em_gcColCantTamano.VisibleIndex = 4;
-            this.em_gcColCantTamano.Width = 193;
-            // 
-            // em_gcColAncho
-            // 
-            this.em_gcColAncho.Caption = "Ancho";
-            this.em_gcColAncho.FieldName = "Ancho";
-            this.em_gcColAncho.Name = "em_gcColAncho";
-            this.em_gcColAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColAncho.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColAncho.OptionsColumn.AllowMove = false;
-            this.em_gcColAncho.OptionsColumn.AllowShowHide = false;
-            this.em_gcColAncho.Visible = true;
-            this.em_gcColAncho.VisibleIndex = 5;
-            this.em_gcColAncho.Width = 105;
-            // 
-            // em_gcColAlto
-            // 
-            this.em_gcColAlto.Caption = "Alto";
-            this.em_gcColAlto.FieldName = "Alto";
-            this.em_gcColAlto.Name = "em_gcColAlto";
-            this.em_gcColAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColAlto.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColAlto.OptionsColumn.AllowMove = false;
-            this.em_gcColAlto.OptionsColumn.AllowShowHide = false;
-            this.em_gcColAlto.Visible = true;
-            this.em_gcColAlto.VisibleIndex = 6;
-            this.em_gcColAlto.Width = 103;
-            // 
-            // em_gcColPlacasMQ
-            // 
-            this.em_gcColPlacasMQ.Caption = "Máquina";
-            this.em_gcColPlacasMQ.ColumnEdit = this.em_rilueMaquina;
-            this.em_gcColPlacasMQ.FieldName = "CodigoMAQ";
-            this.em_gcColPlacasMQ.Name = "em_gcColPlacasMQ";
-            this.em_gcColPlacasMQ.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColPlacasMQ.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColPlacasMQ.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColPlacasMQ.OptionsColumn.AllowMove = false;
-            this.em_gcColPlacasMQ.OptionsColumn.AllowShowHide = false;
-            this.em_gcColPlacasMQ.Visible = true;
-            this.em_gcColPlacasMQ.VisibleIndex = 7;
-            this.em_gcColPlacasMQ.Width = 156;
-            // 
-            // em_rilueMaquina
-            // 
-            this.em_rilueMaquina.AutoHeight = false;
-            this.em_rilueMaquina.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.em_rilueMaquina.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Descripcion", "Máquina")});
-            this.em_rilueMaquina.DisplayMember = "Descripcion";
-            this.em_rilueMaquina.Name = "em_rilueMaquina";
-            this.em_rilueMaquina.NullText = "";
-            this.em_rilueMaquina.ValueMember = "Codigo";
-            // 
-            // em_gcColCntPlacas
-            // 
-            this.em_gcColCntPlacas.Caption = "Cantidad";
-            this.em_gcColCntPlacas.FieldName = "CntPlaca";
-            this.em_gcColCntPlacas.Name = "em_gcColCntPlacas";
-            this.em_gcColCntPlacas.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColCntPlacas.OptionsColumn.AllowIncrementalSearch = false;
-            this.em_gcColCntPlacas.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.em_gcColCntPlacas.OptionsColumn.AllowMove = false;
-            this.em_gcColCntPlacas.OptionsColumn.AllowShowHide = false;
-            this.em_gcColCntPlacas.Visible = true;
-            this.em_gcColCntPlacas.VisibleIndex = 8;
-            this.em_gcColCntPlacas.Width = 190;
-            // 
             // seTiraje
             // 
             this.seTiraje.EditValue = new decimal(new int[] {
@@ -4399,12 +4292,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.xtcDiseno)).EndInit();
             this.xtcDiseno.ResumeLayout(false);
             this.dis_xtpGeneral.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gbOrginales)).EndInit();
-            this.gbOrginales.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_chklOriginales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gbGraficas)).EndInit();
-            this.gbGraficas.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_chklGraficasH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gpGraficasH)).EndInit();
+            this.dis_gpGraficasH.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcGraficasH)).EndInit();
+            this.cmDisenoGeneralGH.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvGraficasH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gpOriginales)).EndInit();
+            this.dis_gpOriginales.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gcOriginales)).EndInit();
+            this.cmDisenoGeneralORI.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dis_gvOriginales)).EndInit();
             this.dis_xtpArmados.ResumeLayout(false);
             this.dis_xtpArmados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalCostoPapel.Properties)).EndInit();
@@ -4452,7 +4349,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseCantAccesorio)).EndInit();
             this.dis_xtpProcesos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).EndInit();
-            this.cmProcesos.ResumeLayout(false);
+            this.cmDisenoProcesos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvProcesos)).EndInit();
             this.dis_xtpProcesosIMP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcProcesoIMP)).EndInit();
@@ -4472,12 +4369,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.blo_rilueColorCopia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blo_txtSerie.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.blo_lueTipoEmblocado.Properties)).EndInit();
-            this.xtpMateriales.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.em_gcDetalleEGR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_gvDetalleEGR)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_rilueSeccion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_ribeBuscaMAT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.em_rilueMaquina)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seTiraje.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAlto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAncho.Properties)).EndInit();
@@ -4535,21 +4426,6 @@
         private DevExpress.XtraEditors.LookUpEdit blo_lueTipoEmblocado;
         private DevExpress.XtraEditors.LabelControl labelControl26;
         private DevExpress.XtraEditors.LabelControl labelControl25;
-        private DevExpress.XtraTab.XtraTabPage xtpMateriales;
-        private DevExpress.XtraGrid.GridControl em_gcDetalleEGR;
-        private DevExpress.XtraGrid.Views.Grid.GridView em_gvDetalleEGR;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColSeccion;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit em_rilueSeccion;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColMaterial;
-        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit em_ribeBuscaMAT;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCantPliego;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColExtras;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCantTamano;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColAncho;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColAlto;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColPlacasMQ;
-        private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit em_rilueMaquina;
-        private DevExpress.XtraGrid.Columns.GridColumn em_gcColCntPlacas;
         private DevExpress.XtraTab.XtraTabPage xtpDiseno;
         private DevExpress.XtraTab.XtraTabControl xtcDiseno;
         private DevExpress.XtraTab.XtraTabPage dis_xtpArmados;
@@ -4600,7 +4476,7 @@
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaMATCLI;
         private System.Windows.Forms.ToolStripMenuItem mnuQuitaMATCLI;
         private System.Windows.Forms.ContextMenuStrip cmDisenoMatARMDIS;
-        private System.Windows.Forms.ContextMenuStrip cmProcesos;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoProcesos;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaMATARMDIS;
         private System.Windows.Forms.ToolStripMenuItem mnuQuitarMATARMDIS;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaProceso;
@@ -4620,10 +4496,6 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColTamanosXpliego;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColImpXtamano;
         private DevExpress.XtraTab.XtraTabPage xtpResumen;
-        private DevExpress.XtraEditors.GroupControl gbOrginales;
-        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklOriginales;
-        private DevExpress.XtraEditors.GroupControl gbGraficas;
-        private DevExpress.XtraEditors.CheckedListBoxControl dis_chklGraficasH;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LookUpEdit dis_lueComponente;
         private DevExpress.XtraGrid.GridControl dis_gcMaterialCLI;
@@ -4760,5 +4632,19 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcTotalLinea;
         private DevExpress.XtraTab.XtraTabPage dis_xtpGeneral;
         private DevExpress.XtraTab.XtraTabPage dis_xtpMaterialCLI;
+        private DevExpress.XtraEditors.GroupControl dis_gpGraficasH;
+        private DevExpress.XtraGrid.GridControl dis_gcGraficasH;
+        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvGraficasH;
+        private DevExpress.XtraEditors.GroupControl dis_gpOriginales;
+        private DevExpress.XtraGrid.GridControl dis_gcOriginales;
+        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvOriginales;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColDescripcionGH;
+        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColDescripcionORI;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoGeneralGH;
+        private System.Windows.Forms.ContextMenuStrip cmDisenoGeneralORI;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregaRegistroGH;
+        private System.Windows.Forms.ToolStripMenuItem mnuEliminaRegistroGH;
+        private System.Windows.Forms.ToolStripMenuItem mnuAgregaRegistroORI;
+        private System.Windows.Forms.ToolStripMenuItem mnuEliminaRegistroORI;
     }
 }

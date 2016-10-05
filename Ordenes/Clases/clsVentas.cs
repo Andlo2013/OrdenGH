@@ -583,7 +583,7 @@ namespace Ordenes.Clases
             objSQLServer._BeginTransacction();
             modelo_Orden._guardaOrden(modelo_Orden);
             modelo_TrabajoGEN._guardaTrabajoGEN(modelo_TrabajoGEN,modelo_Orden.id);
-            modelo_Block._guardarDET(modelo_Block,modelo_Orden.id);
+            //modelo_Block._guardarDET(modelo_Block,modelo_Orden.id);
             modelo_LibroENC._guardaENC(modelo_LibroENC, modelo_Orden.id);
             modelo_LibroPOR._guardaPortada(modelo_LibroPOR, modelo_Orden.id);
             objSQLServer._Commit();
