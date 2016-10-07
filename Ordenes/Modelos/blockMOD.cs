@@ -16,7 +16,6 @@ namespace Ordenes.Modelos
 
         private _SQLServer objSQLServer = Form1.getSQLServer;
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
-        private DataTable dtColores = null;
 
         #region PROPIEDADES-MODELO
    

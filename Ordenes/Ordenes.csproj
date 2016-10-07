@@ -44,18 +44,18 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\CFBase\AutomatizerSQL.Utilidades\bin\Release\AutomatizerSQL.Utilidades.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Data.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
-    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="dllBuscar">
       <HintPath>..\..\..\dllBuscar\dllBuscar\bin\Debug\dllBuscar.dll</HintPath>
     </Reference>
@@ -83,7 +83,6 @@
     <Compile Include="Clases\clsCalculaCorte.cs" />
     <Compile Include="Clases\_Comunes.cs" />
     <Compile Include="Clases\clsCotizacion.cs" />
-    <Compile Include="Clases\clsVentas.cs" />
     <Compile Include="Controles\ctlCotizacion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -96,26 +95,15 @@
     <Compile Include="Formularios\frmCortes.Designer.cs">
       <DependentUpon>frmCortes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\acabadoMOD.cs" />
+    <Compile Include="Modelos\accesorioMOD.cs" />
+    <Compile Include="Modelos\armadoMOD.cs" />
     <Compile Include="Modelos\blockMOD.cs" />
+    <Compile Include="Modelos\coloresMOD.cs" />
     <Compile Include="Modelos\cotizaMOD.cs" />
-    <Compile Include="Modelos\libroEncMOD.cs" />
-    <Compile Include="Modelos\libroPorMOD.cs" />
-    <Compile Include="Modelos\ordenMOD.cs" />
     <Compile Include="Clases\_toEntity.cs" />
     <Compile Include="Clases\_Enumeraciones.cs" />
     <Compile Include="Clases\_SQLServer.cs" />
-    <Compile Include="Controles\ctlDiseno.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\ctlDiseno.Designer.cs">
-      <DependentUpon>ctlDiseno.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Controles\ctlOrden.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Controles\ctlOrden.Designer.cs">
-      <DependentUpon>ctlOrden.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,7 +116,10 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\trabajoGenMOD.cs" />
+    <Compile Include="Modelos\placasMOD.cs" />
+    <Compile Include="Modelos\procesoIMPMOD.cs" />
+    <Compile Include="Modelos\ProcesosMOD.cs" />
+    <Compile Include="Modelos\troquelMOD.cs" />
     <Compile Include="Modelos\_modelo.cs" />
     <Compile Include="Properties\paramsSQL.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -139,12 +130,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controles\ctlCotizacion.resx">
       <DependentUpon>ctlCotizacion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\ctlDiseno.resx">
-      <DependentUpon>ctlDiseno.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Controles\ctlOrden.resx">
-      <DependentUpon>ctlOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

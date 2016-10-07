@@ -199,7 +199,7 @@
     <comment>Lista las máquinas para buscar</comment>
   </data>
   <data name="cot_disProcesoDET" xml:space="preserve">
-    <value>SELECT dbo.pr_CotizaDisenoProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaDisenoProceso.Cantidad, dbo.pr_CotizaDisenoProceso.Costo FROM dbo.pr_CotizaDisenoProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaDisenoProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProceso.EstReg = 'True')</value>
+    <value>SELECT dbo.pr_CotizaDisenoProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaDisenoProceso.Minutos, dbo.pr_CotizaDisenoProceso.Costo FROM dbo.pr_CotizaDisenoProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaDisenoProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProceso.EstReg = 'True')</value>
     <comment>Carga el detalle de procesos</comment>
   </data>
   <data name="cot_disTroquelDET" xml:space="preserve">
@@ -267,7 +267,7 @@
     <comment>Guarda el detalle de las placas</comment>
   </data>
   <data name="cot_guardaDET_Proceso" xml:space="preserve">
-    <value>INSERT INTO dbo.pr_CotizaDisenoProceso VALUES (@idCotiza,@MaqCod,@Costo,@Cantidad,@Total,'True')</value>
+    <value>INSERT INTO dbo.pr_CotizaDisenoProceso VALUES (@idCotiza,@MaqCod,@Costo,@Minutos,@Total,'True')</value>
     <comment>Guarda el detalle de procesos</comment>
   </data>
   <data name="cot_guardaDET_ProcesoIMP" xml:space="preserve">

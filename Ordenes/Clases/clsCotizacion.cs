@@ -13,6 +13,7 @@ using AutomatizerSQL.Utilidades;
 using Ordenes.Formularios;
 using DevExpress.XtraEditors.Repository;
 using System.Collections;
+using System.Reflection;
 
 namespace Ordenes.Clases
 {
@@ -43,7 +44,15 @@ namespace Ordenes.Clases
         DataTable dtTipoPlacas = null;
         DataTable dtCostosProcesoIMP = null;
 
-       
+        //LISTAS
+        List<armadoMOD> lista_Armado = null;
+        List<coloresMOD> lista_Colores = null;
+        List<placasMOD> lista_Placas = null;
+        List<troquelMOD> lista_Troquel = null;
+        List<acabadoMOD> lista_Acabado = null;
+        List<accesorioMOD> lista_Accesorios = null;
+        List<procesoIMPMOD> lista_ProcesosIMP = null;
+        List<ProcesosMOD> lista_Procesos = null;
         //VARIABLES GLOBALES
         private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
         private string m_Servidor = Form1.getSession.Servidor;
@@ -308,10 +317,12 @@ namespace Ordenes.Clases
 
         //DISENO
         #region Diseno
-        
+
         //DISEÑO GENERAL
         #region Diseno-General
-
+        
+        //AGREGA UNA OPCION GENERAL AL DETALLE
+        #region disenoGeneralAdd
         private void _disenoGeneralAdd(DataTable dtTabla, optionsCMB opcion)
         {
             try
@@ -336,17 +347,26 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar agregar el registro", "Agregar", ex.Message);
             }
         }
+        #endregion
 
+        //AGREGA OPCIONES DE GRÁFICAS HERNÁNDEZ
+        #region disenoGeneralAddGH
         public void _disenoGeneralAddGH()
         {
             _disenoGeneralAdd(dtDisenoGeneralGH, optionsCMB.DisenoChkGH);
         }
+        #endregion
 
+        //AGREGA OPCIONES ORIGINALES
+        #region disenoGeneralAddORI
         public void _disenoGeneralAddORI()
         {
             _disenoGeneralAdd(dtDisenoGeneralORI, optionsCMB.DisenoChkORI);
         }
+        #endregion
 
+        //CARGA EL DETALLE DE GENERALES
+        #region disenoGeneralDET
         public void _disenoGeneralDET(int idCotiza)
         {
             try
@@ -363,7 +383,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjError("ERROR Al intentar cargar la configuracion de DISEÑO->GENERAL", "DISEÑO GENERAL", ex.Message);
             }
         }
+        #endregion
 
+        //ELIMINA UN REGISTRO DE TABLAS GENERALES
+        #region disenoGeneralEliminarREG
         public void _disenoGeneralEliminaREG(optionsCMB opcion, DataRow rowEliminar)
         {
             if (opcion == optionsCMB.DisenoChkGH)
@@ -375,7 +398,10 @@ namespace Ordenes.Clases
                 dtDisenoGeneralORI.Rows.Remove(rowEliminar);
             }
         }
+        #endregion
 
+        //LISTA LAS OPCIONES GENERALES A AGREGAR
+        #region disenoGeneralListarOPC
         private DataRow[] _disenoGeneralListarOPC(optionsCMB opcion)
         {
             try
@@ -394,6 +420,7 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
         #endregion
 
@@ -589,81 +616,43 @@ namespace Ordenes.Clases
         #region disenoArmadoValida
         public bool _disenoArmadoValida()
         {
-            try {
+            lista_Armado = new List<armadoMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> PAPEL";
+            string msj = nombreTabla;
+            try
+            {
                 if (dtDisenoArmado != null)
                 {
                     int fila = 0;
                     foreach (DataRow row in dtDisenoArmado.Rows)
                     {
                         fila++;
-                        string msj = "TABLA: DISEÑO -> ARMADOS\nEl registro de la fila Nro: " + fila.ToString() + "\n";
-
-                        if (row["Componente"].ToInt() == 0)
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState!=DataRowState.Deleted && row.RowState != DataRowState.Detached)
                         {
-                            msj += "No tiene asignado un componente";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
+                            armadoMOD objArmado = _toEntity._row2object<armadoMOD>(row);
+                            if (objArmado._validar())
+                            {
+                                lista_Armado.Add(objArmado);
+                            }
+                            else
+                            {
+                                msj += msjFila+"\n"+objArmado.pro_getErrrors;
+                                isValidTable = false;
+                            }
                         }
-                        else if (row["SecMaterial"].ToInt() == 0)
-                        {
-                            msj += "No tiene asignado un material";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["TamanoAncho"].ToDecimal() <= 0)
-                        {
-                            msj += "El ancho del armado debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["TamanoAlto"].ToDecimal() <= 0)
-                        {
-                            msj += "El alto del armado debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["PliegoAncho"].ToDecimal() <= 0)
-                        {
-                            msj += "El ancho del pliego debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["PliegoAlto"].ToDecimal() <= 0)
-                        {
-                            msj += "El alto del pliego debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["PliegoCantidad"].ToInt() <= 0)
-                        {
-                            msj += "La cantidad de pliegos debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["Extra"].ToInt() < 0)
-                        {
-                            msj += "La cantidad de impresiones extras debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        else if (row["PliegoCotizados"].ToInt() <= 0)
-                        {
-                            msj += "La cantidad de impresiones cotizadas debe ser mayor a cero";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
-                        }
-                        ////else if (row["Impresas"].ToInt() <= 0)
-                        ////{
-                        ////    msj += "La cantidad de impresiones debe ser mayor a cero";
-                        ////    clsMensaje._msjWarning(msj, "Verificar datos");
-                        ////    return false;
-                        ////}
                     }
                 }
-                return true;
-            }catch(Exception ex)
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de Diseño->Armados", "Verificar datos", ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:"+nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -953,8 +942,13 @@ namespace Ordenes.Clases
 
         //validaciones de colores
         #region disenoColorValida
+        
         public bool _disenoColorValida()
         {
+            lista_Colores = new List<coloresMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> COLORES";
+            string msj = nombreTabla;
             try
             {
                 if (dtDisenoColor != null)
@@ -963,23 +957,35 @@ namespace Ordenes.Clases
                     foreach (DataRow row in dtDisenoColor.Rows)
                     {
                         fila++;
-                        string msj = "TABLA: DISEÑO -> COLOR\nEl registro de la fila Nro: " + fila.ToString() + "\n";
-                        if (row["Componente"].ToInt() <= 0)
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
                         {
-                            msj += "No tiene definido un componente";
-                            clsMensaje._msjWarning(msj, "Verificar datos");
-                            return false;
+                            coloresMOD objColor = _toEntity._row2object<coloresMOD>(row);
+                            if (objColor._validar())
+                            {
+                                lista_Colores.Add(objColor);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objColor.pro_getErrrors;
+                                isValidTable = false;
+                            }
                         }
                     }
                 }
-                return true;
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
             }
             catch(Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de Diseno->Colores", "Verificar datos", ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle: "+nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
+
         #endregion
 
         #endregion
@@ -1112,11 +1118,59 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //VALIDA EL DETALLE DE PLACAS
+        #region disenoPlacaValida
+        public bool _disenoPlacaValida()
+        {
+            lista_Placas = new List<placasMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> PLACAS";
+            string msj = nombreTabla;
+            try
+            {
+                if (dtDisenoPlaca != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoPlaca.Rows)
+                    {
+                        fila++;
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        {
+                            placasMOD objPlacas = _toEntity._row2object<placasMOD>(row);
+                            if (objPlacas._validar())
+                            {
+                                lista_Placas.Add(objPlacas);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objPlacas.pro_getErrrors;
+                                isValidTable = false;
+                            }
+                        }
+                    }
+                }
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
         #endregion
 
         //DISEÑO ACABADO
         #region Diseno-Acabado
-
+        
+        //CARGA EL DETALLE DE ACABADOS
+        #region disenoAcabadoCargaDET
         public void _disenoAcabadoCargaDET(int cotizaID)
         {
             try
@@ -1138,7 +1192,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar recuperar el detalle de acabados", "Cargar Acabados", ex.Message);
             }
         }
+        #endregion
 
+        //AGREGA EL MATERIAL
+        #region disenoAcabadoAddMaterial
         public void _disenoAcabadoAddMaterial(object codComponente)
         {
             DataRow[] filasSEL = _disenoArmadoListarREG(codComponente);
@@ -1155,7 +1212,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
+        //AGREGA EL ACABADO
+        #region disenoAcabadoAddAcabado
         public void _disenoAcabadoAddAcabado(DataRow rowDetalle)
         {
             DataTable dtAcabadoOPC = objSQLServer._CargaDataTable(sqlCotizacion.cot_disAcabadoADD,
@@ -1178,7 +1238,10 @@ namespace Ordenes.Clases
                 _disenoAcabadoOptimizaMAT(rowDetalle);
             }
         }
+        #endregion
 
+        //DEFINE EL AREA DE APLICACION
+        #region disenoAcabadoAreaAplica
         private void _disenoAcabadoAreaAplica(DataRow rowDetalle)
         {
             object ancho = 0;
@@ -1210,7 +1273,10 @@ namespace Ordenes.Clases
                 rowDetalle["Alto"] = alto;
             }
         }
+        #endregion
 
+        //ELIMINA UN REGISTRO DE ACABADOS
+        #region disenoAcabadoElimina
         public void _disenoAcabadoElimina(DataRow rowElimina)
         {
             try
@@ -1225,7 +1291,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
 
+        //SELECCIONA EL MATERIAL QUE MENOS DESPERDICIE PARA LOS ACABADOS
+        #region disenoAcabadoOptimizaMAT
         private void _disenoAcabadoOptimizaMAT(DataRow rowDetalle)
         {
             //SI TALLA DE ACABADO IGUAL A CERO ENTONCES NO HAY NADA QUE OPTIMIZAR
@@ -1247,6 +1316,53 @@ namespace Ordenes.Clases
                 rowDetalle["AcabadoMaterial"] = "";
             }
         }
+        #endregion
+
+        //VALIDA EL DETALLE DE ACABADOS
+        #region disenoAcabadoValida
+        public bool _disenoAcabadoValida()
+        {
+            lista_Acabado = new List<acabadoMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> ACABADOS";
+            string msj = nombreTabla;
+            try
+            {
+                if (dtDisenoAcabado != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoAcabado.Rows)
+                    {
+                        fila++;
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        {
+                            acabadoMOD objAcabado = _toEntity._row2object<acabadoMOD>(row);
+                            if (objAcabado._validar())
+                            {
+                                lista_Acabado.Add(objAcabado);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objAcabado.pro_getErrrors;
+                                isValidTable = false;
+                            }
+                        }
+                    }
+                }
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                return false;
+            }
+        }
+        #endregion
 
         //FILTRA LOS MATERIALES DEL ACABADO POR EL COMPONENTE
         #region disenoAcabadoFiltrar
@@ -1266,15 +1382,17 @@ namespace Ordenes.Clases
 
         //DISENÑO PROCESOS
         #region Diseno-Proceso
-
+        
+        //CARGA EL DETALLE DE PROCESOS
+        #region disenoProcesoCargaDET
         public DataTable _disenoProcesoCargaDET(int cotizaID)
         {
             try
             {
                 dtDisenoProcesoDET = objSQLServer._CargaDataTable(sqlCotizacion.cot_disProcesoDET,
                     new string[] { "@CodEmpresa", "@cotizaID" }, new object[] { m_codEmpresa, cotizaID });
-                dtDisenoProcesoDET.Columns.Add("TotalLinea", System.Type.GetType("System.Decimal"));
-                dtDisenoProcesoDET.Columns["TotalLinea"].Expression = "Costo*Cantidad";
+                dtDisenoProcesoDET.Columns.Add("TotalLinea", Type.GetType("System.Decimal"));
+                dtDisenoProcesoDET.Columns["TotalLinea"].Expression = "Costo*Minutos";
                 return dtDisenoProcesoDET;
             }
             catch (Exception ex)
@@ -1283,7 +1401,10 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
+        //AGREGA PROCESOS A LA COTIZACION
+        #region disenoProcesoAgregaMAQ
         public void _disenoProcesoAgregaMAQ(int tiraje)
         {
             try
@@ -1300,7 +1421,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar agregar el proceso", "Procesos", ex.Message);
             }
         }
+        #endregion
 
+        //AGREGA LOS REGISTROS AL DETALLE
+        #region disenoProcesoAddMAQ
         private void _disenoProcesoAddMAQ(DataRow[] filasSEL, int tiraje)
         {
             if (dtDisenoProcesoDET != null && filasSEL != null)
@@ -1320,7 +1444,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
+        //ELIMINA UN REGISTRO DE PROCESOS
+        #region disenoProcesoElimina
         public void _disenoProcesoElimina(DataRow rowElimina)
         {
             try
@@ -1335,6 +1462,53 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
+
+        //VALIDA LOS PROCESOS GENERALES
+        #region disenoProcesoValida
+        public bool _disenoProcesoValida()
+        {
+            lista_Procesos = new List<ProcesosMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> PROCESOS";
+            string msj = nombreTabla;
+            try
+            {
+                if (dtDisenoProcesoDET != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoProcesoDET.Rows)
+                    {
+                        fila++;
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        {
+                            ProcesosMOD objProceso = _toEntity._row2object<ProcesosMOD>(row);
+                            if (objProceso._validar())
+                            {
+                                lista_Procesos.Add(objProceso);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objProceso.pro_getErrrors;
+                                isValidTable = false;
+                            }
+                        }
+                    }
+                }
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                return false;
+            }
+        }
+        #endregion
 
         #endregion
 
@@ -1419,6 +1593,52 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //VALIDA EL DETALLE DE PROCESOS DE IMPRESIÓN
+        #region disenoProcesoIMPValida
+        public bool _disenoProcesoIMPValida()
+        {
+            lista_ProcesosIMP = new List<procesoIMPMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> PROC. IMP";
+            string msj = nombreTabla;
+            try
+            {
+                if (dtDisenoProcesoIMP != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoProcesoIMP.Rows)
+                    {
+                        fila++;
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        {
+                            procesoIMPMOD objProcesoIMP = _toEntity._row2object<procesoIMPMOD>(row);
+                            if (objProcesoIMP._validar())
+                            {
+                                lista_ProcesosIMP.Add(objProcesoIMP);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objProcesoIMP.pro_getErrrors;
+                                isValidTable = false;
+                            }
+                        }
+                    }
+                }
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de: " + nombreTabla, nombreTabla, ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
         #endregion
 
         //DISEÑO ACCESORIOS
@@ -1491,6 +1711,18 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //ELIMINA UN REGISTRO
+        #region disenoAccesorioEliminar
+        public void _disenoAccesorioEliminar(DataRow rowEliminar)
+        {
+            if (rowEliminar != null)
+            {
+                dtDisenoAccesorios.Rows.Remove(rowEliminar);
+                dtDisenoAccesorios.AcceptChanges();
+            }
+        }
+        #endregion
+
         //FILTRA LOS ACCESORIOS POR EL COMPONENTE
         #region disenoAccesoriosFiltrar
         public DataView _disenoAccesoriosFiltrar(int codComponente)
@@ -1505,14 +1737,48 @@ namespace Ordenes.Clases
         }
         #endregion
 
-        //ELIMINA UN REGISTRO
-        #region disenoAccesorioEliminar
-        public void _disenoAccesorioEliminar(DataRow rowEliminar)
+        //VALIDA EL DETALLE DE PROCESOS DE IMPRESIÓN
+        #region disenoAccesoriosValida
+        public bool _disenoAccesoriosValida()
         {
-            if (rowEliminar != null)
+            lista_Accesorios = new List<accesorioMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> ACCESORIOS";
+            string msj = nombreTabla;
+            try
             {
-                dtDisenoAccesorios.Rows.Remove(rowEliminar);
-                dtDisenoAccesorios.AcceptChanges();
+                if (dtDisenoAccesorios != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoAccesorios.Rows)
+                    {
+                        fila++;
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        {
+                            accesorioMOD objAccesorio = _toEntity._row2object<accesorioMOD>(row);
+                            if (objAccesorio._validar())
+                            {
+                                lista_Accesorios.Add(objAccesorio);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objAccesorio.pro_getErrrors;
+                                isValidTable = false;
+                            }
+                        }
+                    }
+                }
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                return false;
             }
         }
         #endregion
@@ -1592,7 +1858,7 @@ namespace Ordenes.Clases
         #endregion
 
         //calcula el costo total de placas
-        #region disenoTroquelTotaless
+        #region disenoTroquelTotales
         public decimal[] _disenoTroquelTotales()
         {
             decimal totalLongitud = 0;
@@ -1615,12 +1881,59 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //VALIDA EL DETALLE DE TROQUELES
+        #region disenoTroquelValida
+        public bool _disenoTroquelValida()
+        {
+            lista_Troquel = new List<troquelMOD>();
+            bool isValidTable = true;
+            string nombreTabla = "TABLA: DISEÑO -> TROQUEL";
+            string msj = nombreTabla;
+            try
+            {
+                if (dtDisenoTroquel != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoTroquel.Rows)
+                    {
+                        fila++;
+                        string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        {
+                            troquelMOD objTroquel = _toEntity._row2object<troquelMOD>(row);
+                            if (objTroquel._validar())
+                            {
+                                lista_Troquel.Add(objTroquel);
+                            }
+                            else
+                            {
+                                msj += msjFila + "\n" + objTroquel.pro_getErrrors;
+                                isValidTable = false;
+                            }
+                        }
+                    }
+                }
+                if (!isValidTable)
+                {
+                    clsMensaje._msjWarning(msj, nombreTabla);
+                }
+                return isValidTable;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
         #endregion
 
         //MATERIALES-CLIENTE
         #region Diseno-MaterialCliente
-
-
+        
+        //CARGA EL DETALLE DE MATERIALES DEL CLIENTE
+        #region disenoMATCLICargaDET
         public DataTable _disenoMATCLICargaDET(int cotizaID)
         {
             try
@@ -1635,7 +1948,10 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
+        //LISTA LAS OPCIONES DE MATERIALES DEL CLIENTE PARA QUE AGREGUE EL USUARIO
+        #region disenoMATCLIAgregaMAT
         public void _disenoMATCLIAgregaMAT()
         {
             try
@@ -1648,7 +1964,10 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar agregar materiales", "Agrega material", ex.Message);
             }
         }
+        #endregion
 
+        //AGREGA UN REGISTRO A MATERIALES DEL CLIENTE
+        #region disenoMATCLIAddMAT
         private void _disenoMATCLIAddMAT(DataTable filasSEL)
         {
             if (dtDisenoMaterialCLI != null && filasSEL != null)
@@ -1667,7 +1986,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
+        //ELIMINA UN REGISTRO DE MATERIALES DEL CLIENTE
+        #region disenoMATCLIEliminaMAT
         public void _disenoMATCLIEliminaMAT(DataRow rowElimina)
         {
             try
@@ -1682,6 +2004,45 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
+
+        //VALIDA EL DETALLE DE MATERIALES DEL CLIENTE
+        #region disenoMATCLIValida
+        public bool _disenoMATCLIValida()
+        {
+            try
+            {
+                if (dtDisenoMaterialCLI != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtDisenoMaterialCLI.Rows)
+                    {
+                        fila++;
+                        string msj = "En DISEÑO -> MATERIALES CLIENTE" +
+                            "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row["SecMaterial"].ToInt() <= 0)
+                        { 
+                            msj += "El secuencial de material es obligatorio";
+                            clsMensaje._msjWarning(msj, "Materiales cliente");
+                            return false;
+                        }
+                        else if (row["Cantidad"].ToDecimal() <= 0)
+                        {
+                            msj += "La cantidad debe ser mayor a cero";
+                            clsMensaje._msjWarning(msj, "Materiales cliente");
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            catch(Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar los materiales del cliente", "Materiales cliente",ex.Message);
+                return false;
+            }
+        }
+        #endregion
 
         #endregion
 
@@ -1704,7 +2065,6 @@ namespace Ordenes.Clases
                 _guardaCLIDestino(modelo_Cotiza.id);
                 _guardaGeneral(modelo_Cotiza.id);
                 _guardaProceso(modelo_Cotiza.id);
-                _guardaProcesoIMP(modelo_Cotiza.id);
                 _guardaMaterialCLI(modelo_Cotiza.id);
 
                 _guardaComponente(modelo_Cotiza.id);
@@ -1724,8 +2084,6 @@ namespace Ordenes.Clases
             }
         }
 
-
-
         //Guarda los bloques
         private void _guardaBlock(blockMOD modelo_Block,int idCotiza)
         {
@@ -1738,6 +2096,7 @@ namespace Ordenes.Clases
             }
         }
 
+        //Guarda el detalle de bloques
         private void _guardaBlockDET(int idCotiza)
         {
             if (dtBlockColor != null)
@@ -1753,6 +2112,7 @@ namespace Ordenes.Clases
             }
         }
 
+        //Guarda los destinos del cliente
         private void _guardaCLIDestino(int idCotiza)
         {
             if (dtClienteDEST != null)
@@ -1771,6 +2131,7 @@ namespace Ordenes.Clases
             }
         }
 
+        //Guarda las opciones de generales
         private void _guardaGeneral(int idCotiza)
         {
             string[] paramsName = new string[] { "@idCotiza", "@idOpcion", "@CatOpcion" };
@@ -1792,44 +2153,16 @@ namespace Ordenes.Clases
             }
         }
 
+        //Guarda los procesos generales
         private void _guardaProceso(int idCotiza)
         {
-            if (dtDisenoProcesoDET != null)
+            foreach (ProcesosMOD pm in lista_Procesos)
             {
-                string[] paramsName = new string[] { "@idCotiza", "@MaqCod",
-                    "@Costo", "@Cantidad", "@Total" };
-                foreach (DataRow rowProceso in dtDisenoProcesoDET.Rows)
-                {
-                    object[] paramsValue = new object[] {idCotiza,rowProceso["CodigoMAQ"],
-                    rowProceso["Costo"],rowProceso["Cantidad"],rowProceso["TotalLinea"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Proceso, paramsName, paramsValue);
-                }
+                pm._Guardar(idCotiza);
             }
         }
 
-        private void _guardaProcesoIMP(int idCotiza)
-        {
-            if (dtDisenoProcesoIMP != null)
-            {
-                string[] paramsName = new string[] {"@idCotiza","@SecDetalle",
-                    "@Componente","@TallaId","@SecMaterial","@PlacaId",
-                    "@NumColores","@pliegosXmin","@CostoMinIMP","@NumPliegos",
-                    "@NumMinIMP","@CostoXminPP","@MinutosPP","@TotalLinea" };
-                int secDetalle = 0;
-                foreach (DataRow rowProceso in dtDisenoProcesoIMP.Rows)
-                {
-                    secDetalle++;
-                    object[] paramsValue = new object[] {idCotiza,secDetalle,
-                    rowProceso["Componente"],rowProceso["idTalla"],rowProceso["SecMaterial"],rowProceso["PlacaId"],
-                    rowProceso["NumColores"],rowProceso["PliegosXmin"],rowProceso["CostoMinIMP"],rowProceso["NumPliegos"],
-                    rowProceso["NumMinIMP"],rowProceso["CostoXminPP"],rowProceso["MinutosPP"],rowProceso["TotalLinea"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_ProcesoIMP, paramsName, paramsValue);
-                }
-            }
-        }
-
+        //Guarda los materiales del cliente
         private void _guardaMaterialCLI(int idCotiza)
         {
             if (dtDisenoMaterialCLI != null)
@@ -1845,177 +2178,131 @@ namespace Ordenes.Clases
             }
         }
 
+        //GUARDA LOS DETALLES QUE SE CLASIFICAN POR COMPONENTE
+        #region GuardaXcomponente
+
+        //GUARDA LOS DETALLES QUE SE CLASIFICAN POR EL COMPONENTE
+        #region guardaComponente
         private void _guardaComponente(int idCotiza)
         {
             foreach (DataRow rowComponente in dtComponentes.Rows)
             {
-                object Componente=rowComponente["Codigo"];
+                int Componente=rowComponente["Codigo"].ToInt();
                 _guardaArmados(idCotiza, Componente);
                 _guardaColor(idCotiza, Componente);
                 _guardaPlacas(idCotiza, Componente);
                 _guardaTroquel(idCotiza, Componente);
                 _guardaAcabado(idCotiza, Componente);
                 _guardaAccesorio(idCotiza, Componente);
+                _guardaProcesoIMP(idCotiza, Componente);
             }
         }
+        #endregion
 
-        private DataRow[] _getRowsComponente(DataTable dtTabla,object Componente)
+        //GUARDA LOS ARMADOS
+        #region guardaArmados
+        private void _guardaArmados(int idCotiza,int a_Componente)
         {
-            DataRow[] drFilasSEL = null;
-            if (dtTabla != null)
+            List<armadoMOD> l = lista_Armado.Where(x => x.Componente== a_Componente).ToList();
+            foreach(armadoMOD am in l)
             {
-                drFilasSEL = dtTabla.Select("Componente=" + Componente);
+                am._Guardar(idCotiza);
             }
-            return drFilasSEL;
-
         }
+        #endregion
 
-       
-
-        private void _guardaArmados(int idCotiza,object Componente)
+        //GUARDA LOS COLORES
+        #region guardaColor
+        private void _guardaColor(int idCotiza, int a_Componente)
         {
-            DataRow []rowsComponente = _getRowsComponente(dtDisenoArmado, Componente);
-            if (rowsComponente != null)
+            List<coloresMOD> l = lista_Colores.Where(x => x.Componente == a_Componente).ToList();
+            int secDetalle = 0;
+            foreach (coloresMOD cm in l)
             {
-                
-                string[] paramsName = new string[] { "@idCotiza","@Componente",
-                    "@idTalla","@SecMaterial","@NumPaginas","@TrabajoAncho","@TrabajoAlto",
-                    "@paginasXtrabajo","@TamanoAncho","@TamanoAlto","@trabajosXtamano",
-                    "@PliegoAncho","@PliegoAlto","@tamanosXpliego","@pliegoCant","@pliegoPorcentajeEXT",
-                    "@pliegoCotizados","@pliegoCosto","@TotalLinea","@seleccionAUT","@idPlaca" };
-
-                foreach (DataRow rowArmado in rowsComponente)
-                {
-                    object[] paramsValue = new object[] {idCotiza,rowArmado["Componente"],
-                    rowArmado["CodTalla"],rowArmado["SecMaterial"],rowArmado["NumPaginas"],rowArmado["TrabajoAncho"],rowArmado["TrabajoAlto"],
-                    rowArmado["paginasXtrabajo"],rowArmado["TamanoAncho"],rowArmado["TamanoAlto"],rowArmado["trabajosXtamano"],
-                    rowArmado["PliegoAncho"],rowArmado["PliegoAlto"],rowArmado["tamanosXpliego"],rowArmado["PliegoCantidad"],rowArmado["PorcentajeEXT"],
-                    rowArmado["PliegoCotizados"],rowArmado["Costo"],rowArmado["TotalLinea"],rowArmado["AUT"],rowArmado["CodPlaca"]};
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Armados, paramsName, paramsValue);
-                }
+                secDetalle++;
+                cm._Guardar(idCotiza,secDetalle);
             }
         }
+        #endregion
 
-        private void _guardaColor(int idCotiza, object Componente)
+        //GUARDA LAS PLACAS
+        #region guardaPlacas
+        private void _guardaPlacas(int idCotiza, int a_Componente)
         {
-            DataRow[] rowsComponente = _getRowsComponente(dtDisenoColor, Componente);
-            if (rowsComponente != null)
+            List<placasMOD> l = lista_Placas.Where(x => x.Componente == a_Componente).ToList();
+            int secDetalle = 0;
+            foreach (placasMOD pm in l)
             {
-                string[] paramsName = new string[] { "@idCotiza","@SecDetalle",
-                    "@Componente","@SecMaterial","@LadoImpresion","@TipoColor",
-                    "@CostoGramo","@Cobertura","@Pantone","@NumPaginas",
-                    "@gramosXcm2","@TotalGramos", "@TotalLinea","@DetallePag" };
-                int secDetalle = 0;
-                foreach (DataRow rowColor in rowsComponente)
-                {
-                    secDetalle++;
-                    object[] paramsValue = new object[] {idCotiza,secDetalle,
-                    rowColor["Componente"],rowColor["SecMaterial"], rowColor["LadoImpresion"],rowColor["Color"],
-                    rowColor["CostoGramo"],rowColor["Cobertura"],rowColor["Pantone"],rowColor["NumPaginas"],
-                    rowColor["GramosXcm2"],rowColor["TotalGramos"],rowColor["TotalLinea"],rowColor["DetallePag"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Color, paramsName, paramsValue);
-                }
+                secDetalle++;
+                pm._Guardar(idCotiza, secDetalle);
             }
         }
+        #endregion
 
-        private void _guardaPlacas(int idCotiza, object Componente)
+        //GUARDA LOS TROQUELES
+        #region guardaTroquel
+        private void _guardaTroquel(int idCotiza, int a_Componente)
         {
-            DataRow[] rowsComponente = _getRowsComponente(dtDisenoPlaca, Componente);
-            if (rowsComponente != null)
+            List<troquelMOD> l = lista_Troquel.Where(x => x.Componente == a_Componente).ToList();
+            int secDetalle = 0;
+            foreach (troquelMOD tm in l)
             {
-                string[] paramsName = new string[] { "@idCotiza","@SecDetalle",
-                    "@Componente","@SecMaterial","@idPlaca","@LadoImpresion",
-                    "@NumColores","@NumPlacas","@CostoPlaca","@Numpaginas",
-                    "@trabajosXplaca","@paginasXtrabajo","@TotalLinea"};
-                int secDetalle = 0;
-                foreach (DataRow rowPlaca in rowsComponente)
-                {
-                    secDetalle++;
-                    object[] paramsValue = new object[] {idCotiza,secDetalle,
-                    rowPlaca["Componente"],rowPlaca["SecMaterial"], rowPlaca["CodPlaca"],rowPlaca["LadoPlaca"],
-                    rowPlaca["NumColores"],rowPlaca["NumPlacas"], rowPlaca["CostoPlaca"],rowPlaca["NumPaginas"],
-                    rowPlaca["TrabajosXplaca"],rowPlaca["PaginasXtrabajo"], rowPlaca["TotalLinea"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Placas, paramsName, paramsValue);
-                }
+                secDetalle++;
+                tm._Guardar(idCotiza, secDetalle);
             }
         }
+        #endregion
 
-        private void _guardaTroquel(int idCotiza, object Componente)
+        //GUARDA LOS ACABADOS
+        #region guardaAcabado
+        private void _guardaAcabado(int idCotiza, int a_Componente)
         {
-            DataRow[] rowsComponente = _getRowsComponente(dtDisenoTroquel, Componente);
-            if (rowsComponente != null)
+            List<acabadoMOD> l = lista_Acabado.Where(x => x.Componente == a_Componente).ToList();
+            int secDetalle = 0;
+            foreach (acabadoMOD am in l)
             {
-                string[] paramsName = new string[] { "@idCotiza", "@SecDetalle",
-                    "@Componente", "@SecMaterial", "@Longitud",
-                    "@NumCortes","@CostoCorte","@TotalLinea" };
-                int secDetalle = 0;
-                foreach (DataRow rowTroquel in rowsComponente)
-                {
-                    secDetalle++;
-                    object[] paramsValue = new object[] {idCotiza,secDetalle,
-                    rowTroquel["Componente"],rowTroquel["SecMaterial"], rowTroquel["Longitud"],
-                    rowTroquel["NumCortes"],rowTroquel["CostoCorte"], rowTroquel["TotalLinea"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Troquel, paramsName, paramsValue);
-                }
+                secDetalle++;
+                am._Guardar(idCotiza, secDetalle);
             }
         }
+        #endregion
 
-        private void _guardaAcabado(int idCotiza, object Componente)
+        //GUARDA LOS ACCESORIOS
+        #region guardaAccesorio
+        private void _guardaAccesorio(int idCotiza, int a_Componente)
         {
-            DataRow[] rowsComponente = _getRowsComponente(dtDisenoAcabado, Componente);
-            if (rowsComponente != null)
+            List<accesorioMOD> l = lista_Accesorios.Where(x => x.Componente == a_Componente).ToList();
+            int secDetalle = 0;
+            foreach (accesorioMOD am in l)
             {
-                string[] paramsName = new string[] { "@idCotiza", "@SecDetalle",
-                    "@Componente","@TallaId", "@SecMaterial","@AcabadoId",
-                    "@areaAplica","@TallaAcabadoId","@SecMaterialAcabado",
-                    "@Costo","@TotalLinea" };
-                int secDetalle = 0;
-                foreach (DataRow rowAcabado in rowsComponente)
-                {
-                    secDetalle++;
-                    object[] paramsValue = new object[] {idCotiza,secDetalle,
-                    rowAcabado["Componente"],rowAcabado["CodTalla"],rowAcabado["SecMaterial"],rowAcabado["idAcabado"],
-                    rowAcabado["areaAplica"],rowAcabado["idTallaAcabado"],rowAcabado["SecMaterialAcabado"],
-                    rowAcabado["Costo"],rowAcabado["TotalLinea"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Acabado, paramsName, paramsValue);
-                }
+                secDetalle++;
+                am._Guardar(idCotiza, secDetalle);
             }
         }
+        #endregion
 
-        private void _guardaAccesorio(int idCotiza, object Componente)
+        //GUARDA LOS PROCESOS DE IMPRESION
+        #region guardaProcesoIMP
+        private void _guardaProcesoIMP(int idCotiza,int a_Componente)
         {
-            DataRow[] rowsComponente = _getRowsComponente(dtDisenoAccesorios, Componente);
-            if (rowsComponente != null)
+            List<procesoIMPMOD> l = lista_ProcesosIMP.Where(x => x.Componente == a_Componente).ToList();
+            int secDetalle = 0;
+            foreach (procesoIMPMOD pim in l)
             {
-                string[] paramsName = new string[] { "@idCotiza", "@SecDetalle",
-                    "@Componente", "@SecMaterial","@Tiraje",
-                    "@Cantidad","@Costo","@TotalLinea" };
-                int secDetalle = 0;
-                foreach (DataRow rowAcabado in rowsComponente)
-                {
-                    secDetalle++; 
-                    object[] paramsValue = new object[] {idCotiza,secDetalle,
-                    rowAcabado["Componente"],rowAcabado["SecMaterial"],rowAcabado["Tiraje"],
-                    rowAcabado["Cantidad"],rowAcabado["Costo"],rowAcabado["TotalLinea"]};
-
-                    objSQLServer._Ejecutar(sqlCotizacion.cot_guardaDET_Accesorios, paramsName, paramsValue);
-                }
+                secDetalle++;
+                pim._Guardar(idCotiza, secDetalle);
             }
         }
-
-       
-
-        
+        #endregion
 
         #endregion
 
+        #endregion
+
+
         //PROPIEDADES DE LA CLASE
         #region PROPIEDADES
-        
+
         //Diseno general GH
         #region pro_dtDisenoGeneralGH
         public DataTable pro_disenoGeneralGH { get { return dtDisenoGeneralGH; } }

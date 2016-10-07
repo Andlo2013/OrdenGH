@@ -295,7 +295,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaDisenoProceso.Cantidad, dbo.pr_CotizaDisenoProceso.Costo FROM dbo.pr_CotizaDisenoProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaDisenoProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProceso.EstReg = &apos;True&apos;).
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaDisenoProceso.MaqCod AS CodigoMAQ, dbo.MaqMae.MaqDsc AS Maquina, dbo.pr_CotizaDisenoProceso.Minutos, dbo.pr_CotizaDisenoProceso.Costo FROM dbo.pr_CotizaDisenoProceso INNER JOIN dbo.MaqMae ON dbo.pr_CotizaDisenoProceso.MaqCod = dbo.MaqMae.MaqCod WHERE (dbo.MaqMae.EmpCod = @CodEmpresa) AND (dbo.pr_CotizaDisenoProceso.idCotiza = @cotizaID) AND (dbo.pr_CotizaDisenoProceso.EstReg = &apos;True&apos;).
         /// </summary>
         internal static string cot_disProcesoDET {
             get {
@@ -430,7 +430,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoProceso VALUES (@idCotiza,@MaqCod,@Costo,@Cantidad,@Total,&apos;True&apos;).
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_CotizaDisenoProceso VALUES (@idCotiza,@MaqCod,@Costo,@Minutos,@Total,&apos;True&apos;).
         /// </summary>
         internal static string cot_guardaDET_Proceso {
             get {

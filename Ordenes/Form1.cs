@@ -45,12 +45,12 @@ namespace Ordenes
 
         private void bbiOrden_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            AgregarVentana(new Controles.ctlOrden(), "Órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
+            //AgregarVentana(new Controles.ctlOrden(), "Órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
         }
 
         private void bbiDiseno_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            AgregarVentana(new Controles.ctlDiseno(), "Diseñar órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
+           // AgregarVentana(new Controles.ctlDiseno(), "Diseñar órdenes", global::Ordenes.Properties.sqlQuery.iconAPP);
         }
 
         private void bbiCotizacion_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

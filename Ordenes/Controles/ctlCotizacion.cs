@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using Ordenes.Formularios;
 using Ordenes.Clases;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors;
@@ -166,11 +165,7 @@ namespace Ordenes.Controles
             _totales();
         }
 
-        
-
         #endregion
-
-
 
         #endregion
 
@@ -309,7 +304,14 @@ namespace Ordenes.Controles
                 return false;
             }
             bool validaDET = objCotiza._disenoArmadoValida()
-                            && objCotiza._disenoColorValida();
+                            && objCotiza._disenoColorValida()
+                            && objCotiza._disenoPlacaValida()
+                            && objCotiza._disenoTroquelValida()
+                            && objCotiza._disenoAcabadoValida()
+                            && objCotiza._disenoAccesoriosValida()
+                            && objCotiza._disenoProcesoValida()
+                            && objCotiza._disenoProcesoIMPValida()
+                            && objCotiza._disenoMATCLIValida();
             return validaDET;
         }
         #endregion

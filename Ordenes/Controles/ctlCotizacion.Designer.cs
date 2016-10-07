@@ -224,7 +224,7 @@
             this.gvProcesos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.proc_gcColMaquina = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColCosto = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.proc_gcColCantidad = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.proc_gcColMinutos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpProcesosIMP = new DevExpress.XtraTab.XtraTabPage();
             this.dis_gcProcesoIMP = new DevExpress.XtraGrid.GridControl();
@@ -449,6 +449,7 @@
             // 
             // lblEstadoCOT
             // 
+            this.lblEstadoCOT.Appearance.Options.UseTextOptions = true;
             this.lblEstadoCOT.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblEstadoCOT.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lblEstadoCOT.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
@@ -1105,7 +1106,7 @@
             this.mnuAgregaRegistroGH,
             this.mnuEliminaRegistroGH});
             this.cmDisenoGeneralGH.Name = "cmDisenoGeneralGH";
-            this.cmDisenoGeneralGH.Size = new System.Drawing.Size(220, 70);
+            this.cmDisenoGeneralGH.Size = new System.Drawing.Size(220, 48);
             // 
             // mnuAgregaRegistroGH
             // 
@@ -3339,7 +3340,7 @@
             this.gvProcesos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.proc_gcColMaquina,
             this.proc_gcColCosto,
-            this.proc_gcColCantidad,
+            this.proc_gcColMinutos,
             this.proc_gcColTotal});
             this.gvProcesos.GridControl = this.gc_Procesos;
             this.gvProcesos.Name = "gvProcesos";
@@ -3379,22 +3380,22 @@
             this.proc_gcColCosto.VisibleIndex = 1;
             this.proc_gcColCosto.Width = 145;
             // 
-            // proc_gcColCantidad
+            // proc_gcColMinutos
             // 
-            this.proc_gcColCantidad.Caption = "Cantidad";
-            this.proc_gcColCantidad.DisplayFormat.FormatString = "N2";
-            this.proc_gcColCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.proc_gcColCantidad.FieldName = "Cantidad";
-            this.proc_gcColCantidad.Name = "proc_gcColCantidad";
-            this.proc_gcColCantidad.OptionsColumn.AllowEdit = false;
-            this.proc_gcColCantidad.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.proc_gcColCantidad.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.proc_gcColCantidad.OptionsColumn.AllowMove = false;
-            this.proc_gcColCantidad.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.proc_gcColCantidad.OptionsColumn.ReadOnly = true;
-            this.proc_gcColCantidad.Visible = true;
-            this.proc_gcColCantidad.VisibleIndex = 2;
-            this.proc_gcColCantidad.Width = 193;
+            this.proc_gcColMinutos.Caption = "Minutos";
+            this.proc_gcColMinutos.DisplayFormat.FormatString = "N0";
+            this.proc_gcColMinutos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.proc_gcColMinutos.FieldName = "Minutos";
+            this.proc_gcColMinutos.Name = "proc_gcColMinutos";
+            this.proc_gcColMinutos.OptionsColumn.AllowEdit = false;
+            this.proc_gcColMinutos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.proc_gcColMinutos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.proc_gcColMinutos.OptionsColumn.AllowMove = false;
+            this.proc_gcColMinutos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.proc_gcColMinutos.OptionsColumn.ReadOnly = true;
+            this.proc_gcColMinutos.Visible = true;
+            this.proc_gcColMinutos.VisibleIndex = 2;
+            this.proc_gcColMinutos.Width = 193;
             // 
             // proc_gcColTotal
             // 
@@ -4490,7 +4491,7 @@
         private DevExpress.XtraEditors.SpinEdit blo_seInicia;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.SpinEdit seTiraje;
-        private DevExpress.XtraGrid.Columns.GridColumn proc_gcColCantidad;
+        private DevExpress.XtraGrid.Columns.GridColumn proc_gcColMinutos;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColGrupo;
         private System.Windows.Forms.ToolStripMenuItem mnuCalculaDISARM;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColTamanosXpliego;
