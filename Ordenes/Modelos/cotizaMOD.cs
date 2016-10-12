@@ -82,7 +82,9 @@ namespace Ordenes.Modelos
         public object FecEntrega { get; set; }
 
         [Required(ErrorMessage = "Estado cotización es obligatorio")]
-        public int EstadoCOT { get; set; }
+        public int CodEstadoCOT { get; set; }
+
+        public string EstadoCOT { get; set; }
 
         [Required(ErrorMessage = "Cotizador es obligatorio")]
         [Range(1, 99999, ErrorMessage = "No es un 'Código de Cotizador' válido")]

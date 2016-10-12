@@ -264,7 +264,7 @@
             this.seAncho = new DevExpress.XtraEditors.SpinEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.chkEstadoCOT = new DevExpress.XtraEditors.CheckEdit();
+            this.chkEstadoREG = new DevExpress.XtraEditors.CheckEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.deFechaCOT = new DevExpress.XtraEditors.DateEdit();
@@ -367,7 +367,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.seTiraje.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAlto.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAncho.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoCOT.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoREG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCIRUCCLI.Properties)).BeginInit();
@@ -404,7 +404,7 @@
             this.panel1.Controls.Add(this.seAncho);
             this.panel1.Controls.Add(this.labelControl2);
             this.panel1.Controls.Add(this.labelControl1);
-            this.panel1.Controls.Add(this.chkEstadoCOT);
+            this.panel1.Controls.Add(this.chkEstadoREG);
             this.panel1.Controls.Add(this.labelControl5);
             this.panel1.Controls.Add(this.labelControl4);
             this.panel1.Controls.Add(this.deFechaCOT);
@@ -435,11 +435,10 @@
             this.lblEstadoCOT.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.lblEstadoCOT.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblEstadoCOT.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.lblEstadoCOT.Location = new System.Drawing.Point(452, 5);
+            this.lblEstadoCOT.Location = new System.Drawing.Point(677, 5);
             this.lblEstadoCOT.Name = "lblEstadoCOT";
-            this.lblEstadoCOT.Size = new System.Drawing.Size(209, 42);
+            this.lblEstadoCOT.Size = new System.Drawing.Size(142, 20);
             this.lblEstadoCOT.TabIndex = 72;
-            this.lblEstadoCOT.Text = "Estado:";
             // 
             // groupBox1
             // 
@@ -704,7 +703,6 @@
             this.tot_gcColDescripcionT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColDescripcionT.OptionsColumn.ReadOnly = true;
             this.tot_gcColDescripcionT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColDescripcionT.OptionsFilter.AllowFilter = false;
             this.tot_gcColDescripcionT.Visible = true;
             this.tot_gcColDescripcionT.VisibleIndex = 0;
             this.tot_gcColDescripcionT.Width = 210;
@@ -725,7 +723,6 @@
             this.tot_gcColArmadosT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColArmadosT.OptionsColumn.ReadOnly = true;
             this.tot_gcColArmadosT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColArmadosT.OptionsFilter.AllowFilter = false;
             this.tot_gcColArmadosT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Armados", "{0:N2}")});
             this.tot_gcColArmadosT.Visible = true;
@@ -748,7 +745,6 @@
             this.tot_gcColoresT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColoresT.OptionsColumn.ReadOnly = true;
             this.tot_gcColoresT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColoresT.OptionsFilter.AllowFilter = false;
             this.tot_gcColoresT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Colores", "{0:N2}")});
             this.tot_gcColoresT.Visible = true;
@@ -771,7 +767,6 @@
             this.tot_gcPlacasT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcPlacasT.OptionsColumn.ReadOnly = true;
             this.tot_gcPlacasT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcPlacasT.OptionsFilter.AllowFilter = false;
             this.tot_gcPlacasT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Placas", "{0:N2}")});
             this.tot_gcPlacasT.Visible = true;
@@ -794,7 +789,6 @@
             this.tot_gcColTroquelT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColTroquelT.OptionsColumn.ReadOnly = true;
             this.tot_gcColTroquelT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColTroquelT.OptionsFilter.AllowFilter = false;
             this.tot_gcColTroquelT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Troquel", "{0:N2}")});
             this.tot_gcColTroquelT.Visible = true;
@@ -808,6 +802,15 @@
             this.tot_gcColAccesorioT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.tot_gcColAccesorioT.FieldName = "Accesorios";
             this.tot_gcColAccesorioT.Name = "tot_gcColAccesorioT";
+            this.tot_gcColAccesorioT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColAccesorioT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColAccesorioT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColAccesorioT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColAccesorioT.OptionsColumn.AllowMove = false;
+            this.tot_gcColAccesorioT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColAccesorioT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColAccesorioT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColAccesorioT.OptionsFilter.AllowAutoFilter = false;
             this.tot_gcColAccesorioT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Accesorios", "{0:N2}")});
             this.tot_gcColAccesorioT.Visible = true;
@@ -830,7 +833,6 @@
             this.tot_gcColAcabadosT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColAcabadosT.OptionsColumn.ReadOnly = true;
             this.tot_gcColAcabadosT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColAcabadosT.OptionsFilter.AllowFilter = false;
             this.tot_gcColAcabadosT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Acabados", "{0:N2}")});
             this.tot_gcColAcabadosT.Visible = true;
@@ -852,7 +854,6 @@
             this.tot_gcColProcesoIMPT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColProcesoIMPT.OptionsColumn.ReadOnly = true;
             this.tot_gcColProcesoIMPT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColProcesoIMPT.OptionsFilter.AllowFilter = false;
             this.tot_gcColProcesoIMPT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProcesosIMP", "{0:N2}")});
             this.tot_gcColProcesoIMPT.Visible = true;
@@ -875,7 +876,6 @@
             this.tot_gcColTotalLinealT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.tot_gcColTotalLinealT.OptionsColumn.ReadOnly = true;
             this.tot_gcColTotalLinealT.OptionsFilter.AllowAutoFilter = false;
-            this.tot_gcColTotalLinealT.OptionsFilter.AllowFilter = false;
             this.tot_gcColTotalLinealT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
             this.tot_gcColTotalLinealT.Visible = true;
@@ -3816,11 +3816,11 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(705, 30);
+            this.labelControl7.Location = new System.Drawing.Point(605, 30);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(33, 13);
+            this.labelControl7.Size = new System.Drawing.Size(58, 13);
             this.labelControl7.TabIndex = 15;
-            this.labelControl7.Text = "Fecha:";
+            this.labelControl7.Text = "Fec. Cotiza:";
             // 
             // labelControl3
             // 
@@ -3881,14 +3881,14 @@
             this.labelControl1.TabIndex = 9;
             this.labelControl1.Text = "Cotización:";
             // 
-            // chkEstadoCOT
+            // chkEstadoREG
             // 
-            this.chkEstadoCOT.Location = new System.Drawing.Point(825, 5);
-            this.chkEstadoCOT.Name = "chkEstadoCOT";
-            this.chkEstadoCOT.Properties.Caption = "Activo";
-            this.chkEstadoCOT.Properties.ReadOnly = true;
-            this.chkEstadoCOT.Size = new System.Drawing.Size(54, 19);
-            this.chkEstadoCOT.TabIndex = 5;
+            this.chkEstadoREG.Location = new System.Drawing.Point(825, 5);
+            this.chkEstadoREG.Name = "chkEstadoREG";
+            this.chkEstadoREG.Properties.Caption = "Activo";
+            this.chkEstadoREG.Properties.ReadOnly = true;
+            this.chkEstadoREG.Size = new System.Drawing.Size(54, 19);
+            this.chkEstadoREG.TabIndex = 5;
             // 
             // labelControl5
             // 
@@ -3909,7 +3909,7 @@
             // deFechaCOT
             // 
             this.deFechaCOT.EditValue = null;
-            this.deFechaCOT.Location = new System.Drawing.Point(744, 27);
+            this.deFechaCOT.Location = new System.Drawing.Point(677, 27);
             this.deFechaCOT.Name = "deFechaCOT";
             this.deFechaCOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.deFechaCOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -3923,7 +3923,7 @@
             this.deFechaCOT.Properties.Mask.EditMask = "yyyy-MM-dd HH:mm";
             this.deFechaCOT.Properties.NullDate = "";
             this.deFechaCOT.Properties.ReadOnly = true;
-            this.deFechaCOT.Size = new System.Drawing.Size(135, 20);
+            this.deFechaCOT.Size = new System.Drawing.Size(202, 20);
             this.deFechaCOT.TabIndex = 4;
             // 
             // txtCIRUCCLI
@@ -4118,7 +4118,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.seTiraje.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAlto.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.seAncho.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoCOT.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkEstadoREG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCIRUCCLI.Properties)).EndInit();
@@ -4137,7 +4137,7 @@
         private System.Windows.Forms.Panel panel1;
         private DevExpress.XtraEditors.SpinEdit seAlto;
         private DevExpress.XtraEditors.SpinEdit seAncho;
-        private DevExpress.XtraEditors.CheckEdit chkEstadoCOT;
+        private DevExpress.XtraEditors.CheckEdit chkEstadoREG;
         private DevExpress.XtraEditors.DateEdit deFechaCOT;
         private DevExpress.XtraEditors.TextEdit txtCIRUCCLI;
         private DevExpress.XtraEditors.ButtonEdit beNombreCLI;

@@ -187,7 +187,7 @@ namespace Ordenes.Controles
             seAncho.EditValue = seAlto.EditValue = 10;
             deFechaENT.EditValue = DateTime.Now.AddDays(1);
             txtEplCotizador.Text = beEplVendedor.Text = "";
-            chkEstadoCOT.Checked = true;
+            chkEstadoREG.Checked = true;
 
             dis_seGramosColor.Value = dis_seGramosMetalizado.Value = dis_seGramosPantone.Value = 0;
             blo_txtSerie.Text = "";
@@ -407,7 +407,8 @@ namespace Ordenes.Controles
                 deFechaENT.EditValue = model_Cotiza.FecEntrega;
                 txtEplCotizador.EditValue = model_Cotiza.Vendedor;
                 beEplVendedor.EditValue = model_Cotiza.Cotizador;
-                chkEstadoCOT.Checked = model_Cotiza.Estado;
+                lblEstadoCOT.Text = model_Cotiza.EstadoCOT.ToUpper();
+                chkEstadoREG.Checked = model_Cotiza.Estado;
                 _CargaDetalle();
             }
         }

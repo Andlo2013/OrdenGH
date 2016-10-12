@@ -124,7 +124,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza AS Cotizacion, dbo.pr_Cotiza.DesArticulo AS Articulo,dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.CliSec AS CodigoCLI,dbo.climae.Clicedruc AS CIRUC, ISNULL(dbo.climae.CliApl,&apos;&apos;)+&apos; &apos;+ISNULL(dbo.climae.CliNom,&apos;&apos;) AS Cliente,dbo.pr_Cotiza.CmbLinPrd AS LineaPRD, dbo.pr_Cotiza.CmbGrupo AS Grupo, dbo.pr_Cotiza.CmbSubgrupo AS Subgrupo, dbo.pr_Cotiza.SecuencialItem AS SecuencialITEM, dbo.pr_Cotiza.Ancho, dbo.pr_Cotiza.Alto, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.FecEntrega, d [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SELECT dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza AS Cotizacion, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.CliSec AS CodigoCLI, dbo.climae.Clicedruc AS CIRUC, ISNULL(dbo.climae.CliApl, &apos;&apos;) + &apos; &apos; + ISNULL(dbo.climae.CliNom, &apos;&apos;) AS Cliente, dbo.pr_Cotiza.CmbLinPrd AS LineaPRD, dbo.pr_Cotiza.CmbGrupo AS Grupo, dbo.pr_Cotiza.CmbSubgrupo AS Subgrupo, dbo.pr_Cotiza.SecuencialItem AS SecuencialITEM, dbo.pr_Cotiza.Ancho, dbo.pr_Cotiza.Alto, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.FecE [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string cot_buscaCOT {
             get {

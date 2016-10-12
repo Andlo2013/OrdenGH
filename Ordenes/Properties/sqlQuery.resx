@@ -129,14 +129,6 @@
     <value>SELECT TOP 20 Clisec AS Código, Clicedruc AS CIRUC, LTRIM(RTRIM(ISNULL(CliApl,'')+' '+ISNULL(CliNom,''))) AS Cliente FROM dbo.climae WHERE (EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra ORDER BY Cliente ASC</value>
     <comment>Permite buscar los clientes para asginar a la orden</comment>
   </data>
-  <data name="ord_CLICargaTelefono" xml:space="preserve">
-    <value>SELECT NomCon AS Contacto, Numero FROM dbo.CliComunic WHERE (EmpCod = @CodEmpresa) AND (CliSec = @CodigoCLI)</value>
-    <comment>Carga los teléfonos de un cliente</comment>
-  </data>
-  <data name="ord_ClienteCargaDestino" xml:space="preserve">
-    <value>SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestino.EmpCod = @CodEmpresa) AND (dbo.pr_OrdenDestino.OrdenId = @OrdenID) AND (dbo.pr_OrdenDestino.EstReg = 'True')</value>
-    <comment>Carga los destinos del cliente</comment>
-  </data>
   <data name="ord_CLIAgregaSUC" xml:space="preserve">
     <value>SELECT dbo.CliSuc.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, LTRIM(RTRIM((ISNULL(dbo.CliSuc.CliDirPri,'') +' ' + ISNULL(dbo.CliSuc.CliDirNum,'')+' '+ISNULL(dbo.CliSuc.CliDirSec,'')))) AS Dirección FROM dbo.CliSuc INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod WHERE (dbo.CliSuc.EmpCod = @CodEmpresa) AND (dbo.CliSuc.CliSec = @CodigoCLI)</value>
     <comment>Permite agregar destinos en la pestaña cliente</comment>

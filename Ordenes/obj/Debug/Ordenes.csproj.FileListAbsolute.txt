@@ -292,5 +292,5 @@ C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Office.v16.1.Core.resource
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlEstadoCOT.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache

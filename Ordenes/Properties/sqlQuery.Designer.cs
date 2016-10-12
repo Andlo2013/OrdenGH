@@ -96,23 +96,5 @@ namespace Ordenes.Properties {
                 return ResourceManager.GetString("ord_CLIBuscar", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SELECT NomCon AS Contacto, Numero FROM dbo.CliComunic WHERE (EmpCod = @CodEmpresa) AND (CliSec = @CodigoCLI).
-        /// </summary>
-        internal static string ord_CLICargaTelefono {
-            get {
-                return ResourceManager.GetString("ord_CLICargaTelefono", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestin [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string ord_ClienteCargaDestino {
-            get {
-                return ResourceManager.GetString("ord_ClienteCargaDestino", resourceCulture);
-            }
-        }
     }
 }
