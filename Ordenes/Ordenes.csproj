@@ -129,7 +129,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sqlEstadoCOT.Designer.cs">
+    <Compile Include="Properties\sqlEstadoCOT.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>sqlEstadoCOT.resx</DependentUpon>
@@ -170,7 +170,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>sqlCotizacion1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="sqlEstadoCOT.resx">
+    <EmbeddedResource Include="Properties\sqlEstadoCOT.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>sqlEstadoCOT.Designer.cs</LastGenOutput>
     </EmbeddedResource>

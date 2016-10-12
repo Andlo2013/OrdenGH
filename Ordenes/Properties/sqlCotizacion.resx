@@ -239,7 +239,7 @@
     <comment>Carga el detalle de las tablas de la pestana Diseno-General</comment>
   </data>
   <data name="cot_guardaCAB" xml:space="preserve">
-    <value>INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,'True')</value>
+    <value>INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,@TotalCOT,'True')</value>
     <comment>Guarda la cabecera de las cotizaciones</comment>
   </data>
   <data name="cot_guardaDET_Acabado" xml:space="preserve">
@@ -297,5 +297,13 @@
   <data name="cot_guardaDET_General" xml:space="preserve">
     <value>INSERT INTO pr_CotizaDisenoGeneral VALUES (@idCotiza,@idOpcion,@CatOpcion,'True')</value>
     <comment>Guarda el detalle de las opciones pestana DISENO-GENERAL GraficasHernandez y Originales</comment>
+  </data>
+  <data name="cot_EliminaG" xml:space="preserve">
+    <value>DELETE FROM [dbo].[pr_Cotiza] WHERE id=@idCotiza;DELETE FROM [dbo].[pr_CotizaBlock] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaBlockColor] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaCLIDestino] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoAcabado] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoAccesorio] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoArmado] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoColores] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoGeneral] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoMaterialCLI] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoPlacas] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoProceso] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoProcesoIMP] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoTroquel] WHERE idCotiza=@idCotiza;</value>
+    <comment>Elimina los registros para volver a guardar</comment>
+  </data>
+  <data name="cot_cargaPorcentajePliegoEXT" xml:space="preserve">
+    <value>SELECT CmbGrupo AS CodGrupo,CmbComponente AS Componente,SecMaterial,Porcentaje FROM dbo.pr_GHPorcentajePliegoEXT WHERE EstReg='True'</value>
+    <comment>Carga el DataTable con los porcentajes de pliegos extras</comment>
   </data>
 </root>

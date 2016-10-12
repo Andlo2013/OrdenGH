@@ -1,5 +1,4 @@
-﻿using DevExpress.XtraEditors;
-using dllBuscar;
+﻿using dllBuscar;
 using dllMensaje;
 using Ordenes.Modelos;
 using Ordenes.Properties;
@@ -7,18 +6,16 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using AutomatizerSQL.Utilidades;
 using Ordenes.Formularios;
 using DevExpress.XtraEditors.Repository;
-using System.Collections;
-using System.Reflection;
 
 namespace Ordenes.Clases
 {
     public class clsCotizacion
     {
+        //INSTANCIAS/VARIABLES DE LA CLASE
+        #region INSTANCIAS-VARIABLES
         _SQLServer objSQLServer = frmPrincipal.getSQLServer;
         _Comunes objComunes = new _Comunes();
         
@@ -43,8 +40,8 @@ namespace Ordenes.Clases
         DataTable dtTipoColor= null;
         DataTable dtTipoPlacas = null;
         DataTable dtCostosProcesoIMP = null;
-
-        //LISTAS
+        DataTable dtPorcentajePliegoEXT = null;
+        //LISTAS PARA GUARDAR CON OBJETOS (MODELOS)
         List<armadoMOD> lista_Armado = null;
         List<coloresMOD> lista_Colores = null;
         List<placasMOD> lista_Placas = null;
@@ -64,8 +61,15 @@ namespace Ordenes.Clases
         //A LAS MEDIDAS DE ANCHO Y ALTO DEL TRABAJO
         private decimal m_margenPinza = 1;
 
+        #endregion
+
         public clsCotizacion() { _Inicializa(); }
 
+        //METODOS GENERALES
+        #region METODOS-GENERALES
+
+        //Inicializa la tablas
+        #region Inicializa
         private void _Inicializa()
         {
             dtDisenoPorCOB = objSQLServer._CargaDataTable(sqlCotizacion.cmb_cargaPorcentajeCOB,
@@ -78,120 +82,31 @@ namespace Ordenes.Clases
                 new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
             dtComponentes = objSQLServer._CargaDataTable(sqlCotizacion.cmb_cargaCMB, 
                 new string[] { "@Categoria" }, new object[] {optionsCMB.Diseno_Seccion });
+            dtPorcentajePliegoEXT = objSQLServer._CargaDataTable(sqlCotizacion.cot_cargaPorcentajePliegoEXT,
+                new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
         }
+        #endregion
 
-       
-
-        //CLIENTE
-        #region Cliente
-
-        public DataRow _clienteBuscar()
+        //Cuando cambia el grupo de produccion
+        #region CambiaGrupo
+        public void _CambiaGrupo(object objCodGrupo)
         {
             try
             {
-                frmBuscarITEM objBuscar = new frmBuscarITEM();
-                Dictionary<string, string> dicFiltros = new Dictionary<string, string>();
-                dicFiltros.Add("LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,'')))", "Cliente");
-                objBuscar.pro_Configura
-                    ._set01Connection(m_Servidor, m_Catalogo)
-                    ._set02Find(sqlCotizacion.cot_clienteBuscar, new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa })
-                    ._set03OptionsFilter(dicFiltros)
-                    ._setSeleccionSimple(true);
-                objBuscar.ShowDialog();
-                return objBuscar.pro_FilaSEL;
-            }
-            catch (Exception ex)
-            {
-                clsMensaje._msjWarning("ERROR: Al intentar cargar los registros", ex.Message);
-                return null;
-            }
-        }
-
-        public DataTable _clienteCargaDEST(int cotizaID)
-        {
-            try
-            {
-                dtClienteDEST = objSQLServer._CargaDataTable(sqlCotizacion.cot_clienteCargaDestino,
-                                                new string[] { "@CodEmpresa", "@cotizaID" },
-                                                new object[] { m_codEmpresa, cotizaID });
-                return dtClienteDEST;
-            }
-            catch (Exception ex)
-            {
-                clsMensaje._msjWarning("ERROR: Al intentar recuperar los destinos", "Cargar datos", ex.Message);
-                return null;
-            }
-        }
-
-        public DataTable _clienteCargaTEL(object CodCliente)
-        {
-            try
-            {
-                DataTable dtClienteTEL = objSQLServer._CargaDataTable(sqlCotizacion.cot_cliCargaTelefono,
-                                                new string[] { "@CodEmpresa", "@CodigoCLI" },
-                                                new object[] { m_codEmpresa, CodCliente });
-                return dtClienteTEL;
-            }
-            catch (Exception ex)
-            {
-                clsMensaje._msjWarning("ERROR: Al intentar recuperar los teléfonos del cliente", "Cargar datos", ex.Message);
-                return null;
-            }
-        }
-
-        public void _clienteDESTAgrega(int CodigoCLI)
-        {
-            try
-            {
-                DataRow[] filasSEL = _clienteDESTBuscar(CodigoCLI);
-                if (filasSEL != null)
+                if (dtDisenoArmado != null)
                 {
-                    foreach (DataRow row in filasSEL)
+                    foreach (DataRow rowArmado in dtDisenoArmado.Rows)
                     {
-                        DataRow rowDestino = dtClienteDEST.NewRow();
-                        rowDestino["Secuencial"] = 0;
-                        rowDestino["CodSucursal"] = row["CodSucursal"];
-                        rowDestino["Ciudad"] = row["Ciudad"];
-                        rowDestino["Direccion"] = row["Dirección"];
-                        rowDestino["Cantidad"] = 0;
-                        dtClienteDEST.Rows.Add(rowDestino);
+                        rowArmado["CodGrupo"] = objCodGrupo;
+                        _disenoArmadoGetPorcentajeEXT(rowArmado);
                     }
                 }
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar agregar el registro", "Agrega Destino", ex.Message);
-            }
-
-        }
-
-        private DataRow[] _clienteDESTBuscar(int CodigoCLI)
-        {
-            DataTable dtSucursales = objSQLServer._CargaDataTable(sqlQuery.ord_CLIAgregaSUC,
-                new string[] { "@CodEmpresa", "@CodigoCLI" }, new object[] { m_codEmpresa, CodigoCLI });
-            frmBuscar objBuscar = new frmBuscar(dtSucursales);
-            objBuscar._setVisibleCOL(new string[] { "Ciudad", "Dirección" }, true);
-            objBuscar._setAnchoCOL(new string[] { "Ciudad", "Dirección" }, new int[] { 400, 600 });
-            objBuscar._setMultiSelect(true);
-            objBuscar.ShowDialog();
-            return objBuscar.proFilasSEL;
-        }
-
-        public void _clienteDESTElimina(DataRow rowElimina)
-        {
-            try
-            {
-                if (rowElimina != null)
-                {
-                    dtClienteDEST.Rows.Remove(rowElimina);
-                }
-            }
-            catch (Exception ex)
-            {
-                clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar actualizar el cambio de grupo", "Cambiar grupo", ex.InnerException.Message);
             }
         }
-
         #endregion
 
         //EMPLEADOS-VENDEDORES COTIZADORES
@@ -221,6 +136,205 @@ namespace Ordenes.Clases
 
         #endregion
 
+        //ACTUALIZA UNA COLUMNA COMPLETA EN UNA TABLA
+        #region updateColumna
+        private void _updateColumna(DataTable dt, string columna, object valor)
+        {
+            if (dt != null)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    row[columna] = valor;
+                }
+            }
+        }
+        #endregion
+
+        //ACTUALIZA EL TIRAJE
+        #region updateTiraje
+        public void _updateTiraje(decimal tiraje)
+        {
+            _updateColumna(dtDisenoArmado, "Tiraje", tiraje);
+            _updateColumna(dtDisenoColor, "Tiraje", tiraje);
+            _updateColumna(dtDisenoAccesorios, "Tiraje", tiraje);
+        }
+        #endregion
+
+        #endregion
+
+        //PESTANA - CLIENTE
+        #region PESTANA - CLIENTE
+
+        //CLIENTE BUSCAR
+        #region clienteBuscar
+        public DataRow _clienteBuscar()
+        {
+            try
+            {
+                frmBuscarITEM objBuscar = new frmBuscarITEM();
+                Dictionary<string, string> dicFiltros = new Dictionary<string, string>();
+                dicFiltros.Add("LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,'')))", "Cliente");
+                objBuscar.pro_Configura
+                    ._set01Connection(m_Servidor, m_Catalogo)
+                    ._set02Find(sqlCotizacion.cot_clienteBuscar, new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa })
+                    ._set03OptionsFilter(dicFiltros)
+                    ._setSeleccionSimple(true);
+                objBuscar.ShowDialog();
+                return objBuscar.pro_FilaSEL;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar cargar los registros", ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        //CLIENTE CARGA DESTINOS
+        #region clienteCargaDEST
+        public DataTable _clienteCargaDEST(int cotizaID)
+        {
+            try
+            {
+                dtClienteDEST = objSQLServer._CargaDataTable(sqlCotizacion.cot_clienteCargaDestino,
+                                                new string[] { "@CodEmpresa", "@cotizaID" },
+                                                new object[] { m_codEmpresa, cotizaID });
+                return dtClienteDEST;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar recuperar los destinos", "Cargar datos", ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        //CLIENTE CARGA TELEFONOS
+        #region clienteCargaTEL
+        public DataTable _clienteCargaTEL(object CodCliente)
+        {
+            try
+            {
+                DataTable dtClienteTEL = objSQLServer._CargaDataTable(sqlCotizacion.cot_cliCargaTelefono,
+                                                new string[] { "@CodEmpresa", "@CodigoCLI" },
+                                                new object[] { m_codEmpresa, CodCliente });
+                return dtClienteTEL;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar recuperar los teléfonos del cliente", "Cargar datos", ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        //CLIENTE DESTINO AGREGA
+        #region clienteDestinoAgrega
+        public void _clienteDESTAgrega(int CodigoCLI)
+        {
+            try
+            {
+                DataRow[] filasSEL = _clienteDESTBuscar(CodigoCLI);
+                if (filasSEL != null)
+                {
+                    foreach (DataRow row in filasSEL)
+                    {
+                        DataRow rowDestino = dtClienteDEST.NewRow();
+                        rowDestino["Secuencial"] = 0;
+                        rowDestino["CodSucursal"] = row["CodSucursal"];
+                        rowDestino["Ciudad"] = row["Ciudad"];
+                        rowDestino["Direccion"] = row["Dirección"];
+                        rowDestino["Cantidad"] = 0;
+                        dtClienteDEST.Rows.Add(rowDestino);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar agregar el registro", "Agrega Destino", ex.Message);
+            }
+
+        }
+        #endregion
+
+        //CLIENTE DESTINO BUSCAR
+        #region clienteDestinoBuscar
+        private DataRow[] _clienteDESTBuscar(int CodigoCLI)
+        {
+            DataTable dtSucursales = objSQLServer._CargaDataTable(sqlQuery.ord_CLIAgregaSUC,
+                new string[] { "@CodEmpresa", "@CodigoCLI" }, new object[] { m_codEmpresa, CodigoCLI });
+            frmBuscar objBuscar = new frmBuscar(dtSucursales);
+            objBuscar._setVisibleCOL(new string[] { "Ciudad", "Dirección" }, true);
+            objBuscar._setAnchoCOL(new string[] { "Ciudad", "Dirección" }, new int[] { 400, 600 });
+            objBuscar._setMultiSelect(true);
+            objBuscar.ShowDialog();
+            return objBuscar.proFilasSEL;
+        }
+        #endregion
+
+        //CLIENTE DESTINO ELIMINA
+        #region clienteDestinoElimina
+        public void _clienteDESTElimina(DataRow rowElimina)
+        {
+            try
+            {
+                if (rowElimina != null)
+                {
+                    dtClienteDEST.Rows.Remove(rowElimina);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
+            }
+        }
+        #endregion
+
+        //VALIDA EL DETALLE DE MATERIALES DEL CLIENTE
+        #region clienteDESTValida
+        public bool _clienteDESTValida()
+        {
+            try
+            {
+                if (dtClienteDEST != null)
+                {
+                    int fila = 0;
+                    foreach (DataRow row in dtClienteDEST.Rows)
+                    {
+                        fila++;
+                        string msj = "En CLIENTE -> SUCURSALES" +
+                            "\nEl registro de la fila Nro: " + fila.ToString();
+                        if (row["Direccion"].ToString().Trim() =="")
+                        {
+                            msj += "La dirección de envío es obligatorio";
+                            clsMensaje._msjWarning(msj, "Lugares de envío");
+                            return false;
+                        }
+                        else if (row["Cantidad"].ToDecimal() <= 0)
+                        {
+                            msj += "La cantidad debe ser mayor a cero";
+                            clsMensaje._msjWarning(msj, "Lugares de envío");
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar verificar los lugares de envío", "Lugares de envío", ex.Message);
+                return false;
+            }
+        }
+        #endregion
+
+        #endregion
+
+        //PESTANA - RESUMEN
+        #region PESTANA - RESUMEN
+        
+        //CREA LA TABLA CON LOS TOTALES DE CADA COMPONENTE
+        #region totales
         public DataTable _totales()
         {
             dtTotalesRES = new DataTable();
@@ -258,77 +372,27 @@ namespace Ordenes.Clases
             }
             return dtTotalesRES;
         }
+        #endregion
 
+        //TOTAL GENERAL DE LA COTIZACION
+        #region TotalGEN
         public decimal _TotalGEN()
         {
             if (dtTotalesRES != null) {
-                dtTotalesRES.Compute("SUM(TotalLinea)", "").ToDecimal();
+                return dtTotalesRES.Compute("SUM(TotalLinea)", "").ToDecimal();
             }
             return 0;
         }
-
-        //ACTUALIZA UNA COLUMNA COMPLETA EN UNA TABLA
-        #region updateColumna
-        private void _updateColumna(DataTable dt, string columna, object valor)
-        {
-            if (dt != null)
-            {
-                foreach (DataRow row in dt.Rows)
-                {
-                    row[columna] = valor;
-                }
-            }
-        }
         #endregion
-
-        public void _updateTiraje(decimal tiraje)
-        {
-            _updateColumna(dtDisenoArmado, "Tiraje", tiraje);
-            _updateColumna(dtDisenoColor, "Tiraje", tiraje);
-            _updateColumna(dtDisenoAccesorios, "Tiraje", tiraje);
-        }
-
-        //BLOCKS
-        #region Block
-
-        public DataTable _blockColorCargaDET(int cotizaID)
-        {
-            try
-            {
-                dtBlockColor = objSQLServer._CargaDataTable(sqlCotizacion.cot_blockCargaColor,
-                    new string[] { "@cotizaID" },new object[] { cotizaID });
-                return dtBlockColor;
-            }
-            catch (Exception ex)
-            {
-                clsMensaje._msjWarning("ERROR: Al intentar cargar los colores del block", "Cargar datos", ex.Message);
-                return null;
-            }
-        }
-
-        public void _blockColorElimina(DataRow rowElimina)
-        {
-            try
-            {
-                if (rowElimina != null)
-                {
-                    dtBlockColor.Rows.Remove(rowElimina);
-                }
-            }
-            catch (Exception ex)
-            {
-                clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
-            }
-        }
 
         #endregion
 
-        //DISENO
-        #region Diseno
+        //PESTANA - DISENO
+        #region PESTANA - DISENO
 
         //DISEÑO GENERAL
         #region Diseno-General
-        
+
         //AGREGA UNA OPCION GENERAL AL DETALLE
         #region disenoGeneralAdd
         private void _disenoGeneralAdd(DataTable dtTabla, optionsCMB opcion)
@@ -451,7 +515,7 @@ namespace Ordenes.Clases
                 dtDisenoArmado.Columns.Add("TrabajoAnchoMasPinza",Type.GetType("System.Decimal"), "TrabajoAncho+" + m_margenPinza);
                 dtDisenoArmado.Columns.Add("TrabajoAltoMasPinza", Type.GetType("System.Decimal"), "TrabajoAlto+" + m_margenPinza);
                 dtDisenoArmado.Columns.Add("PliegoCantidadAUX",Type.GetType("System.Decimal"));
-                dtDisenoArmado.Columns.Add("Extra", Type.GetType("System.Decimal"), "Convert(PaginasXpliego*(PorcentajeEXT/100),'System.Int32')");
+                dtDisenoArmado.Columns.Add("Extra", Type.GetType("System.Decimal"), "Convert(PliegoCantidad*(PorcentajeEXT/100),'System.Int32')");
                 dtDisenoArmado.Columns["CodGrupo"].DefaultValue = CodGrupo;
                 dtDisenoArmado.Columns["NumPaginas"].DefaultValue = 1;
                 dtDisenoArmado.Columns["PaginasXtrabajo"].DefaultValue = 1;
@@ -552,6 +616,7 @@ namespace Ordenes.Clases
                         newRow["Tiraje"] = aTiraje;
                         dtDisenoArmado.Rows.Add(newRow);
                         //selecciona el pliego
+                        _disenoArmadoGetPorcentajeEXT(newRow);
                         objCorte._ext_disenoArmadoCalcula(newRow);
                         _disenoPlacaAddPlaca(codComponente, newRow);
                         _disenoProcesoIMPAddREG(newRow);
@@ -757,6 +822,35 @@ namespace Ordenes.Clases
                 return (filasSEL != null && filasSEL.Length > 0) ? true : false;
             }
             return false;
+        }
+        #endregion
+
+        //RECUPERA EL PORCENTAJE DE PLIEGOS EXTRAS QUE DEBE CALCULAR EN FUNCION DE:
+        //GRUPO, COMPONENTE Y MATERIAL
+        #region _disenoArmadoGetPorcentajeEXT
+        private void _disenoArmadoGetPorcentajeEXT(DataRow rowArmado)
+        {
+            try
+            {
+                if (rowArmado != null)
+                {
+                    if (dtPorcentajePliegoEXT != null)
+                    {
+                        string filtro = "CodGrupo=" + rowArmado["CodGrupo"] +
+                            " AND Componente=" + rowArmado["Componente"] +
+                            " AND SecMaterial=" + rowArmado["SecMaterial"];
+                        DataRow[] rowPorcentaje = dtPorcentajePliegoEXT.Select(filtro);
+                        if (rowPorcentaje != null && rowPorcentaje.Length == 1)
+                        {
+                            rowArmado["PorcentajeEXT"] = rowPorcentaje[0]["Porcentaje"];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar recuperar el porcentajes de pliegos extras", "Porcentaje pliegos extra", ex.InnerException.Message);
+            }
         }
         #endregion
 
@@ -2056,19 +2150,79 @@ namespace Ordenes.Clases
 
         #endregion
 
+        //PESTANA - BLOCKS
+        #region PESTANA - BLOCK
+
+        //Carga el detalle de colores del block
+        #region blockColorCargaDET
+        public DataTable _blockColorCargaDET(int cotizaID)
+        {
+            try
+            {
+                dtBlockColor = objSQLServer._CargaDataTable(sqlCotizacion.cot_blockCargaColor,
+                    new string[] { "@cotizaID" }, new object[] { cotizaID });
+                return dtBlockColor;
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar cargar los colores del block", "Cargar datos", ex.Message);
+                return null;
+            }
+        }
+        #endregion
+
+        //Elimina un registro de colores
+        #region clockColorElimina
+        public void _blockColorElimina(DataRow rowElimina)
+        {
+            try
+            {
+                if (rowElimina != null)
+                {
+                    dtBlockColor.Rows.Remove(rowElimina);
+                }
+            }
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
+            }
+        }
+        #endregion
+
+        #endregion
+
         //METODOS PARA GUARDAR
         #region METODOS-GUARDA
 
-        public void _Guardar(cotizaMOD modelo_Cotiza,blockMOD modelo_Block)
+        //Guardar metodo principal
+        #region Guardar
+        /// <summary>
+        /// Guarda cotizacion. Metodo principal
+        /// </summary>
+        /// <param name="modelo_Cotiza">objeto de la cotizacion a guardar</param>
+        /// <param name="modelo_Block">objecto de block a guardar</param>
+        /// <param name="accion">Accion a realizar (NUEVO ó EDITAR)</param>
+        /// <returns>True=Completado; False=Error al guardar</returns>
+        public bool _Guardar(cotizaMOD modelo_Cotiza,blockMOD modelo_Block,string accion)
         {
             try
             {
                 objSQLServer._Open();
                 objSQLServer._BeginTransacction();
-                //calcula el id y el numero de cotizacion 
-                modelo_Cotiza._nuevaCOT();
+                if (accion.ToUpper() == "NUEVO")
+                {
+                    //calcula el id y el numero de cotizacion 
+                    modelo_Cotiza._nuevaCOT();
+                }
+                else
+                {
+                    objSQLServer._Ejecutar(sqlCotizacion.cot_EliminaG,
+                        new string[] { "@idCotiza" }, new object[] { modelo_Cotiza.id });
+                }
                 //guarda la cabecera de la cotizacion
                 modelo_Cotiza._guardaCOT();
+                
+
                 //guarda los detalles
                 _guardaCLIDestino(modelo_Cotiza.id);
                 _guardaGeneral(modelo_Cotiza.id);
@@ -2079,20 +2233,22 @@ namespace Ordenes.Clases
                 //GUARDA LOS BLOCKS
                 _guardaBlock(modelo_Block, modelo_Cotiza.id);
                 objSQLServer._Commit();
-                //objSQLServer._RollBack();
                 objSQLServer._Close();
 
-                clsMensaje._msjInformation("Haz guardado el registro :) ", "Felicitaciones");
+                return true;
             }
             catch(Exception ex)
             {
                 objSQLServer._RollBack();
                 objSQLServer._Close();
-                clsMensaje._msjError("ERROR: Al intentar guardar el registro", "Guarda cotización", ex.Message);
+                clsMensaje._msjError("ERROR: Al intentar guardar el registro", "Guarda cotización", ex.InnerException.Message);
+                return false;
             }
         }
+        #endregion
 
         //Guarda los bloques
+        #region guardaBlock
         private void _guardaBlock(blockMOD modelo_Block,int idCotiza)
         {
             if (modelo_Block != null)
@@ -2103,8 +2259,10 @@ namespace Ordenes.Clases
                 _guardaBlockDET(idCotiza);
             }
         }
+        #endregion
 
         //Guarda el detalle de bloques
+        #region guardaBlockDET
         private void _guardaBlockDET(int idCotiza)
         {
             if (dtBlockColor != null)
@@ -2119,8 +2277,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
         //Guarda los destinos del cliente
+        #region guardaCLIDestino
         private void _guardaCLIDestino(int idCotiza)
         {
             if (dtClienteDEST != null)
@@ -2138,8 +2298,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
         //Guarda las opciones de generales
+        #region guardaGeneral
         private void _guardaGeneral(int idCotiza)
         {
             string[] paramsName = new string[] { "@idCotiza", "@idOpcion", "@CatOpcion" };
@@ -2160,8 +2322,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
         //Guarda los procesos generales
+        #region guardaProceso
         private void _guardaProceso(int idCotiza)
         {
             foreach (ProcesosMOD pm in lista_Procesos)
@@ -2169,8 +2333,10 @@ namespace Ordenes.Clases
                 pm._Guardar(idCotiza);
             }
         }
+        #endregion
 
         //Guarda los materiales del cliente
+        #region guardaMaterialCLI
         private void _guardaMaterialCLI(int idCotiza)
         {
             if (dtDisenoMaterialCLI != null)
@@ -2185,6 +2351,7 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
         //GUARDA LOS DETALLES QUE SE CLASIFICAN POR COMPONENTE
         #region GuardaXcomponente
@@ -2322,5 +2489,6 @@ namespace Ordenes.Clases
         #endregion
 
         #endregion
+
     }
 }

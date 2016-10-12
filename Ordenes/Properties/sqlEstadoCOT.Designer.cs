@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordenes {
+namespace Ordenes.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Ordenes {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ordenes.sqlEstadoCOT", typeof(sqlEstadoCOT).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ordenes.Properties.sqlEstadoCOT", typeof(sqlEstadoCOT).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

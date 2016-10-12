@@ -151,6 +151,15 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT CmbGrupo AS CodGrupo,CmbComponente AS Componente,SecMaterial,Porcentaje FROM dbo.pr_GHPorcentajePliegoEXT WHERE EstReg=&apos;True&apos;.
+        /// </summary>
+        internal static string cot_cargaPorcentajePliegoEXT {
+            get {
+                return ResourceManager.GetString("cot_cargaPorcentajePliegoEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT NomCon AS Contacto, Numero FROM dbo.CliComunic WHERE (EmpCod = @CodEmpresa) AND (CliSec = @CodigoCLI).
         /// </summary>
         internal static string cot_cliCargaTelefono {
@@ -322,6 +331,15 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM [dbo].[pr_Cotiza] WHERE id=@idCotiza;DELETE FROM [dbo].[pr_CotizaBlock] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaBlockColor] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaCLIDestino] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoAcabado] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoAccesorio] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoArmado] WHERE idCotiza=@idCotiza;DELETE FROM [dbo].[pr_CotizaDisenoColores] WHERE idCotiza=@idCotiza; [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string cot_EliminaG {
+            get {
+                return ResourceManager.GetString("cot_EliminaG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT TOP 20 EplSec AS Código, LTRIM(RTRIM((ISNULL(EplApl,&apos;&apos;)+&apos; &apos;+ISNULL(EplNom,&apos;&apos;)))) AS Nombre FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra ORDER BY Nombre ASC.
         /// </summary>
         internal static string cot_empleadoBusca {
@@ -349,7 +367,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,&apos;True&apos;).
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,@TotalCOT,&apos;True&apos;).
         /// </summary>
         internal static string cot_guardaCAB {
             get {

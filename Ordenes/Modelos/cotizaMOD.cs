@@ -179,12 +179,12 @@ namespace Ordenes.Modelos
                 string [] paramsName=new string[] {"@idCotiza","@CodEmpresa","@NumCotiza",
                     "@CodCliente","@LinProduccion","@GrupoProduccion","@SubgrupoProduccion",
                     "@ItemSecuencial","@ItemDescripcion","@Tiraje","@Ancho","@Alto",
-                    "@FecCotiza","@FecEntrega","@EstadoCOT","@CodEplCotiza","@CodEplVendededor" };
+                    "@FecCotiza","@FecEntrega","@EstadoCOT","@CodEplCotiza","@CodEplVendededor","@TotalCOT" };
 
                 object [] paramsValue = new object[] {this.id,this.m_codEmpresa,this.Cotizacion,
                     this.CodigoCLI,this.LineaPRD,this.Grupo,this.Subgrupo,this.SecuencialITEM,
                     this.Articulo,this.Tiraje,this.Ancho,this.Alto,this.FecCotiza,this.FecEntrega,
-                    this.EstadoCOT,this.EplCotiza,this.EplVendedor};
+                    this.EstadoCOT,this.EplCotiza,this.EplVendedor,this.TotalCOT};
 
                 objSQLServer._Ejecutar(sqlCotizacion.cot_guardaCAB, paramsName, paramsValue);
 
