@@ -7,8 +7,8 @@ namespace Ordenes.Modelos
     public class acabadoMOD: _modelo
     {
 
-        _SQLServer objSQLServer = Form1.getSQLServer;
-        const int maxRange = 999999999;
+        _SQLServer objSQLServer = frmPrincipal.getSQLServer;
+        const double maxRange = 999999999;
         const double minRange = 0.00000001;
 
         #region PROPIEDADES-MODELO

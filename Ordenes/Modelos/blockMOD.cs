@@ -14,11 +14,12 @@ namespace Ordenes.Modelos
     public class blockMOD:_modelo
     {
 
-        private _SQLServer objSQLServer = Form1.getSQLServer;
-        private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
-
+        private _SQLServer objSQLServer = frmPrincipal.getSQLServer;
+        private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
+        const double maxRange = 999999999;
+        const double minRange = 0.00000001;
         #region PROPIEDADES-MODELO
-   
+
         public int CmbEmblocado { get; set; }
 
         [StringLength(10, ErrorMessage ="Referencia máximo 10 caracteres")]

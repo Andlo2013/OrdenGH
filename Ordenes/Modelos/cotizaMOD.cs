@@ -14,13 +14,14 @@ namespace Ordenes.Modelos
 {
     public class cotizaMOD:_modelo
     {
-        _SQLServer objSQLServer = Form1.getSQLServer;
+        _SQLServer objSQLServer = frmPrincipal.getSQLServer;
         //PEDIDO ING. VELEZ DEFINIR EL NÚMERO COTIZACIÓN INICIA Y DESPUÉS SEA AUTOMÁTICO
         private int CotizaINI = 1;
-        private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
-        private string m_servidor = Form1.getSession.Servidor;
-        private string m_baseDatos = Form1.getSession.Catalogo;
-
+        private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
+        private string m_servidor = frmPrincipal.getSession.Servidor;
+        private string m_baseDatos = frmPrincipal.getSession.Catalogo;
+        const double maxRange = 999999999;
+        const double minRange = 0.00000001;
         //PROPIEDADES DEL MODELO
         #region PROPIEDADES
 
@@ -97,6 +98,10 @@ namespace Ordenes.Modelos
 
         [Required(ErrorMessage = "Estado del Registro es obligatorio")]
         public bool Estado { get; set; }
+
+        [Required(ErrorMessage = "El total de la cotización es obligatorio")]
+        [Range(0.01, 999999999.99, ErrorMessage = "El total de la cotización esta fuera del rango")]
+        public decimal TotalCOT { get; set; }
 
         #endregion
 

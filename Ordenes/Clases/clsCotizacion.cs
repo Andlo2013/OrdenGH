@@ -19,7 +19,7 @@ namespace Ordenes.Clases
 {
     public class clsCotizacion
     {
-        _SQLServer objSQLServer = Form1.getSQLServer;
+        _SQLServer objSQLServer = frmPrincipal.getSQLServer;
         _Comunes objComunes = new _Comunes();
         
         //DATATABLES DETALLES
@@ -36,7 +36,7 @@ namespace Ordenes.Clases
         DataTable dtDisenoProcesoDET = null;
         DataTable dtDisenoGeneralGH = null;
         DataTable dtDisenoGeneralORI = null;
-
+        DataTable dtTotalesRES = null;
         //DATATABLES PARA OPCIONES Y COMBOS DE LAS GRILLAS
         DataTable dtComponentes = null;
         DataTable dtDisenoPorCOB = null;
@@ -54,9 +54,9 @@ namespace Ordenes.Clases
         List<procesoIMPMOD> lista_ProcesosIMP = null;
         List<ProcesosMOD> lista_Procesos = null;
         //VARIABLES GLOBALES
-        private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
-        private string m_Servidor = Form1.getSession.Servidor;
-        private string m_Catalogo = Form1.getSession.Catalogo;
+        private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
+        private string m_Servidor = frmPrincipal.getSession.Servidor;
+        private string m_Catalogo = frmPrincipal.getSession.Catalogo;
         private string m_BodegaMP = "MP";
         //FALTA DEFINIR DE DONDE SACA EL PARAMETRO COSTO DEL CORTE (DISENO-TROQUEL)
         private decimal m_CostoCorte = 2;
@@ -223,17 +223,17 @@ namespace Ordenes.Clases
 
         public DataTable _totales()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Componente", Type.GetType("System.String"));
-            dt.Columns.Add("Armados", Type.GetType("System.Decimal"));
-            dt.Columns.Add("Colores", Type.GetType("System.Decimal"));
-            dt.Columns.Add("Placas", Type.GetType("System.Decimal"));
-            dt.Columns.Add("Troquel", Type.GetType("System.Decimal"));
-            dt.Columns.Add("Acabados", Type.GetType("System.Decimal"));
-            dt.Columns.Add("Accesorios", Type.GetType("System.Decimal"));
-            dt.Columns.Add("Procesos", Type.GetType("System.Decimal"));
-            dt.Columns.Add("ProcesosIMP", Type.GetType("System.Decimal"));
-            dt.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "Armados+Colores+Placas+Troquel+Acabados+Accesorios+ProcesosIMP");
+            dtTotalesRES = new DataTable();
+            dtTotalesRES.Columns.Add("Componente", Type.GetType("System.String"));
+            dtTotalesRES.Columns.Add("Armados", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("Colores", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("Placas", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("Troquel", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("Acabados", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("Accesorios", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("Procesos", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("ProcesosIMP", Type.GetType("System.Decimal"));
+            dtTotalesRES.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "Armados+Colores+Placas+Troquel+Acabados+Accesorios+ProcesosIMP");
 
             if (dtDisenoArmado != null && dtDisenoColor != null)
             {
@@ -243,7 +243,7 @@ namespace Ordenes.Clases
                 {
                     object codComponente = rowCMP["Codigo"];
 
-                    DataRow row = dt.NewRow();
+                    DataRow row = dtTotalesRES.NewRow();
                     row["Componente"] = rowCMP["Descripcion"];
                     row["Armados"] = dtDisenoArmado.Compute("SUM(TotalLinea)", "Componente=" + codComponente).ToDecimal();
                     row["Colores"] = dtDisenoColor.Compute("SUM(TotalLinea)", "Componente=" + codComponente).ToDecimal();
@@ -253,10 +253,18 @@ namespace Ordenes.Clases
                     row["Accesorios"] = dtDisenoAccesorios.Compute("SUM(TotalLinea)", "Componente=" + codComponente).ToDecimal();
                     //row["Procesos"] = dtProcesoDET.Compute("SUM(TotalLinea)", "Componente=" + codComponente);
                     row["ProcesosIMP"] = dtDisenoProcesoIMP.Compute("SUM(TotalLinea)", "Componente=" + codComponente).ToDecimal();
-                    dt.Rows.Add(row);
+                    dtTotalesRES.Rows.Add(row);
                 }
             }
-            return dt;
+            return dtTotalesRES;
+        }
+
+        public decimal _TotalGEN()
+        {
+            if (dtTotalesRES != null) {
+                dtTotalesRES.Compute("SUM(TotalLinea)", "").ToDecimal();
+            }
+            return 0;
         }
 
         //ACTUALIZA UNA COLUMNA COMPLETA EN UNA TABLA

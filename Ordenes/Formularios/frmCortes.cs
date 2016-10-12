@@ -21,9 +21,9 @@ namespace Ordenes.Formularios
         Graphics formGraphics;
         DataRow rowMaterial=null;
 
-        private string m_Servidor = Form1.getSession.Servidor;
-        private string m_Catalogo = Form1.getSession.Catalogo;
-        private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
+        private string m_Servidor = frmPrincipal.getSession.Servidor;
+        private string m_Catalogo = frmPrincipal.getSession.Catalogo;
+        private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
 
         //AREA DE TRABAJO 1.80m X 1.20m (370px X250px)
         //5px se van en margenes de cada lado 

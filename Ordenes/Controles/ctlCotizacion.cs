@@ -26,7 +26,7 @@ namespace Ordenes.Controles
 
         private void ctlCotizacion_Load(object sender, EventArgs e)
         {
-           
+
             _inicializa();
         }
 
@@ -35,10 +35,10 @@ namespace Ordenes.Controles
 
         //carga un LookUpEdit
         #region cargaLookUpEdit
-        private void _cargaLookUpEdit(LookUpEdit[] lueCombos,optionsCMB opcion)
+        private void _cargaLookUpEdit(LookUpEdit[] lueCombos, optionsCMB opcion)
         {
             DataTable dtCombo = objComunes._cargaDataCMB(opcion);
-            foreach(LookUpEdit lueCombo in lueCombos)
+            foreach (LookUpEdit lueCombo in lueCombos)
             {
                 objComunes._cargaCtlCMB(lueCombo, dtCombo);
             }
@@ -79,7 +79,7 @@ namespace Ordenes.Controles
 
             //COMBO COLOR-HOJA
             _cargaLookUpEditGRID(new RepositoryItemLookUpEdit[] { blo_rilueColorCopia }, optionsCMB.Color_Hoja);
-            
+
             //COMBO TIPO DE EMBLOCADO
             _cargaLookUpEdit(new LookUpEdit[] { blo_lueTipoEmblocado, }, optionsCMB.TipoBloque);
 
@@ -99,7 +99,7 @@ namespace Ordenes.Controles
             _clienteCarga();
             _blockCarga();
             _disenoCarga();
-            
+
         }
         #endregion
 
@@ -130,23 +130,23 @@ namespace Ordenes.Controles
 
         //Pestaña diseño
         #region Tablas-Diseno
-        
+
         //carga los detalles del diseno
         private void _disenoCarga()
         {
             //dis_gcArmados.DataSource = objCotiza._disenoArmadoCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
-            objCotiza._disenoArmadoCargaDET(model_Cotiza.id, model_Cotiza.Tiraje,model_Cotiza.Grupo);
-            objCotiza._disenoColorCargaDET(model_Cotiza.id,model_Cotiza.Tiraje);
+            objCotiza._disenoArmadoCargaDET(model_Cotiza.id, model_Cotiza.Tiraje, model_Cotiza.Grupo);
+            objCotiza._disenoColorCargaDET(model_Cotiza.id, model_Cotiza.Tiraje);
             objCotiza._disenoPlacaCargaDET(model_Cotiza.id);
             objCotiza._disenoTroquelCargaDET(model_Cotiza.id);
             objCotiza._disenoAcabadoCargaDET(model_Cotiza.id);
             objCotiza._disenoProcesoIMPCargaDET(model_Cotiza.id);
             objCotiza._disenoAccesoriosCargaDET(model_Cotiza.id);
             objCotiza._disenoGeneralDET(model_Cotiza.id);
-            gc_Procesos.DataSource = objCotiza._disenoProcesoCargaDET(model_Cotiza.id);
+            proc_gcProcesos.DataSource = objCotiza._disenoProcesoCargaDET(model_Cotiza.id);
             dis_gcGraficasH.DataSource = objCotiza.pro_disenoGeneralGH;
             dis_gcOriginales.DataSource = objCotiza.pro_disenoGeneralORI;
-            dis_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
+            mcli_gcMaterialCLI.DataSource = objCotiza._disenoMATCLICargaDET(model_Cotiza.id);
             //para que cargue solo lo del combo
             _disenoFiltrar();
         }
@@ -154,13 +154,13 @@ namespace Ordenes.Controles
         //filtra los detalles del diseno de acuerdo a la opcion seleccionada en componente
         private void _disenoFiltrar()
         {
-            dis_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcPlacas.DataSource = objCotiza._disenoPlacaFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcTrqouel.DataSource = objCotiza._disenoTroquelFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcAcabados.DataSource = objCotiza._disenoAcabadoFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcProcesoIMP.DataSource = objCotiza._disenoProcesoIMPFiltrar(dis_lueComponente.EditValue.ToInt());
-            dis_gcAccesorios.DataSource = objCotiza._disenoAccesoriosFiltrar(dis_lueComponente.EditValue.ToInt());
+            arm_gcArmados.DataSource = objCotiza._disenoArmadoFiltrar(dis_lueComponente.EditValue.ToInt());
+            col_gcColores.DataSource = objCotiza._disenoColorFiltrar(dis_lueComponente.EditValue.ToInt());
+            pla_gcPlacas.DataSource = objCotiza._disenoPlacaFiltrar(dis_lueComponente.EditValue.ToInt());
+            tro_gcTrqouel.DataSource = objCotiza._disenoTroquelFiltrar(dis_lueComponente.EditValue.ToInt());
+            aca_gcAcabados.DataSource = objCotiza._disenoAcabadoFiltrar(dis_lueComponente.EditValue.ToInt());
+            procimp_gcProcesoIMP.DataSource = objCotiza._disenoProcesoIMPFiltrar(dis_lueComponente.EditValue.ToInt());
+            acce_gcAccesorios.DataSource = objCotiza._disenoAccesoriosFiltrar(dis_lueComponente.EditValue.ToInt());
             //calcula los totales de los detalles
             _totales();
         }
@@ -184,7 +184,7 @@ namespace Ordenes.Controles
             model_Cotiza.Ancho = Convert.ToDecimal(seAncho.EditValue);
             model_Cotiza.Alto = Convert.ToDecimal(seAlto.EditValue);
             model_Cotiza.FecEntrega = deFechaENT.EditValue;
-            model_Cotiza.EplCotiza = Form1.getSession.Usuario.Empleado.Codigo;
+            model_Cotiza.EplCotiza = frmPrincipal.getSession.Usuario.Empleado.Codigo;
             model_Cotiza.Estado = true;
         }
         #endregion
@@ -198,7 +198,7 @@ namespace Ordenes.Controles
             model_Block.Serie = blo_txtSerie.Text.Trim();
             model_Block.Inicia = Convert.ToInt32(blo_seInicia.Value);
             model_Block.Termina = Convert.ToInt32(blo_seInicia.Value);
-            model_Block.Juego= Convert.ToInt32(blo_seJuegos.Value);
+            model_Block.Juego = Convert.ToInt32(blo_seJuegos.Value);
         }
         #endregion
 
@@ -207,34 +207,8 @@ namespace Ordenes.Controles
         //Métodos varios
         #region Métodos-Varios
 
-        private void _disenoArmadosTotales()
-        {
-            dis_seTotalCostoPapel.Value = objCotiza._disenoArmadoTotales();
-        }
-
-        private void _disenoColorTotales()
-        {
-            decimal[] totales = objCotiza._disenoColorTotales();
-            dis_seGramosColor.Value = totales[0];
-            dis_seGramosMetalizado.Value = totales[1];
-            dis_seGramosPantone.Value = totales[2];
-            dis_seTotalCostoTinta.Value = totales[3];
-        }
-
-        private void _disenoPlacasTotales()
-        {
-            decimal[] totales = objCotiza._disenoPlacaTotales();
-            dis_seNumPlacas.EditValue = totales[0];
-            dis_seTotalPlacas.EditValue = totales[1];
-        }
-
-        private void _disenoTroquelTotales()
-        {
-            decimal[] totales = objCotiza._disenoTroquelTotales();
-            dis_seCorteLONG.EditValue = totales[0];
-            dis_seCortesTOT.EditValue = totales[1];
-        }
         
+
         private void _forceUpdate(GridView dgvToForce)
         {
             txtCIRUCCLI.Focus();
@@ -257,14 +231,19 @@ namespace Ordenes.Controles
         {
             beNumeroCOT.Text = "";
             deFechaCOT.EditValue = DateTime.Now;
-            txtCIRUCCLI.Text = txtNombreCLI.Text = beArticulo.Text = "";
+            txtCIRUCCLI.Text = beNombreCLI.Text = beArticulo.Text = "";
             seAncho.EditValue = seAlto.EditValue = 10;
             deFechaENT.EditValue = DateTime.Now.AddDays(1);
             txtEplCotizador.Text = beEplVendedor.Text = "";
             chkEstadoCOT.Checked = true;
+            if (model_Cotiza != null)
+            {
+                model_Cotiza.CodigoCLI = model_Cotiza.id = model_Cotiza.Cotizacion = -1;
+                model_Cotiza.TotalCOT = 0;
+            }
         }
         #endregion
-        
+
         //Valida que ingresen solo numeros en un textedit
         #region SoloNumeros
         private void _SoloNumeros(object sender, KeyPressEventArgs e)
@@ -279,14 +258,18 @@ namespace Ordenes.Controles
 
         private void _totales()
         {
-            _disenoArmadosTotales();
-            _disenoColorTotales();
-            _disenoPlacasTotales();
-            _disenoTroquelTotales();
+            tot_gcTotales.DataSource = objCotiza._totales();
+            if (model_Cotiza != null)
+            {
+                model_Cotiza.TotalCOT = objCotiza._TotalGEN();
+            }
         }
 
         //Validaciones
         #region Validar
+
+       
+
         private bool _Validar()
         {
             if (blo_seInicia.Value > blo_seTermina.Value)
@@ -296,23 +279,18 @@ namespace Ordenes.Controles
                 blo_seTermina.Value = aux;
             }
 
-            if (blo_seInicia.Value == blo_seTermina.Value && blo_seInicia.Value != 0)
-            {
-                clsMensaje._msjWarning("Blocks: El campo 'INICIA' no puede tener " +
-                    "el mismo valor que el campo 'TERMINA'", "Verificar datos");
-                blo_seTermina.Focus();
-                return false;
-            }
-            bool validaDET = objCotiza._disenoArmadoValida()
-                            && objCotiza._disenoColorValida()
-                            && objCotiza._disenoPlacaValida()
-                            && objCotiza._disenoTroquelValida()
-                            && objCotiza._disenoAcabadoValida()
-                            && objCotiza._disenoAccesoriosValida()
-                            && objCotiza._disenoProcesoValida()
-                            && objCotiza._disenoProcesoIMPValida()
-                            && objCotiza._disenoMATCLIValida();
-            return validaDET;
+
+            bool isValid = model_Cotiza._isValid();
+            isValid = isValid && objCotiza._disenoArmadoValida();
+            isValid = isValid && objCotiza._disenoColorValida();
+            isValid = isValid && objCotiza._disenoPlacaValida();
+            isValid = isValid && objCotiza._disenoTroquelValida();
+            isValid = isValid && objCotiza._disenoAcabadoValida();
+            isValid = isValid && objCotiza._disenoAccesoriosValida();
+            isValid = isValid && objCotiza._disenoProcesoValida();
+            isValid = isValid && objCotiza._disenoProcesoIMPValida();
+            isValid = isValid && objCotiza._disenoMATCLIValida();
+            return isValid;
         }
         #endregion
 
@@ -333,7 +311,7 @@ namespace Ordenes.Controles
                 beNumeroCOT.EditValue = model_Cotiza.Cotizacion;
                 deFechaCOT.EditValue = model_Cotiza.FecCotiza;
                 txtCIRUCCLI.Text = model_Cotiza.CIRUC;
-                txtNombreCLI.Text = model_Cotiza.Cliente;
+                beNombreCLI.Text = model_Cotiza.Cliente;
                 lueLineaPRD.EditValue = model_Cotiza.LineaPRD;
                 lueGrupo.EditValue = model_Cotiza.Grupo;
                 lueSubgrupo.EditValue = model_Cotiza.Subgrupo;
@@ -371,7 +349,7 @@ namespace Ordenes.Controles
 
         private void btnTotales_Click(object sender, EventArgs e)
         {
-            dis_gcTotales.DataSource = objCotiza._totales();
+           
         }
 
         private void dis_lueComponente_EditValueChanged(object sender, EventArgs e)
@@ -402,7 +380,7 @@ namespace Ordenes.Controles
                 model_Cotiza.CIRUC = rowCliente["CIRUC"].ToString().Trim();
                 model_Cotiza.Cliente = rowCliente["Cliente"].ToString().Trim();
                 txtCIRUCCLI.Text = rowCliente["CIRUC"].ToString().Trim();
-                txtNombreCLI.Text = rowCliente["Cliente"].ToString().Trim();
+                beNombreCLI.Text = rowCliente["Cliente"].ToString().Trim();
                 _clienteCarga();
             }
         }
@@ -419,25 +397,21 @@ namespace Ordenes.Controles
 
         private void dis_bgvArmados_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
+            if (arm_gvArmados.IsValidRowHandle(arm_gvArmados.FocusedRowHandle))
             {
-                DataRow row = dis_bgvArmados.GetDataRow(dis_bgvArmados.FocusedRowHandle);
-                if (!objCotiza._disenoArmadoVerificaDEP(row))
+                DataRow row = arm_gvArmados.GetDataRow(arm_gvArmados.FocusedRowHandle);
+
+                if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
                 {
-                    if (e.Column.FieldName == "TrabajoAncho" || e.Column.FieldName == "TrabajoAlto")
+                    if (!objCotiza._disenoArmadoVerificaDEP(row))
                     {
                         _disenoArmadoCMenu("CALCULA");
-                        _disenoArmadosTotales();
                     }
-                    else if (e.Column.FieldName == "NumPaginas")
+                    else
                     {
-                        _disenoArmadosTotales();
+                        clsMensaje._msjWarning("No puede modificar esta fila porque tiene registros dependientes", "Modificar");
+                        row.RejectChanges();
                     }
-                }
-                else
-                {
-                    clsMensaje._msjWarning("No puede modificar esta fila porque tiene registros dependientes","Modificar");
-                    row.RejectChanges();
                 }
             }
         }
@@ -448,33 +422,31 @@ namespace Ordenes.Controles
 
         private void dis_ribeBuscaPantone_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            if (col_gvColores.IsValidRowHandle(col_gvColores.FocusedRowHandle))
             {
-                DataRow rowModifica = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                DataRow rowModifica = col_gvColores.GetDataRow(col_gvColores.FocusedRowHandle);
                 objCotiza._disenoColorAgregaPantone(rowModifica);
-                dis_gvColores.RefreshRow(dis_gvColores.FocusedRowHandle);
+                col_gvColores.RefreshRow(col_gvColores.FocusedRowHandle);
             }
         }
 
         private void dis_rilueCobertura_EditValueChanged(object sender, EventArgs e)
         {
-            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            if (col_gvColores.IsValidRowHandle(col_gvColores.FocusedRowHandle))
             {
-                _forceUpdate(dis_gvColores);
-                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                _forceUpdate(col_gvColores);
+                DataRow rowColor = col_gvColores.GetDataRow(col_gvColores.FocusedRowHandle);
                 objCotiza._disenoColorCambiaCobertura(rowColor);
-                _disenoColorTotales();
             }
         }
 
         private void dis_rilueColorPlancha_EditValueChanged(object sender, EventArgs e)
         {
-            if (dis_gvColores.IsValidRowHandle(dis_gvColores.FocusedRowHandle))
+            if (col_gvColores.IsValidRowHandle(col_gvColores.FocusedRowHandle))
             {
-                _forceUpdate(dis_gvColores);
-                DataRow rowColor = dis_gvColores.GetDataRow(dis_gvColores.FocusedRowHandle);
+                _forceUpdate(col_gvColores);
+                DataRow rowColor = col_gvColores.GetDataRow(col_gvColores.FocusedRowHandle);
                 objCotiza._disenoColorCambiaPlancha(rowColor);
-                _disenoColorTotales();
             }
         }
 
@@ -485,9 +457,9 @@ namespace Ordenes.Controles
         {
             if (e.Column.FieldName == "NumColores")
             {
-                if (dis_gvPlacas.IsValidRowHandle(dis_gvPlacas.FocusedRowHandle))
+                if (pla_gvPlacas.IsValidRowHandle(pla_gvPlacas.FocusedRowHandle))
                 {
-                    DataRow rowPlaca = dis_gvPlacas.GetDataRow(dis_gvPlacas.FocusedRowHandle);
+                    DataRow rowPlaca = pla_gvPlacas.GetDataRow(pla_gvPlacas.FocusedRowHandle);
                     objCotiza._disenoPlacaCambiaNumColores(rowPlaca);
                 }
             }
@@ -511,6 +483,7 @@ namespace Ordenes.Controles
 
         private void barraStandar_onSave()
         {
+            _totales();
             if (_Validar())
             {
                 _asignaCotizaMOD();
@@ -573,7 +546,7 @@ namespace Ordenes.Controles
 
         private void mnuQuitaMATCLI_Click(object sender, EventArgs e)
         {
-            DataRow rowEliminar = dis_gvMaterialCLI.GetDataRow(dis_gvMaterialCLI.FocusedRowHandle);
+            DataRow rowEliminar = mcli_gvMaterialCLI.GetDataRow(mcli_gvMaterialCLI.FocusedRowHandle);
             objCotiza._disenoMATCLIEliminaMAT(rowEliminar);
         }
 
@@ -588,7 +561,6 @@ namespace Ordenes.Controles
             objCotiza._disenoArmadoAgregaMAT(seAlto.Value.ToInt(),
                 seAncho.Value.ToInt(),seTiraje.Value.ToInt(),
                 lueGrupo.EditValue, dis_lueComponente.EditValue);
-            _disenoArmadosTotales();
         }
 
         //CACLULA LOS VALORES DE CORTE
@@ -612,9 +584,9 @@ namespace Ordenes.Controles
         //CENTRALIZA ACCIONES DE CONTEXT MENU
         private void _disenoArmadoCMenu(string accion)
         {
-            if (dis_bgvArmados.IsValidRowHandle(dis_bgvArmados.FocusedRowHandle))
+            if (arm_gvArmados.IsValidRowHandle(arm_gvArmados.FocusedRowHandle))
             {
-                DataRow rowSEL = _getDataRow(dis_bgvArmados);
+                DataRow rowSEL = _getDataRow(arm_gvArmados);
                 switch (accion)
                 {
                     case "CALCULA":
@@ -625,7 +597,6 @@ namespace Ordenes.Controles
                         break;
                     case "ELIMINAR":
                         objCotiza._disenoArmadoEliminaMAT(rowSEL);
-                        _disenoColorTotales();
                         break;
                     case "GRAFICA":
                         if (_disenoArmadoCMenuValida(rowSEL))
@@ -634,8 +605,7 @@ namespace Ordenes.Controles
                         }
                         break;
                 }
-                dis_bgvArmados.RefreshRow(dis_bgvArmados.FocusedRowHandle);
-                _disenoArmadosTotales();
+                arm_gvArmados.RefreshRow(arm_gvArmados.FocusedRowHandle);
             }
         }
 
@@ -658,13 +628,11 @@ namespace Ordenes.Controles
         private void mnuAgregaRegistro_Click(object sender, EventArgs e)
         {
             objCotiza._disenoColorAddColor(dis_lueComponente.EditValue);
-            _disenoColorTotales();
         }
 
         private void mnuEliminaRegDisenoColor_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoColorElimina(_getDataRow(dis_gvColores));
-            _disenoColorTotales();
+            objCotiza._disenoColorElimina(_getDataRow(col_gvColores));
         }
 
         #endregion
@@ -675,13 +643,11 @@ namespace Ordenes.Controles
         private void mnuAgregaRegTroquel_Click(object sender, EventArgs e)
         {
             objCotiza._disenoTroquelAddTroquel(dis_lueComponente.EditValue);
-            _disenoTroquelTotales();
         }
 
         private void mnuEliminaRegTroquel_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoTroquelElimina(_getDataRow(dis_gvTroquel));
-            _disenoTroquelTotales();
+            objCotiza._disenoTroquelElimina(_getDataRow(tro_gvTroquel));
         }
 
         #endregion
@@ -691,9 +657,9 @@ namespace Ordenes.Controles
 
         private void mnuAgregaAcabado_Click(object sender, EventArgs e)
         {
-            if (dis_gvAcabados.IsValidRowHandle(dis_gvAcabados.FocusedRowHandle))
+            if (aca_gvAcabados.IsValidRowHandle(aca_gvAcabados.FocusedRowHandle))
             {
-                DataRow rowAcabado = dis_gvAcabados.GetDataRow(dis_gvAcabados.FocusedRowHandle);
+                DataRow rowAcabado = aca_gvAcabados.GetDataRow(aca_gvAcabados.FocusedRowHandle);
                 objCotiza._disenoAcabadoAddAcabado(rowAcabado);
             }
         }
@@ -705,7 +671,7 @@ namespace Ordenes.Controles
 
         private void dis_mnuEliminaRegistro_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoAcabadoElimina(_getDataRow(dis_gvAcabados));
+            objCotiza._disenoAcabadoElimina(_getDataRow(aca_gvAcabados));
         }
 
         #endregion
@@ -720,7 +686,7 @@ namespace Ordenes.Controles
 
         private void mnuQuitarProceso_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoProcesoElimina(_getDataRow(gvProcesos));
+            objCotiza._disenoProcesoElimina(_getDataRow(proc_gvProcesos));
         }
 
         #endregion
@@ -735,7 +701,7 @@ namespace Ordenes.Controles
 
         private void mnuEliminaAccesorio_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoAccesorioEliminar(_getDataRow(dis_gvAccesorios));
+            objCotiza._disenoAccesorioEliminar(_getDataRow(acce_gvAccesorios));
         }
 
 
@@ -768,12 +734,19 @@ namespace Ordenes.Controles
 
         private void mnuEliminaRegistroGH_Click(object sender, EventArgs e)
         {
-            objCotiza._disenoGeneralEliminaREG(optionsCMB.DisenoChkGH, _getDataRow(dis_gvGraficasH));
+            objCotiza._disenoGeneralEliminaREG(optionsCMB.DisenoChkGH, _getDataRow(gen_gvGraficasH));
         }
-        #endregion
 
         #endregion
 
+        #endregion
 
+        private void xtcPestanas_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+        {
+            if (e.Page == xtpResumen)
+            {
+                _totales();
+            }
+        }
     }
 }

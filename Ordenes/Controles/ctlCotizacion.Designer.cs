@@ -50,18 +50,17 @@
             this.gcColContacto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcColNumero = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtpResumen = new DevExpress.XtraTab.XtraTabPage();
-            this.btnTotales = new DevExpress.XtraEditors.SimpleButton();
-            this.dis_gcTotales = new DevExpress.XtraGrid.GridControl();
-            this.dis_gvTotales = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColDescripcionT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColArmadosT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColoresT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcPlacasT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTroquelT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColAccesorioT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColAcabadosT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColProcesoIMPT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTotalLinealT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcTotales = new DevExpress.XtraGrid.GridControl();
+            this.tot_gvTotales = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tot_gcColDescripcionT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColArmadosT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColoresT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcPlacasT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColTroquelT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColAccesorioT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColAcabadosT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColProcesoIMPT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tot_gcColTotalLinealT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lueLineaPRD = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.txtEplCotizador = new DevExpress.XtraEditors.TextEdit();
@@ -82,7 +81,7 @@
             this.cmDisenoGeneralGH = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaRegistroGH = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEliminaRegistroGH = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_gvGraficasH = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gen_gvGraficasH = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dis_gcColDescripcionGH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_gpOriginales = new DevExpress.XtraEditors.GroupControl();
             this.dis_gcOriginales = new DevExpress.XtraGrid.GridControl();
@@ -90,168 +89,156 @@
             this.mnuAgregaRegistroORI = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEliminaRegistroORI = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_gvOriginales = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColDescripcionORI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gen_gcColDescripcionORI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpArmados = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
-            this.dis_seTotalCostoPapel = new DevExpress.XtraEditors.SpinEdit();
-            this.dis_gcArmados = new DevExpress.XtraGrid.GridControl();
+            this.arm_gcArmados = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoMatARMDIS = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaMATARMDIS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculaDISARM = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuVerGraficaDISARM = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQuitarMATARMDIS = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_bgvArmados = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.arm_gvArmados = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.bandaPliegoMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColSeleccionAUT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColGrupo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColMaterial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColSeleccionAUT = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColGrupo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColMaterial = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandaPliegoIMP = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColPlaca = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColArmadoAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColArmadoAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColImpXtamano = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColPlaca = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColArmadoAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColArmadoAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColImpXtamano = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandaPliego = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColPliegoMPAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColPliegoMPAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColTamanosXpliego = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColPliegoCantidad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcPliegoEXTPorcentaje = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColPliegoMPAncho = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColPliegoMPAlto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColTamanosXpliego = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColPliegoCantidad = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcPliegoEXTPorcentaje = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_risePorcentajePliegoEXT = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.dis_gcColPliegoExtra = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColUndCotiza = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColPliegoExtra = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColUndCotiza = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.gridBand6 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
             this.bandaTrabajoFinal = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColAnchoTrabajoF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColAnchoTrabajoF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_riseAnchoTFinal = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.dis_gcColAltoTrabajoF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColAltoTrabajoF = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_ribeAltoTFinal = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.dis_gcColNumPaginas = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColPaginasXtrabajo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcTotalLinea = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColNumPaginas = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcColPaginasXtrabajo = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.arm_gcTotalLinea = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_xtpColores = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
-            this.dis_seTotalCostoTinta = new DevExpress.XtraEditors.SpinEdit();
             this.dis_seGramosPantone = new DevExpress.XtraEditors.SpinEdit();
             this.dis_seGramosMetalizado = new DevExpress.XtraEditors.SpinEdit();
             this.dis_seGramosColor = new DevExpress.XtraEditors.SpinEdit();
-            this.dis_gcColores = new DevExpress.XtraGrid.GridControl();
+            this.col_gcColores = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoColor = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaRegistro = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEliminaRegDisenoColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_gvColores = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColMaterialC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColArea = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColLado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gvColores = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_gcColMaterialC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColArea = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColLado = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueLadoImpresion = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dis_gcColTipoColor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColTipoColor = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueTipoColor = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dis_gcColCostoGramoColor = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColCobertura = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColCostoGramoColor = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColCobertura = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueCobertura = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dis_gcColGramos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColNumPaginasC = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTotGramos = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTotLinea = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColDetallePAG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColGramos = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColNumPaginasC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColTotGramos = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColTotLinea = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_gcColDetallePAG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpPlacas = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
-            this.dis_seTotalPlacas = new DevExpress.XtraEditors.SpinEdit();
-            this.dis_seNumPlacas = new DevExpress.XtraEditors.SpinEdit();
-            this.dis_gcPlacas = new DevExpress.XtraGrid.GridControl();
-            this.dis_gvPlacas = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColMaterialP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColPlacaP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColLadoP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcPlacas = new DevExpress.XtraGrid.GridControl();
+            this.pla_gvPlacas = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.pla_gcColMaterialP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColPlacaP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColLadoP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_rilueLadoImpresionP = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-            this.dis_gcColNumColoresP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColNumColoresP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_riseNumColores = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.dis_gcColNumPaginasP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColPaginasXplaca = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColPlacasMIN = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColNumPlacasP = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColCostoPlaca = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcTotalLineaP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColNumPaginasP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColPaginasXplaca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColPlacasMIN = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColNumPlacasP = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcColCostoPlaca = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.pla_gcTotalLineaP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpTroquel = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
-            this.dis_seCortesTOT = new DevExpress.XtraEditors.SpinEdit();
-            this.dis_seCorteLONG = new DevExpress.XtraEditors.SpinEdit();
-            this.dis_gcTrqouel = new DevExpress.XtraGrid.GridControl();
+            this.tro_gcTrqouel = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoTroquel = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaRegTroquel = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEliminaRegTroquel = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_gvTroquel = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColMaterialT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColLongitud = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColNumCortesT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColCostoCorteT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTotaLineaT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tro_gvTroquel = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.tro_gcColMaterialT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tro_gcColLongitud = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tro_gcColNumCortesT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tro_gcColCostoCorteT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tro_gcColTotaLineaT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpAcabados = new DevExpress.XtraTab.XtraTabPage();
-            this.dis_gcAcabados = new DevExpress.XtraGrid.GridControl();
+            this.aca_gcAcabados = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoAcabado = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dis_mnuAgregaRegistro = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAgregaAcabado = new System.Windows.Forms.ToolStripMenuItem();
             this.dis_mnuEliminaRegistro = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_gvAcabados = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcMaterialA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcAreaA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcAcabadoA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColAcabadoMAT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcCostoA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcAplicaA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcTotalLineaA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gvAcabados = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.aca_gcColMaterialA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gcColAreaA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gcColAcabadoA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gcColMatAcabado = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gcColCostoA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gcColAplicaA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.aca_gcColTotalLineaA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpAccesorios = new DevExpress.XtraTab.XtraTabPage();
-            this.dis_gcAccesorios = new DevExpress.XtraGrid.GridControl();
+            this.acce_gcAccesorios = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoAccesorios = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaAccesorio = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEliminaAccesorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_gvAccesorios = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColMaterialS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTirajeS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColCantidadS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.acce_gvAccesorios = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.acce_gcColMaterialS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.acce_gcColTirajeS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.acce_gcColCantidadS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_riseCantAccesorio = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.dis_gcColCostoS = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColTotalLineaS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.acce_gcColCostoS = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.acce_gcColTotalLineaS = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpProcesos = new DevExpress.XtraTab.XtraTabPage();
-            this.gc_Procesos = new DevExpress.XtraGrid.GridControl();
+            this.proc_gcProcesos = new DevExpress.XtraGrid.GridControl();
             this.cmDisenoProcesos = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaProceso = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQuitarProceso = new System.Windows.Forms.ToolStripMenuItem();
-            this.gvProcesos = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.proc_gvProcesos = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.proc_gcColMaquina = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColCosto = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColMinutos = new DevExpress.XtraGrid.Columns.GridColumn();
             this.proc_gcColTotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dis_xtpProcesosIMP = new DevExpress.XtraTab.XtraTabPage();
-            this.dis_gcProcesoIMP = new DevExpress.XtraGrid.GridControl();
-            this.dis_bgvProcesoIMP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
+            this.procimp_gcProcesoIMP = new DevExpress.XtraGrid.GridControl();
+            this.procimp_bgvProcesoIMP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridView();
             this.dis_bandaMaterial = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColTallaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColMaterialI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColNumColoresI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColPlacaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColTallaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColMaterialI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColNumColoresI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColPlacaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_bandaImpresion = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColCostoXminuto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColMinImpresion = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColPliegosXminuto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColNumPliegos = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColCostoXminuto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColMinImpresion = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColPliegosXminuto = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColNumPliegos = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_bandaPuestaPunto = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColCostoXminutoPP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.dis_gcColMinutosPP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColCostoXminutoPP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColMinutosPP = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_bandaTotal = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
-            this.dis_gcColTotalLineaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+            this.procimp_gcColTotalLineaI = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.dis_xtpMaterialCLI = new DevExpress.XtraTab.XtraTabPage();
-            this.dis_gcMaterialCLI = new DevExpress.XtraGrid.GridControl();
+            this.mcli_gcMaterialCLI = new DevExpress.XtraGrid.GridControl();
             this.cmClienteMAT = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuAgregaMATCLI = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuQuitaMATCLI = new System.Windows.Forms.ToolStripMenuItem();
-            this.dis_gvMaterialCLI = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dis_gcColMaterialCLI = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dis_gcColCantidadCLI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mcli_gvMaterialCLI = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.mcli_gcColMaterialCLI = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.mcli_gcColCantidadCLI = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtpBlocks = new DevExpress.XtraTab.XtraTabPage();
             this.blo_seJuegos = new DevExpress.XtraEditors.SpinEdit();
             this.blo_seTermina = new DevExpress.XtraEditors.SpinEdit();
@@ -283,7 +270,7 @@
             this.deFechaCOT = new DevExpress.XtraEditors.DateEdit();
             this.txtCIRUCCLI = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.txtNombreCLI = new DevExpress.XtraEditors.ButtonEdit();
+            this.beNombreCLI = new DevExpress.XtraEditors.ButtonEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.beNumeroCOT = new DevExpress.XtraEditors.ButtonEdit();
             this.deFechaENT = new DevExpress.XtraEditors.DateEdit();
@@ -299,8 +286,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cli_gcContactos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cli_gvContactos)).BeginInit();
             this.xtpResumen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcTotales)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvTotales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tot_gcTotales)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tot_gvTotales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLineaPRD.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEplCotizador.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beEplVendedor.Properties)).BeginInit();
@@ -315,64 +302,58 @@
             this.dis_gpGraficasH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcGraficasH)).BeginInit();
             this.cmDisenoGeneralGH.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvGraficasH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen_gvGraficasH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gpOriginales)).BeginInit();
             this.dis_gpOriginales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcOriginales)).BeginInit();
             this.cmDisenoGeneralORI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvOriginales)).BeginInit();
             this.dis_xtpArmados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalCostoPapel.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcArmados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arm_gcArmados)).BeginInit();
             this.cmDisenoMatARMDIS.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_bgvArmados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arm_gvArmados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_risePorcentajePliegoEXT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseAnchoTFinal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_ribeAltoTFinal)).BeginInit();
             this.dis_xtpColores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalCostoTinta.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seGramosPantone.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seGramosMetalizado.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seGramosColor.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcColores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.col_gcColores)).BeginInit();
             this.cmDisenoColor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvColores)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.col_gvColores)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueTipoColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueCobertura)).BeginInit();
             this.dis_xtpPlacas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalPlacas.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seNumPlacas.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pla_gcPlacas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pla_gvPlacas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresionP)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseNumColores)).BeginInit();
             this.dis_xtpTroquel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seCortesTOT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seCorteLONG.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcTrqouel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tro_gcTrqouel)).BeginInit();
             this.cmDisenoTroquel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvTroquel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tro_gvTroquel)).BeginInit();
             this.dis_xtpAcabados.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAcabados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aca_gcAcabados)).BeginInit();
             this.cmDisenoAcabado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAcabados)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aca_gvAcabados)).BeginInit();
             this.dis_xtpAccesorios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAccesorios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acce_gcAccesorios)).BeginInit();
             this.cmDisenoAccesorios.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAccesorios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acce_gvAccesorios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseCantAccesorio)).BeginInit();
             this.dis_xtpProcesos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proc_gcProcesos)).BeginInit();
             this.cmDisenoProcesos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvProcesos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proc_gvProcesos)).BeginInit();
             this.dis_xtpProcesosIMP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcProcesoIMP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_bgvProcesoIMP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.procimp_gcProcesoIMP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.procimp_bgvProcesoIMP)).BeginInit();
             this.dis_xtpMaterialCLI.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcMaterialCLI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mcli_gcMaterialCLI)).BeginInit();
             this.cmClienteMAT.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvMaterialCLI)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mcli_gvMaterialCLI)).BeginInit();
             this.xtpBlocks.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blo_seJuegos.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.blo_seTermina.Properties)).BeginInit();
@@ -390,7 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCIRUCCLI.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombreCLI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beNombreCLI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.beNumeroCOT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties)).BeginInit();
@@ -429,7 +410,7 @@
             this.panel1.Controls.Add(this.deFechaCOT);
             this.panel1.Controls.Add(this.txtCIRUCCLI);
             this.panel1.Controls.Add(this.labelControl6);
-            this.panel1.Controls.Add(this.txtNombreCLI);
+            this.panel1.Controls.Add(this.beNombreCLI);
             this.panel1.Controls.Add(this.labelControl8);
             this.panel1.Controls.Add(this.beNumeroCOT);
             this.panel1.Controls.Add(this.deFechaENT);
@@ -482,6 +463,7 @@
             this.xtpResumen,
             this.xtpDiseno,
             this.xtpBlocks});
+            this.xtcPestanas.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.xtcPestanas_SelectedPageChanged);
             // 
             // xtpDatosCLI
             // 
@@ -666,8 +648,7 @@
             // 
             // xtpResumen
             // 
-            this.xtpResumen.Controls.Add(this.btnTotales);
-            this.xtpResumen.Controls.Add(this.dis_gcTotales);
+            this.xtpResumen.Controls.Add(this.tot_gcTotales);
             this.xtpResumen.Controls.Add(this.lueLineaPRD);
             this.xtpResumen.Controls.Add(this.labelControl13);
             this.xtpResumen.Controls.Add(this.txtEplCotizador);
@@ -682,233 +663,224 @@
             this.xtpResumen.Size = new System.Drawing.Size(859, 313);
             this.xtpResumen.Text = "Resúmen";
             // 
-            // btnTotales
+            // tot_gcTotales
             // 
-            this.btnTotales.Location = new System.Drawing.Point(643, 56);
-            this.btnTotales.Name = "btnTotales";
-            this.btnTotales.Size = new System.Drawing.Size(75, 23);
-            this.btnTotales.TabIndex = 79;
-            this.btnTotales.Text = "Totales";
-            this.btnTotales.Click += new System.EventHandler(this.btnTotales_Click);
+            this.tot_gcTotales.Location = new System.Drawing.Point(3, 84);
+            this.tot_gcTotales.MainView = this.tot_gvTotales;
+            this.tot_gcTotales.Name = "tot_gcTotales";
+            this.tot_gcTotales.Size = new System.Drawing.Size(853, 226);
+            this.tot_gcTotales.TabIndex = 78;
+            this.tot_gcTotales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tot_gvTotales});
             // 
-            // dis_gcTotales
+            // tot_gvTotales
             // 
-            this.dis_gcTotales.Location = new System.Drawing.Point(3, 84);
-            this.dis_gcTotales.MainView = this.dis_gvTotales;
-            this.dis_gcTotales.Name = "dis_gcTotales";
-            this.dis_gcTotales.Size = new System.Drawing.Size(853, 226);
-            this.dis_gcTotales.TabIndex = 78;
-            this.dis_gcTotales.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvTotales});
+            this.tot_gvTotales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tot_gcColDescripcionT,
+            this.tot_gcColArmadosT,
+            this.tot_gcColoresT,
+            this.tot_gcPlacasT,
+            this.tot_gcColTroquelT,
+            this.tot_gcColAccesorioT,
+            this.tot_gcColAcabadosT,
+            this.tot_gcColProcesoIMPT,
+            this.tot_gcColTotalLinealT});
+            this.tot_gvTotales.GridControl = this.tot_gcTotales;
+            this.tot_gvTotales.Name = "tot_gvTotales";
+            this.tot_gvTotales.OptionsView.ShowFooter = true;
+            this.tot_gvTotales.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gvTotales
+            // tot_gcColDescripcionT
             // 
-            this.dis_gvTotales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColDescripcionT,
-            this.dis_gcColArmadosT,
-            this.dis_gcColoresT,
-            this.dis_gcPlacasT,
-            this.dis_gcColTroquelT,
-            this.dis_gcColAccesorioT,
-            this.dis_gcColAcabadosT,
-            this.dis_gcColProcesoIMPT,
-            this.dis_gcColTotalLinealT});
-            this.dis_gvTotales.GridControl = this.dis_gcTotales;
-            this.dis_gvTotales.Name = "dis_gvTotales";
-            this.dis_gvTotales.OptionsView.ShowFooter = true;
-            this.dis_gvTotales.OptionsView.ShowGroupPanel = false;
+            this.tot_gcColDescripcionT.Caption = "Descripción";
+            this.tot_gcColDescripcionT.FieldName = "Componente";
+            this.tot_gcColDescripcionT.Name = "tot_gcColDescripcionT";
+            this.tot_gcColDescripcionT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColDescripcionT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColDescripcionT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColDescripcionT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColDescripcionT.OptionsColumn.AllowMove = false;
+            this.tot_gcColDescripcionT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColDescripcionT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColDescripcionT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColDescripcionT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColDescripcionT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColDescripcionT.Visible = true;
+            this.tot_gcColDescripcionT.VisibleIndex = 0;
+            this.tot_gcColDescripcionT.Width = 210;
             // 
-            // dis_gcColDescripcionT
+            // tot_gcColArmadosT
             // 
-            this.dis_gcColDescripcionT.Caption = "Descripción";
-            this.dis_gcColDescripcionT.FieldName = "Componente";
-            this.dis_gcColDescripcionT.Name = "dis_gcColDescripcionT";
-            this.dis_gcColDescripcionT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColDescripcionT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDescripcionT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColDescripcionT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDescripcionT.OptionsColumn.AllowMove = false;
-            this.dis_gcColDescripcionT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColDescripcionT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDescripcionT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColDescripcionT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColDescripcionT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColDescripcionT.Visible = true;
-            this.dis_gcColDescripcionT.VisibleIndex = 0;
-            this.dis_gcColDescripcionT.Width = 210;
-            // 
-            // dis_gcColArmadosT
-            // 
-            this.dis_gcColArmadosT.Caption = "Armados";
-            this.dis_gcColArmadosT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColArmadosT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColArmadosT.FieldName = "Armados";
-            this.dis_gcColArmadosT.Name = "dis_gcColArmadosT";
-            this.dis_gcColArmadosT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColArmadosT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadosT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColArmadosT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadosT.OptionsColumn.AllowMove = false;
-            this.dis_gcColArmadosT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColArmadosT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadosT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColArmadosT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColArmadosT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColArmadosT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColArmadosT.Caption = "Armados";
+            this.tot_gcColArmadosT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColArmadosT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColArmadosT.FieldName = "Armados";
+            this.tot_gcColArmadosT.Name = "tot_gcColArmadosT";
+            this.tot_gcColArmadosT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColArmadosT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColArmadosT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColArmadosT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColArmadosT.OptionsColumn.AllowMove = false;
+            this.tot_gcColArmadosT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColArmadosT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColArmadosT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColArmadosT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColArmadosT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColArmadosT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Armados", "{0:N2}")});
-            this.dis_gcColArmadosT.Visible = true;
-            this.dis_gcColArmadosT.VisibleIndex = 1;
-            this.dis_gcColArmadosT.Width = 82;
+            this.tot_gcColArmadosT.Visible = true;
+            this.tot_gcColArmadosT.VisibleIndex = 1;
+            this.tot_gcColArmadosT.Width = 82;
             // 
-            // dis_gcColoresT
+            // tot_gcColoresT
             // 
-            this.dis_gcColoresT.Caption = "Colores";
-            this.dis_gcColoresT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColoresT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColoresT.FieldName = "Colores";
-            this.dis_gcColoresT.Name = "dis_gcColoresT";
-            this.dis_gcColoresT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColoresT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColoresT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColoresT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColoresT.OptionsColumn.AllowMove = false;
-            this.dis_gcColoresT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColoresT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColoresT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColoresT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColoresT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColoresT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColoresT.Caption = "Colores";
+            this.tot_gcColoresT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColoresT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColoresT.FieldName = "Colores";
+            this.tot_gcColoresT.Name = "tot_gcColoresT";
+            this.tot_gcColoresT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColoresT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColoresT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColoresT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColoresT.OptionsColumn.AllowMove = false;
+            this.tot_gcColoresT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColoresT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColoresT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColoresT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColoresT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColoresT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Colores", "{0:N2}")});
-            this.dis_gcColoresT.Visible = true;
-            this.dis_gcColoresT.VisibleIndex = 2;
-            this.dis_gcColoresT.Width = 76;
+            this.tot_gcColoresT.Visible = true;
+            this.tot_gcColoresT.VisibleIndex = 2;
+            this.tot_gcColoresT.Width = 76;
             // 
-            // dis_gcPlacasT
+            // tot_gcPlacasT
             // 
-            this.dis_gcPlacasT.Caption = "Placas";
-            this.dis_gcPlacasT.DisplayFormat.FormatString = "N2";
-            this.dis_gcPlacasT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcPlacasT.FieldName = "Placas";
-            this.dis_gcPlacasT.Name = "dis_gcPlacasT";
-            this.dis_gcPlacasT.OptionsColumn.AllowEdit = false;
-            this.dis_gcPlacasT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcPlacasT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcPlacasT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcPlacasT.OptionsColumn.AllowMove = false;
-            this.dis_gcPlacasT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcPlacasT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcPlacasT.OptionsColumn.ReadOnly = true;
-            this.dis_gcPlacasT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcPlacasT.OptionsFilter.AllowFilter = false;
-            this.dis_gcPlacasT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcPlacasT.Caption = "Placas";
+            this.tot_gcPlacasT.DisplayFormat.FormatString = "N2";
+            this.tot_gcPlacasT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcPlacasT.FieldName = "Placas";
+            this.tot_gcPlacasT.Name = "tot_gcPlacasT";
+            this.tot_gcPlacasT.OptionsColumn.AllowEdit = false;
+            this.tot_gcPlacasT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcPlacasT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcPlacasT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcPlacasT.OptionsColumn.AllowMove = false;
+            this.tot_gcPlacasT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcPlacasT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcPlacasT.OptionsColumn.ReadOnly = true;
+            this.tot_gcPlacasT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcPlacasT.OptionsFilter.AllowFilter = false;
+            this.tot_gcPlacasT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Placas", "{0:N2}")});
-            this.dis_gcPlacasT.Visible = true;
-            this.dis_gcPlacasT.VisibleIndex = 3;
-            this.dis_gcPlacasT.Width = 80;
+            this.tot_gcPlacasT.Visible = true;
+            this.tot_gcPlacasT.VisibleIndex = 3;
+            this.tot_gcPlacasT.Width = 80;
             // 
-            // dis_gcColTroquelT
+            // tot_gcColTroquelT
             // 
-            this.dis_gcColTroquelT.Caption = "Troquel";
-            this.dis_gcColTroquelT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTroquelT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTroquelT.FieldName = "Troquel";
-            this.dis_gcColTroquelT.Name = "dis_gcColTroquelT";
-            this.dis_gcColTroquelT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTroquelT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTroquelT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTroquelT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTroquelT.OptionsColumn.AllowMove = false;
-            this.dis_gcColTroquelT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTroquelT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTroquelT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTroquelT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTroquelT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColTroquelT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColTroquelT.Caption = "Troquel";
+            this.tot_gcColTroquelT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColTroquelT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColTroquelT.FieldName = "Troquel";
+            this.tot_gcColTroquelT.Name = "tot_gcColTroquelT";
+            this.tot_gcColTroquelT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColTroquelT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColTroquelT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColTroquelT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColTroquelT.OptionsColumn.AllowMove = false;
+            this.tot_gcColTroquelT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColTroquelT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColTroquelT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColTroquelT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColTroquelT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColTroquelT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Troquel", "{0:N2}")});
-            this.dis_gcColTroquelT.Visible = true;
-            this.dis_gcColTroquelT.VisibleIndex = 4;
-            this.dis_gcColTroquelT.Width = 81;
+            this.tot_gcColTroquelT.Visible = true;
+            this.tot_gcColTroquelT.VisibleIndex = 4;
+            this.tot_gcColTroquelT.Width = 81;
             // 
-            // dis_gcColAccesorioT
+            // tot_gcColAccesorioT
             // 
-            this.dis_gcColAccesorioT.Caption = "Accesorios";
-            this.dis_gcColAccesorioT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColAccesorioT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColAccesorioT.FieldName = "Accesorios";
-            this.dis_gcColAccesorioT.Name = "dis_gcColAccesorioT";
-            this.dis_gcColAccesorioT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColAccesorioT.Caption = "Accesorios";
+            this.tot_gcColAccesorioT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColAccesorioT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColAccesorioT.FieldName = "Accesorios";
+            this.tot_gcColAccesorioT.Name = "tot_gcColAccesorioT";
+            this.tot_gcColAccesorioT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Accesorios", "{0:N2}")});
-            this.dis_gcColAccesorioT.Visible = true;
-            this.dis_gcColAccesorioT.VisibleIndex = 5;
-            this.dis_gcColAccesorioT.Width = 79;
+            this.tot_gcColAccesorioT.Visible = true;
+            this.tot_gcColAccesorioT.VisibleIndex = 5;
+            this.tot_gcColAccesorioT.Width = 79;
             // 
-            // dis_gcColAcabadosT
+            // tot_gcColAcabadosT
             // 
-            this.dis_gcColAcabadosT.Caption = "Acabados";
-            this.dis_gcColAcabadosT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColAcabadosT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColAcabadosT.FieldName = "Acabados";
-            this.dis_gcColAcabadosT.Name = "dis_gcColAcabadosT";
-            this.dis_gcColAcabadosT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColAcabadosT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAcabadosT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColAcabadosT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAcabadosT.OptionsColumn.AllowMove = false;
-            this.dis_gcColAcabadosT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColAcabadosT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAcabadosT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColAcabadosT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColAcabadosT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColAcabadosT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColAcabadosT.Caption = "Acabados";
+            this.tot_gcColAcabadosT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColAcabadosT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColAcabadosT.FieldName = "Acabados";
+            this.tot_gcColAcabadosT.Name = "tot_gcColAcabadosT";
+            this.tot_gcColAcabadosT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColAcabadosT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColAcabadosT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColAcabadosT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColAcabadosT.OptionsColumn.AllowMove = false;
+            this.tot_gcColAcabadosT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColAcabadosT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColAcabadosT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColAcabadosT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColAcabadosT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColAcabadosT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Acabados", "{0:N2}")});
-            this.dis_gcColAcabadosT.Visible = true;
-            this.dis_gcColAcabadosT.VisibleIndex = 6;
+            this.tot_gcColAcabadosT.Visible = true;
+            this.tot_gcColAcabadosT.VisibleIndex = 6;
             // 
-            // dis_gcColProcesoIMPT
+            // tot_gcColProcesoIMPT
             // 
-            this.dis_gcColProcesoIMPT.Caption = "Proceso IMP";
-            this.dis_gcColProcesoIMPT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColProcesoIMPT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColProcesoIMPT.FieldName = "ProcesosIMP";
-            this.dis_gcColProcesoIMPT.Name = "dis_gcColProcesoIMPT";
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowMove = false;
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColProcesoIMPT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColProcesoIMPT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColProcesoIMPT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColProcesoIMPT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColProcesoIMPT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColProcesoIMPT.Caption = "Proceso IMP";
+            this.tot_gcColProcesoIMPT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColProcesoIMPT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColProcesoIMPT.FieldName = "ProcesosIMP";
+            this.tot_gcColProcesoIMPT.Name = "tot_gcColProcesoIMPT";
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowMove = false;
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColProcesoIMPT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColProcesoIMPT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColProcesoIMPT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColProcesoIMPT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColProcesoIMPT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "ProcesosIMP", "{0:N2}")});
-            this.dis_gcColProcesoIMPT.Visible = true;
-            this.dis_gcColProcesoIMPT.VisibleIndex = 7;
-            this.dis_gcColProcesoIMPT.Width = 100;
+            this.tot_gcColProcesoIMPT.Visible = true;
+            this.tot_gcColProcesoIMPT.VisibleIndex = 7;
+            this.tot_gcColProcesoIMPT.Width = 100;
             // 
-            // dis_gcColTotalLinealT
+            // tot_gcColTotalLinealT
             // 
-            this.dis_gcColTotalLinealT.Caption = "Total";
-            this.dis_gcColTotalLinealT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTotalLinealT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTotalLinealT.FieldName = "TotalLinea";
-            this.dis_gcColTotalLinealT.Name = "dis_gcColTotalLinealT";
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowMove = false;
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTotalLinealT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLinealT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTotalLinealT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTotalLinealT.OptionsFilter.AllowFilter = false;
-            this.dis_gcColTotalLinealT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tot_gcColTotalLinealT.Caption = "Total";
+            this.tot_gcColTotalLinealT.DisplayFormat.FormatString = "N2";
+            this.tot_gcColTotalLinealT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tot_gcColTotalLinealT.FieldName = "TotalLinea";
+            this.tot_gcColTotalLinealT.Name = "tot_gcColTotalLinealT";
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowEdit = false;
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowMove = false;
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowShowHide = false;
+            this.tot_gcColTotalLinealT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tot_gcColTotalLinealT.OptionsColumn.ReadOnly = true;
+            this.tot_gcColTotalLinealT.OptionsFilter.AllowAutoFilter = false;
+            this.tot_gcColTotalLinealT.OptionsFilter.AllowFilter = false;
+            this.tot_gcColTotalLinealT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcColTotalLinealT.Visible = true;
-            this.dis_gcColTotalLinealT.VisibleIndex = 8;
-            this.dis_gcColTotalLinealT.Width = 127;
+            this.tot_gcColTotalLinealT.Visible = true;
+            this.tot_gcColTotalLinealT.VisibleIndex = 8;
+            this.tot_gcColTotalLinealT.Width = 127;
             // 
             // lueLineaPRD
             // 
@@ -928,7 +900,7 @@
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(415, 35);
+            this.labelControl13.Location = new System.Drawing.Point(542, 35);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(50, 13);
             this.labelControl13.TabIndex = 76;
@@ -936,7 +908,7 @@
             // 
             // txtEplCotizador
             // 
-            this.txtEplCotizador.Location = new System.Drawing.Point(471, 32);
+            this.txtEplCotizador.Location = new System.Drawing.Point(598, 32);
             this.txtEplCotizador.Name = "txtEplCotizador";
             this.txtEplCotizador.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.txtEplCotizador.Properties.MaxLength = 50;
@@ -946,7 +918,7 @@
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(414, 60);
+            this.labelControl12.Location = new System.Drawing.Point(542, 56);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(50, 13);
             this.labelControl12.TabIndex = 74;
@@ -954,14 +926,14 @@
             // 
             // beEplVendedor
             // 
-            this.beEplVendedor.Location = new System.Drawing.Point(471, 53);
+            this.beEplVendedor.Location = new System.Drawing.Point(598, 53);
             this.beEplVendedor.Name = "beEplVendedor";
             this.beEplVendedor.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.beEplVendedor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
             this.beEplVendedor.Properties.MaxLength = 50;
             this.beEplVendedor.Properties.ReadOnly = true;
-            this.beEplVendedor.Size = new System.Drawing.Size(103, 20);
+            this.beEplVendedor.Size = new System.Drawing.Size(257, 20);
             this.beEplVendedor.TabIndex = 73;
             this.beEplVendedor.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.beEplVendedor_ButtonClick);
             // 
@@ -1093,12 +1065,12 @@
             // 
             this.dis_gcGraficasH.ContextMenuStrip = this.cmDisenoGeneralGH;
             this.dis_gcGraficasH.Location = new System.Drawing.Point(7, 23);
-            this.dis_gcGraficasH.MainView = this.dis_gvGraficasH;
+            this.dis_gcGraficasH.MainView = this.gen_gvGraficasH;
             this.dis_gcGraficasH.Name = "dis_gcGraficasH";
             this.dis_gcGraficasH.Size = new System.Drawing.Size(392, 204);
             this.dis_gcGraficasH.TabIndex = 32;
             this.dis_gcGraficasH.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvGraficasH});
+            this.gen_gvGraficasH});
             // 
             // cmDisenoGeneralGH
             // 
@@ -1124,13 +1096,13 @@
             this.mnuEliminaRegistroGH.Text = "Eliminar Registro";
             this.mnuEliminaRegistroGH.Click += new System.EventHandler(this.mnuEliminaRegistroGH_Click);
             // 
-            // dis_gvGraficasH
+            // gen_gvGraficasH
             // 
-            this.dis_gvGraficasH.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gen_gvGraficasH.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.dis_gcColDescripcionGH});
-            this.dis_gvGraficasH.GridControl = this.dis_gcGraficasH;
-            this.dis_gvGraficasH.Name = "dis_gvGraficasH";
-            this.dis_gvGraficasH.OptionsView.ShowGroupPanel = false;
+            this.gen_gvGraficasH.GridControl = this.dis_gcGraficasH;
+            this.gen_gvGraficasH.Name = "gen_gvGraficasH";
+            this.gen_gvGraficasH.OptionsView.ShowGroupPanel = false;
             // 
             // dis_gcColDescripcionGH
             // 
@@ -1197,90 +1169,50 @@
             // dis_gvOriginales
             // 
             this.dis_gvOriginales.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColDescripcionORI});
+            this.gen_gcColDescripcionORI});
             this.dis_gvOriginales.GridControl = this.dis_gcOriginales;
             this.dis_gvOriginales.Name = "dis_gvOriginales";
             this.dis_gvOriginales.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gcColDescripcionORI
+            // gen_gcColDescripcionORI
             // 
-            this.dis_gcColDescripcionORI.Caption = "Descripción";
-            this.dis_gcColDescripcionORI.FieldName = "Descripcion";
-            this.dis_gcColDescripcionORI.Name = "dis_gcColDescripcionORI";
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowMove = false;
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColDescripcionORI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDescripcionORI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColDescripcionORI.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColDescripcionORI.OptionsFilter.AllowFilter = false;
-            this.dis_gcColDescripcionORI.Visible = true;
-            this.dis_gcColDescripcionORI.VisibleIndex = 0;
+            this.gen_gcColDescripcionORI.Caption = "Descripción";
+            this.gen_gcColDescripcionORI.FieldName = "Descripcion";
+            this.gen_gcColDescripcionORI.Name = "gen_gcColDescripcionORI";
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowEdit = false;
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowIncrementalSearch = false;
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowMove = false;
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowShowHide = false;
+            this.gen_gcColDescripcionORI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gen_gcColDescripcionORI.OptionsColumn.ReadOnly = true;
+            this.gen_gcColDescripcionORI.OptionsFilter.AllowAutoFilter = false;
+            this.gen_gcColDescripcionORI.OptionsFilter.AllowFilter = false;
+            this.gen_gcColDescripcionORI.Visible = true;
+            this.gen_gcColDescripcionORI.VisibleIndex = 0;
             // 
             // dis_xtpArmados
             // 
-            this.dis_xtpArmados.Controls.Add(this.labelControl20);
-            this.dis_xtpArmados.Controls.Add(this.dis_seTotalCostoPapel);
-            this.dis_xtpArmados.Controls.Add(this.dis_gcArmados);
+            this.dis_xtpArmados.Controls.Add(this.arm_gcArmados);
             this.dis_xtpArmados.Name = "dis_xtpArmados";
             this.dis_xtpArmados.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpArmados.Text = "Papel";
             // 
-            // labelControl20
+            // arm_gcArmados
             // 
-            this.labelControl20.Location = new System.Drawing.Point(698, 219);
-            this.labelControl20.Name = "labelControl20";
-            this.labelControl20.Size = new System.Drawing.Size(28, 13);
-            this.labelControl20.TabIndex = 2;
-            this.labelControl20.Text = "Total:";
-            // 
-            // dis_seTotalCostoPapel
-            // 
-            this.dis_seTotalCostoPapel.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seTotalCostoPapel.Location = new System.Drawing.Point(738, 216);
-            this.dis_seTotalCostoPapel.Name = "dis_seTotalCostoPapel";
-            this.dis_seTotalCostoPapel.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.dis_seTotalCostoPapel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dis_seTotalCostoPapel.Properties.DisplayFormat.FormatString = "N2";
-            this.dis_seTotalCostoPapel.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seTotalCostoPapel.Properties.EditFormat.FormatString = "N2";
-            this.dis_seTotalCostoPapel.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seTotalCostoPapel.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seTotalCostoPapel.Properties.MaxValue = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            131072});
-            this.dis_seTotalCostoPapel.Properties.ReadOnly = true;
-            this.dis_seTotalCostoPapel.Size = new System.Drawing.Size(100, 20);
-            this.dis_seTotalCostoPapel.TabIndex = 1;
-            // 
-            // dis_gcArmados
-            // 
-            this.dis_gcArmados.ContextMenuStrip = this.cmDisenoMatARMDIS;
-            this.dis_gcArmados.Location = new System.Drawing.Point(0, 3);
-            this.dis_gcArmados.MainView = this.dis_bgvArmados;
-            this.dis_gcArmados.Name = "dis_gcArmados";
-            this.dis_gcArmados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.arm_gcArmados.ContextMenuStrip = this.cmDisenoMatARMDIS;
+            this.arm_gcArmados.Location = new System.Drawing.Point(0, 3);
+            this.arm_gcArmados.MainView = this.arm_gvArmados;
+            this.arm_gcArmados.Name = "arm_gcArmados";
+            this.arm_gcArmados.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.dis_riseAnchoTFinal,
             this.dis_ribeAltoTFinal,
             this.dis_risePorcentajePliegoEXT});
-            this.dis_gcArmados.Size = new System.Drawing.Size(838, 207);
-            this.dis_gcArmados.TabIndex = 0;
-            this.dis_gcArmados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_bgvArmados});
+            this.arm_gcArmados.Size = new System.Drawing.Size(838, 236);
+            this.arm_gcArmados.TabIndex = 0;
+            this.arm_gcArmados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.arm_gvArmados});
             // 
             // cmDisenoMatARMDIS
             // 
@@ -1324,287 +1256,287 @@
             this.mnuQuitarMATARMDIS.Text = "Eliminar Material";
             this.mnuQuitarMATARMDIS.Click += new System.EventHandler(this.mnuQuitarMATARMDIS_Click);
             // 
-            // dis_bgvArmados
+            // arm_gvArmados
             // 
-            this.dis_bgvArmados.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.arm_gvArmados.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.bandaPliegoMP,
             this.bandaPliegoIMP,
             this.bandaPliego,
             this.gridBand6,
             this.bandaTrabajoFinal});
-            this.dis_bgvArmados.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.dis_gcColSeleccionAUT,
-            this.dis_gcColGrupo,
-            this.dis_gcColMaterial,
-            this.dis_gcColAnchoTrabajoF,
-            this.dis_gcColAltoTrabajoF,
-            this.dis_gcColNumPaginas,
-            this.dis_gcColPaginasXtrabajo,
-            this.dis_gcColPliegoMPAncho,
-            this.dis_gcColPliegoMPAlto,
-            this.dis_gcColArmadoAncho,
-            this.dis_gcColArmadoAlto,
-            this.dis_gcColTamanosXpliego,
-            this.dis_gcColImpXtamano,
-            this.dis_gcColPliegoCantidad,
-            this.dis_gcPliegoEXTPorcentaje,
-            this.dis_gcColPliegoExtra,
-            this.dis_gcColUndCotiza,
-            this.dis_gcColPlaca,
-            this.dis_gcTotalLinea});
-            this.dis_bgvArmados.GridControl = this.dis_gcArmados;
-            this.dis_bgvArmados.Name = "dis_bgvArmados";
-            this.dis_bgvArmados.OptionsFilter.AllowFilterEditor = false;
-            this.dis_bgvArmados.OptionsView.ColumnAutoWidth = false;
-            this.dis_bgvArmados.OptionsView.ShowFooter = true;
-            this.dis_bgvArmados.OptionsView.ShowGroupPanel = false;
-            this.dis_bgvArmados.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dis_bgvArmados_CellValueChanged);
+            this.arm_gvArmados.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.arm_gcColSeleccionAUT,
+            this.arm_gcColGrupo,
+            this.arm_gcColMaterial,
+            this.arm_gcColAnchoTrabajoF,
+            this.arm_gcColAltoTrabajoF,
+            this.arm_gcColNumPaginas,
+            this.arm_gcColPaginasXtrabajo,
+            this.arm_gcColPliegoMPAncho,
+            this.arm_gcColPliegoMPAlto,
+            this.arm_gcColArmadoAncho,
+            this.arm_gcColArmadoAlto,
+            this.arm_gcColTamanosXpliego,
+            this.arm_gcColImpXtamano,
+            this.arm_gcColPliegoCantidad,
+            this.arm_gcPliegoEXTPorcentaje,
+            this.arm_gcColPliegoExtra,
+            this.arm_gcColUndCotiza,
+            this.arm_gcColPlaca,
+            this.arm_gcTotalLinea});
+            this.arm_gvArmados.GridControl = this.arm_gcArmados;
+            this.arm_gvArmados.Name = "arm_gvArmados";
+            this.arm_gvArmados.OptionsFilter.AllowFilterEditor = false;
+            this.arm_gvArmados.OptionsView.ColumnAutoWidth = false;
+            this.arm_gvArmados.OptionsView.ShowFooter = true;
+            this.arm_gvArmados.OptionsView.ShowGroupPanel = false;
+            this.arm_gvArmados.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dis_bgvArmados_CellValueChanged);
             // 
             // bandaPliegoMP
             // 
             this.bandaPliegoMP.AppearanceHeader.Options.UseTextOptions = true;
             this.bandaPliegoMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandaPliegoMP.Caption = "Mat. Prima";
-            this.bandaPliegoMP.Columns.Add(this.dis_gcColSeleccionAUT);
-            this.bandaPliegoMP.Columns.Add(this.dis_gcColGrupo);
-            this.bandaPliegoMP.Columns.Add(this.dis_gcColMaterial);
+            this.bandaPliegoMP.Columns.Add(this.arm_gcColSeleccionAUT);
+            this.bandaPliegoMP.Columns.Add(this.arm_gcColGrupo);
+            this.bandaPliegoMP.Columns.Add(this.arm_gcColMaterial);
             this.bandaPliegoMP.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.bandaPliegoMP.Name = "bandaPliegoMP";
             this.bandaPliegoMP.OptionsBand.AllowMove = false;
             this.bandaPliegoMP.VisibleIndex = 0;
             this.bandaPliegoMP.Width = 376;
             // 
-            // dis_gcColSeleccionAUT
+            // arm_gcColSeleccionAUT
             // 
-            this.dis_gcColSeleccionAUT.Caption = "AUT";
-            this.dis_gcColSeleccionAUT.FieldName = "AUT";
-            this.dis_gcColSeleccionAUT.Name = "dis_gcColSeleccionAUT";
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowMove = false;
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColSeleccionAUT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColSeleccionAUT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColSeleccionAUT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColSeleccionAUT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColSeleccionAUT.Visible = true;
-            this.dis_gcColSeleccionAUT.Width = 38;
+            this.arm_gcColSeleccionAUT.Caption = "AUT";
+            this.arm_gcColSeleccionAUT.FieldName = "AUT";
+            this.arm_gcColSeleccionAUT.Name = "arm_gcColSeleccionAUT";
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowEdit = false;
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowMove = false;
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColSeleccionAUT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColSeleccionAUT.OptionsColumn.ReadOnly = true;
+            this.arm_gcColSeleccionAUT.OptionsFilter.AllowAutoFilter = false;
+            this.arm_gcColSeleccionAUT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColSeleccionAUT.Visible = true;
+            this.arm_gcColSeleccionAUT.Width = 38;
             // 
-            // dis_gcColGrupo
+            // arm_gcColGrupo
             // 
-            this.dis_gcColGrupo.Caption = "Grupo";
-            this.dis_gcColGrupo.FieldName = "Talla";
-            this.dis_gcColGrupo.Name = "dis_gcColGrupo";
-            this.dis_gcColGrupo.OptionsColumn.AllowEdit = false;
-            this.dis_gcColGrupo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGrupo.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColGrupo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGrupo.OptionsColumn.AllowMove = false;
-            this.dis_gcColGrupo.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColGrupo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGrupo.OptionsColumn.ReadOnly = true;
-            this.dis_gcColGrupo.Visible = true;
-            this.dis_gcColGrupo.Width = 113;
+            this.arm_gcColGrupo.Caption = "Grupo";
+            this.arm_gcColGrupo.FieldName = "Talla";
+            this.arm_gcColGrupo.Name = "arm_gcColGrupo";
+            this.arm_gcColGrupo.OptionsColumn.AllowEdit = false;
+            this.arm_gcColGrupo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColGrupo.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColGrupo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColGrupo.OptionsColumn.AllowMove = false;
+            this.arm_gcColGrupo.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColGrupo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColGrupo.OptionsColumn.ReadOnly = true;
+            this.arm_gcColGrupo.Visible = true;
+            this.arm_gcColGrupo.Width = 113;
             // 
-            // dis_gcColMaterial
+            // arm_gcColMaterial
             // 
-            this.dis_gcColMaterial.Caption = "Material";
-            this.dis_gcColMaterial.FieldName = "Material";
-            this.dis_gcColMaterial.Name = "dis_gcColMaterial";
-            this.dis_gcColMaterial.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterial.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterial.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaterial.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterial.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterial.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColMaterial.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterial.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterial.Visible = true;
-            this.dis_gcColMaterial.Width = 225;
+            this.arm_gcColMaterial.Caption = "Material";
+            this.arm_gcColMaterial.FieldName = "Material";
+            this.arm_gcColMaterial.Name = "arm_gcColMaterial";
+            this.arm_gcColMaterial.OptionsColumn.AllowEdit = false;
+            this.arm_gcColMaterial.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColMaterial.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColMaterial.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColMaterial.OptionsColumn.AllowMove = false;
+            this.arm_gcColMaterial.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColMaterial.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColMaterial.OptionsColumn.ReadOnly = true;
+            this.arm_gcColMaterial.Visible = true;
+            this.arm_gcColMaterial.Width = 225;
             // 
             // bandaPliegoIMP
             // 
             this.bandaPliegoIMP.AppearanceHeader.Options.UseTextOptions = true;
             this.bandaPliegoIMP.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandaPliegoIMP.Caption = "Armados";
-            this.bandaPliegoIMP.Columns.Add(this.dis_gcColPlaca);
-            this.bandaPliegoIMP.Columns.Add(this.dis_gcColArmadoAncho);
-            this.bandaPliegoIMP.Columns.Add(this.dis_gcColArmadoAlto);
-            this.bandaPliegoIMP.Columns.Add(this.dis_gcColImpXtamano);
+            this.bandaPliegoIMP.Columns.Add(this.arm_gcColPlaca);
+            this.bandaPliegoIMP.Columns.Add(this.arm_gcColArmadoAncho);
+            this.bandaPliegoIMP.Columns.Add(this.arm_gcColArmadoAlto);
+            this.bandaPliegoIMP.Columns.Add(this.arm_gcColImpXtamano);
             this.bandaPliegoIMP.Name = "bandaPliegoIMP";
             this.bandaPliegoIMP.OptionsBand.AllowMove = false;
             this.bandaPliegoIMP.VisibleIndex = 1;
             this.bandaPliegoIMP.Width = 264;
             // 
-            // dis_gcColPlaca
+            // arm_gcColPlaca
             // 
-            this.dis_gcColPlaca.Caption = "Máquina";
-            this.dis_gcColPlaca.FieldName = "Placa";
-            this.dis_gcColPlaca.Name = "dis_gcColPlaca";
-            this.dis_gcColPlaca.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPlaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlaca.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPlaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlaca.OptionsColumn.AllowMove = false;
-            this.dis_gcColPlaca.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPlaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlaca.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPlaca.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColPlaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlaca.Visible = true;
+            this.arm_gcColPlaca.Caption = "Máquina";
+            this.arm_gcColPlaca.FieldName = "Placa";
+            this.arm_gcColPlaca.Name = "arm_gcColPlaca";
+            this.arm_gcColPlaca.OptionsColumn.AllowEdit = false;
+            this.arm_gcColPlaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPlaca.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColPlaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPlaca.OptionsColumn.AllowMove = false;
+            this.arm_gcColPlaca.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColPlaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPlaca.OptionsColumn.ReadOnly = true;
+            this.arm_gcColPlaca.OptionsFilter.AllowAutoFilter = false;
+            this.arm_gcColPlaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPlaca.Visible = true;
             // 
-            // dis_gcColArmadoAncho
+            // arm_gcColArmadoAncho
             // 
-            this.dis_gcColArmadoAncho.Caption = "Ancho";
-            this.dis_gcColArmadoAncho.DisplayFormat.FormatString = "N2";
-            this.dis_gcColArmadoAncho.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dis_gcColArmadoAncho.FieldName = "TamanoAncho";
-            this.dis_gcColArmadoAncho.Name = "dis_gcColArmadoAncho";
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowEdit = false;
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowMove = false;
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColArmadoAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadoAncho.OptionsColumn.ReadOnly = true;
-            this.dis_gcColArmadoAncho.Visible = true;
-            this.dis_gcColArmadoAncho.Width = 53;
+            this.arm_gcColArmadoAncho.Caption = "Ancho";
+            this.arm_gcColArmadoAncho.DisplayFormat.FormatString = "N2";
+            this.arm_gcColArmadoAncho.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.arm_gcColArmadoAncho.FieldName = "TamanoAncho";
+            this.arm_gcColArmadoAncho.Name = "arm_gcColArmadoAncho";
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowEdit = false;
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowMove = false;
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColArmadoAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColArmadoAncho.OptionsColumn.ReadOnly = true;
+            this.arm_gcColArmadoAncho.Visible = true;
+            this.arm_gcColArmadoAncho.Width = 53;
             // 
-            // dis_gcColArmadoAlto
+            // arm_gcColArmadoAlto
             // 
-            this.dis_gcColArmadoAlto.Caption = "Alto";
-            this.dis_gcColArmadoAlto.DisplayFormat.FormatString = "N2";
-            this.dis_gcColArmadoAlto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dis_gcColArmadoAlto.FieldName = "TamanoAlto";
-            this.dis_gcColArmadoAlto.Name = "dis_gcColArmadoAlto";
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowEdit = false;
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowMove = false;
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColArmadoAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArmadoAlto.OptionsColumn.ReadOnly = true;
-            this.dis_gcColArmadoAlto.Visible = true;
-            this.dis_gcColArmadoAlto.Width = 55;
+            this.arm_gcColArmadoAlto.Caption = "Alto";
+            this.arm_gcColArmadoAlto.DisplayFormat.FormatString = "N2";
+            this.arm_gcColArmadoAlto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.arm_gcColArmadoAlto.FieldName = "TamanoAlto";
+            this.arm_gcColArmadoAlto.Name = "arm_gcColArmadoAlto";
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowEdit = false;
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowMove = false;
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColArmadoAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColArmadoAlto.OptionsColumn.ReadOnly = true;
+            this.arm_gcColArmadoAlto.Visible = true;
+            this.arm_gcColArmadoAlto.Width = 55;
             // 
-            // dis_gcColImpXtamano
+            // arm_gcColImpXtamano
             // 
-            this.dis_gcColImpXtamano.Caption = "Trab X Tam";
-            this.dis_gcColImpXtamano.DisplayFormat.FormatString = "N0";
-            this.dis_gcColImpXtamano.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColImpXtamano.FieldName = "TrabajosXtamano";
-            this.dis_gcColImpXtamano.Name = "dis_gcColImpXtamano";
-            this.dis_gcColImpXtamano.OptionsColumn.AllowEdit = false;
-            this.dis_gcColImpXtamano.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColImpXtamano.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColImpXtamano.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColImpXtamano.OptionsColumn.AllowMove = false;
-            this.dis_gcColImpXtamano.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColImpXtamano.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColImpXtamano.OptionsColumn.ReadOnly = true;
-            this.dis_gcColImpXtamano.Visible = true;
-            this.dis_gcColImpXtamano.Width = 81;
+            this.arm_gcColImpXtamano.Caption = "Trab X Tam";
+            this.arm_gcColImpXtamano.DisplayFormat.FormatString = "N0";
+            this.arm_gcColImpXtamano.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColImpXtamano.FieldName = "TrabajosXtamano";
+            this.arm_gcColImpXtamano.Name = "arm_gcColImpXtamano";
+            this.arm_gcColImpXtamano.OptionsColumn.AllowEdit = false;
+            this.arm_gcColImpXtamano.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColImpXtamano.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColImpXtamano.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColImpXtamano.OptionsColumn.AllowMove = false;
+            this.arm_gcColImpXtamano.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColImpXtamano.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColImpXtamano.OptionsColumn.ReadOnly = true;
+            this.arm_gcColImpXtamano.Visible = true;
+            this.arm_gcColImpXtamano.Width = 81;
             // 
             // bandaPliego
             // 
             this.bandaPliego.AppearanceHeader.Options.UseTextOptions = true;
             this.bandaPliego.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.bandaPliego.Caption = "Pliegos";
-            this.bandaPliego.Columns.Add(this.dis_gcColPliegoMPAncho);
-            this.bandaPliego.Columns.Add(this.dis_gcColPliegoMPAlto);
-            this.bandaPliego.Columns.Add(this.dis_gcColTamanosXpliego);
-            this.bandaPliego.Columns.Add(this.dis_gcColPliegoCantidad);
-            this.bandaPliego.Columns.Add(this.dis_gcPliegoEXTPorcentaje);
-            this.bandaPliego.Columns.Add(this.dis_gcColPliegoExtra);
-            this.bandaPliego.Columns.Add(this.dis_gcColUndCotiza);
+            this.bandaPliego.Columns.Add(this.arm_gcColPliegoMPAncho);
+            this.bandaPliego.Columns.Add(this.arm_gcColPliegoMPAlto);
+            this.bandaPliego.Columns.Add(this.arm_gcColTamanosXpliego);
+            this.bandaPliego.Columns.Add(this.arm_gcColPliegoCantidad);
+            this.bandaPliego.Columns.Add(this.arm_gcPliegoEXTPorcentaje);
+            this.bandaPliego.Columns.Add(this.arm_gcColPliegoExtra);
+            this.bandaPliego.Columns.Add(this.arm_gcColUndCotiza);
             this.bandaPliego.Name = "bandaPliego";
             this.bandaPliego.OptionsBand.AllowMove = false;
             this.bandaPliego.VisibleIndex = 2;
             this.bandaPliego.Width = 438;
             // 
-            // dis_gcColPliegoMPAncho
+            // arm_gcColPliegoMPAncho
             // 
-            this.dis_gcColPliegoMPAncho.Caption = "Ancho";
-            this.dis_gcColPliegoMPAncho.DisplayFormat.FormatString = "N2";
-            this.dis_gcColPliegoMPAncho.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dis_gcColPliegoMPAncho.FieldName = "PliegoAncho";
-            this.dis_gcColPliegoMPAncho.Name = "dis_gcColPliegoMPAncho";
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoMPAncho.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPliegoMPAncho.Visible = true;
-            this.dis_gcColPliegoMPAncho.Width = 51;
+            this.arm_gcColPliegoMPAncho.Caption = "Ancho";
+            this.arm_gcColPliegoMPAncho.DisplayFormat.FormatString = "N2";
+            this.arm_gcColPliegoMPAncho.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.arm_gcColPliegoMPAncho.FieldName = "PliegoAncho";
+            this.arm_gcColPliegoMPAncho.Name = "arm_gcColPliegoMPAncho";
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowEdit = false;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowMove = false;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoMPAncho.OptionsColumn.ReadOnly = true;
+            this.arm_gcColPliegoMPAncho.Visible = true;
+            this.arm_gcColPliegoMPAncho.Width = 51;
             // 
-            // dis_gcColPliegoMPAlto
+            // arm_gcColPliegoMPAlto
             // 
-            this.dis_gcColPliegoMPAlto.Caption = "Alto";
-            this.dis_gcColPliegoMPAlto.DisplayFormat.FormatString = "N2";
-            this.dis_gcColPliegoMPAlto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.dis_gcColPliegoMPAlto.FieldName = "PliegoAlto";
-            this.dis_gcColPliegoMPAlto.Name = "dis_gcColPliegoMPAlto";
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoMPAlto.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPliegoMPAlto.Visible = true;
-            this.dis_gcColPliegoMPAlto.Width = 55;
+            this.arm_gcColPliegoMPAlto.Caption = "Alto";
+            this.arm_gcColPliegoMPAlto.DisplayFormat.FormatString = "N2";
+            this.arm_gcColPliegoMPAlto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+            this.arm_gcColPliegoMPAlto.FieldName = "PliegoAlto";
+            this.arm_gcColPliegoMPAlto.Name = "arm_gcColPliegoMPAlto";
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowEdit = false;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowMove = false;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoMPAlto.OptionsColumn.ReadOnly = true;
+            this.arm_gcColPliegoMPAlto.Visible = true;
+            this.arm_gcColPliegoMPAlto.Width = 55;
             // 
-            // dis_gcColTamanosXpliego
+            // arm_gcColTamanosXpliego
             // 
-            this.dis_gcColTamanosXpliego.Caption = "Tam X Plie";
-            this.dis_gcColTamanosXpliego.DisplayFormat.FormatString = "N0";
-            this.dis_gcColTamanosXpliego.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTamanosXpliego.FieldName = "TamanosXpliego";
-            this.dis_gcColTamanosXpliego.Name = "dis_gcColTamanosXpliego";
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowMove = false;
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTamanosXpliego.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTamanosXpliego.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTamanosXpliego.Visible = true;
-            this.dis_gcColTamanosXpliego.Width = 65;
+            this.arm_gcColTamanosXpliego.Caption = "Tam X Plie";
+            this.arm_gcColTamanosXpliego.DisplayFormat.FormatString = "N0";
+            this.arm_gcColTamanosXpliego.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColTamanosXpliego.FieldName = "TamanosXpliego";
+            this.arm_gcColTamanosXpliego.Name = "arm_gcColTamanosXpliego";
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowEdit = false;
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowMove = false;
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColTamanosXpliego.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColTamanosXpliego.OptionsColumn.ReadOnly = true;
+            this.arm_gcColTamanosXpliego.Visible = true;
+            this.arm_gcColTamanosXpliego.Width = 65;
             // 
-            // dis_gcColPliegoCantidad
+            // arm_gcColPliegoCantidad
             // 
-            this.dis_gcColPliegoCantidad.Caption = "Cant";
-            this.dis_gcColPliegoCantidad.DisplayFormat.FormatString = "N0";
-            this.dis_gcColPliegoCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColPliegoCantidad.FieldName = "PliegoCantidad";
-            this.dis_gcColPliegoCantidad.Name = "dis_gcColPliegoCantidad";
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPliegoCantidad.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoCantidad.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPliegoCantidad.Visible = true;
-            this.dis_gcColPliegoCantidad.Width = 50;
+            this.arm_gcColPliegoCantidad.Caption = "Cant";
+            this.arm_gcColPliegoCantidad.DisplayFormat.FormatString = "N0";
+            this.arm_gcColPliegoCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColPliegoCantidad.FieldName = "PliegoCantidad";
+            this.arm_gcColPliegoCantidad.Name = "arm_gcColPliegoCantidad";
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowEdit = false;
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowMove = false;
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColPliegoCantidad.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoCantidad.OptionsColumn.ReadOnly = true;
+            this.arm_gcColPliegoCantidad.Visible = true;
+            this.arm_gcColPliegoCantidad.Width = 50;
             // 
-            // dis_gcPliegoEXTPorcentaje
+            // arm_gcPliegoEXTPorcentaje
             // 
-            this.dis_gcPliegoEXTPorcentaje.Caption = "Extra %";
-            this.dis_gcPliegoEXTPorcentaje.ColumnEdit = this.dis_risePorcentajePliegoEXT;
-            this.dis_gcPliegoEXTPorcentaje.FieldName = "PorcentajeEXT";
-            this.dis_gcPliegoEXTPorcentaje.Name = "dis_gcPliegoEXTPorcentaje";
-            this.dis_gcPliegoEXTPorcentaje.Visible = true;
+            this.arm_gcPliegoEXTPorcentaje.Caption = "Extra %";
+            this.arm_gcPliegoEXTPorcentaje.ColumnEdit = this.dis_risePorcentajePliegoEXT;
+            this.arm_gcPliegoEXTPorcentaje.FieldName = "PorcentajeEXT";
+            this.arm_gcPliegoEXTPorcentaje.Name = "arm_gcPliegoEXTPorcentaje";
+            this.arm_gcPliegoEXTPorcentaje.Visible = true;
             // 
             // dis_risePorcentajePliegoEXT
             // 
@@ -1623,41 +1555,41 @@
             0});
             this.dis_risePorcentajePliegoEXT.Name = "dis_risePorcentajePliegoEXT";
             // 
-            // dis_gcColPliegoExtra
+            // arm_gcColPliegoExtra
             // 
-            this.dis_gcColPliegoExtra.Caption = "Extra Nro";
-            this.dis_gcColPliegoExtra.DisplayFormat.FormatString = "N0";
-            this.dis_gcColPliegoExtra.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColPliegoExtra.FieldName = "Extra";
-            this.dis_gcColPliegoExtra.Name = "dis_gcColPliegoExtra";
-            this.dis_gcColPliegoExtra.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoExtra.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegoExtra.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoExtra.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegoExtra.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPliegoExtra.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegoExtra.Visible = true;
-            this.dis_gcColPliegoExtra.Width = 62;
+            this.arm_gcColPliegoExtra.Caption = "Extra Nro";
+            this.arm_gcColPliegoExtra.DisplayFormat.FormatString = "N0";
+            this.arm_gcColPliegoExtra.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColPliegoExtra.FieldName = "Extra";
+            this.arm_gcColPliegoExtra.Name = "arm_gcColPliegoExtra";
+            this.arm_gcColPliegoExtra.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoExtra.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColPliegoExtra.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoExtra.OptionsColumn.AllowMove = false;
+            this.arm_gcColPliegoExtra.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColPliegoExtra.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPliegoExtra.Visible = true;
+            this.arm_gcColPliegoExtra.Width = 62;
             // 
-            // dis_gcColUndCotiza
+            // arm_gcColUndCotiza
             // 
-            this.dis_gcColUndCotiza.Caption = "Cotizadas";
-            this.dis_gcColUndCotiza.DisplayFormat.FormatString = "N0";
-            this.dis_gcColUndCotiza.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColUndCotiza.FieldName = "PliegoCotizados";
-            this.dis_gcColUndCotiza.Name = "dis_gcColUndCotiza";
-            this.dis_gcColUndCotiza.OptionsColumn.AllowEdit = false;
-            this.dis_gcColUndCotiza.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColUndCotiza.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColUndCotiza.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColUndCotiza.OptionsColumn.AllowMove = false;
-            this.dis_gcColUndCotiza.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColUndCotiza.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColUndCotiza.OptionsColumn.ReadOnly = true;
-            this.dis_gcColUndCotiza.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.arm_gcColUndCotiza.Caption = "Cotizadas";
+            this.arm_gcColUndCotiza.DisplayFormat.FormatString = "N0";
+            this.arm_gcColUndCotiza.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColUndCotiza.FieldName = "PliegoCotizados";
+            this.arm_gcColUndCotiza.Name = "arm_gcColUndCotiza";
+            this.arm_gcColUndCotiza.OptionsColumn.AllowEdit = false;
+            this.arm_gcColUndCotiza.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColUndCotiza.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColUndCotiza.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColUndCotiza.OptionsColumn.AllowMove = false;
+            this.arm_gcColUndCotiza.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColUndCotiza.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColUndCotiza.OptionsColumn.ReadOnly = true;
+            this.arm_gcColUndCotiza.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PliegoCotizados", "{0:N2}")});
-            this.dis_gcColUndCotiza.Visible = true;
-            this.dis_gcColUndCotiza.Width = 80;
+            this.arm_gcColUndCotiza.Visible = true;
+            this.arm_gcColUndCotiza.Width = 80;
             // 
             // gridBand6
             // 
@@ -1668,29 +1600,29 @@
             // bandaTrabajoFinal
             // 
             this.bandaTrabajoFinal.Caption = "Trabajo Final";
-            this.bandaTrabajoFinal.Columns.Add(this.dis_gcColAnchoTrabajoF);
-            this.bandaTrabajoFinal.Columns.Add(this.dis_gcColAltoTrabajoF);
-            this.bandaTrabajoFinal.Columns.Add(this.dis_gcColNumPaginas);
-            this.bandaTrabajoFinal.Columns.Add(this.dis_gcColPaginasXtrabajo);
-            this.bandaTrabajoFinal.Columns.Add(this.dis_gcTotalLinea);
+            this.bandaTrabajoFinal.Columns.Add(this.arm_gcColAnchoTrabajoF);
+            this.bandaTrabajoFinal.Columns.Add(this.arm_gcColAltoTrabajoF);
+            this.bandaTrabajoFinal.Columns.Add(this.arm_gcColNumPaginas);
+            this.bandaTrabajoFinal.Columns.Add(this.arm_gcColPaginasXtrabajo);
+            this.bandaTrabajoFinal.Columns.Add(this.arm_gcTotalLinea);
             this.bandaTrabajoFinal.Name = "bandaTrabajoFinal";
             this.bandaTrabajoFinal.VisibleIndex = 3;
             this.bandaTrabajoFinal.Width = 368;
             // 
-            // dis_gcColAnchoTrabajoF
+            // arm_gcColAnchoTrabajoF
             // 
-            this.dis_gcColAnchoTrabajoF.Caption = "Ancho";
-            this.dis_gcColAnchoTrabajoF.ColumnEdit = this.dis_riseAnchoTFinal;
-            this.dis_gcColAnchoTrabajoF.FieldName = "TrabajoAncho";
-            this.dis_gcColAnchoTrabajoF.Name = "dis_gcColAnchoTrabajoF";
-            this.dis_gcColAnchoTrabajoF.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAnchoTrabajoF.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColAnchoTrabajoF.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAnchoTrabajoF.OptionsColumn.AllowMove = false;
-            this.dis_gcColAnchoTrabajoF.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColAnchoTrabajoF.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAnchoTrabajoF.Visible = true;
-            this.dis_gcColAnchoTrabajoF.Width = 69;
+            this.arm_gcColAnchoTrabajoF.Caption = "Ancho";
+            this.arm_gcColAnchoTrabajoF.ColumnEdit = this.dis_riseAnchoTFinal;
+            this.arm_gcColAnchoTrabajoF.FieldName = "TrabajoAncho";
+            this.arm_gcColAnchoTrabajoF.Name = "arm_gcColAnchoTrabajoF";
+            this.arm_gcColAnchoTrabajoF.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColAnchoTrabajoF.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColAnchoTrabajoF.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColAnchoTrabajoF.OptionsColumn.AllowMove = false;
+            this.arm_gcColAnchoTrabajoF.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColAnchoTrabajoF.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColAnchoTrabajoF.Visible = true;
+            this.arm_gcColAnchoTrabajoF.Width = 69;
             // 
             // dis_riseAnchoTFinal
             // 
@@ -1714,20 +1646,20 @@
             131072});
             this.dis_riseAnchoTFinal.Name = "dis_riseAnchoTFinal";
             // 
-            // dis_gcColAltoTrabajoF
+            // arm_gcColAltoTrabajoF
             // 
-            this.dis_gcColAltoTrabajoF.Caption = "Alto";
-            this.dis_gcColAltoTrabajoF.ColumnEdit = this.dis_ribeAltoTFinal;
-            this.dis_gcColAltoTrabajoF.FieldName = "TrabajoAlto";
-            this.dis_gcColAltoTrabajoF.Name = "dis_gcColAltoTrabajoF";
-            this.dis_gcColAltoTrabajoF.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAltoTrabajoF.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColAltoTrabajoF.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAltoTrabajoF.OptionsColumn.AllowMove = false;
-            this.dis_gcColAltoTrabajoF.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColAltoTrabajoF.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAltoTrabajoF.Visible = true;
-            this.dis_gcColAltoTrabajoF.Width = 74;
+            this.arm_gcColAltoTrabajoF.Caption = "Alto";
+            this.arm_gcColAltoTrabajoF.ColumnEdit = this.dis_ribeAltoTFinal;
+            this.arm_gcColAltoTrabajoF.FieldName = "TrabajoAlto";
+            this.arm_gcColAltoTrabajoF.Name = "arm_gcColAltoTrabajoF";
+            this.arm_gcColAltoTrabajoF.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColAltoTrabajoF.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColAltoTrabajoF.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColAltoTrabajoF.OptionsColumn.AllowMove = false;
+            this.arm_gcColAltoTrabajoF.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColAltoTrabajoF.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColAltoTrabajoF.Visible = true;
+            this.arm_gcColAltoTrabajoF.Width = 74;
             // 
             // dis_ribeAltoTFinal
             // 
@@ -1751,79 +1683,69 @@
             131072});
             this.dis_ribeAltoTFinal.Name = "dis_ribeAltoTFinal";
             // 
-            // dis_gcColNumPaginas
+            // arm_gcColNumPaginas
             // 
-            this.dis_gcColNumPaginas.Caption = "Num. Páginas";
-            this.dis_gcColNumPaginas.DisplayFormat.FormatString = "N0";
-            this.dis_gcColNumPaginas.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColNumPaginas.FieldName = "NumPaginas";
-            this.dis_gcColNumPaginas.Name = "dis_gcColNumPaginas";
-            this.dis_gcColNumPaginas.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginas.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumPaginas.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginas.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumPaginas.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColNumPaginas.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginas.Visible = true;
+            this.arm_gcColNumPaginas.Caption = "Num. Páginas";
+            this.arm_gcColNumPaginas.DisplayFormat.FormatString = "N0";
+            this.arm_gcColNumPaginas.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColNumPaginas.FieldName = "NumPaginas";
+            this.arm_gcColNumPaginas.Name = "arm_gcColNumPaginas";
+            this.arm_gcColNumPaginas.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColNumPaginas.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColNumPaginas.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColNumPaginas.OptionsColumn.AllowMove = false;
+            this.arm_gcColNumPaginas.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColNumPaginas.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColNumPaginas.Visible = true;
             // 
-            // dis_gcColPaginasXtrabajo
+            // arm_gcColPaginasXtrabajo
             // 
-            this.dis_gcColPaginasXtrabajo.Caption = "Pag X Trab";
-            this.dis_gcColPaginasXtrabajo.DisplayFormat.FormatString = "N0";
-            this.dis_gcColPaginasXtrabajo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColPaginasXtrabajo.FieldName = "PaginasXtrabajo";
-            this.dis_gcColPaginasXtrabajo.Name = "dis_gcColPaginasXtrabajo";
-            this.dis_gcColPaginasXtrabajo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXtrabajo.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPaginasXtrabajo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXtrabajo.OptionsColumn.AllowMove = false;
-            this.dis_gcColPaginasXtrabajo.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPaginasXtrabajo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXtrabajo.Visible = true;
+            this.arm_gcColPaginasXtrabajo.Caption = "Pag X Trab";
+            this.arm_gcColPaginasXtrabajo.DisplayFormat.FormatString = "N0";
+            this.arm_gcColPaginasXtrabajo.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcColPaginasXtrabajo.FieldName = "PaginasXtrabajo";
+            this.arm_gcColPaginasXtrabajo.Name = "arm_gcColPaginasXtrabajo";
+            this.arm_gcColPaginasXtrabajo.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPaginasXtrabajo.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcColPaginasXtrabajo.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPaginasXtrabajo.OptionsColumn.AllowMove = false;
+            this.arm_gcColPaginasXtrabajo.OptionsColumn.AllowShowHide = false;
+            this.arm_gcColPaginasXtrabajo.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcColPaginasXtrabajo.Visible = true;
             // 
-            // dis_gcTotalLinea
+            // arm_gcTotalLinea
             // 
-            this.dis_gcTotalLinea.Caption = "Total";
-            this.dis_gcTotalLinea.DisplayFormat.FormatString = "N2";
-            this.dis_gcTotalLinea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcTotalLinea.FieldName = "TotalLinea";
-            this.dis_gcTotalLinea.Name = "dis_gcTotalLinea";
-            this.dis_gcTotalLinea.OptionsColumn.AllowEdit = false;
-            this.dis_gcTotalLinea.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLinea.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcTotalLinea.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLinea.OptionsColumn.AllowMove = false;
-            this.dis_gcTotalLinea.OptionsColumn.AllowShowHide = false;
-            this.dis_gcTotalLinea.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLinea.OptionsColumn.ReadOnly = true;
-            this.dis_gcTotalLinea.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcTotalLinea.OptionsFilter.AllowFilter = false;
-            this.dis_gcTotalLinea.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.arm_gcTotalLinea.Caption = "Total";
+            this.arm_gcTotalLinea.DisplayFormat.FormatString = "N2";
+            this.arm_gcTotalLinea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.arm_gcTotalLinea.FieldName = "TotalLinea";
+            this.arm_gcTotalLinea.Name = "arm_gcTotalLinea";
+            this.arm_gcTotalLinea.OptionsColumn.AllowEdit = false;
+            this.arm_gcTotalLinea.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcTotalLinea.OptionsColumn.AllowIncrementalSearch = false;
+            this.arm_gcTotalLinea.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcTotalLinea.OptionsColumn.AllowMove = false;
+            this.arm_gcTotalLinea.OptionsColumn.AllowShowHide = false;
+            this.arm_gcTotalLinea.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.arm_gcTotalLinea.OptionsColumn.ReadOnly = true;
+            this.arm_gcTotalLinea.OptionsFilter.AllowAutoFilter = false;
+            this.arm_gcTotalLinea.OptionsFilter.AllowFilter = false;
+            this.arm_gcTotalLinea.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcTotalLinea.Visible = true;
+            this.arm_gcTotalLinea.Visible = true;
             // 
             // dis_xtpColores
             // 
-            this.dis_xtpColores.Controls.Add(this.labelControl19);
             this.dis_xtpColores.Controls.Add(this.labelControl18);
             this.dis_xtpColores.Controls.Add(this.labelControl17);
             this.dis_xtpColores.Controls.Add(this.labelControl16);
-            this.dis_xtpColores.Controls.Add(this.dis_seTotalCostoTinta);
             this.dis_xtpColores.Controls.Add(this.dis_seGramosPantone);
             this.dis_xtpColores.Controls.Add(this.dis_seGramosMetalizado);
             this.dis_xtpColores.Controls.Add(this.dis_seGramosColor);
-            this.dis_xtpColores.Controls.Add(this.dis_gcColores);
+            this.dis_xtpColores.Controls.Add(this.col_gcColores);
             this.dis_xtpColores.Name = "dis_xtpColores";
             this.dis_xtpColores.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpColores.Text = "Colores";
-            // 
-            // labelControl19
-            // 
-            this.labelControl19.Location = new System.Drawing.Point(709, 219);
-            this.labelControl19.Name = "labelControl19";
-            this.labelControl19.Size = new System.Drawing.Size(28, 13);
-            this.labelControl19.TabIndex = 8;
-            this.labelControl19.Text = "Total:";
             // 
             // labelControl18
             // 
@@ -1848,38 +1770,6 @@
             this.labelControl16.Size = new System.Drawing.Size(68, 13);
             this.labelControl16.TabIndex = 5;
             this.labelControl16.Text = "Gramos Color:";
-            // 
-            // dis_seTotalCostoTinta
-            // 
-            this.dis_seTotalCostoTinta.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seTotalCostoTinta.Location = new System.Drawing.Point(744, 216);
-            this.dis_seTotalCostoTinta.Name = "dis_seTotalCostoTinta";
-            this.dis_seTotalCostoTinta.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.dis_seTotalCostoTinta.Properties.Appearance.Options.UseBackColor = true;
-            this.dis_seTotalCostoTinta.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.dis_seTotalCostoTinta.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dis_seTotalCostoTinta.Properties.DisplayFormat.FormatString = "N2";
-            this.dis_seTotalCostoTinta.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seTotalCostoTinta.Properties.EditFormat.FormatString = "N2";
-            this.dis_seTotalCostoTinta.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seTotalCostoTinta.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seTotalCostoTinta.Properties.MaxValue = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.dis_seTotalCostoTinta.Properties.ReadOnly = true;
-            this.dis_seTotalCostoTinta.Size = new System.Drawing.Size(94, 20);
-            this.dis_seTotalCostoTinta.TabIndex = 4;
             // 
             // dis_seGramosPantone
             // 
@@ -1980,20 +1870,20 @@
             this.dis_seGramosColor.Size = new System.Drawing.Size(100, 20);
             this.dis_seGramosColor.TabIndex = 1;
             // 
-            // dis_gcColores
+            // col_gcColores
             // 
-            this.dis_gcColores.ContextMenuStrip = this.cmDisenoColor;
-            this.dis_gcColores.Location = new System.Drawing.Point(3, 3);
-            this.dis_gcColores.MainView = this.dis_gvColores;
-            this.dis_gcColores.Name = "dis_gcColores";
-            this.dis_gcColores.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.col_gcColores.ContextMenuStrip = this.cmDisenoColor;
+            this.col_gcColores.Location = new System.Drawing.Point(3, 3);
+            this.col_gcColores.MainView = this.col_gvColores;
+            this.col_gcColores.Name = "col_gcColores";
+            this.col_gcColores.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.dis_rilueTipoColor,
             this.dis_rilueCobertura,
             this.dis_rilueLadoImpresion});
-            this.dis_gcColores.Size = new System.Drawing.Size(835, 207);
-            this.dis_gcColores.TabIndex = 0;
-            this.dis_gcColores.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvColores});
+            this.col_gcColores.Size = new System.Drawing.Size(835, 207);
+            this.col_gcColores.TabIndex = 0;
+            this.col_gcColores.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.col_gvColores});
             // 
             // cmDisenoColor
             // 
@@ -2019,94 +1909,94 @@
             this.mnuEliminaRegDisenoColor.Text = "Eliminar Registro";
             this.mnuEliminaRegDisenoColor.Click += new System.EventHandler(this.mnuEliminaRegDisenoColor_Click);
             // 
-            // dis_gvColores
+            // col_gvColores
             // 
-            this.dis_gvColores.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColMaterialC,
-            this.dis_gcColArea,
-            this.dis_gcColLado,
-            this.dis_gcColTipoColor,
-            this.dis_gcColCostoGramoColor,
-            this.dis_gcColCobertura,
-            this.dis_gcColGramos,
-            this.dis_gcColNumPaginasC,
-            this.dis_gcColTotGramos,
-            this.dis_gcColTotLinea,
-            this.dis_gcColDetallePAG});
-            this.dis_gvColores.GridControl = this.dis_gcColores;
-            this.dis_gvColores.Name = "dis_gvColores";
-            this.dis_gvColores.OptionsView.ColumnAutoWidth = false;
-            this.dis_gvColores.OptionsView.ShowGroupPanel = false;
+            this.col_gvColores.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_gcColMaterialC,
+            this.col_gcColArea,
+            this.col_gcColLado,
+            this.col_gcColTipoColor,
+            this.col_gcColCostoGramoColor,
+            this.col_gcColCobertura,
+            this.col_gcColGramos,
+            this.col_gcColNumPaginasC,
+            this.col_gcColTotGramos,
+            this.col_gcColTotLinea,
+            this.col_gcColDetallePAG});
+            this.col_gvColores.GridControl = this.col_gcColores;
+            this.col_gvColores.Name = "col_gvColores";
+            this.col_gvColores.OptionsView.ColumnAutoWidth = false;
+            this.col_gvColores.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gcColMaterialC
+            // col_gcColMaterialC
             // 
-            this.dis_gcColMaterialC.Caption = "Material";
-            this.dis_gcColMaterialC.FieldName = "Material";
-            this.dis_gcColMaterialC.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.dis_gcColMaterialC.Name = "dis_gcColMaterialC";
-            this.dis_gcColMaterialC.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterialC.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialC.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaterialC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialC.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterialC.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColMaterialC.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialC.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterialC.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMaterialC.OptionsFilter.AllowFilter = false;
-            this.dis_gcColMaterialC.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialC.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColMaterialC.ToolTip = "Material al que está asignando el color";
-            this.dis_gcColMaterialC.Visible = true;
-            this.dis_gcColMaterialC.VisibleIndex = 0;
-            this.dis_gcColMaterialC.Width = 200;
+            this.col_gcColMaterialC.Caption = "Material";
+            this.col_gcColMaterialC.FieldName = "Material";
+            this.col_gcColMaterialC.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.col_gcColMaterialC.Name = "col_gcColMaterialC";
+            this.col_gcColMaterialC.OptionsColumn.AllowEdit = false;
+            this.col_gcColMaterialC.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColMaterialC.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColMaterialC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColMaterialC.OptionsColumn.AllowMove = false;
+            this.col_gcColMaterialC.OptionsColumn.AllowShowHide = false;
+            this.col_gcColMaterialC.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColMaterialC.OptionsColumn.ReadOnly = true;
+            this.col_gcColMaterialC.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColMaterialC.OptionsFilter.AllowFilter = false;
+            this.col_gcColMaterialC.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColMaterialC.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColMaterialC.ToolTip = "Material al que está asignando el color";
+            this.col_gcColMaterialC.Visible = true;
+            this.col_gcColMaterialC.VisibleIndex = 0;
+            this.col_gcColMaterialC.Width = 200;
             // 
-            // dis_gcColArea
+            // col_gcColArea
             // 
-            this.dis_gcColArea.Caption = "Area cm2";
-            this.dis_gcColArea.DisplayFormat.FormatString = "N2";
-            this.dis_gcColArea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColArea.FieldName = "Area";
-            this.dis_gcColArea.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            this.dis_gcColArea.Name = "dis_gcColArea";
-            this.dis_gcColArea.OptionsColumn.AllowEdit = false;
-            this.dis_gcColArea.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArea.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColArea.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArea.OptionsColumn.AllowMove = false;
-            this.dis_gcColArea.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColArea.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArea.OptionsColumn.ReadOnly = true;
-            this.dis_gcColArea.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColArea.OptionsFilter.AllowFilter = false;
-            this.dis_gcColArea.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColArea.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColArea.ToolTip = "Area de impresión. (Default=Area del trabajo final)";
-            this.dis_gcColArea.Visible = true;
-            this.dis_gcColArea.VisibleIndex = 1;
-            this.dis_gcColArea.Width = 60;
+            this.col_gcColArea.Caption = "Area cm2";
+            this.col_gcColArea.DisplayFormat.FormatString = "N2";
+            this.col_gcColArea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_gcColArea.FieldName = "Area";
+            this.col_gcColArea.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
+            this.col_gcColArea.Name = "col_gcColArea";
+            this.col_gcColArea.OptionsColumn.AllowEdit = false;
+            this.col_gcColArea.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColArea.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColArea.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColArea.OptionsColumn.AllowMove = false;
+            this.col_gcColArea.OptionsColumn.AllowShowHide = false;
+            this.col_gcColArea.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColArea.OptionsColumn.ReadOnly = true;
+            this.col_gcColArea.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColArea.OptionsFilter.AllowFilter = false;
+            this.col_gcColArea.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColArea.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColArea.ToolTip = "Area de impresión. (Default=Area del trabajo final)";
+            this.col_gcColArea.Visible = true;
+            this.col_gcColArea.VisibleIndex = 1;
+            this.col_gcColArea.Width = 60;
             // 
-            // dis_gcColLado
+            // col_gcColLado
             // 
-            this.dis_gcColLado.Caption = "Lado";
-            this.dis_gcColLado.ColumnEdit = this.dis_rilueLadoImpresion;
-            this.dis_gcColLado.FieldName = "LadoImpresion";
-            this.dis_gcColLado.Name = "dis_gcColLado";
-            this.dis_gcColLado.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLado.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColLado.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLado.OptionsColumn.AllowMove = false;
-            this.dis_gcColLado.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColLado.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLado.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColLado.OptionsFilter.AllowFilter = false;
-            this.dis_gcColLado.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLado.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColLado.ToolTip = "Lados de impresion (Tiro, Retiro, Tiro Y Retiro[Cuando los dos lados tienen la mi" +
+            this.col_gcColLado.Caption = "Lado";
+            this.col_gcColLado.ColumnEdit = this.dis_rilueLadoImpresion;
+            this.col_gcColLado.FieldName = "LadoImpresion";
+            this.col_gcColLado.Name = "col_gcColLado";
+            this.col_gcColLado.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColLado.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColLado.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColLado.OptionsColumn.AllowMove = false;
+            this.col_gcColLado.OptionsColumn.AllowShowHide = false;
+            this.col_gcColLado.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColLado.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColLado.OptionsFilter.AllowFilter = false;
+            this.col_gcColLado.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColLado.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColLado.ToolTip = "Lados de impresion (Tiro, Retiro, Tiro Y Retiro[Cuando los dos lados tienen la mi" +
     "sma textura])";
-            this.dis_gcColLado.Visible = true;
-            this.dis_gcColLado.VisibleIndex = 2;
-            this.dis_gcColLado.Width = 100;
+            this.col_gcColLado.Visible = true;
+            this.col_gcColLado.VisibleIndex = 2;
+            this.col_gcColLado.Width = 100;
             // 
             // dis_rilueLadoImpresion
             // 
@@ -2120,26 +2010,26 @@
             this.dis_rilueLadoImpresion.NullText = "";
             this.dis_rilueLadoImpresion.ValueMember = "Codigo";
             // 
-            // dis_gcColTipoColor
+            // col_gcColTipoColor
             // 
-            this.dis_gcColTipoColor.Caption = "Color";
-            this.dis_gcColTipoColor.ColumnEdit = this.dis_rilueTipoColor;
-            this.dis_gcColTipoColor.FieldName = "Color";
-            this.dis_gcColTipoColor.Name = "dis_gcColTipoColor";
-            this.dis_gcColTipoColor.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTipoColor.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTipoColor.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTipoColor.OptionsColumn.AllowMove = false;
-            this.dis_gcColTipoColor.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTipoColor.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTipoColor.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTipoColor.OptionsFilter.AllowFilter = false;
-            this.dis_gcColTipoColor.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTipoColor.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColTipoColor.ToolTip = "Tipo de color que va a utilizar";
-            this.dis_gcColTipoColor.Visible = true;
-            this.dis_gcColTipoColor.VisibleIndex = 3;
-            this.dis_gcColTipoColor.Width = 100;
+            this.col_gcColTipoColor.Caption = "Color";
+            this.col_gcColTipoColor.ColumnEdit = this.dis_rilueTipoColor;
+            this.col_gcColTipoColor.FieldName = "Color";
+            this.col_gcColTipoColor.Name = "col_gcColTipoColor";
+            this.col_gcColTipoColor.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTipoColor.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColTipoColor.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTipoColor.OptionsColumn.AllowMove = false;
+            this.col_gcColTipoColor.OptionsColumn.AllowShowHide = false;
+            this.col_gcColTipoColor.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTipoColor.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColTipoColor.OptionsFilter.AllowFilter = false;
+            this.col_gcColTipoColor.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTipoColor.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColTipoColor.ToolTip = "Tipo de color que va a utilizar";
+            this.col_gcColTipoColor.Visible = true;
+            this.col_gcColTipoColor.VisibleIndex = 3;
+            this.col_gcColTipoColor.Width = 100;
             // 
             // dis_rilueTipoColor
             // 
@@ -2154,50 +2044,50 @@
             this.dis_rilueTipoColor.ValueMember = "Codigo";
             this.dis_rilueTipoColor.EditValueChanged += new System.EventHandler(this.dis_rilueColorPlancha_EditValueChanged);
             // 
-            // dis_gcColCostoGramoColor
+            // col_gcColCostoGramoColor
             // 
-            this.dis_gcColCostoGramoColor.Caption = "Costo";
-            this.dis_gcColCostoGramoColor.DisplayFormat.FormatString = "e3";
-            this.dis_gcColCostoGramoColor.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCostoGramoColor.FieldName = "CostoGramo";
-            this.dis_gcColCostoGramoColor.Name = "dis_gcColCostoGramoColor";
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowEdit = false;
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowMove = false;
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColCostoGramoColor.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoGramoColor.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCostoGramoColor.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCostoGramoColor.OptionsFilter.AllowFilter = false;
-            this.dis_gcColCostoGramoColor.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoGramoColor.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColCostoGramoColor.ToolTip = "Costo aproximado de cada gramo en funcion del color";
-            this.dis_gcColCostoGramoColor.Visible = true;
-            this.dis_gcColCostoGramoColor.VisibleIndex = 4;
-            this.dis_gcColCostoGramoColor.Width = 72;
+            this.col_gcColCostoGramoColor.Caption = "Costo";
+            this.col_gcColCostoGramoColor.DisplayFormat.FormatString = "e3";
+            this.col_gcColCostoGramoColor.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_gcColCostoGramoColor.FieldName = "CostoGramo";
+            this.col_gcColCostoGramoColor.Name = "col_gcColCostoGramoColor";
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowEdit = false;
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowMove = false;
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowShowHide = false;
+            this.col_gcColCostoGramoColor.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCostoGramoColor.OptionsColumn.ReadOnly = true;
+            this.col_gcColCostoGramoColor.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColCostoGramoColor.OptionsFilter.AllowFilter = false;
+            this.col_gcColCostoGramoColor.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCostoGramoColor.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColCostoGramoColor.ToolTip = "Costo aproximado de cada gramo en funcion del color";
+            this.col_gcColCostoGramoColor.Visible = true;
+            this.col_gcColCostoGramoColor.VisibleIndex = 4;
+            this.col_gcColCostoGramoColor.Width = 72;
             // 
-            // dis_gcColCobertura
+            // col_gcColCobertura
             // 
-            this.dis_gcColCobertura.Caption = "Cob %";
-            this.dis_gcColCobertura.ColumnEdit = this.dis_rilueCobertura;
-            this.dis_gcColCobertura.FieldName = "Cobertura";
-            this.dis_gcColCobertura.Name = "dis_gcColCobertura";
-            this.dis_gcColCobertura.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCobertura.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCobertura.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCobertura.OptionsColumn.AllowMove = false;
-            this.dis_gcColCobertura.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColCobertura.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCobertura.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCobertura.OptionsFilter.AllowFilter = false;
-            this.dis_gcColCobertura.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCobertura.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColCobertura.ToolTip = "Porcentaje de cobertura de la página";
-            this.dis_gcColCobertura.Visible = true;
-            this.dis_gcColCobertura.VisibleIndex = 5;
-            this.dis_gcColCobertura.Width = 55;
+            this.col_gcColCobertura.Caption = "Cob %";
+            this.col_gcColCobertura.ColumnEdit = this.dis_rilueCobertura;
+            this.col_gcColCobertura.FieldName = "Cobertura";
+            this.col_gcColCobertura.Name = "col_gcColCobertura";
+            this.col_gcColCobertura.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCobertura.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColCobertura.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCobertura.OptionsColumn.AllowMove = false;
+            this.col_gcColCobertura.OptionsColumn.AllowShowHide = false;
+            this.col_gcColCobertura.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCobertura.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColCobertura.OptionsFilter.AllowFilter = false;
+            this.col_gcColCobertura.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColCobertura.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColCobertura.ToolTip = "Porcentaje de cobertura de la página";
+            this.col_gcColCobertura.Visible = true;
+            this.col_gcColCobertura.VisibleIndex = 5;
+            this.col_gcColCobertura.Width = 55;
             // 
             // dis_rilueCobertura
             // 
@@ -2212,303 +2102,217 @@
             this.dis_rilueCobertura.ValueMember = "Codigo";
             this.dis_rilueCobertura.EditValueChanged += new System.EventHandler(this.dis_rilueCobertura_EditValueChanged);
             // 
-            // dis_gcColGramos
+            // col_gcColGramos
             // 
-            this.dis_gcColGramos.Caption = "Gr X cm2";
-            this.dis_gcColGramos.DisplayFormat.FormatString = "N2";
-            this.dis_gcColGramos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColGramos.FieldName = "GramosXcm2";
-            this.dis_gcColGramos.Name = "dis_gcColGramos";
-            this.dis_gcColGramos.OptionsColumn.AllowEdit = false;
-            this.dis_gcColGramos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGramos.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColGramos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGramos.OptionsColumn.AllowMove = false;
-            this.dis_gcColGramos.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColGramos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGramos.OptionsColumn.ReadOnly = true;
-            this.dis_gcColGramos.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColGramos.OptionsFilter.AllowFilter = false;
-            this.dis_gcColGramos.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColGramos.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColGramos.ToolTip = "Recupera de la BD en función de la cobertura";
-            this.dis_gcColGramos.Visible = true;
-            this.dis_gcColGramos.VisibleIndex = 6;
-            this.dis_gcColGramos.Width = 54;
+            this.col_gcColGramos.Caption = "Gr X cm2";
+            this.col_gcColGramos.DisplayFormat.FormatString = "N2";
+            this.col_gcColGramos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_gcColGramos.FieldName = "GramosXcm2";
+            this.col_gcColGramos.Name = "col_gcColGramos";
+            this.col_gcColGramos.OptionsColumn.AllowEdit = false;
+            this.col_gcColGramos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColGramos.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColGramos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColGramos.OptionsColumn.AllowMove = false;
+            this.col_gcColGramos.OptionsColumn.AllowShowHide = false;
+            this.col_gcColGramos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColGramos.OptionsColumn.ReadOnly = true;
+            this.col_gcColGramos.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColGramos.OptionsFilter.AllowFilter = false;
+            this.col_gcColGramos.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColGramos.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColGramos.ToolTip = "Recupera de la BD en función de la cobertura";
+            this.col_gcColGramos.Visible = true;
+            this.col_gcColGramos.VisibleIndex = 6;
+            this.col_gcColGramos.Width = 54;
             // 
-            // dis_gcColNumPaginasC
+            // col_gcColNumPaginasC
             // 
-            this.dis_gcColNumPaginasC.Caption = "Paginas";
-            this.dis_gcColNumPaginasC.DisplayFormat.FormatString = "N0";
-            this.dis_gcColNumPaginasC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColNumPaginasC.FieldName = "NumPaginas";
-            this.dis_gcColNumPaginasC.Name = "dis_gcColNumPaginasC";
-            this.dis_gcColNumPaginasC.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasC.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumPaginasC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasC.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumPaginasC.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColNumPaginasC.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasC.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColNumPaginasC.OptionsFilter.AllowFilter = false;
-            this.dis_gcColNumPaginasC.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasC.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColNumPaginasC.ToolTip = "Número de páginas de cada trabajo. (Default=1)";
-            this.dis_gcColNumPaginasC.Visible = true;
-            this.dis_gcColNumPaginasC.VisibleIndex = 7;
-            this.dis_gcColNumPaginasC.Width = 60;
+            this.col_gcColNumPaginasC.Caption = "Paginas";
+            this.col_gcColNumPaginasC.DisplayFormat.FormatString = "N0";
+            this.col_gcColNumPaginasC.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_gcColNumPaginasC.FieldName = "NumPaginas";
+            this.col_gcColNumPaginasC.Name = "col_gcColNumPaginasC";
+            this.col_gcColNumPaginasC.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColNumPaginasC.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColNumPaginasC.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColNumPaginasC.OptionsColumn.AllowMove = false;
+            this.col_gcColNumPaginasC.OptionsColumn.AllowShowHide = false;
+            this.col_gcColNumPaginasC.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColNumPaginasC.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColNumPaginasC.OptionsFilter.AllowFilter = false;
+            this.col_gcColNumPaginasC.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColNumPaginasC.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColNumPaginasC.ToolTip = "Número de páginas de cada trabajo. (Default=1)";
+            this.col_gcColNumPaginasC.Visible = true;
+            this.col_gcColNumPaginasC.VisibleIndex = 7;
+            this.col_gcColNumPaginasC.Width = 60;
             // 
-            // dis_gcColTotGramos
+            // col_gcColTotGramos
             // 
-            this.dis_gcColTotGramos.Caption = "Total GR";
-            this.dis_gcColTotGramos.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTotGramos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTotGramos.FieldName = "TotalGramos";
-            this.dis_gcColTotGramos.Name = "dis_gcColTotGramos";
-            this.dis_gcColTotGramos.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTotGramos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotGramos.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTotGramos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotGramos.OptionsColumn.AllowMove = false;
-            this.dis_gcColTotGramos.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTotGramos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotGramos.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTotGramos.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTotGramos.OptionsFilter.AllowFilter = false;
-            this.dis_gcColTotGramos.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotGramos.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColTotGramos.ToolTip = "Area*NumPaginas*Gramos";
-            this.dis_gcColTotGramos.Visible = true;
-            this.dis_gcColTotGramos.VisibleIndex = 8;
+            this.col_gcColTotGramos.Caption = "Total GR";
+            this.col_gcColTotGramos.DisplayFormat.FormatString = "N2";
+            this.col_gcColTotGramos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_gcColTotGramos.FieldName = "TotalGramos";
+            this.col_gcColTotGramos.Name = "col_gcColTotGramos";
+            this.col_gcColTotGramos.OptionsColumn.AllowEdit = false;
+            this.col_gcColTotGramos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotGramos.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColTotGramos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotGramos.OptionsColumn.AllowMove = false;
+            this.col_gcColTotGramos.OptionsColumn.AllowShowHide = false;
+            this.col_gcColTotGramos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotGramos.OptionsColumn.ReadOnly = true;
+            this.col_gcColTotGramos.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColTotGramos.OptionsFilter.AllowFilter = false;
+            this.col_gcColTotGramos.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotGramos.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColTotGramos.ToolTip = "Area*NumPaginas*Gramos";
+            this.col_gcColTotGramos.Visible = true;
+            this.col_gcColTotGramos.VisibleIndex = 8;
             // 
-            // dis_gcColTotLinea
+            // col_gcColTotLinea
             // 
-            this.dis_gcColTotLinea.Caption = "Total $";
-            this.dis_gcColTotLinea.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTotLinea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTotLinea.FieldName = "TotalLinea";
-            this.dis_gcColTotLinea.Name = "dis_gcColTotLinea";
-            this.dis_gcColTotLinea.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTotLinea.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotLinea.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTotLinea.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotLinea.OptionsColumn.AllowMove = false;
-            this.dis_gcColTotLinea.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTotLinea.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotLinea.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTotLinea.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTotLinea.OptionsFilter.AllowFilter = false;
-            this.dis_gcColTotLinea.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotLinea.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColTotLinea.ToolTip = "TotalGramos*CostoGramo*Tiraje";
-            this.dis_gcColTotLinea.Visible = true;
-            this.dis_gcColTotLinea.VisibleIndex = 9;
+            this.col_gcColTotLinea.Caption = "Total $";
+            this.col_gcColTotLinea.DisplayFormat.FormatString = "N2";
+            this.col_gcColTotLinea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.col_gcColTotLinea.FieldName = "TotalLinea";
+            this.col_gcColTotLinea.Name = "col_gcColTotLinea";
+            this.col_gcColTotLinea.OptionsColumn.AllowEdit = false;
+            this.col_gcColTotLinea.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotLinea.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColTotLinea.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotLinea.OptionsColumn.AllowMove = false;
+            this.col_gcColTotLinea.OptionsColumn.AllowShowHide = false;
+            this.col_gcColTotLinea.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotLinea.OptionsColumn.ReadOnly = true;
+            this.col_gcColTotLinea.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColTotLinea.OptionsFilter.AllowFilter = false;
+            this.col_gcColTotLinea.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColTotLinea.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColTotLinea.ToolTip = "TotalGramos*CostoGramo*Tiraje";
+            this.col_gcColTotLinea.Visible = true;
+            this.col_gcColTotLinea.VisibleIndex = 9;
             // 
-            // dis_gcColDetallePAG
+            // col_gcColDetallePAG
             // 
-            this.dis_gcColDetallePAG.Caption = "Detalle PAG";
-            this.dis_gcColDetallePAG.FieldName = "DetallePag";
-            this.dis_gcColDetallePAG.Name = "dis_gcColDetallePAG";
-            this.dis_gcColDetallePAG.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDetallePAG.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColDetallePAG.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDetallePAG.OptionsColumn.AllowMove = false;
-            this.dis_gcColDetallePAG.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColDetallePAG.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDetallePAG.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColDetallePAG.OptionsFilter.AllowFilter = false;
-            this.dis_gcColDetallePAG.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColDetallePAG.OptionsFilter.ImmediateUpdateAutoFilter = false;
-            this.dis_gcColDetallePAG.Visible = true;
-            this.dis_gcColDetallePAG.VisibleIndex = 10;
-            this.dis_gcColDetallePAG.Width = 150;
+            this.col_gcColDetallePAG.Caption = "Detalle PAG";
+            this.col_gcColDetallePAG.FieldName = "DetallePag";
+            this.col_gcColDetallePAG.Name = "col_gcColDetallePAG";
+            this.col_gcColDetallePAG.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColDetallePAG.OptionsColumn.AllowIncrementalSearch = false;
+            this.col_gcColDetallePAG.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColDetallePAG.OptionsColumn.AllowMove = false;
+            this.col_gcColDetallePAG.OptionsColumn.AllowShowHide = false;
+            this.col_gcColDetallePAG.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColDetallePAG.OptionsFilter.AllowAutoFilter = false;
+            this.col_gcColDetallePAG.OptionsFilter.AllowFilter = false;
+            this.col_gcColDetallePAG.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.col_gcColDetallePAG.OptionsFilter.ImmediateUpdateAutoFilter = false;
+            this.col_gcColDetallePAG.Visible = true;
+            this.col_gcColDetallePAG.VisibleIndex = 10;
+            this.col_gcColDetallePAG.Width = 150;
             // 
             // dis_xtpPlacas
             // 
-            this.dis_xtpPlacas.Controls.Add(this.labelControl22);
-            this.dis_xtpPlacas.Controls.Add(this.labelControl21);
-            this.dis_xtpPlacas.Controls.Add(this.dis_seTotalPlacas);
-            this.dis_xtpPlacas.Controls.Add(this.dis_seNumPlacas);
-            this.dis_xtpPlacas.Controls.Add(this.dis_gcPlacas);
+            this.dis_xtpPlacas.Controls.Add(this.pla_gcPlacas);
             this.dis_xtpPlacas.Name = "dis_xtpPlacas";
             this.dis_xtpPlacas.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpPlacas.Text = "Placas";
             // 
-            // labelControl22
+            // pla_gcPlacas
             // 
-            this.labelControl22.Location = new System.Drawing.Point(698, 219);
-            this.labelControl22.Name = "labelControl22";
-            this.labelControl22.Size = new System.Drawing.Size(28, 13);
-            this.labelControl22.TabIndex = 4;
-            this.labelControl22.Text = "Total:";
-            // 
-            // labelControl21
-            // 
-            this.labelControl21.Location = new System.Drawing.Point(475, 219);
-            this.labelControl21.Name = "labelControl21";
-            this.labelControl21.Size = new System.Drawing.Size(58, 13);
-            this.labelControl21.TabIndex = 3;
-            this.labelControl21.Text = "Nro. Placas:";
-            // 
-            // dis_seTotalPlacas
-            // 
-            this.dis_seTotalPlacas.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seTotalPlacas.Location = new System.Drawing.Point(741, 216);
-            this.dis_seTotalPlacas.Name = "dis_seTotalPlacas";
-            this.dis_seTotalPlacas.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.dis_seTotalPlacas.Properties.Appearance.Options.UseBackColor = true;
-            this.dis_seTotalPlacas.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.dis_seTotalPlacas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dis_seTotalPlacas.Properties.DisplayFormat.FormatString = "N2";
-            this.dis_seTotalPlacas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seTotalPlacas.Properties.EditFormat.FormatString = "N2";
-            this.dis_seTotalPlacas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seTotalPlacas.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seTotalPlacas.Properties.Mask.EditMask = "N2";
-            this.dis_seTotalPlacas.Properties.MaxValue = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            131072});
-            this.dis_seTotalPlacas.Properties.ReadOnly = true;
-            this.dis_seTotalPlacas.Size = new System.Drawing.Size(100, 20);
-            this.dis_seTotalPlacas.TabIndex = 2;
-            // 
-            // dis_seNumPlacas
-            // 
-            this.dis_seNumPlacas.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seNumPlacas.Location = new System.Drawing.Point(550, 216);
-            this.dis_seNumPlacas.Name = "dis_seNumPlacas";
-            this.dis_seNumPlacas.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.dis_seNumPlacas.Properties.Appearance.Options.UseBackColor = true;
-            this.dis_seNumPlacas.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.dis_seNumPlacas.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dis_seNumPlacas.Properties.DisplayFormat.FormatString = "N2";
-            this.dis_seNumPlacas.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seNumPlacas.Properties.EditFormat.FormatString = "N2";
-            this.dis_seNumPlacas.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seNumPlacas.Properties.Increment = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seNumPlacas.Properties.Mask.EditMask = "N2";
-            this.dis_seNumPlacas.Properties.MaxValue = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            131072});
-            this.dis_seNumPlacas.Properties.ReadOnly = true;
-            this.dis_seNumPlacas.Size = new System.Drawing.Size(100, 20);
-            this.dis_seNumPlacas.TabIndex = 1;
-            // 
-            // dis_gcPlacas
-            // 
-            this.dis_gcPlacas.Location = new System.Drawing.Point(7, 4);
-            this.dis_gcPlacas.MainView = this.dis_gvPlacas;
-            this.dis_gcPlacas.Name = "dis_gcPlacas";
-            this.dis_gcPlacas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.pla_gcPlacas.Location = new System.Drawing.Point(7, 4);
+            this.pla_gcPlacas.MainView = this.pla_gvPlacas;
+            this.pla_gcPlacas.Name = "pla_gcPlacas";
+            this.pla_gcPlacas.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.dis_rilueLadoImpresionP,
             this.dis_riseNumColores});
-            this.dis_gcPlacas.Size = new System.Drawing.Size(834, 207);
-            this.dis_gcPlacas.TabIndex = 0;
-            this.dis_gcPlacas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvPlacas});
+            this.pla_gcPlacas.Size = new System.Drawing.Size(834, 235);
+            this.pla_gcPlacas.TabIndex = 0;
+            this.pla_gcPlacas.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.pla_gvPlacas});
             // 
-            // dis_gvPlacas
+            // pla_gvPlacas
             // 
-            this.dis_gvPlacas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColMaterialP,
-            this.dis_gcColPlacaP,
-            this.dis_gcColLadoP,
-            this.dis_gcColNumColoresP,
-            this.dis_gcColNumPaginasP,
-            this.dis_gcColPaginasXplaca,
-            this.dis_gcColPlacasMIN,
-            this.dis_gcColNumPlacasP,
-            this.dis_gcColCostoPlaca,
-            this.dis_gcTotalLineaP});
-            this.dis_gvPlacas.GridControl = this.dis_gcPlacas;
-            this.dis_gvPlacas.Name = "dis_gvPlacas";
-            this.dis_gvPlacas.OptionsView.ShowFooter = true;
-            this.dis_gvPlacas.OptionsView.ShowGroupPanel = false;
-            this.dis_gvPlacas.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dis_gvPlacas_CellValueChanged);
+            this.pla_gvPlacas.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.pla_gcColMaterialP,
+            this.pla_gcColPlacaP,
+            this.pla_gcColLadoP,
+            this.pla_gcColNumColoresP,
+            this.pla_gcColNumPaginasP,
+            this.pla_gcColPaginasXplaca,
+            this.pla_gcColPlacasMIN,
+            this.pla_gcColNumPlacasP,
+            this.pla_gcColCostoPlaca,
+            this.pla_gcTotalLineaP});
+            this.pla_gvPlacas.GridControl = this.pla_gcPlacas;
+            this.pla_gvPlacas.Name = "pla_gvPlacas";
+            this.pla_gvPlacas.OptionsView.ShowFooter = true;
+            this.pla_gvPlacas.OptionsView.ShowGroupPanel = false;
+            this.pla_gvPlacas.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.dis_gvPlacas_CellValueChanged);
             // 
-            // dis_gcColMaterialP
+            // pla_gcColMaterialP
             // 
-            this.dis_gcColMaterialP.Caption = "Material";
-            this.dis_gcColMaterialP.FieldName = "Material";
-            this.dis_gcColMaterialP.Name = "dis_gcColMaterialP";
-            this.dis_gcColMaterialP.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterialP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaterialP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialP.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterialP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColMaterialP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialP.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterialP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMaterialP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialP.ToolTip = "Material para el cual va hacer utilizada la placa";
-            this.dis_gcColMaterialP.Visible = true;
-            this.dis_gcColMaterialP.VisibleIndex = 0;
-            this.dis_gcColMaterialP.Width = 158;
+            this.pla_gcColMaterialP.Caption = "Material";
+            this.pla_gcColMaterialP.FieldName = "Material";
+            this.pla_gcColMaterialP.Name = "pla_gcColMaterialP";
+            this.pla_gcColMaterialP.OptionsColumn.AllowEdit = false;
+            this.pla_gcColMaterialP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColMaterialP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColMaterialP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColMaterialP.OptionsColumn.AllowMove = false;
+            this.pla_gcColMaterialP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColMaterialP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColMaterialP.OptionsColumn.ReadOnly = true;
+            this.pla_gcColMaterialP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColMaterialP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColMaterialP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColMaterialP.ToolTip = "Material para el cual va hacer utilizada la placa";
+            this.pla_gcColMaterialP.Visible = true;
+            this.pla_gcColMaterialP.VisibleIndex = 0;
+            this.pla_gcColMaterialP.Width = 158;
             // 
-            // dis_gcColPlacaP
+            // pla_gcColPlacaP
             // 
-            this.dis_gcColPlacaP.Caption = "Máquina";
-            this.dis_gcColPlacaP.FieldName = "Placa";
-            this.dis_gcColPlacaP.Name = "dis_gcColPlacaP";
-            this.dis_gcColPlacaP.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPlacaP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPlacaP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaP.OptionsColumn.AllowMove = false;
-            this.dis_gcColPlacaP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPlacaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaP.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPlacaP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColPlacaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaP.ToolTip = "Placa que se va a utilizar";
-            this.dis_gcColPlacaP.Visible = true;
-            this.dis_gcColPlacaP.VisibleIndex = 1;
-            this.dis_gcColPlacaP.Width = 67;
+            this.pla_gcColPlacaP.Caption = "Máquina";
+            this.pla_gcColPlacaP.FieldName = "Placa";
+            this.pla_gcColPlacaP.Name = "pla_gcColPlacaP";
+            this.pla_gcColPlacaP.OptionsColumn.AllowEdit = false;
+            this.pla_gcColPlacaP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacaP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColPlacaP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacaP.OptionsColumn.AllowMove = false;
+            this.pla_gcColPlacaP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColPlacaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacaP.OptionsColumn.ReadOnly = true;
+            this.pla_gcColPlacaP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColPlacaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacaP.ToolTip = "Placa que se va a utilizar";
+            this.pla_gcColPlacaP.Visible = true;
+            this.pla_gcColPlacaP.VisibleIndex = 1;
+            this.pla_gcColPlacaP.Width = 67;
             // 
-            // dis_gcColLadoP
+            // pla_gcColLadoP
             // 
-            this.dis_gcColLadoP.Caption = "Lado";
-            this.dis_gcColLadoP.ColumnEdit = this.dis_rilueLadoImpresionP;
-            this.dis_gcColLadoP.FieldName = "LadoPlaca";
-            this.dis_gcColLadoP.Name = "dis_gcColLadoP";
-            this.dis_gcColLadoP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLadoP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColLadoP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLadoP.OptionsColumn.AllowMove = false;
-            this.dis_gcColLadoP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColLadoP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLadoP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColLadoP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLadoP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLadoP.ToolTip = "Lado de impresión de la placa";
-            this.dis_gcColLadoP.Visible = true;
-            this.dis_gcColLadoP.VisibleIndex = 2;
-            this.dis_gcColLadoP.Width = 109;
+            this.pla_gcColLadoP.Caption = "Lado";
+            this.pla_gcColLadoP.ColumnEdit = this.dis_rilueLadoImpresionP;
+            this.pla_gcColLadoP.FieldName = "LadoPlaca";
+            this.pla_gcColLadoP.Name = "pla_gcColLadoP";
+            this.pla_gcColLadoP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColLadoP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColLadoP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColLadoP.OptionsColumn.AllowMove = false;
+            this.pla_gcColLadoP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColLadoP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColLadoP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColLadoP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColLadoP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColLadoP.ToolTip = "Lado de impresión de la placa";
+            this.pla_gcColLadoP.Visible = true;
+            this.pla_gcColLadoP.VisibleIndex = 2;
+            this.pla_gcColLadoP.Width = 109;
             // 
             // dis_rilueLadoImpresionP
             // 
@@ -2522,32 +2326,31 @@
             this.dis_rilueLadoImpresionP.NullText = "";
             this.dis_rilueLadoImpresionP.ValueMember = "Codigo";
             // 
-            // dis_gcColNumColoresP
+            // pla_gcColNumColoresP
             // 
-            this.dis_gcColNumColoresP.AppearanceCell.Options.UseTextOptions = true;
-            this.dis_gcColNumColoresP.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-            this.dis_gcColNumColoresP.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.dis_gcColNumColoresP.Caption = "N° Colores";
-            this.dis_gcColNumColoresP.ColumnEdit = this.dis_riseNumColores;
-            this.dis_gcColNumColoresP.DisplayFormat.FormatString = "N0";
-            this.dis_gcColNumColoresP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColNumColoresP.FieldName = "NumColores";
-            this.dis_gcColNumColoresP.Name = "dis_gcColNumColoresP";
-            this.dis_gcColNumColoresP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumColoresP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresP.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumColoresP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColNumColoresP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColNumColoresP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresP.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.pla_gcColNumColoresP.AppearanceCell.Options.UseTextOptions = true;
+            this.pla_gcColNumColoresP.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.pla_gcColNumColoresP.AppearanceCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.pla_gcColNumColoresP.Caption = "N° Colores";
+            this.pla_gcColNumColoresP.ColumnEdit = this.dis_riseNumColores;
+            this.pla_gcColNumColoresP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.pla_gcColNumColoresP.FieldName = "NumColores";
+            this.pla_gcColNumColoresP.Name = "pla_gcColNumColoresP";
+            this.pla_gcColNumColoresP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumColoresP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColNumColoresP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumColoresP.OptionsColumn.AllowMove = false;
+            this.pla_gcColNumColoresP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColNumColoresP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumColoresP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColNumColoresP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumColoresP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumColoresP.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NumColores", "{0:N2}")});
-            this.dis_gcColNumColoresP.ToolTip = "Número de colores a utilizar (Valor entre 1-8)";
-            this.dis_gcColNumColoresP.Visible = true;
-            this.dis_gcColNumColoresP.VisibleIndex = 3;
-            this.dis_gcColNumColoresP.Width = 79;
+            this.pla_gcColNumColoresP.ToolTip = "Número de colores a utilizar (Valor entre 1-8)";
+            this.pla_gcColNumColoresP.Visible = true;
+            this.pla_gcColNumColoresP.VisibleIndex = 3;
+            this.pla_gcColNumColoresP.Width = 79;
             // 
             // dis_riseNumColores
             // 
@@ -2567,213 +2370,153 @@
             0});
             this.dis_riseNumColores.Name = "dis_riseNumColores";
             // 
-            // dis_gcColNumPaginasP
+            // pla_gcColNumPaginasP
             // 
-            this.dis_gcColNumPaginasP.Caption = "Páginas";
-            this.dis_gcColNumPaginasP.FieldName = "NumPaginas";
-            this.dis_gcColNumPaginasP.Name = "dis_gcColNumPaginasP";
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowEdit = false;
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColNumPaginasP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasP.OptionsColumn.ReadOnly = true;
-            this.dis_gcColNumPaginasP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColNumPaginasP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPaginasP.ToolTip = "Número de paginas a imprimir. (Recupera de la fila de los armados)";
-            this.dis_gcColNumPaginasP.Visible = true;
-            this.dis_gcColNumPaginasP.VisibleIndex = 4;
+            this.pla_gcColNumPaginasP.Caption = "Páginas";
+            this.pla_gcColNumPaginasP.FieldName = "NumPaginas";
+            this.pla_gcColNumPaginasP.Name = "pla_gcColNumPaginasP";
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowEdit = false;
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowMove = false;
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColNumPaginasP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPaginasP.OptionsColumn.ReadOnly = true;
+            this.pla_gcColNumPaginasP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColNumPaginasP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPaginasP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPaginasP.ToolTip = "Número de paginas a imprimir. (Recupera de la fila de los armados)";
+            this.pla_gcColNumPaginasP.Visible = true;
+            this.pla_gcColNumPaginasP.VisibleIndex = 4;
             // 
-            // dis_gcColPaginasXplaca
+            // pla_gcColPaginasXplaca
             // 
-            this.dis_gcColPaginasXplaca.Caption = "Pag X Placa";
-            this.dis_gcColPaginasXplaca.FieldName = "PaginasXplaca";
-            this.dis_gcColPaginasXplaca.Name = "dis_gcColPaginasXplaca";
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowMove = false;
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPaginasXplaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXplaca.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPaginasXplaca.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColPaginasXplaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXplaca.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPaginasXplaca.ToolTip = "Número de páginas que se imprimen en una placa";
-            this.dis_gcColPaginasXplaca.Visible = true;
-            this.dis_gcColPaginasXplaca.VisibleIndex = 5;
-            this.dis_gcColPaginasXplaca.Width = 84;
+            this.pla_gcColPaginasXplaca.Caption = "Pag X Placa";
+            this.pla_gcColPaginasXplaca.FieldName = "PaginasXplaca";
+            this.pla_gcColPaginasXplaca.Name = "pla_gcColPaginasXplaca";
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowEdit = false;
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowMove = false;
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColPaginasXplaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPaginasXplaca.OptionsColumn.ReadOnly = true;
+            this.pla_gcColPaginasXplaca.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColPaginasXplaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPaginasXplaca.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPaginasXplaca.ToolTip = "Número de páginas que se imprimen en una placa";
+            this.pla_gcColPaginasXplaca.Visible = true;
+            this.pla_gcColPaginasXplaca.VisibleIndex = 5;
+            this.pla_gcColPaginasXplaca.Width = 84;
             // 
-            // dis_gcColPlacasMIN
+            // pla_gcColPlacasMIN
             // 
-            this.dis_gcColPlacasMIN.Caption = "Placas MIN";
-            this.dis_gcColPlacasMIN.FieldName = "NumPlacasMIN";
-            this.dis_gcColPlacasMIN.Name = "dis_gcColPlacasMIN";
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowMove = false;
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPlacasMIN.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacasMIN.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPlacasMIN.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColPlacasMIN.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacasMIN.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacasMIN.ToolTip = "Mínimo de placas sugerido por sistema (NroPlacas/PáginasXplaca)";
-            this.dis_gcColPlacasMIN.Visible = true;
-            this.dis_gcColPlacasMIN.VisibleIndex = 6;
+            this.pla_gcColPlacasMIN.Caption = "Placas MIN";
+            this.pla_gcColPlacasMIN.FieldName = "NumPlacasMIN";
+            this.pla_gcColPlacasMIN.Name = "pla_gcColPlacasMIN";
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowEdit = false;
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowMove = false;
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColPlacasMIN.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacasMIN.OptionsColumn.ReadOnly = true;
+            this.pla_gcColPlacasMIN.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColPlacasMIN.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacasMIN.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColPlacasMIN.ToolTip = "Mínimo de placas sugerido por sistema (NroPlacas/PáginasXplaca)";
+            this.pla_gcColPlacasMIN.Visible = true;
+            this.pla_gcColPlacasMIN.VisibleIndex = 6;
             // 
-            // dis_gcColNumPlacasP
+            // pla_gcColNumPlacasP
             // 
-            this.dis_gcColNumPlacasP.Caption = "N° Placas";
-            this.dis_gcColNumPlacasP.FieldName = "NumPlacas";
-            this.dis_gcColNumPlacasP.Name = "dis_gcColNumPlacasP";
-            this.dis_gcColNumPlacasP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPlacasP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumPlacasP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPlacasP.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumPlacasP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColNumPlacasP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPlacasP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColNumPlacasP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPlacasP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPlacasP.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.pla_gcColNumPlacasP.Caption = "N° Placas";
+            this.pla_gcColNumPlacasP.FieldName = "NumPlacas";
+            this.pla_gcColNumPlacasP.Name = "pla_gcColNumPlacasP";
+            this.pla_gcColNumPlacasP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPlacasP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColNumPlacasP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPlacasP.OptionsColumn.AllowMove = false;
+            this.pla_gcColNumPlacasP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColNumPlacasP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPlacasP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColNumPlacasP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPlacasP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColNumPlacasP.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NumPlacas", "{0:N2}")});
-            this.dis_gcColNumPlacasP.ToolTip = "Número de placas registradas por el usuario (Mayor o igual al mínimo de placas su" +
+            this.pla_gcColNumPlacasP.ToolTip = "Número de placas registradas por el usuario (Mayor o igual al mínimo de placas su" +
     "gerido)";
-            this.dis_gcColNumPlacasP.Visible = true;
-            this.dis_gcColNumPlacasP.VisibleIndex = 7;
-            this.dis_gcColNumPlacasP.Width = 77;
+            this.pla_gcColNumPlacasP.Visible = true;
+            this.pla_gcColNumPlacasP.VisibleIndex = 7;
+            this.pla_gcColNumPlacasP.Width = 77;
             // 
-            // dis_gcColCostoPlaca
+            // pla_gcColCostoPlaca
             // 
-            this.dis_gcColCostoPlaca.Caption = "Costo";
-            this.dis_gcColCostoPlaca.DisplayFormat.FormatString = "N2";
-            this.dis_gcColCostoPlaca.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCostoPlaca.FieldName = "CostoPlaca";
-            this.dis_gcColCostoPlaca.Name = "dis_gcColCostoPlaca";
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowEdit = false;
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowMove = false;
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColCostoPlaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoPlaca.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCostoPlaca.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCostoPlaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoPlaca.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoPlaca.ToolTip = "Costo aproximado de la placa viene de la BD";
-            this.dis_gcColCostoPlaca.Visible = true;
-            this.dis_gcColCostoPlaca.VisibleIndex = 8;
+            this.pla_gcColCostoPlaca.Caption = "Costo";
+            this.pla_gcColCostoPlaca.DisplayFormat.FormatString = "N2";
+            this.pla_gcColCostoPlaca.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.pla_gcColCostoPlaca.FieldName = "CostoPlaca";
+            this.pla_gcColCostoPlaca.Name = "pla_gcColCostoPlaca";
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowEdit = false;
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowMove = false;
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowShowHide = false;
+            this.pla_gcColCostoPlaca.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColCostoPlaca.OptionsColumn.ReadOnly = true;
+            this.pla_gcColCostoPlaca.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcColCostoPlaca.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColCostoPlaca.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcColCostoPlaca.ToolTip = "Costo aproximado de la placa viene de la BD";
+            this.pla_gcColCostoPlaca.Visible = true;
+            this.pla_gcColCostoPlaca.VisibleIndex = 8;
             // 
-            // dis_gcTotalLineaP
+            // pla_gcTotalLineaP
             // 
-            this.dis_gcTotalLineaP.Caption = "Total";
-            this.dis_gcTotalLineaP.DisplayFormat.FormatString = "N2";
-            this.dis_gcTotalLineaP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcTotalLineaP.FieldName = "TotalLinea";
-            this.dis_gcTotalLineaP.Name = "dis_gcTotalLineaP";
-            this.dis_gcTotalLineaP.OptionsColumn.AllowEdit = false;
-            this.dis_gcTotalLineaP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcTotalLineaP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaP.OptionsColumn.AllowMove = false;
-            this.dis_gcTotalLineaP.OptionsColumn.AllowShowHide = false;
-            this.dis_gcTotalLineaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaP.OptionsColumn.ReadOnly = true;
-            this.dis_gcTotalLineaP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcTotalLineaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaP.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.pla_gcTotalLineaP.Caption = "Total";
+            this.pla_gcTotalLineaP.DisplayFormat.FormatString = "N2";
+            this.pla_gcTotalLineaP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.pla_gcTotalLineaP.FieldName = "TotalLinea";
+            this.pla_gcTotalLineaP.Name = "pla_gcTotalLineaP";
+            this.pla_gcTotalLineaP.OptionsColumn.AllowEdit = false;
+            this.pla_gcTotalLineaP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcTotalLineaP.OptionsColumn.AllowIncrementalSearch = false;
+            this.pla_gcTotalLineaP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcTotalLineaP.OptionsColumn.AllowMove = false;
+            this.pla_gcTotalLineaP.OptionsColumn.AllowShowHide = false;
+            this.pla_gcTotalLineaP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcTotalLineaP.OptionsColumn.ReadOnly = true;
+            this.pla_gcTotalLineaP.OptionsFilter.AllowAutoFilter = false;
+            this.pla_gcTotalLineaP.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcTotalLineaP.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.pla_gcTotalLineaP.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcTotalLineaP.ToolTip = "NumeroColores*NumeroPlacas*CostoPlaca";
-            this.dis_gcTotalLineaP.Visible = true;
-            this.dis_gcTotalLineaP.VisibleIndex = 9;
-            this.dis_gcTotalLineaP.Width = 92;
+            this.pla_gcTotalLineaP.ToolTip = "NumeroColores*NumeroPlacas*CostoPlaca";
+            this.pla_gcTotalLineaP.Visible = true;
+            this.pla_gcTotalLineaP.VisibleIndex = 9;
+            this.pla_gcTotalLineaP.Width = 92;
             // 
             // dis_xtpTroquel
             // 
-            this.dis_xtpTroquel.Controls.Add(this.labelControl24);
-            this.dis_xtpTroquel.Controls.Add(this.labelControl23);
-            this.dis_xtpTroquel.Controls.Add(this.dis_seCortesTOT);
-            this.dis_xtpTroquel.Controls.Add(this.dis_seCorteLONG);
-            this.dis_xtpTroquel.Controls.Add(this.dis_gcTrqouel);
+            this.dis_xtpTroquel.Controls.Add(this.tro_gcTrqouel);
             this.dis_xtpTroquel.Name = "dis_xtpTroquel";
             this.dis_xtpTroquel.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpTroquel.Text = "Troquel";
             // 
-            // labelControl24
+            // tro_gcTrqouel
             // 
-            this.labelControl24.Location = new System.Drawing.Point(691, 219);
-            this.labelControl24.Name = "labelControl24";
-            this.labelControl24.Size = new System.Drawing.Size(28, 13);
-            this.labelControl24.TabIndex = 4;
-            this.labelControl24.Text = "Total:";
-            // 
-            // labelControl23
-            // 
-            this.labelControl23.Location = new System.Drawing.Point(494, 219);
-            this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(47, 13);
-            this.labelControl23.TabIndex = 3;
-            this.labelControl23.Text = "Corte cm:";
-            // 
-            // dis_seCortesTOT
-            // 
-            this.dis_seCortesTOT.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seCortesTOT.Location = new System.Drawing.Point(730, 216);
-            this.dis_seCortesTOT.Name = "dis_seCortesTOT";
-            this.dis_seCortesTOT.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.dis_seCortesTOT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dis_seCortesTOT.Properties.DisplayFormat.FormatString = "N2";
-            this.dis_seCortesTOT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seCortesTOT.Properties.EditFormat.FormatString = "N2";
-            this.dis_seCortesTOT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seCortesTOT.Properties.Mask.EditMask = "N2";
-            this.dis_seCortesTOT.Size = new System.Drawing.Size(100, 20);
-            this.dis_seCortesTOT.TabIndex = 2;
-            // 
-            // dis_seCorteLONG
-            // 
-            this.dis_seCorteLONG.EditValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.dis_seCorteLONG.Location = new System.Drawing.Point(547, 216);
-            this.dis_seCorteLONG.Name = "dis_seCorteLONG";
-            this.dis_seCorteLONG.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.dis_seCorteLONG.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dis_seCorteLONG.Properties.DisplayFormat.FormatString = "N2";
-            this.dis_seCorteLONG.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seCorteLONG.Properties.EditFormat.FormatString = "N2";
-            this.dis_seCorteLONG.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_seCorteLONG.Properties.Mask.EditMask = "N2";
-            this.dis_seCorteLONG.Size = new System.Drawing.Size(100, 20);
-            this.dis_seCorteLONG.TabIndex = 1;
-            // 
-            // dis_gcTrqouel
-            // 
-            this.dis_gcTrqouel.ContextMenuStrip = this.cmDisenoTroquel;
-            this.dis_gcTrqouel.Location = new System.Drawing.Point(7, 4);
-            this.dis_gcTrqouel.MainView = this.dis_gvTroquel;
-            this.dis_gcTrqouel.Name = "dis_gcTrqouel";
-            this.dis_gcTrqouel.Size = new System.Drawing.Size(834, 200);
-            this.dis_gcTrqouel.TabIndex = 0;
-            this.dis_gcTrqouel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvTroquel});
+            this.tro_gcTrqouel.ContextMenuStrip = this.cmDisenoTroquel;
+            this.tro_gcTrqouel.Location = new System.Drawing.Point(7, 4);
+            this.tro_gcTrqouel.MainView = this.tro_gvTroquel;
+            this.tro_gcTrqouel.Name = "tro_gcTrqouel";
+            this.tro_gcTrqouel.Size = new System.Drawing.Size(834, 235);
+            this.tro_gcTrqouel.TabIndex = 0;
+            this.tro_gcTrqouel.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tro_gvTroquel});
             // 
             // cmDisenoTroquel
             // 
@@ -2799,149 +2542,149 @@
             this.mnuEliminaRegTroquel.Text = "Eliminar Registro";
             this.mnuEliminaRegTroquel.Click += new System.EventHandler(this.mnuEliminaRegTroquel_Click);
             // 
-            // dis_gvTroquel
+            // tro_gvTroquel
             // 
-            this.dis_gvTroquel.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColMaterialT,
-            this.dis_gcColLongitud,
-            this.dis_gcColNumCortesT,
-            this.dis_gcColCostoCorteT,
-            this.dis_gcColTotaLineaT});
-            this.dis_gvTroquel.GridControl = this.dis_gcTrqouel;
-            this.dis_gvTroquel.Name = "dis_gvTroquel";
-            this.dis_gvTroquel.OptionsView.ShowFooter = true;
-            this.dis_gvTroquel.OptionsView.ShowGroupPanel = false;
+            this.tro_gvTroquel.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.tro_gcColMaterialT,
+            this.tro_gcColLongitud,
+            this.tro_gcColNumCortesT,
+            this.tro_gcColCostoCorteT,
+            this.tro_gcColTotaLineaT});
+            this.tro_gvTroquel.GridControl = this.tro_gcTrqouel;
+            this.tro_gvTroquel.Name = "tro_gvTroquel";
+            this.tro_gvTroquel.OptionsView.ShowFooter = true;
+            this.tro_gvTroquel.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gcColMaterialT
+            // tro_gcColMaterialT
             // 
-            this.dis_gcColMaterialT.Caption = "Material";
-            this.dis_gcColMaterialT.FieldName = "Material";
-            this.dis_gcColMaterialT.Name = "dis_gcColMaterialT";
-            this.dis_gcColMaterialT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterialT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaterialT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterialT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColMaterialT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterialT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialT.ToolTip = "Material al cual se va a aplicar el corte (Viene de los armados)";
-            this.dis_gcColMaterialT.Visible = true;
-            this.dis_gcColMaterialT.VisibleIndex = 0;
+            this.tro_gcColMaterialT.Caption = "Material";
+            this.tro_gcColMaterialT.FieldName = "Material";
+            this.tro_gcColMaterialT.Name = "tro_gcColMaterialT";
+            this.tro_gcColMaterialT.OptionsColumn.AllowEdit = false;
+            this.tro_gcColMaterialT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tro_gcColMaterialT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.OptionsColumn.AllowMove = false;
+            this.tro_gcColMaterialT.OptionsColumn.AllowShowHide = false;
+            this.tro_gcColMaterialT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.OptionsColumn.ReadOnly = true;
+            this.tro_gcColMaterialT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColMaterialT.ToolTip = "Material al cual se va a aplicar el corte (Viene de los armados)";
+            this.tro_gcColMaterialT.Visible = true;
+            this.tro_gcColMaterialT.VisibleIndex = 0;
             // 
-            // dis_gcColLongitud
+            // tro_gcColLongitud
             // 
-            this.dis_gcColLongitud.Caption = "Longitud";
-            this.dis_gcColLongitud.DisplayFormat.FormatString = "N2";
-            this.dis_gcColLongitud.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColLongitud.FieldName = "Longitud";
-            this.dis_gcColLongitud.Name = "dis_gcColLongitud";
-            this.dis_gcColLongitud.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColLongitud.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.OptionsColumn.AllowMove = false;
-            this.dis_gcColLongitud.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColLongitud.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColLongitud.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tro_gcColLongitud.Caption = "Longitud";
+            this.tro_gcColLongitud.DisplayFormat.FormatString = "N2";
+            this.tro_gcColLongitud.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tro_gcColLongitud.FieldName = "Longitud";
+            this.tro_gcColLongitud.Name = "tro_gcColLongitud";
+            this.tro_gcColLongitud.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.OptionsColumn.AllowIncrementalSearch = false;
+            this.tro_gcColLongitud.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.OptionsColumn.AllowMove = false;
+            this.tro_gcColLongitud.OptionsColumn.AllowShowHide = false;
+            this.tro_gcColLongitud.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColLongitud.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "Longitud", "{0:N2}")});
-            this.dis_gcColLongitud.ToolTip = "Suma de todas las longitudes de los cortes que se van a aplicar al material";
-            this.dis_gcColLongitud.Visible = true;
-            this.dis_gcColLongitud.VisibleIndex = 1;
+            this.tro_gcColLongitud.ToolTip = "Suma de todas las longitudes de los cortes que se van a aplicar al material";
+            this.tro_gcColLongitud.Visible = true;
+            this.tro_gcColLongitud.VisibleIndex = 1;
             // 
-            // dis_gcColNumCortesT
+            // tro_gcColNumCortesT
             // 
-            this.dis_gcColNumCortesT.Caption = "Cortes";
-            this.dis_gcColNumCortesT.FieldName = "NumCortes";
-            this.dis_gcColNumCortesT.Name = "dis_gcColNumCortesT";
-            this.dis_gcColNumCortesT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumCortesT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumCortesT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColNumCortesT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumCortesT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tro_gcColNumCortesT.Caption = "Cortes";
+            this.tro_gcColNumCortesT.FieldName = "NumCortes";
+            this.tro_gcColNumCortesT.Name = "tro_gcColNumCortesT";
+            this.tro_gcColNumCortesT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tro_gcColNumCortesT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.OptionsColumn.AllowMove = false;
+            this.tro_gcColNumCortesT.OptionsColumn.AllowShowHide = false;
+            this.tro_gcColNumCortesT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColNumCortesT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "NumCortes", "{0:N2}")});
-            this.dis_gcColNumCortesT.ToolTip = "Número de cortes que se van a realizar";
-            this.dis_gcColNumCortesT.Visible = true;
-            this.dis_gcColNumCortesT.VisibleIndex = 2;
+            this.tro_gcColNumCortesT.ToolTip = "Número de cortes que se van a realizar";
+            this.tro_gcColNumCortesT.Visible = true;
+            this.tro_gcColNumCortesT.VisibleIndex = 2;
             // 
-            // dis_gcColCostoCorteT
+            // tro_gcColCostoCorteT
             // 
-            this.dis_gcColCostoCorteT.Caption = "Costo";
-            this.dis_gcColCostoCorteT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColCostoCorteT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCostoCorteT.FieldName = "CostoCorte";
-            this.dis_gcColCostoCorteT.Name = "dis_gcColCostoCorteT";
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowMove = false;
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColCostoCorteT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCostoCorteT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoCorteT.ToolTip = "Costo aproximado de cada corte (Viene de la Base de datos)";
-            this.dis_gcColCostoCorteT.Visible = true;
-            this.dis_gcColCostoCorteT.VisibleIndex = 3;
+            this.tro_gcColCostoCorteT.Caption = "Costo";
+            this.tro_gcColCostoCorteT.DisplayFormat.FormatString = "N2";
+            this.tro_gcColCostoCorteT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tro_gcColCostoCorteT.FieldName = "CostoCorte";
+            this.tro_gcColCostoCorteT.Name = "tro_gcColCostoCorteT";
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowEdit = false;
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowMove = false;
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowShowHide = false;
+            this.tro_gcColCostoCorteT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.OptionsColumn.ReadOnly = true;
+            this.tro_gcColCostoCorteT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColCostoCorteT.ToolTip = "Costo aproximado de cada corte (Viene de la Base de datos)";
+            this.tro_gcColCostoCorteT.Visible = true;
+            this.tro_gcColCostoCorteT.VisibleIndex = 3;
             // 
-            // dis_gcColTotaLineaT
+            // tro_gcColTotaLineaT
             // 
-            this.dis_gcColTotaLineaT.Caption = "Total";
-            this.dis_gcColTotaLineaT.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTotaLineaT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTotaLineaT.FieldName = "TotalLinea";
-            this.dis_gcColTotaLineaT.Name = "dis_gcColTotaLineaT";
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowMove = false;
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTotaLineaT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTotaLineaT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotaLineaT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.tro_gcColTotaLineaT.Caption = "Total";
+            this.tro_gcColTotaLineaT.DisplayFormat.FormatString = "N2";
+            this.tro_gcColTotaLineaT.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.tro_gcColTotaLineaT.FieldName = "TotalLinea";
+            this.tro_gcColTotaLineaT.Name = "tro_gcColTotaLineaT";
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowEdit = false;
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowIncrementalSearch = false;
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowMove = false;
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowShowHide = false;
+            this.tro_gcColTotaLineaT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.OptionsColumn.ImmediateUpdateRowPosition = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.OptionsColumn.Printable = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.OptionsColumn.ReadOnly = true;
+            this.tro_gcColTotaLineaT.OptionsFilter.AllowFilterModeChanging = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.OptionsFilter.FilterBySortField = DevExpress.Utils.DefaultBoolean.False;
+            this.tro_gcColTotaLineaT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcColTotaLineaT.ToolTip = "Longitud*NumCortes*CostoCorte";
-            this.dis_gcColTotaLineaT.Visible = true;
-            this.dis_gcColTotaLineaT.VisibleIndex = 4;
+            this.tro_gcColTotaLineaT.ToolTip = "Longitud*NumCortes*CostoCorte";
+            this.tro_gcColTotaLineaT.Visible = true;
+            this.tro_gcColTotaLineaT.VisibleIndex = 4;
             // 
             // dis_xtpAcabados
             // 
-            this.dis_xtpAcabados.Controls.Add(this.dis_gcAcabados);
+            this.dis_xtpAcabados.Controls.Add(this.aca_gcAcabados);
             this.dis_xtpAcabados.Name = "dis_xtpAcabados";
             this.dis_xtpAcabados.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpAcabados.Text = "Acabados";
             // 
-            // dis_gcAcabados
+            // aca_gcAcabados
             // 
-            this.dis_gcAcabados.ContextMenuStrip = this.cmDisenoAcabado;
-            this.dis_gcAcabados.Location = new System.Drawing.Point(7, 4);
-            this.dis_gcAcabados.MainView = this.dis_gvAcabados;
-            this.dis_gcAcabados.Name = "dis_gcAcabados";
-            this.dis_gcAcabados.Size = new System.Drawing.Size(834, 235);
-            this.dis_gcAcabados.TabIndex = 0;
-            this.dis_gcAcabados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvAcabados});
+            this.aca_gcAcabados.ContextMenuStrip = this.cmDisenoAcabado;
+            this.aca_gcAcabados.Location = new System.Drawing.Point(7, 4);
+            this.aca_gcAcabados.MainView = this.aca_gvAcabados;
+            this.aca_gcAcabados.Name = "aca_gcAcabados";
+            this.aca_gcAcabados.Size = new System.Drawing.Size(834, 235);
+            this.aca_gcAcabados.TabIndex = 0;
+            this.aca_gcAcabados.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.aca_gvAcabados});
             // 
             // cmDisenoAcabado
             // 
@@ -2976,161 +2719,161 @@
             this.dis_mnuEliminaRegistro.Text = "Eliminar Registro";
             this.dis_mnuEliminaRegistro.Click += new System.EventHandler(this.dis_mnuEliminaRegistro_Click);
             // 
-            // dis_gvAcabados
+            // aca_gvAcabados
             // 
-            this.dis_gvAcabados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcMaterialA,
-            this.dis_gcAreaA,
-            this.dis_gcAcabadoA,
-            this.dis_gcColAcabadoMAT,
-            this.dis_gcCostoA,
-            this.dis_gcAplicaA,
-            this.dis_gcTotalLineaA});
-            this.dis_gvAcabados.GridControl = this.dis_gcAcabados;
-            this.dis_gvAcabados.Name = "dis_gvAcabados";
-            this.dis_gvAcabados.OptionsView.ShowFooter = true;
-            this.dis_gvAcabados.OptionsView.ShowGroupPanel = false;
+            this.aca_gvAcabados.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.aca_gcColMaterialA,
+            this.aca_gcColAreaA,
+            this.aca_gcColAcabadoA,
+            this.aca_gcColMatAcabado,
+            this.aca_gcColCostoA,
+            this.aca_gcColAplicaA,
+            this.aca_gcColTotalLineaA});
+            this.aca_gvAcabados.GridControl = this.aca_gcAcabados;
+            this.aca_gvAcabados.Name = "aca_gvAcabados";
+            this.aca_gvAcabados.OptionsView.ShowFooter = true;
+            this.aca_gvAcabados.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gcMaterialA
+            // aca_gcColMaterialA
             // 
-            this.dis_gcMaterialA.Caption = "Material Armado";
-            this.dis_gcMaterialA.FieldName = "Material";
-            this.dis_gcMaterialA.Name = "dis_gcMaterialA";
-            this.dis_gcMaterialA.OptionsColumn.AllowEdit = false;
-            this.dis_gcMaterialA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcMaterialA.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcMaterialA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcMaterialA.OptionsColumn.AllowMove = false;
-            this.dis_gcMaterialA.OptionsColumn.AllowShowHide = false;
-            this.dis_gcMaterialA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcMaterialA.Visible = true;
-            this.dis_gcMaterialA.VisibleIndex = 0;
-            this.dis_gcMaterialA.Width = 181;
+            this.aca_gcColMaterialA.Caption = "Material Armado";
+            this.aca_gcColMaterialA.FieldName = "Material";
+            this.aca_gcColMaterialA.Name = "aca_gcColMaterialA";
+            this.aca_gcColMaterialA.OptionsColumn.AllowEdit = false;
+            this.aca_gcColMaterialA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColMaterialA.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColMaterialA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColMaterialA.OptionsColumn.AllowMove = false;
+            this.aca_gcColMaterialA.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColMaterialA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColMaterialA.Visible = true;
+            this.aca_gcColMaterialA.VisibleIndex = 0;
+            this.aca_gcColMaterialA.Width = 181;
             // 
-            // dis_gcAreaA
+            // aca_gcColAreaA
             // 
-            this.dis_gcAreaA.Caption = "Area";
-            this.dis_gcAreaA.DisplayFormat.FormatString = "N2";
-            this.dis_gcAreaA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcAreaA.FieldName = "Area";
-            this.dis_gcAreaA.Name = "dis_gcAreaA";
-            this.dis_gcAreaA.OptionsColumn.AllowEdit = false;
-            this.dis_gcAreaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAreaA.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcAreaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAreaA.OptionsColumn.AllowMove = false;
-            this.dis_gcAreaA.OptionsColumn.AllowShowHide = false;
-            this.dis_gcAreaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAreaA.Visible = true;
-            this.dis_gcAreaA.VisibleIndex = 1;
-            this.dis_gcAreaA.Width = 69;
+            this.aca_gcColAreaA.Caption = "Area";
+            this.aca_gcColAreaA.DisplayFormat.FormatString = "N2";
+            this.aca_gcColAreaA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.aca_gcColAreaA.FieldName = "Area";
+            this.aca_gcColAreaA.Name = "aca_gcColAreaA";
+            this.aca_gcColAreaA.OptionsColumn.AllowEdit = false;
+            this.aca_gcColAreaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAreaA.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColAreaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAreaA.OptionsColumn.AllowMove = false;
+            this.aca_gcColAreaA.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColAreaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAreaA.Visible = true;
+            this.aca_gcColAreaA.VisibleIndex = 1;
+            this.aca_gcColAreaA.Width = 69;
             // 
-            // dis_gcAcabadoA
+            // aca_gcColAcabadoA
             // 
-            this.dis_gcAcabadoA.Caption = "Acabado";
-            this.dis_gcAcabadoA.FieldName = "Acabado";
-            this.dis_gcAcabadoA.Name = "dis_gcAcabadoA";
-            this.dis_gcAcabadoA.OptionsColumn.AllowEdit = false;
-            this.dis_gcAcabadoA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAcabadoA.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcAcabadoA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAcabadoA.OptionsColumn.AllowMove = false;
-            this.dis_gcAcabadoA.OptionsColumn.AllowShowHide = false;
-            this.dis_gcAcabadoA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAcabadoA.Visible = true;
-            this.dis_gcAcabadoA.VisibleIndex = 2;
-            this.dis_gcAcabadoA.Width = 131;
+            this.aca_gcColAcabadoA.Caption = "Acabado";
+            this.aca_gcColAcabadoA.FieldName = "Acabado";
+            this.aca_gcColAcabadoA.Name = "aca_gcColAcabadoA";
+            this.aca_gcColAcabadoA.OptionsColumn.AllowEdit = false;
+            this.aca_gcColAcabadoA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAcabadoA.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColAcabadoA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAcabadoA.OptionsColumn.AllowMove = false;
+            this.aca_gcColAcabadoA.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColAcabadoA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAcabadoA.Visible = true;
+            this.aca_gcColAcabadoA.VisibleIndex = 2;
+            this.aca_gcColAcabadoA.Width = 131;
             // 
-            // dis_gcColAcabadoMAT
+            // aca_gcColMatAcabado
             // 
-            this.dis_gcColAcabadoMAT.Caption = "Material Acabado";
-            this.dis_gcColAcabadoMAT.FieldName = "AcabadoMaterial";
-            this.dis_gcColAcabadoMAT.Name = "dis_gcColAcabadoMAT";
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowEdit = false;
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowMove = false;
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColAcabadoMAT.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColAcabadoMAT.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColAcabadoMAT.Visible = true;
-            this.dis_gcColAcabadoMAT.VisibleIndex = 3;
-            this.dis_gcColAcabadoMAT.Width = 205;
+            this.aca_gcColMatAcabado.Caption = "Material Acabado";
+            this.aca_gcColMatAcabado.FieldName = "AcabadoMaterial";
+            this.aca_gcColMatAcabado.Name = "aca_gcColMatAcabado";
+            this.aca_gcColMatAcabado.OptionsColumn.AllowEdit = false;
+            this.aca_gcColMatAcabado.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColMatAcabado.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColMatAcabado.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColMatAcabado.OptionsColumn.AllowMove = false;
+            this.aca_gcColMatAcabado.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColMatAcabado.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColMatAcabado.OptionsFilter.AllowAutoFilter = false;
+            this.aca_gcColMatAcabado.Visible = true;
+            this.aca_gcColMatAcabado.VisibleIndex = 3;
+            this.aca_gcColMatAcabado.Width = 205;
             // 
-            // dis_gcCostoA
+            // aca_gcColCostoA
             // 
-            this.dis_gcCostoA.Caption = "Costo";
-            this.dis_gcCostoA.DisplayFormat.FormatString = "N2";
-            this.dis_gcCostoA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcCostoA.FieldName = "Costo";
-            this.dis_gcCostoA.Name = "dis_gcCostoA";
-            this.dis_gcCostoA.OptionsColumn.AllowEdit = false;
-            this.dis_gcCostoA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcCostoA.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcCostoA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcCostoA.OptionsColumn.AllowMove = false;
-            this.dis_gcCostoA.OptionsColumn.AllowShowHide = false;
-            this.dis_gcCostoA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcCostoA.Visible = true;
-            this.dis_gcCostoA.VisibleIndex = 5;
-            this.dis_gcCostoA.Width = 64;
+            this.aca_gcColCostoA.Caption = "Costo";
+            this.aca_gcColCostoA.DisplayFormat.FormatString = "N2";
+            this.aca_gcColCostoA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.aca_gcColCostoA.FieldName = "Costo";
+            this.aca_gcColCostoA.Name = "aca_gcColCostoA";
+            this.aca_gcColCostoA.OptionsColumn.AllowEdit = false;
+            this.aca_gcColCostoA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColCostoA.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColCostoA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColCostoA.OptionsColumn.AllowMove = false;
+            this.aca_gcColCostoA.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColCostoA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColCostoA.Visible = true;
+            this.aca_gcColCostoA.VisibleIndex = 5;
+            this.aca_gcColCostoA.Width = 64;
             // 
-            // dis_gcAplicaA
+            // aca_gcColAplicaA
             // 
-            this.dis_gcAplicaA.Caption = "Aplica";
-            this.dis_gcAplicaA.FieldName = "areaAplica";
-            this.dis_gcAplicaA.Name = "dis_gcAplicaA";
-            this.dis_gcAplicaA.OptionsColumn.AllowEdit = false;
-            this.dis_gcAplicaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAplicaA.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcAplicaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAplicaA.OptionsColumn.AllowMove = false;
-            this.dis_gcAplicaA.OptionsColumn.AllowShowHide = false;
-            this.dis_gcAplicaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcAplicaA.Visible = true;
-            this.dis_gcAplicaA.VisibleIndex = 4;
-            this.dis_gcAplicaA.Width = 60;
+            this.aca_gcColAplicaA.Caption = "Aplica";
+            this.aca_gcColAplicaA.FieldName = "areaAplica";
+            this.aca_gcColAplicaA.Name = "aca_gcColAplicaA";
+            this.aca_gcColAplicaA.OptionsColumn.AllowEdit = false;
+            this.aca_gcColAplicaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAplicaA.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColAplicaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAplicaA.OptionsColumn.AllowMove = false;
+            this.aca_gcColAplicaA.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColAplicaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColAplicaA.Visible = true;
+            this.aca_gcColAplicaA.VisibleIndex = 4;
+            this.aca_gcColAplicaA.Width = 60;
             // 
-            // dis_gcTotalLineaA
+            // aca_gcColTotalLineaA
             // 
-            this.dis_gcTotalLineaA.Caption = "Total";
-            this.dis_gcTotalLineaA.DisplayFormat.FormatString = "N2";
-            this.dis_gcTotalLineaA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcTotalLineaA.FieldName = "TotalLinea";
-            this.dis_gcTotalLineaA.Name = "dis_gcTotalLineaA";
-            this.dis_gcTotalLineaA.OptionsColumn.AllowEdit = false;
-            this.dis_gcTotalLineaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaA.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcTotalLineaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaA.OptionsColumn.AllowMove = false;
-            this.dis_gcTotalLineaA.OptionsColumn.AllowShowHide = false;
-            this.dis_gcTotalLineaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcTotalLineaA.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.aca_gcColTotalLineaA.Caption = "Total";
+            this.aca_gcColTotalLineaA.DisplayFormat.FormatString = "N2";
+            this.aca_gcColTotalLineaA.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.aca_gcColTotalLineaA.FieldName = "TotalLinea";
+            this.aca_gcColTotalLineaA.Name = "aca_gcColTotalLineaA";
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowEdit = false;
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowIncrementalSearch = false;
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowMove = false;
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowShowHide = false;
+            this.aca_gcColTotalLineaA.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.aca_gcColTotalLineaA.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcTotalLineaA.Visible = true;
-            this.dis_gcTotalLineaA.VisibleIndex = 6;
-            this.dis_gcTotalLineaA.Width = 106;
+            this.aca_gcColTotalLineaA.Visible = true;
+            this.aca_gcColTotalLineaA.VisibleIndex = 6;
+            this.aca_gcColTotalLineaA.Width = 106;
             // 
             // dis_xtpAccesorios
             // 
-            this.dis_xtpAccesorios.Controls.Add(this.dis_gcAccesorios);
+            this.dis_xtpAccesorios.Controls.Add(this.acce_gcAccesorios);
             this.dis_xtpAccesorios.Name = "dis_xtpAccesorios";
             this.dis_xtpAccesorios.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpAccesorios.Text = "Accesorios";
             // 
-            // dis_gcAccesorios
+            // acce_gcAccesorios
             // 
-            this.dis_gcAccesorios.ContextMenuStrip = this.cmDisenoAccesorios;
-            this.dis_gcAccesorios.Location = new System.Drawing.Point(7, 4);
-            this.dis_gcAccesorios.MainView = this.dis_gvAccesorios;
-            this.dis_gcAccesorios.Name = "dis_gcAccesorios";
-            this.dis_gcAccesorios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.acce_gcAccesorios.ContextMenuStrip = this.cmDisenoAccesorios;
+            this.acce_gcAccesorios.Location = new System.Drawing.Point(7, 4);
+            this.acce_gcAccesorios.MainView = this.acce_gvAccesorios;
+            this.acce_gcAccesorios.Name = "acce_gcAccesorios";
+            this.acce_gcAccesorios.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.dis_riseCantAccesorio});
-            this.dis_gcAccesorios.Size = new System.Drawing.Size(834, 235);
-            this.dis_gcAccesorios.TabIndex = 0;
-            this.dis_gcAccesorios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvAccesorios});
+            this.acce_gcAccesorios.Size = new System.Drawing.Size(834, 235);
+            this.acce_gcAccesorios.TabIndex = 0;
+            this.acce_gcAccesorios.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.acce_gvAccesorios});
             // 
             // cmDisenoAccesorios
             // 
@@ -3156,76 +2899,76 @@
             this.mnuEliminaAccesorio.Text = "Eliminar Registro";
             this.mnuEliminaAccesorio.Click += new System.EventHandler(this.mnuEliminaAccesorio_Click);
             // 
-            // dis_gvAccesorios
+            // acce_gvAccesorios
             // 
-            this.dis_gvAccesorios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColMaterialS,
-            this.dis_gcColTirajeS,
-            this.dis_gcColCantidadS,
-            this.dis_gcColCostoS,
-            this.dis_gcColTotalLineaS});
-            this.dis_gvAccesorios.GridControl = this.dis_gcAccesorios;
-            this.dis_gvAccesorios.Name = "dis_gvAccesorios";
-            this.dis_gvAccesorios.OptionsView.ShowFooter = true;
-            this.dis_gvAccesorios.OptionsView.ShowGroupPanel = false;
+            this.acce_gvAccesorios.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.acce_gcColMaterialS,
+            this.acce_gcColTirajeS,
+            this.acce_gcColCantidadS,
+            this.acce_gcColCostoS,
+            this.acce_gcColTotalLineaS});
+            this.acce_gvAccesorios.GridControl = this.acce_gcAccesorios;
+            this.acce_gvAccesorios.Name = "acce_gvAccesorios";
+            this.acce_gvAccesorios.OptionsView.ShowFooter = true;
+            this.acce_gvAccesorios.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gcColMaterialS
+            // acce_gcColMaterialS
             // 
-            this.dis_gcColMaterialS.Caption = "Descripción";
-            this.dis_gcColMaterialS.FieldName = "Material";
-            this.dis_gcColMaterialS.Name = "dis_gcColMaterialS";
-            this.dis_gcColMaterialS.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterialS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialS.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaterialS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialS.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterialS.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColMaterialS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialS.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterialS.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMaterialS.ToolTip = "Descripción del accesorio";
-            this.dis_gcColMaterialS.Visible = true;
-            this.dis_gcColMaterialS.VisibleIndex = 0;
-            this.dis_gcColMaterialS.Width = 436;
+            this.acce_gcColMaterialS.Caption = "Descripción";
+            this.acce_gcColMaterialS.FieldName = "Material";
+            this.acce_gcColMaterialS.Name = "acce_gcColMaterialS";
+            this.acce_gcColMaterialS.OptionsColumn.AllowEdit = false;
+            this.acce_gcColMaterialS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColMaterialS.OptionsColumn.AllowIncrementalSearch = false;
+            this.acce_gcColMaterialS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColMaterialS.OptionsColumn.AllowMove = false;
+            this.acce_gcColMaterialS.OptionsColumn.AllowShowHide = false;
+            this.acce_gcColMaterialS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColMaterialS.OptionsColumn.ReadOnly = true;
+            this.acce_gcColMaterialS.OptionsFilter.AllowAutoFilter = false;
+            this.acce_gcColMaterialS.ToolTip = "Descripción del accesorio";
+            this.acce_gcColMaterialS.Visible = true;
+            this.acce_gcColMaterialS.VisibleIndex = 0;
+            this.acce_gcColMaterialS.Width = 436;
             // 
-            // dis_gcColTirajeS
+            // acce_gcColTirajeS
             // 
-            this.dis_gcColTirajeS.Caption = "Tiraje";
-            this.dis_gcColTirajeS.DisplayFormat.FormatString = "N0";
-            this.dis_gcColTirajeS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTirajeS.FieldName = "Tiraje";
-            this.dis_gcColTirajeS.Name = "dis_gcColTirajeS";
-            this.dis_gcColTirajeS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTirajeS.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTirajeS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTirajeS.OptionsColumn.AllowMove = false;
-            this.dis_gcColTirajeS.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTirajeS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTirajeS.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTirajeS.ToolTip = "Cantidad de items que se va a producir";
-            this.dis_gcColTirajeS.Visible = true;
-            this.dis_gcColTirajeS.VisibleIndex = 1;
-            this.dis_gcColTirajeS.Width = 138;
+            this.acce_gcColTirajeS.Caption = "Tiraje";
+            this.acce_gcColTirajeS.DisplayFormat.FormatString = "N0";
+            this.acce_gcColTirajeS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.acce_gcColTirajeS.FieldName = "Tiraje";
+            this.acce_gcColTirajeS.Name = "acce_gcColTirajeS";
+            this.acce_gcColTirajeS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColTirajeS.OptionsColumn.AllowIncrementalSearch = false;
+            this.acce_gcColTirajeS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColTirajeS.OptionsColumn.AllowMove = false;
+            this.acce_gcColTirajeS.OptionsColumn.AllowShowHide = false;
+            this.acce_gcColTirajeS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColTirajeS.OptionsFilter.AllowAutoFilter = false;
+            this.acce_gcColTirajeS.ToolTip = "Cantidad de items que se va a producir";
+            this.acce_gcColTirajeS.Visible = true;
+            this.acce_gcColTirajeS.VisibleIndex = 1;
+            this.acce_gcColTirajeS.Width = 138;
             // 
-            // dis_gcColCantidadS
+            // acce_gcColCantidadS
             // 
-            this.dis_gcColCantidadS.Caption = "Cantidad";
-            this.dis_gcColCantidadS.ColumnEdit = this.dis_riseCantAccesorio;
-            this.dis_gcColCantidadS.DisplayFormat.FormatString = "N2";
-            this.dis_gcColCantidadS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCantidadS.FieldName = "Cantidad";
-            this.dis_gcColCantidadS.Name = "dis_gcColCantidadS";
-            this.dis_gcColCantidadS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCantidadS.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCantidadS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCantidadS.OptionsColumn.AllowMove = false;
-            this.dis_gcColCantidadS.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColCantidadS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCantidadS.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCantidadS.ToolTip = "Cantidad necesaria";
-            this.dis_gcColCantidadS.Visible = true;
-            this.dis_gcColCantidadS.VisibleIndex = 2;
-            this.dis_gcColCantidadS.Width = 158;
+            this.acce_gcColCantidadS.Caption = "Cantidad";
+            this.acce_gcColCantidadS.ColumnEdit = this.dis_riseCantAccesorio;
+            this.acce_gcColCantidadS.DisplayFormat.FormatString = "N2";
+            this.acce_gcColCantidadS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.acce_gcColCantidadS.FieldName = "Cantidad";
+            this.acce_gcColCantidadS.Name = "acce_gcColCantidadS";
+            this.acce_gcColCantidadS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColCantidadS.OptionsColumn.AllowIncrementalSearch = false;
+            this.acce_gcColCantidadS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColCantidadS.OptionsColumn.AllowMove = false;
+            this.acce_gcColCantidadS.OptionsColumn.AllowShowHide = false;
+            this.acce_gcColCantidadS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColCantidadS.OptionsFilter.AllowAutoFilter = false;
+            this.acce_gcColCantidadS.ToolTip = "Cantidad necesaria";
+            this.acce_gcColCantidadS.Visible = true;
+            this.acce_gcColCantidadS.VisibleIndex = 2;
+            this.acce_gcColCantidadS.Width = 158;
             // 
             // dis_riseCantAccesorio
             // 
@@ -3249,67 +2992,67 @@
             131072});
             this.dis_riseCantAccesorio.Name = "dis_riseCantAccesorio";
             // 
-            // dis_gcColCostoS
+            // acce_gcColCostoS
             // 
-            this.dis_gcColCostoS.Caption = "Costo";
-            this.dis_gcColCostoS.DisplayFormat.FormatString = "e3";
-            this.dis_gcColCostoS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCostoS.FieldName = "Costo";
-            this.dis_gcColCostoS.Name = "dis_gcColCostoS";
-            this.dis_gcColCostoS.OptionsColumn.AllowEdit = false;
-            this.dis_gcColCostoS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoS.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCostoS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoS.OptionsColumn.AllowMove = false;
-            this.dis_gcColCostoS.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColCostoS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoS.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCostoS.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCostoS.ToolTip = "Costo del accesorio";
-            this.dis_gcColCostoS.Visible = true;
-            this.dis_gcColCostoS.VisibleIndex = 3;
-            this.dis_gcColCostoS.Width = 166;
+            this.acce_gcColCostoS.Caption = "Costo";
+            this.acce_gcColCostoS.DisplayFormat.FormatString = "e3";
+            this.acce_gcColCostoS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.acce_gcColCostoS.FieldName = "Costo";
+            this.acce_gcColCostoS.Name = "acce_gcColCostoS";
+            this.acce_gcColCostoS.OptionsColumn.AllowEdit = false;
+            this.acce_gcColCostoS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColCostoS.OptionsColumn.AllowIncrementalSearch = false;
+            this.acce_gcColCostoS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColCostoS.OptionsColumn.AllowMove = false;
+            this.acce_gcColCostoS.OptionsColumn.AllowShowHide = false;
+            this.acce_gcColCostoS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColCostoS.OptionsColumn.ReadOnly = true;
+            this.acce_gcColCostoS.OptionsFilter.AllowAutoFilter = false;
+            this.acce_gcColCostoS.ToolTip = "Costo del accesorio";
+            this.acce_gcColCostoS.Visible = true;
+            this.acce_gcColCostoS.VisibleIndex = 3;
+            this.acce_gcColCostoS.Width = 166;
             // 
-            // dis_gcColTotalLineaS
+            // acce_gcColTotalLineaS
             // 
-            this.dis_gcColTotalLineaS.Caption = "Total";
-            this.dis_gcColTotalLineaS.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTotalLineaS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTotalLineaS.FieldName = "TotalLinea";
-            this.dis_gcColTotalLineaS.Name = "dis_gcColTotalLineaS";
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowMove = false;
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColTotalLineaS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLineaS.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTotalLineaS.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTotalLineaS.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.acce_gcColTotalLineaS.Caption = "Total";
+            this.acce_gcColTotalLineaS.DisplayFormat.FormatString = "N2";
+            this.acce_gcColTotalLineaS.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.acce_gcColTotalLineaS.FieldName = "TotalLinea";
+            this.acce_gcColTotalLineaS.Name = "acce_gcColTotalLineaS";
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowEdit = false;
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowIncrementalSearch = false;
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowMove = false;
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowShowHide = false;
+            this.acce_gcColTotalLineaS.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.acce_gcColTotalLineaS.OptionsColumn.ReadOnly = true;
+            this.acce_gcColTotalLineaS.OptionsFilter.AllowAutoFilter = false;
+            this.acce_gcColTotalLineaS.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcColTotalLineaS.ToolTip = "Tiraje*Cantidad*Costo";
-            this.dis_gcColTotalLineaS.Visible = true;
-            this.dis_gcColTotalLineaS.VisibleIndex = 4;
-            this.dis_gcColTotalLineaS.Width = 180;
+            this.acce_gcColTotalLineaS.ToolTip = "Tiraje*Cantidad*Costo";
+            this.acce_gcColTotalLineaS.Visible = true;
+            this.acce_gcColTotalLineaS.VisibleIndex = 4;
+            this.acce_gcColTotalLineaS.Width = 180;
             // 
             // dis_xtpProcesos
             // 
-            this.dis_xtpProcesos.Controls.Add(this.gc_Procesos);
+            this.dis_xtpProcesos.Controls.Add(this.proc_gcProcesos);
             this.dis_xtpProcesos.Name = "dis_xtpProcesos";
             this.dis_xtpProcesos.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpProcesos.Text = "Procesos";
             // 
-            // gc_Procesos
+            // proc_gcProcesos
             // 
-            this.gc_Procesos.ContextMenuStrip = this.cmDisenoProcesos;
-            this.gc_Procesos.Location = new System.Drawing.Point(3, 3);
-            this.gc_Procesos.MainView = this.gvProcesos;
-            this.gc_Procesos.Name = "gc_Procesos";
-            this.gc_Procesos.Size = new System.Drawing.Size(838, 239);
-            this.gc_Procesos.TabIndex = 0;
-            this.gc_Procesos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvProcesos});
+            this.proc_gcProcesos.ContextMenuStrip = this.cmDisenoProcesos;
+            this.proc_gcProcesos.Location = new System.Drawing.Point(3, 3);
+            this.proc_gcProcesos.MainView = this.proc_gvProcesos;
+            this.proc_gcProcesos.Name = "proc_gcProcesos";
+            this.proc_gcProcesos.Size = new System.Drawing.Size(838, 239);
+            this.proc_gcProcesos.TabIndex = 0;
+            this.proc_gcProcesos.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.proc_gvProcesos});
             // 
             // cmDisenoProcesos
             // 
@@ -3335,16 +3078,16 @@
             this.mnuQuitarProceso.Text = "Eliminar Proceso";
             this.mnuQuitarProceso.Click += new System.EventHandler(this.mnuQuitarProceso_Click);
             // 
-            // gvProcesos
+            // proc_gvProcesos
             // 
-            this.gvProcesos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.proc_gvProcesos.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.proc_gcColMaquina,
             this.proc_gcColCosto,
             this.proc_gcColMinutos,
             this.proc_gcColTotal});
-            this.gvProcesos.GridControl = this.gc_Procesos;
-            this.gvProcesos.Name = "gvProcesos";
-            this.gvProcesos.OptionsView.ShowGroupPanel = false;
+            this.proc_gvProcesos.GridControl = this.proc_gcProcesos;
+            this.proc_gvProcesos.Name = "proc_gvProcesos";
+            this.proc_gvProcesos.OptionsView.ShowGroupPanel = false;
             // 
             // proc_gcColMaquina
             // 
@@ -3417,52 +3160,52 @@
             // 
             // dis_xtpProcesosIMP
             // 
-            this.dis_xtpProcesosIMP.Controls.Add(this.dis_gcProcesoIMP);
+            this.dis_xtpProcesosIMP.Controls.Add(this.procimp_gcProcesoIMP);
             this.dis_xtpProcesosIMP.Name = "dis_xtpProcesosIMP";
             this.dis_xtpProcesosIMP.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpProcesosIMP.Text = "Procesos Impresión";
             // 
-            // dis_gcProcesoIMP
+            // procimp_gcProcesoIMP
             // 
-            this.dis_gcProcesoIMP.Location = new System.Drawing.Point(3, 3);
-            this.dis_gcProcesoIMP.MainView = this.dis_bgvProcesoIMP;
-            this.dis_gcProcesoIMP.Name = "dis_gcProcesoIMP";
-            this.dis_gcProcesoIMP.Size = new System.Drawing.Size(838, 236);
-            this.dis_gcProcesoIMP.TabIndex = 0;
-            this.dis_gcProcesoIMP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_bgvProcesoIMP});
+            this.procimp_gcProcesoIMP.Location = new System.Drawing.Point(3, 3);
+            this.procimp_gcProcesoIMP.MainView = this.procimp_bgvProcesoIMP;
+            this.procimp_gcProcesoIMP.Name = "procimp_gcProcesoIMP";
+            this.procimp_gcProcesoIMP.Size = new System.Drawing.Size(838, 236);
+            this.procimp_gcProcesoIMP.TabIndex = 0;
+            this.procimp_gcProcesoIMP.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.procimp_bgvProcesoIMP});
             // 
-            // dis_bgvProcesoIMP
+            // procimp_bgvProcesoIMP
             // 
-            this.dis_bgvProcesoIMP.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
+            this.procimp_bgvProcesoIMP.Bands.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.GridBand[] {
             this.dis_bandaMaterial,
             this.dis_bandaImpresion,
             this.dis_bandaPuestaPunto,
             this.dis_bandaTotal});
-            this.dis_bgvProcesoIMP.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
-            this.dis_gcColTallaI,
-            this.dis_gcColMaterialI,
-            this.dis_gcColPlacaI,
-            this.dis_gcColNumColoresI,
-            this.dis_gcColCostoXminuto,
-            this.dis_gcColPliegosXminuto,
-            this.dis_gcColNumPliegos,
-            this.dis_gcColMinImpresion,
-            this.dis_gcColCostoXminutoPP,
-            this.dis_gcColMinutosPP,
-            this.dis_gcColTotalLineaI});
-            this.dis_bgvProcesoIMP.GridControl = this.dis_gcProcesoIMP;
-            this.dis_bgvProcesoIMP.Name = "dis_bgvProcesoIMP";
-            this.dis_bgvProcesoIMP.OptionsView.ColumnAutoWidth = false;
-            this.dis_bgvProcesoIMP.OptionsView.ShowFooter = true;
-            this.dis_bgvProcesoIMP.OptionsView.ShowGroupPanel = false;
+            this.procimp_bgvProcesoIMP.Columns.AddRange(new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn[] {
+            this.procimp_gcColTallaI,
+            this.procimp_gcColMaterialI,
+            this.procimp_gcColPlacaI,
+            this.procimp_gcColNumColoresI,
+            this.procimp_gcColCostoXminuto,
+            this.procimp_gcColPliegosXminuto,
+            this.procimp_gcColNumPliegos,
+            this.procimp_gcColMinImpresion,
+            this.procimp_gcColCostoXminutoPP,
+            this.procimp_gcColMinutosPP,
+            this.procimp_gcColTotalLineaI});
+            this.procimp_bgvProcesoIMP.GridControl = this.procimp_gcProcesoIMP;
+            this.procimp_bgvProcesoIMP.Name = "procimp_bgvProcesoIMP";
+            this.procimp_bgvProcesoIMP.OptionsView.ColumnAutoWidth = false;
+            this.procimp_bgvProcesoIMP.OptionsView.ShowFooter = true;
+            this.procimp_bgvProcesoIMP.OptionsView.ShowGroupPanel = false;
             // 
             // dis_bandaMaterial
             // 
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColTallaI);
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColMaterialI);
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColNumColoresI);
-            this.dis_bandaMaterial.Columns.Add(this.dis_gcColPlacaI);
+            this.dis_bandaMaterial.Columns.Add(this.procimp_gcColTallaI);
+            this.dis_bandaMaterial.Columns.Add(this.procimp_gcColMaterialI);
+            this.dis_bandaMaterial.Columns.Add(this.procimp_gcColNumColoresI);
+            this.dis_bandaMaterial.Columns.Add(this.procimp_gcColPlacaI);
             this.dis_bandaMaterial.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.dis_bandaMaterial.Name = "dis_bandaMaterial";
             this.dis_bandaMaterial.OptionsBand.AllowHotTrack = false;
@@ -3471,207 +3214,207 @@
             this.dis_bandaMaterial.VisibleIndex = 0;
             this.dis_bandaMaterial.Width = 380;
             // 
-            // dis_gcColTallaI
+            // procimp_gcColTallaI
             // 
-            this.dis_gcColTallaI.Caption = "Grupo";
-            this.dis_gcColTallaI.FieldName = "Talla";
-            this.dis_gcColTallaI.Name = "dis_gcColTallaI";
-            this.dis_gcColTallaI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTallaI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTallaI.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTallaI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTallaI.OptionsColumn.AllowMove = false;
-            this.dis_gcColTallaI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTallaI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTallaI.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTallaI.Visible = true;
-            this.dis_gcColTallaI.Width = 100;
+            this.procimp_gcColTallaI.Caption = "Grupo";
+            this.procimp_gcColTallaI.FieldName = "Talla";
+            this.procimp_gcColTallaI.Name = "procimp_gcColTallaI";
+            this.procimp_gcColTallaI.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColTallaI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColTallaI.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColTallaI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColTallaI.OptionsColumn.AllowMove = false;
+            this.procimp_gcColTallaI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColTallaI.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColTallaI.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColTallaI.Visible = true;
+            this.procimp_gcColTallaI.Width = 100;
             // 
-            // dis_gcColMaterialI
+            // procimp_gcColMaterialI
             // 
-            this.dis_gcColMaterialI.Caption = "Material";
-            this.dis_gcColMaterialI.FieldName = "Material";
-            this.dis_gcColMaterialI.Name = "dis_gcColMaterialI";
-            this.dis_gcColMaterialI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterialI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialI.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMaterialI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialI.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterialI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterialI.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMaterialI.Visible = true;
-            this.dis_gcColMaterialI.Width = 150;
+            this.procimp_gcColMaterialI.Caption = "Material";
+            this.procimp_gcColMaterialI.FieldName = "Material";
+            this.procimp_gcColMaterialI.Name = "procimp_gcColMaterialI";
+            this.procimp_gcColMaterialI.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColMaterialI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMaterialI.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColMaterialI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMaterialI.OptionsColumn.AllowMove = false;
+            this.procimp_gcColMaterialI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMaterialI.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColMaterialI.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColMaterialI.Visible = true;
+            this.procimp_gcColMaterialI.Width = 150;
             // 
-            // dis_gcColNumColoresI
+            // procimp_gcColNumColoresI
             // 
-            this.dis_gcColNumColoresI.Caption = "Colores";
-            this.dis_gcColNumColoresI.DisplayFormat.FormatString = "N0";
-            this.dis_gcColNumColoresI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColNumColoresI.FieldName = "NumColores";
-            this.dis_gcColNumColoresI.Name = "dis_gcColNumColoresI";
-            this.dis_gcColNumColoresI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColNumColoresI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresI.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumColoresI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresI.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumColoresI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumColoresI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColNumColoresI.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColNumColoresI.Visible = true;
-            this.dis_gcColNumColoresI.Width = 70;
+            this.procimp_gcColNumColoresI.Caption = "Colores";
+            this.procimp_gcColNumColoresI.DisplayFormat.FormatString = "N0";
+            this.procimp_gcColNumColoresI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColNumColoresI.FieldName = "NumColores";
+            this.procimp_gcColNumColoresI.Name = "procimp_gcColNumColoresI";
+            this.procimp_gcColNumColoresI.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColNumColoresI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColNumColoresI.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColNumColoresI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColNumColoresI.OptionsColumn.AllowMove = false;
+            this.procimp_gcColNumColoresI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColNumColoresI.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColNumColoresI.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColNumColoresI.Visible = true;
+            this.procimp_gcColNumColoresI.Width = 70;
             // 
-            // dis_gcColPlacaI
+            // procimp_gcColPlacaI
             // 
-            this.dis_gcColPlacaI.Caption = "Placa";
-            this.dis_gcColPlacaI.FieldName = "Placa";
-            this.dis_gcColPlacaI.Name = "dis_gcColPlacaI";
-            this.dis_gcColPlacaI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPlacaI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaI.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPlacaI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaI.OptionsColumn.AllowMove = false;
-            this.dis_gcColPlacaI.OptionsColumn.AllowShowHide = false;
-            this.dis_gcColPlacaI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPlacaI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPlacaI.Visible = true;
-            this.dis_gcColPlacaI.Width = 60;
+            this.procimp_gcColPlacaI.Caption = "Placa";
+            this.procimp_gcColPlacaI.FieldName = "Placa";
+            this.procimp_gcColPlacaI.Name = "procimp_gcColPlacaI";
+            this.procimp_gcColPlacaI.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColPlacaI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColPlacaI.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColPlacaI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColPlacaI.OptionsColumn.AllowMove = false;
+            this.procimp_gcColPlacaI.OptionsColumn.AllowShowHide = false;
+            this.procimp_gcColPlacaI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColPlacaI.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColPlacaI.Visible = true;
+            this.procimp_gcColPlacaI.Width = 60;
             // 
             // dis_bandaImpresion
             // 
             this.dis_bandaImpresion.Caption = "Proceso de Impresión";
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColCostoXminuto);
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColMinImpresion);
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColPliegosXminuto);
-            this.dis_bandaImpresion.Columns.Add(this.dis_gcColNumPliegos);
+            this.dis_bandaImpresion.Columns.Add(this.procimp_gcColCostoXminuto);
+            this.dis_bandaImpresion.Columns.Add(this.procimp_gcColMinImpresion);
+            this.dis_bandaImpresion.Columns.Add(this.procimp_gcColPliegosXminuto);
+            this.dis_bandaImpresion.Columns.Add(this.procimp_gcColNumPliegos);
             this.dis_bandaImpresion.Name = "dis_bandaImpresion";
             this.dis_bandaImpresion.OptionsBand.AllowMove = false;
             this.dis_bandaImpresion.OptionsBand.AllowPress = false;
             this.dis_bandaImpresion.VisibleIndex = 1;
             this.dis_bandaImpresion.Width = 270;
             // 
-            // dis_gcColCostoXminuto
+            // procimp_gcColCostoXminuto
             // 
-            this.dis_gcColCostoXminuto.Caption = "Costo Min";
-            this.dis_gcColCostoXminuto.DisplayFormat.FormatString = "e3";
-            this.dis_gcColCostoXminuto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCostoXminuto.FieldName = "CostoMinIMP";
-            this.dis_gcColCostoXminuto.Name = "dis_gcColCostoXminuto";
-            this.dis_gcColCostoXminuto.OptionsColumn.AllowEdit = false;
-            this.dis_gcColCostoXminuto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoXminuto.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCostoXminuto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoXminuto.OptionsColumn.AllowMove = false;
-            this.dis_gcColCostoXminuto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoXminuto.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCostoXminuto.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCostoXminuto.Visible = true;
-            this.dis_gcColCostoXminuto.Width = 70;
+            this.procimp_gcColCostoXminuto.Caption = "Costo Min";
+            this.procimp_gcColCostoXminuto.DisplayFormat.FormatString = "e3";
+            this.procimp_gcColCostoXminuto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColCostoXminuto.FieldName = "CostoMinIMP";
+            this.procimp_gcColCostoXminuto.Name = "procimp_gcColCostoXminuto";
+            this.procimp_gcColCostoXminuto.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColCostoXminuto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColCostoXminuto.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColCostoXminuto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColCostoXminuto.OptionsColumn.AllowMove = false;
+            this.procimp_gcColCostoXminuto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColCostoXminuto.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColCostoXminuto.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColCostoXminuto.Visible = true;
+            this.procimp_gcColCostoXminuto.Width = 70;
             // 
-            // dis_gcColMinImpresion
+            // procimp_gcColMinImpresion
             // 
-            this.dis_gcColMinImpresion.Caption = "MIN";
-            this.dis_gcColMinImpresion.DisplayFormat.FormatString = "N0";
-            this.dis_gcColMinImpresion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColMinImpresion.FieldName = "NumMinIMP";
-            this.dis_gcColMinImpresion.Name = "dis_gcColMinImpresion";
-            this.dis_gcColMinImpresion.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMinImpresion.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMinImpresion.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMinImpresion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMinImpresion.OptionsColumn.AllowMove = false;
-            this.dis_gcColMinImpresion.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMinImpresion.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMinImpresion.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMinImpresion.Visible = true;
-            this.dis_gcColMinImpresion.Width = 60;
+            this.procimp_gcColMinImpresion.Caption = "MIN";
+            this.procimp_gcColMinImpresion.DisplayFormat.FormatString = "N0";
+            this.procimp_gcColMinImpresion.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColMinImpresion.FieldName = "NumMinIMP";
+            this.procimp_gcColMinImpresion.Name = "procimp_gcColMinImpresion";
+            this.procimp_gcColMinImpresion.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColMinImpresion.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMinImpresion.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColMinImpresion.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMinImpresion.OptionsColumn.AllowMove = false;
+            this.procimp_gcColMinImpresion.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMinImpresion.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColMinImpresion.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColMinImpresion.Visible = true;
+            this.procimp_gcColMinImpresion.Width = 60;
             // 
-            // dis_gcColPliegosXminuto
+            // procimp_gcColPliegosXminuto
             // 
-            this.dis_gcColPliegosXminuto.Caption = "Pliego X min";
-            this.dis_gcColPliegosXminuto.DisplayFormat.FormatString = "N0";
-            this.dis_gcColPliegosXminuto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColPliegosXminuto.FieldName = "PliegosXmin";
-            this.dis_gcColPliegosXminuto.Name = "dis_gcColPliegosXminuto";
-            this.dis_gcColPliegosXminuto.OptionsColumn.AllowEdit = false;
-            this.dis_gcColPliegosXminuto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegosXminuto.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColPliegosXminuto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegosXminuto.OptionsColumn.AllowMove = false;
-            this.dis_gcColPliegosXminuto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColPliegosXminuto.OptionsColumn.ReadOnly = true;
-            this.dis_gcColPliegosXminuto.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColPliegosXminuto.Visible = true;
-            this.dis_gcColPliegosXminuto.Width = 70;
+            this.procimp_gcColPliegosXminuto.Caption = "Pliego X min";
+            this.procimp_gcColPliegosXminuto.DisplayFormat.FormatString = "N0";
+            this.procimp_gcColPliegosXminuto.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColPliegosXminuto.FieldName = "PliegosXmin";
+            this.procimp_gcColPliegosXminuto.Name = "procimp_gcColPliegosXminuto";
+            this.procimp_gcColPliegosXminuto.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColPliegosXminuto.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColPliegosXminuto.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColPliegosXminuto.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColPliegosXminuto.OptionsColumn.AllowMove = false;
+            this.procimp_gcColPliegosXminuto.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColPliegosXminuto.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColPliegosXminuto.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColPliegosXminuto.Visible = true;
+            this.procimp_gcColPliegosXminuto.Width = 70;
             // 
-            // dis_gcColNumPliegos
+            // procimp_gcColNumPliegos
             // 
-            this.dis_gcColNumPliegos.Caption = "Pliegos #";
-            this.dis_gcColNumPliegos.DisplayFormat.FormatString = "N0";
-            this.dis_gcColNumPliegos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColNumPliegos.FieldName = "NumPliegos";
-            this.dis_gcColNumPliegos.Name = "dis_gcColNumPliegos";
-            this.dis_gcColNumPliegos.OptionsColumn.AllowEdit = false;
-            this.dis_gcColNumPliegos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPliegos.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColNumPliegos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPliegos.OptionsColumn.AllowMove = false;
-            this.dis_gcColNumPliegos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColNumPliegos.OptionsColumn.ReadOnly = true;
-            this.dis_gcColNumPliegos.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColNumPliegos.Visible = true;
-            this.dis_gcColNumPliegos.Width = 70;
+            this.procimp_gcColNumPliegos.Caption = "Pliegos #";
+            this.procimp_gcColNumPliegos.DisplayFormat.FormatString = "N0";
+            this.procimp_gcColNumPliegos.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColNumPliegos.FieldName = "NumPliegos";
+            this.procimp_gcColNumPliegos.Name = "procimp_gcColNumPliegos";
+            this.procimp_gcColNumPliegos.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColNumPliegos.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColNumPliegos.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColNumPliegos.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColNumPliegos.OptionsColumn.AllowMove = false;
+            this.procimp_gcColNumPliegos.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColNumPliegos.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColNumPliegos.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColNumPliegos.Visible = true;
+            this.procimp_gcColNumPliegos.Width = 70;
             // 
             // dis_bandaPuestaPunto
             // 
             this.dis_bandaPuestaPunto.Caption = "Prepara Máquina";
-            this.dis_bandaPuestaPunto.Columns.Add(this.dis_gcColCostoXminutoPP);
-            this.dis_bandaPuestaPunto.Columns.Add(this.dis_gcColMinutosPP);
+            this.dis_bandaPuestaPunto.Columns.Add(this.procimp_gcColCostoXminutoPP);
+            this.dis_bandaPuestaPunto.Columns.Add(this.procimp_gcColMinutosPP);
             this.dis_bandaPuestaPunto.Name = "dis_bandaPuestaPunto";
             this.dis_bandaPuestaPunto.OptionsBand.AllowMove = false;
             this.dis_bandaPuestaPunto.OptionsBand.AllowPress = false;
             this.dis_bandaPuestaPunto.VisibleIndex = 2;
             this.dis_bandaPuestaPunto.Width = 130;
             // 
-            // dis_gcColCostoXminutoPP
+            // procimp_gcColCostoXminutoPP
             // 
-            this.dis_gcColCostoXminutoPP.Caption = "Costo Min";
-            this.dis_gcColCostoXminutoPP.DisplayFormat.FormatString = "e3";
-            this.dis_gcColCostoXminutoPP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColCostoXminutoPP.FieldName = "CostoXminPP";
-            this.dis_gcColCostoXminutoPP.Name = "dis_gcColCostoXminutoPP";
-            this.dis_gcColCostoXminutoPP.OptionsColumn.AllowEdit = false;
-            this.dis_gcColCostoXminutoPP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoXminutoPP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColCostoXminutoPP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoXminutoPP.OptionsColumn.AllowMove = false;
-            this.dis_gcColCostoXminutoPP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCostoXminutoPP.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCostoXminutoPP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColCostoXminutoPP.Visible = true;
-            this.dis_gcColCostoXminutoPP.Width = 70;
+            this.procimp_gcColCostoXminutoPP.Caption = "Costo Min";
+            this.procimp_gcColCostoXminutoPP.DisplayFormat.FormatString = "e3";
+            this.procimp_gcColCostoXminutoPP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColCostoXminutoPP.FieldName = "CostoXminPP";
+            this.procimp_gcColCostoXminutoPP.Name = "procimp_gcColCostoXminutoPP";
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.AllowMove = false;
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColCostoXminutoPP.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColCostoXminutoPP.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColCostoXminutoPP.Visible = true;
+            this.procimp_gcColCostoXminutoPP.Width = 70;
             // 
-            // dis_gcColMinutosPP
+            // procimp_gcColMinutosPP
             // 
-            this.dis_gcColMinutosPP.Caption = "MIN";
-            this.dis_gcColMinutosPP.DisplayFormat.FormatString = "N0";
-            this.dis_gcColMinutosPP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColMinutosPP.FieldName = "MinutosPP";
-            this.dis_gcColMinutosPP.Name = "dis_gcColMinutosPP";
-            this.dis_gcColMinutosPP.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMinutosPP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMinutosPP.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColMinutosPP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMinutosPP.OptionsColumn.AllowMove = false;
-            this.dis_gcColMinutosPP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMinutosPP.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMinutosPP.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColMinutosPP.Visible = true;
-            this.dis_gcColMinutosPP.Width = 60;
+            this.procimp_gcColMinutosPP.Caption = "MIN";
+            this.procimp_gcColMinutosPP.DisplayFormat.FormatString = "N0";
+            this.procimp_gcColMinutosPP.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColMinutosPP.FieldName = "MinutosPP";
+            this.procimp_gcColMinutosPP.Name = "procimp_gcColMinutosPP";
+            this.procimp_gcColMinutosPP.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColMinutosPP.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMinutosPP.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColMinutosPP.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMinutosPP.OptionsColumn.AllowMove = false;
+            this.procimp_gcColMinutosPP.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColMinutosPP.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColMinutosPP.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColMinutosPP.Visible = true;
+            this.procimp_gcColMinutosPP.Width = 60;
             // 
             // dis_bandaTotal
             // 
-            this.dis_bandaTotal.Columns.Add(this.dis_gcColTotalLineaI);
+            this.dis_bandaTotal.Columns.Add(this.procimp_gcColTotalLineaI);
             this.dis_bandaTotal.Name = "dis_bandaTotal";
             this.dis_bandaTotal.OptionsBand.AllowHotTrack = false;
             this.dis_bandaTotal.OptionsBand.AllowMove = false;
@@ -3679,43 +3422,43 @@
             this.dis_bandaTotal.VisibleIndex = 3;
             this.dis_bandaTotal.Width = 80;
             // 
-            // dis_gcColTotalLineaI
+            // procimp_gcColTotalLineaI
             // 
-            this.dis_gcColTotalLineaI.Caption = "Total";
-            this.dis_gcColTotalLineaI.DisplayFormat.FormatString = "N2";
-            this.dis_gcColTotalLineaI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.dis_gcColTotalLineaI.FieldName = "TotalLinea";
-            this.dis_gcColTotalLineaI.Name = "dis_gcColTotalLineaI";
-            this.dis_gcColTotalLineaI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColTotalLineaI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLineaI.OptionsColumn.AllowIncrementalSearch = false;
-            this.dis_gcColTotalLineaI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLineaI.OptionsColumn.AllowMove = false;
-            this.dis_gcColTotalLineaI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColTotalLineaI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColTotalLineaI.OptionsFilter.AllowAutoFilter = false;
-            this.dis_gcColTotalLineaI.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            this.procimp_gcColTotalLineaI.Caption = "Total";
+            this.procimp_gcColTotalLineaI.DisplayFormat.FormatString = "N2";
+            this.procimp_gcColTotalLineaI.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.procimp_gcColTotalLineaI.FieldName = "TotalLinea";
+            this.procimp_gcColTotalLineaI.Name = "procimp_gcColTotalLineaI";
+            this.procimp_gcColTotalLineaI.OptionsColumn.AllowEdit = false;
+            this.procimp_gcColTotalLineaI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColTotalLineaI.OptionsColumn.AllowIncrementalSearch = false;
+            this.procimp_gcColTotalLineaI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColTotalLineaI.OptionsColumn.AllowMove = false;
+            this.procimp_gcColTotalLineaI.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.procimp_gcColTotalLineaI.OptionsColumn.ReadOnly = true;
+            this.procimp_gcColTotalLineaI.OptionsFilter.AllowAutoFilter = false;
+            this.procimp_gcColTotalLineaI.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "TotalLinea", "{0:N2}")});
-            this.dis_gcColTotalLineaI.Visible = true;
-            this.dis_gcColTotalLineaI.Width = 80;
+            this.procimp_gcColTotalLineaI.Visible = true;
+            this.procimp_gcColTotalLineaI.Width = 80;
             // 
             // dis_xtpMaterialCLI
             // 
-            this.dis_xtpMaterialCLI.Controls.Add(this.dis_gcMaterialCLI);
+            this.dis_xtpMaterialCLI.Controls.Add(this.mcli_gcMaterialCLI);
             this.dis_xtpMaterialCLI.Name = "dis_xtpMaterialCLI";
             this.dis_xtpMaterialCLI.Size = new System.Drawing.Size(844, 242);
             this.dis_xtpMaterialCLI.Text = "Materiales Cliente";
             // 
-            // dis_gcMaterialCLI
+            // mcli_gcMaterialCLI
             // 
-            this.dis_gcMaterialCLI.ContextMenuStrip = this.cmClienteMAT;
-            this.dis_gcMaterialCLI.Location = new System.Drawing.Point(7, 3);
-            this.dis_gcMaterialCLI.MainView = this.dis_gvMaterialCLI;
-            this.dis_gcMaterialCLI.Name = "dis_gcMaterialCLI";
-            this.dis_gcMaterialCLI.Size = new System.Drawing.Size(834, 236);
-            this.dis_gcMaterialCLI.TabIndex = 1;
-            this.dis_gcMaterialCLI.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.dis_gvMaterialCLI});
+            this.mcli_gcMaterialCLI.ContextMenuStrip = this.cmClienteMAT;
+            this.mcli_gcMaterialCLI.Location = new System.Drawing.Point(7, 3);
+            this.mcli_gcMaterialCLI.MainView = this.mcli_gvMaterialCLI;
+            this.mcli_gcMaterialCLI.Name = "mcli_gcMaterialCLI";
+            this.mcli_gcMaterialCLI.Size = new System.Drawing.Size(834, 236);
+            this.mcli_gcMaterialCLI.TabIndex = 1;
+            this.mcli_gcMaterialCLI.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.mcli_gvMaterialCLI});
             // 
             // cmClienteMAT
             // 
@@ -3741,41 +3484,41 @@
             this.mnuQuitaMATCLI.Text = "Eliminar Material";
             this.mnuQuitaMATCLI.Click += new System.EventHandler(this.mnuQuitaMATCLI_Click);
             // 
-            // dis_gvMaterialCLI
+            // mcli_gvMaterialCLI
             // 
-            this.dis_gvMaterialCLI.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.dis_gcColMaterialCLI,
-            this.dis_gcColCantidadCLI});
-            this.dis_gvMaterialCLI.GridControl = this.dis_gcMaterialCLI;
-            this.dis_gvMaterialCLI.Name = "dis_gvMaterialCLI";
-            this.dis_gvMaterialCLI.OptionsView.ShowGroupPanel = false;
+            this.mcli_gvMaterialCLI.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.mcli_gcColMaterialCLI,
+            this.mcli_gcColCantidadCLI});
+            this.mcli_gvMaterialCLI.GridControl = this.mcli_gcMaterialCLI;
+            this.mcli_gvMaterialCLI.Name = "mcli_gvMaterialCLI";
+            this.mcli_gvMaterialCLI.OptionsView.ShowGroupPanel = false;
             // 
-            // dis_gcColMaterialCLI
+            // mcli_gcColMaterialCLI
             // 
-            this.dis_gcColMaterialCLI.Caption = "Material";
-            this.dis_gcColMaterialCLI.FieldName = "Material";
-            this.dis_gcColMaterialCLI.Name = "dis_gcColMaterialCLI";
-            this.dis_gcColMaterialCLI.OptionsColumn.AllowEdit = false;
-            this.dis_gcColMaterialCLI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialCLI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColMaterialCLI.OptionsColumn.AllowMove = false;
-            this.dis_gcColMaterialCLI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColMaterialCLI.Visible = true;
-            this.dis_gcColMaterialCLI.VisibleIndex = 0;
-            this.dis_gcColMaterialCLI.Width = 536;
+            this.mcli_gcColMaterialCLI.Caption = "Material";
+            this.mcli_gcColMaterialCLI.FieldName = "Material";
+            this.mcli_gcColMaterialCLI.Name = "mcli_gcColMaterialCLI";
+            this.mcli_gcColMaterialCLI.OptionsColumn.AllowEdit = false;
+            this.mcli_gcColMaterialCLI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.mcli_gcColMaterialCLI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.mcli_gcColMaterialCLI.OptionsColumn.AllowMove = false;
+            this.mcli_gcColMaterialCLI.OptionsColumn.ReadOnly = true;
+            this.mcli_gcColMaterialCLI.Visible = true;
+            this.mcli_gcColMaterialCLI.VisibleIndex = 0;
+            this.mcli_gcColMaterialCLI.Width = 536;
             // 
-            // dis_gcColCantidadCLI
+            // mcli_gcColCantidadCLI
             // 
-            this.dis_gcColCantidadCLI.Caption = "Cantidad";
-            this.dis_gcColCantidadCLI.FieldName = "Cantidad";
-            this.dis_gcColCantidadCLI.Name = "dis_gcColCantidadCLI";
-            this.dis_gcColCantidadCLI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCantidadCLI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
-            this.dis_gcColCantidadCLI.OptionsColumn.AllowMove = false;
-            this.dis_gcColCantidadCLI.OptionsColumn.ReadOnly = true;
-            this.dis_gcColCantidadCLI.Visible = true;
-            this.dis_gcColCantidadCLI.VisibleIndex = 1;
-            this.dis_gcColCantidadCLI.Width = 220;
+            this.mcli_gcColCantidadCLI.Caption = "Cantidad";
+            this.mcli_gcColCantidadCLI.FieldName = "Cantidad";
+            this.mcli_gcColCantidadCLI.Name = "mcli_gcColCantidadCLI";
+            this.mcli_gcColCantidadCLI.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.mcli_gcColCantidadCLI.OptionsColumn.AllowMerge = DevExpress.Utils.DefaultBoolean.False;
+            this.mcli_gcColCantidadCLI.OptionsColumn.AllowMove = false;
+            this.mcli_gcColCantidadCLI.OptionsColumn.ReadOnly = true;
+            this.mcli_gcColCantidadCLI.Visible = true;
+            this.mcli_gcColCantidadCLI.VisibleIndex = 1;
+            this.mcli_gcColCantidadCLI.Width = 220;
             // 
             // xtpBlocks
             // 
@@ -4193,17 +3936,17 @@
             this.labelControl6.TabIndex = 14;
             this.labelControl6.Text = "Alto:";
             // 
-            // txtNombreCLI
+            // beNombreCLI
             // 
-            this.txtNombreCLI.Location = new System.Drawing.Point(104, 27);
-            this.txtNombreCLI.Name = "txtNombreCLI";
-            this.txtNombreCLI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.txtNombreCLI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.beNombreCLI.Location = new System.Drawing.Point(104, 27);
+            this.beNombreCLI.Name = "beNombreCLI";
+            this.beNombreCLI.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.beNombreCLI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtNombreCLI.Properties.ReadOnly = true;
-            this.txtNombreCLI.Size = new System.Drawing.Size(342, 20);
-            this.txtNombreCLI.TabIndex = 1;
-            this.txtNombreCLI.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtNombreCLI_ButtonClick);
+            this.beNombreCLI.Properties.ReadOnly = true;
+            this.beNombreCLI.Size = new System.Drawing.Size(342, 20);
+            this.beNombreCLI.TabIndex = 1;
+            this.beNombreCLI.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtNombreCLI_ButtonClick);
             // 
             // labelControl8
             // 
@@ -4280,8 +4023,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.cli_gvContactos)).EndInit();
             this.xtpResumen.ResumeLayout(false);
             this.xtpResumen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcTotales)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvTotales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tot_gcTotales)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tot_gvTotales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lueLineaPRD.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtEplCotizador.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beEplVendedor.Properties)).EndInit();
@@ -4297,68 +4040,59 @@
             this.dis_gpGraficasH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcGraficasH)).EndInit();
             this.cmDisenoGeneralGH.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvGraficasH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gen_gvGraficasH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_gpOriginales)).EndInit();
             this.dis_gpOriginales.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gcOriginales)).EndInit();
             this.cmDisenoGeneralORI.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dis_gvOriginales)).EndInit();
             this.dis_xtpArmados.ResumeLayout(false);
-            this.dis_xtpArmados.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalCostoPapel.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcArmados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arm_gcArmados)).EndInit();
             this.cmDisenoMatARMDIS.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_bgvArmados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.arm_gvArmados)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_risePorcentajePliegoEXT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseAnchoTFinal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_ribeAltoTFinal)).EndInit();
             this.dis_xtpColores.ResumeLayout(false);
             this.dis_xtpColores.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalCostoTinta.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seGramosPantone.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seGramosMetalizado.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_seGramosColor.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcColores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.col_gcColores)).EndInit();
             this.cmDisenoColor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvColores)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.col_gvColores)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueTipoColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueCobertura)).EndInit();
             this.dis_xtpPlacas.ResumeLayout(false);
-            this.dis_xtpPlacas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seTotalPlacas.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seNumPlacas.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcPlacas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvPlacas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pla_gcPlacas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pla_gvPlacas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_rilueLadoImpresionP)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseNumColores)).EndInit();
             this.dis_xtpTroquel.ResumeLayout(false);
-            this.dis_xtpTroquel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seCortesTOT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_seCorteLONG.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcTrqouel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tro_gcTrqouel)).EndInit();
             this.cmDisenoTroquel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvTroquel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tro_gvTroquel)).EndInit();
             this.dis_xtpAcabados.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAcabados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aca_gcAcabados)).EndInit();
             this.cmDisenoAcabado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAcabados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aca_gvAcabados)).EndInit();
             this.dis_xtpAccesorios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcAccesorios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acce_gcAccesorios)).EndInit();
             this.cmDisenoAccesorios.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvAccesorios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acce_gvAccesorios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dis_riseCantAccesorio)).EndInit();
             this.dis_xtpProcesos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gc_Procesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proc_gcProcesos)).EndInit();
             this.cmDisenoProcesos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gvProcesos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proc_gvProcesos)).EndInit();
             this.dis_xtpProcesosIMP.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcProcesoIMP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dis_bgvProcesoIMP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.procimp_gcProcesoIMP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.procimp_bgvProcesoIMP)).EndInit();
             this.dis_xtpMaterialCLI.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gcMaterialCLI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mcli_gcMaterialCLI)).EndInit();
             this.cmClienteMAT.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dis_gvMaterialCLI)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mcli_gvMaterialCLI)).EndInit();
             this.xtpBlocks.ResumeLayout(false);
             this.xtpBlocks.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.blo_seJuegos.Properties)).EndInit();
@@ -4377,7 +4111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaCOT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCIRUCCLI.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNombreCLI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.beNombreCLI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.beNumeroCOT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deFechaENT.Properties)).EndInit();
@@ -4395,7 +4129,7 @@
         private DevExpress.XtraEditors.CheckEdit chkEstadoCOT;
         private DevExpress.XtraEditors.DateEdit deFechaCOT;
         private DevExpress.XtraEditors.TextEdit txtCIRUCCLI;
-        private DevExpress.XtraEditors.ButtonEdit txtNombreCLI;
+        private DevExpress.XtraEditors.ButtonEdit beNombreCLI;
         private DevExpress.XtraEditors.ButtonEdit beNumeroCOT;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl6;
@@ -4430,7 +4164,7 @@
         private DevExpress.XtraTab.XtraTabPage xtpDiseno;
         private DevExpress.XtraTab.XtraTabControl xtcDiseno;
         private DevExpress.XtraTab.XtraTabPage dis_xtpArmados;
-        private DevExpress.XtraGrid.GridControl dis_gcArmados;
+        private DevExpress.XtraGrid.GridControl arm_gcArmados;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraEditors.LabelControl labelControl10;
         private DevExpress.XtraEditors.LabelControl labelControl11;
@@ -4440,17 +4174,17 @@
         private DevExpress.XtraGrid.Views.Grid.GridView blo_gvCopias;
         private DevExpress.XtraGrid.Columns.GridColumn blo_gcColSecuencial;
         private DevExpress.XtraGrid.Columns.GridColumn blo_gcColColor;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView dis_bgvArmados;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColMaterial;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColArmadoAncho;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColArmadoAlto;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoMPAncho;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoMPAlto;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoCantidad;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegoExtra;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColUndCotiza;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColAltoTrabajoF;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColAnchoTrabajoF;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView arm_gvArmados;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColMaterial;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColArmadoAncho;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColArmadoAlto;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColPliegoMPAncho;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColPliegoMPAlto;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColPliegoCantidad;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColPliegoExtra;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColUndCotiza;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColAltoTrabajoF;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColAnchoTrabajoF;
         private System.Windows.Forms.ContextMenuStrip cmClienteSUC;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregarDestino;
         private System.Windows.Forms.ToolStripMenuItem mnuQuitarDestino;
@@ -4462,13 +4196,13 @@
         private DevExpress.XtraEditors.DateEdit deFechaENT;
         private DevExpress.XtraEditors.LabelControl lblEstadoCOT;
         private DevExpress.XtraTab.XtraTabPage dis_xtpColores;
-        private DevExpress.XtraGrid.GridControl dis_gcColores;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvColores;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTipoColor;
+        private DevExpress.XtraGrid.GridControl col_gcColores;
+        private DevExpress.XtraGrid.Views.Grid.GridView col_gvColores;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColTipoColor;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueTipoColor;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueCobertura;
-        private DevExpress.XtraGrid.GridControl gc_Procesos;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvProcesos;
+        private DevExpress.XtraGrid.GridControl proc_gcProcesos;
+        private DevExpress.XtraGrid.Views.Grid.GridView proc_gvProcesos;
         private DevExpress.XtraGrid.Columns.GridColumn proc_gcColMaquina;
         private DevExpress.XtraGrid.Columns.GridColumn proc_gcColCosto;
         private DevExpress.XtraGrid.Columns.GridColumn proc_gcColTotal;
@@ -4492,155 +4226,142 @@
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.SpinEdit seTiraje;
         private DevExpress.XtraGrid.Columns.GridColumn proc_gcColMinutos;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColGrupo;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColGrupo;
         private System.Windows.Forms.ToolStripMenuItem mnuCalculaDISARM;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColTamanosXpliego;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColImpXtamano;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColTamanosXpliego;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColImpXtamano;
         private DevExpress.XtraTab.XtraTabPage xtpResumen;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LookUpEdit dis_lueComponente;
-        private DevExpress.XtraGrid.GridControl dis_gcMaterialCLI;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvMaterialCLI;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialCLI;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCantidadCLI;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColNumPaginas;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPaginasXtrabajo;
+        private DevExpress.XtraGrid.GridControl mcli_gcMaterialCLI;
+        private DevExpress.XtraGrid.Views.Grid.GridView mcli_gvMaterialCLI;
+        private DevExpress.XtraGrid.Columns.GridColumn mcli_gcColMaterialCLI;
+        private DevExpress.XtraGrid.Columns.GridColumn mcli_gcColCantidadCLI;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColNumPaginas;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColPaginasXtrabajo;
         private System.Windows.Forms.ToolStripMenuItem mnuVerGraficaDISARM;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_riseAnchoTFinal;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_ribeAltoTFinal;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcPliegoEXTPorcentaje;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcPliegoEXTPorcentaje;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_risePorcentajePliegoEXT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCobertura;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColGramos;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPlaca;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColSeleccionAUT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialC;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColArea;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColCobertura;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColGramos;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColPlaca;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcColSeleccionAUT;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColMaterialC;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColArea;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoMP;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliegoIMP;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaPliego;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand6;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand bandaTrabajoFinal;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotGramos;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCostoGramoColor;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColDetallePAG;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColLado;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColTotGramos;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColCostoGramoColor;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColDetallePAG;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColLado;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueLadoImpresion;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaRegistro;
-        private DevExpress.XtraEditors.LabelControl labelControl19;
         private DevExpress.XtraEditors.LabelControl labelControl18;
         private DevExpress.XtraEditors.LabelControl labelControl17;
         private DevExpress.XtraEditors.LabelControl labelControl16;
-        private DevExpress.XtraEditors.SpinEdit dis_seTotalCostoTinta;
         private DevExpress.XtraEditors.SpinEdit dis_seGramosPantone;
         private DevExpress.XtraEditors.SpinEdit dis_seGramosMetalizado;
         private DevExpress.XtraEditors.SpinEdit dis_seGramosColor;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPaginasC;
-        private DevExpress.XtraEditors.LabelControl labelControl20;
-        private DevExpress.XtraEditors.SpinEdit dis_seTotalCostoPapel;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColNumPaginasC;
         private DevExpress.XtraTab.XtraTabPage dis_xtpPlacas;
-        private DevExpress.XtraGrid.GridControl dis_gcPlacas;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvPlacas;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPlacaP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColLadoP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumColoresP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCostoPlaca;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcTotalLineaP;
+        private DevExpress.XtraGrid.GridControl pla_gcPlacas;
+        private DevExpress.XtraGrid.Views.Grid.GridView pla_gvPlacas;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColMaterialP;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColPlacaP;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColLadoP;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColNumColoresP;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColCostoPlaca;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcTotalLineaP;
         private DevExpress.XtraTab.XtraTabPage dis_xtpTroquel;
-        private DevExpress.XtraGrid.GridControl dis_gcTrqouel;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvTroquel;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColLongitud;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumCortesT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCostoCorteT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotaLineaT;
+        private DevExpress.XtraGrid.GridControl tro_gcTrqouel;
+        private DevExpress.XtraGrid.Views.Grid.GridView tro_gvTroquel;
+        private DevExpress.XtraGrid.Columns.GridColumn tro_gcColMaterialT;
+        private DevExpress.XtraGrid.Columns.GridColumn tro_gcColLongitud;
+        private DevExpress.XtraGrid.Columns.GridColumn tro_gcColNumCortesT;
+        private DevExpress.XtraGrid.Columns.GridColumn tro_gcColCostoCorteT;
+        private DevExpress.XtraGrid.Columns.GridColumn tro_gcColTotaLineaT;
         private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit dis_rilueLadoImpresionP;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_riseNumColores;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotLinea;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPlacasP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColNumPaginasP;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPaginasXplaca;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColPlacasMIN;
+        private DevExpress.XtraGrid.Columns.GridColumn col_gcColTotLinea;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColNumPlacasP;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColNumPaginasP;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColPaginasXplaca;
+        private DevExpress.XtraGrid.Columns.GridColumn pla_gcColPlacasMIN;
         private System.Windows.Forms.ContextMenuStrip cmDisenoTroquel;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaRegTroquel;
         private System.Windows.Forms.ToolStripMenuItem mnuEliminaRegTroquel;
-        private DevExpress.XtraEditors.LabelControl labelControl22;
-        private DevExpress.XtraEditors.LabelControl labelControl21;
-        private DevExpress.XtraEditors.SpinEdit dis_seTotalPlacas;
-        private DevExpress.XtraEditors.SpinEdit dis_seNumPlacas;
-        private DevExpress.XtraEditors.LabelControl labelControl24;
-        private DevExpress.XtraEditors.LabelControl labelControl23;
-        private DevExpress.XtraEditors.SpinEdit dis_seCortesTOT;
-        private DevExpress.XtraEditors.SpinEdit dis_seCorteLONG;
         private DevExpress.XtraTab.XtraTabPage dis_xtpAcabados;
         private DevExpress.XtraTab.XtraTabPage dis_xtpProcesos;
         private DevExpress.XtraTab.XtraTabPage dis_xtpProcesosIMP;
-        private DevExpress.XtraGrid.GridControl dis_gcAcabados;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvAcabados;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcMaterialA;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcAreaA;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcAcabadoA;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcCostoA;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcAplicaA;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcTotalLineaA;
+        private DevExpress.XtraGrid.GridControl aca_gcAcabados;
+        private DevExpress.XtraGrid.Views.Grid.GridView aca_gvAcabados;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColMaterialA;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColAreaA;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColAcabadoA;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColCostoA;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColAplicaA;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColTotalLineaA;
         private System.Windows.Forms.ContextMenuStrip cmDisenoAcabado;
         private System.Windows.Forms.ToolStripMenuItem dis_mnuAgregaRegistro;
         private System.Windows.Forms.ToolStripMenuItem dis_mnuEliminaRegistro;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaAcabado;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAcabadoMAT;
-        private DevExpress.XtraGrid.GridControl dis_gcProcesoIMP;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView dis_bgvProcesoIMP;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColTallaI;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColMaterialI;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColNumColoresI;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColCostoXminuto;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColMinImpresion;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPliegosXminuto;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColNumPliegos;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColCostoXminutoPP;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColMinutosPP;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColTotalLineaI;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcColPlacaI;
+        private DevExpress.XtraGrid.Columns.GridColumn aca_gcColMatAcabado;
+        private DevExpress.XtraGrid.GridControl procimp_gcProcesoIMP;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridView procimp_bgvProcesoIMP;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColTallaI;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColMaterialI;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColNumColoresI;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColCostoXminuto;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColMinImpresion;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColPliegosXminuto;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColNumPliegos;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColCostoXminutoPP;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColMinutosPP;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColTotalLineaI;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn procimp_gcColPlacaI;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaMaterial;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaImpresion;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaPuestaPunto;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand dis_bandaTotal;
         private DevExpress.XtraTab.XtraTabPage dis_xtpAccesorios;
-        private DevExpress.XtraGrid.GridControl dis_gcAccesorios;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvAccesorios;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColMaterialS;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCantidadS;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColCostoS;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotalLineaS;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTirajeS;
+        private DevExpress.XtraGrid.GridControl acce_gcAccesorios;
+        private DevExpress.XtraGrid.Views.Grid.GridView acce_gvAccesorios;
+        private DevExpress.XtraGrid.Columns.GridColumn acce_gcColMaterialS;
+        private DevExpress.XtraGrid.Columns.GridColumn acce_gcColCantidadS;
+        private DevExpress.XtraGrid.Columns.GridColumn acce_gcColCostoS;
+        private DevExpress.XtraGrid.Columns.GridColumn acce_gcColTotalLineaS;
+        private DevExpress.XtraGrid.Columns.GridColumn acce_gcColTirajeS;
         private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit dis_riseCantAccesorio;
         private System.Windows.Forms.ContextMenuStrip cmDisenoAccesorios;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaAccesorio;
         private System.Windows.Forms.ToolStripMenuItem mnuEliminaAccesorio;
-        private DevExpress.XtraGrid.GridControl dis_gcTotales;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvTotales;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColDescripcionT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColArmadosT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColoresT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcPlacasT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTotalLinealT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColTroquelT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAccesorioT;
-        private DevExpress.XtraEditors.SimpleButton btnTotales;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColProcesoIMPT;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColAcabadosT;
-        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn dis_gcTotalLinea;
+        private DevExpress.XtraGrid.GridControl tot_gcTotales;
+        private DevExpress.XtraGrid.Views.Grid.GridView tot_gvTotales;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColDescripcionT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColArmadosT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColoresT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcPlacasT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColTotalLinealT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColTroquelT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColAccesorioT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColProcesoIMPT;
+        private DevExpress.XtraGrid.Columns.GridColumn tot_gcColAcabadosT;
+        private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn arm_gcTotalLinea;
         private DevExpress.XtraTab.XtraTabPage dis_xtpGeneral;
         private DevExpress.XtraTab.XtraTabPage dis_xtpMaterialCLI;
         private DevExpress.XtraEditors.GroupControl dis_gpGraficasH;
         private DevExpress.XtraGrid.GridControl dis_gcGraficasH;
-        private DevExpress.XtraGrid.Views.Grid.GridView dis_gvGraficasH;
+        private DevExpress.XtraGrid.Views.Grid.GridView gen_gvGraficasH;
         private DevExpress.XtraEditors.GroupControl dis_gpOriginales;
         private DevExpress.XtraGrid.GridControl dis_gcOriginales;
         private DevExpress.XtraGrid.Views.Grid.GridView dis_gvOriginales;
         private DevExpress.XtraGrid.Columns.GridColumn dis_gcColDescripcionGH;
-        private DevExpress.XtraGrid.Columns.GridColumn dis_gcColDescripcionORI;
+        private DevExpress.XtraGrid.Columns.GridColumn gen_gcColDescripcionORI;
         private System.Windows.Forms.ContextMenuStrip cmDisenoGeneralGH;
         private System.Windows.Forms.ContextMenuStrip cmDisenoGeneralORI;
         private System.Windows.Forms.ToolStripMenuItem mnuAgregaRegistroGH;

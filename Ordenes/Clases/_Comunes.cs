@@ -15,10 +15,10 @@ namespace Ordenes.Clases
 {
     public class _Comunes
     {
-        _SQLServer objSQLServer = Form1.getSQLServer;
-        private string m_servidor = Form1.getSession.Servidor;
-        private string m_database = Form1.getSession.Catalogo;
-        private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
+        _SQLServer objSQLServer = frmPrincipal.getSQLServer;
+        private string m_servidor = frmPrincipal.getSession.Servidor;
+        private string m_database = frmPrincipal.getSession.Catalogo;
+        private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
 
 
 

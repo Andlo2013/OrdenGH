@@ -157,6 +157,17 @@ C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlQuery.re
 C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlCotizacion.resources
 C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
 C:\Proyectos Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.Ordenes.exe.config
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlCotizacion.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlEstadoCotizacion.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Formularios.frmCortes.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.frmPrincipal.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.paramsSQL.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlQuery.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlCotizacion.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.sqlEstadoCOT.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe.config
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\Ordenes.pdb
@@ -280,16 +291,5 @@ C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\de\DevExpress.Office.v16.1.Core.resource
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\es\DevExpress.Office.v16.1.Core.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ja\DevExpress.Office.v16.1.Core.resources.dll
 C:\Andres\MP3\Ordenes\Ordenes\bin\Debug\ru\DevExpress.Office.v16.1.Core.resources.dll
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.Ordenes.exe.config
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlCotizacion.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form1.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Form2.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Formularios.frmCortes.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.paramsSQL.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlQuery.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlCotizacion.resources
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csproj.GenerateResource.Cache
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
-C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache

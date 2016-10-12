@@ -14,14 +14,14 @@ namespace Ordenes.Clases
         //INSTANCIAS-VARIABLES DE LA CLASE
         #region Instancias-Variables
 
-        _SQLServer objSQLServer = Form1.getSQLServer;
+        _SQLServer objSQLServer = frmPrincipal.getSQLServer;
 
         private DataTable dtPliegosGRP = null;
         private DataTable dtPlacas = null;
         private DataTable dtPliegosIMP = null;
         private DataRow rowMaterial = null;
 
-        private string m_codEmpresa = Form1.getSession.Empresa.Codigo;
+        private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
         
         //medidas del material
         private decimal m_materialAncho = 0;
