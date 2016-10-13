@@ -41,7 +41,14 @@ namespace Ordenes.Clases
                     if (pro.Name == column.ColumnName)
                     {
                         object valor = dr[column.ColumnName]==DBNull.Value ? "" : dr[column.ColumnName];
-                        pro.SetValue(obj,valor, null);
+                        try
+                        {
+                            pro.SetValue(obj, valor, null);
+                        }
+                        catch(Exception ex)
+                        {
+                            throw new Exception("Asignar datos columna: " + column.ColumnName +"\n"+ ex.Message);
+                        }
                         break;
                     }
                     ////else

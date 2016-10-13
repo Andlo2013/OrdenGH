@@ -92,8 +92,9 @@ namespace Ordenes.Modelos
 
         public string Vendedor { get; set; }
 
+        
         [Required(ErrorMessage = "Estado cotización es obligatorio")]
-        public string EstadoCOT { get; set; }
+        public int EstadoCOT { get; set; }
 
         //NO OBLIGA PORQUE SI NO ESTA EN ORDEN NO TIENE Y VA CERO
         public int NumOrden { get; set; }

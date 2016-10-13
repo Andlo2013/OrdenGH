@@ -31,12 +31,9 @@ namespace Ordenes.Modelos
         [Required(ErrorMessage = "El área a la que se aplica el acabado es obligatoria")]
         public string areaAplica { get; set; }
 
-        [Required(ErrorMessage = "El material de acabado debe tener un grupo")]
-        [Range(1, maxRange, ErrorMessage = "El grupo de material de acabado está fuera del rango")]
         public int idTallaAcabado { get; set; }
-
-        [Required(ErrorMessage = "El secuencial del material de ababado es obligatorio")]
-        [Range(1, maxRange, ErrorMessage = "El secuencial del material de acabado está fuera del rango")]
+        
+        //CUANDO ES EXTERNO NO REGISTRA MATERIAL DE ACABADO
         public int SecMaterialAcabado { get; set; }
 
         [Required(ErrorMessage = "El costo es obligatorio")]

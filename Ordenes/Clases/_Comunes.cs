@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using AutomatizerSQL.Utilidades;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.Repository;
 using dllBuscar;
@@ -19,8 +20,37 @@ namespace Ordenes.Clases
         private string m_servidor = frmPrincipal.getSession.Servidor;
         private string m_database = frmPrincipal.getSession.Catalogo;
         private string m_codEmpresa = frmPrincipal.getSession.Empresa.Codigo;
+        private object[] m_valueCOT = new object[] { 1, 2, 3, 4 };
+        private string[] m_displayEstadoCOT = new string[] { "CREADA", "APROBADA", "NO APROBADA", "ORDEN GENERADA" };
 
 
+        public DataTable _GetDataTableCOT()
+        {
+            
+            DataTable dtEstadoCOT = new DataTable();
+            dtEstadoCOT.Columns.Add("Codigo");
+            dtEstadoCOT.Columns.Add("Descripcion");
+            for (int i = 0; i < m_valueCOT.Length; i++)
+            {
+                DataRow row = dtEstadoCOT.NewRow();
+                row["Codigo"] = m_valueCOT[i];
+                row["Descripcion"] = m_displayEstadoCOT[i];
+                dtEstadoCOT.Rows.Add(row);
+            }
+            return dtEstadoCOT;
+        }
+
+        public string _GetNombreCOT(int codEstadoCOT)
+        {
+            for(int i = 0; i < m_valueCOT.Length; i++)
+            {
+                if (m_valueCOT[i].ToInt() == codEstadoCOT)
+                {
+                    return m_displayEstadoCOT[i].ToString().ToUpper();
+                }
+            }
+            return "NO-DEFINIDO";
+        }
 
         public void _addItemCheckedList(DataTable dtOpciones, CheckedListBoxControl chkLista)
         {
@@ -71,9 +101,6 @@ namespace Ordenes.Clases
                 return null;
             }
         }
-
-        
-
 
         public void _cargaCtlCMB(LookUpEdit lueCombo,DataTable data,
             string DisplayMember="Descripcion",string ValueMember="Codigo")

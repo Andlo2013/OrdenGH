@@ -68,5 +68,14 @@ namespace Ordenes.Properties {
                 return ResourceManager.GetString("cotest_cargaDET", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE pr_Cotiza SET EstadoCOT=@CodEstado WHERE id=@idCotiza AND EstReg=&apos;True&apos; AND EstadoCOT=1;INSERT INTO pr_CotizaEstadoHistorial VALUES (@idCotiza,@CodigoEPL,GETDATE(),@CodEstado,@CodRechaza,@Observaciones,&apos;True&apos;);.
+        /// </summary>
+        internal static string cotest_guardar {
+            get {
+                return ResourceManager.GetString("cotest_guardar", resourceCulture);
+            }
+        }
     }
 }

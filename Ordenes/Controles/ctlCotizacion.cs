@@ -362,7 +362,7 @@ namespace Ordenes.Controles
             model_Cotiza.FecEntrega = deFechaENT.EditValue;
             model_Cotiza.EplCotiza = frmPrincipal.getSession.Usuario.Empleado.Codigo;
             //SOLO PUEDE CREAR O MODIFICAR COTIZACIONES EN ESTADO CREADO, ACTIVO Y SIN ORDEN
-            model_Cotiza.EstadoCOT = "CREADO";
+            model_Cotiza.EstadoCOT = 1;
             model_Cotiza.NumOrden = 0;
             model_Cotiza.Estado = true;
         }
@@ -412,7 +412,7 @@ namespace Ordenes.Controles
                 deFechaENT.EditValue = model_Cotiza.FecEntrega;
                 txtEplCotizador.EditValue = model_Cotiza.Vendedor;
                 beEplVendedor.EditValue = model_Cotiza.Cotizador;
-                lblEstadoCOT.Text = model_Cotiza.EstadoCOT.ToUpper();
+                lblEstadoCOT.Text = objComunes._GetNombreCOT(model_Cotiza.EstadoCOT);
                 chkEstadoREG.Checked = model_Cotiza.Estado;
                 _CargaDetalle();
             }

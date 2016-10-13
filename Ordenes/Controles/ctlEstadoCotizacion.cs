@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ordenes.Clases;
+using dllMensaje;
+using AutomatizerSQL.Utilidades;
 
 namespace Ordenes.Controles
 {
     public partial class ctlEstadoCotizacion : UserControl
     {
         clsEstadoCOT objEstadoCOT = new clsEstadoCOT();
+        _Comunes objComun = new _Comunes();
 
         public ctlEstadoCotizacion()
         {
@@ -24,10 +27,19 @@ namespace Ordenes.Controles
         {
             deFechaDesde.DateTime = DateTime.Now.AddDays(-30);
             deFechaHasta.DateTime = DateTime.Now;
-            _Comunes objComun = new _Comunes();
-            DataTable dtEstadoCOT= objComun._cargaDataCMB(optionsCMB.Estado_Cotizacion);
-            objComun._cargaCtlCMB(lueEstado, dtEstadoCOT);
+            _inicializa();
+            
             _cargaDET();
+        }
+
+        private void _inicializa()
+        {
+            //COMBO MOTIVOS RECHAZO
+            DataTable dtMotivoRechaza = objComun._cargaDataCMB(optionsCMB.Rechaza_Cotiza);
+            objComun._cargaCtlCMB(lueMotivoRechaza,dtMotivoRechaza);
+            //COMBO ESTADO COTIZACION
+            DataTable dtEstadoCOT = objComun._GetDataTableCOT();
+            objComun._cargaCtlCMB(lueEstado, dtEstadoCOT);
         }
 
         private void _cargaDET()
@@ -47,6 +59,26 @@ namespace Ordenes.Controles
         private void beCliente_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             beCliente.Text=objEstadoCOT._buscaCLI();
+        }
+
+        private void btnArpobar_Click(object sender, EventArgs e)
+        {
+            objEstadoCOT._actualizar(2, 0, meObservaciones.Text.Trim());
+            _cargaDET();
+        }
+
+        private void btnRechazar_Click(object sender, EventArgs e)
+        {
+            if (lueMotivoRechaza.EditValue != null && lueMotivoRechaza.EditValue != DBNull.Value
+                && lueMotivoRechaza.EditValue.ToString().Trim() != "" && meObservaciones.Text.Trim() != "")
+            {
+                objEstadoCOT._actualizar(3, lueMotivoRechaza.EditValue.ToInt(), meObservaciones.Text.Trim());
+                _cargaDET();
+            }
+            else
+            {
+                clsMensaje._msjWarning("Cuando rechaza una cotización es obligatorio seleccionar una razón e ingresar una descripción en observaciones", "Rechazar");
+            }
         }
     }
 }

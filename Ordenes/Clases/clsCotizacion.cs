@@ -725,7 +725,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:"+nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -1083,7 +1083,7 @@ namespace Ordenes.Clases
             }
             catch(Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle: "+nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -1260,7 +1260,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -1460,7 +1460,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -1606,7 +1606,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -1735,7 +1735,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de: " + nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -1879,7 +1879,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -2023,7 +2023,7 @@ namespace Ordenes.Clases
             }
             catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:" + nombreTabla, nombreTabla, ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar el detalle de:\n" + nombreTabla, nombreTabla, ex.Message);
                 return false;
             }
         }
@@ -2140,7 +2140,7 @@ namespace Ordenes.Clases
             }
             catch(Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar verificar los materiales del cliente", "Materiales cliente",ex.Message);
+                clsMensaje._msjWarning("ERROR: Al intentar verificar los materiales del cliente:\n", "Materiales cliente",ex.Message);
                 return false;
             }
         }

@@ -121,4 +121,8 @@
     <value>SELECT TOP (50) dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl, '') + ' ' + ISNULL(dbo.climae.CliNom, ''))) AS Cliente, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.EstadoCOT, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.TotalCotiza FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EstReg = 'True') AND (dbo.pr_Cotiza.FecCotiza BETWEEN @FechaDesde AND @FechaHasta)</value>
     <comment>Carga el detalle de cotizaciones</comment>
   </data>
+  <data name="cotest_guardar" xml:space="preserve">
+    <value>UPDATE pr_Cotiza SET EstadoCOT=@CodEstado WHERE id=@idCotiza AND EstReg='True' AND EstadoCOT=1;INSERT INTO pr_CotizaEstadoHistorial VALUES (@idCotiza,@CodigoEPL,GETDATE(),@CodEstado,@CodRechaza,@Observaciones,'True');</value>
+    <comment>APRUEBA O RECHAZA UNA COTIZACION</comment>
+  </data>
 </root>

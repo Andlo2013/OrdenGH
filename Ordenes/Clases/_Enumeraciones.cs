@@ -32,13 +32,8 @@ namespace Ordenes.Clases
             Subgrupo=21,
             Estado_Cotizacion=22,
             Color_Hoja = 23,
-            Lado_Impresion=24
+            Lado_Impresion=24,
+            Rechaza_Cotiza=25
     }
 
-    public enum updateTablas
-    {
-        armados2color=1,
-        armados2placas=2
-    }
- 
 }
