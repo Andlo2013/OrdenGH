@@ -42,8 +42,8 @@ namespace Ordenes.Modelos
         [Range(1, maxRange, ErrorMessage = "El porcentaje de cobertura está fuera del rango")]
         public int Cobertura { get; set; }
 
-        [Range(1, maxRange, ErrorMessage = "El código de pantone está fuera del rango")]
-        public int Pantone { get; set; }
+        
+        public string Pantone { get; set; }
 
         [Required(ErrorMessage = "El número de páginas es obligatorio")]
         [Range(1, maxRange, ErrorMessage = "El número de páginas está fuera del rango")]

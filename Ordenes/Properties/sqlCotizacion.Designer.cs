@@ -178,7 +178,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT dbo.pr_OrdenDestino.SecDest AS Secuencial, dbo.pr_OrdenDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_OrdenDestino.Direccion, dbo.pr_OrdenDestino.Cantidad FROM dbo.pr_OrdenDestino INNER JOIN dbo.CliSuc ON dbo.pr_OrdenDestino.EmpCod = dbo.CliSuc.EmpCod AND dbo.pr_OrdenDestino.CliSec = dbo.CliSuc.CliSec INNER JOIN dbo.Ciudades ON dbo.CliSuc.CliPai = dbo.Ciudades.PaiCod AND dbo.CliSuc.CliPrv = dbo.Ciudades.PrvCod AND dbo.CliSuc.CliCiu = dbo.Ciudades.CiuCod WHERE (dbo.pr_OrdenDestin [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SELECT dbo.pr_CotizaCLIDestino.SecDest AS Secuencial, dbo.pr_CotizaCLIDestino.SucNum AS CodSucursal, dbo.Ciudades.CiuNom AS Ciudad, dbo.pr_CotizaCLIDestino.Direccion, dbo.pr_CotizaCLIDestino.Cantidad FROM dbo.Ciudades INNER JOIN dbo.CliSuc ON dbo.Ciudades.PaiCod = dbo.CliSuc.CliPai AND dbo.Ciudades.PrvCod = dbo.CliSuc.CliPrv AND dbo.Ciudades.CiuCod = dbo.CliSuc.CliCiu INNER JOIN dbo.pr_CotizaCLIDestino ON dbo.CliSuc.SucNum = dbo.pr_CotizaCLIDestino.SucNum INNER JOIN dbo.pr_Cotiza ON dbo.CliSuc.EmpCod = dbo. [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string cot_clienteCargaDestino {
             get {
@@ -367,7 +367,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@EstadoCOT,@CodEplCotiza,@CodEplVendededor,@TotalCOT,&apos;True&apos;).
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_Cotiza VALUES (@idCotiza,@CodEmpresa,@NumCotiza,@CodCliente,@LinProduccion,@GrupoProduccion,@SubgrupoProduccion,@ItemSecuencial,@ItemDescripcion,@Tiraje,@Ancho,@Alto,@FecCotiza,@FecEntrega,@CodEplCotiza,@CodEplVendededor,@TotalCOT,@EstadoCOT,0,&apos;True&apos;).
         /// </summary>
         internal static string cot_guardaCAB {
             get {

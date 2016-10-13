@@ -616,8 +616,8 @@ namespace Ordenes.Clases
                         newRow["Tiraje"] = aTiraje;
                         dtDisenoArmado.Rows.Add(newRow);
                         //selecciona el pliego
-                        _disenoArmadoGetPorcentajeEXT(newRow);
                         objCorte._ext_disenoArmadoCalcula(newRow);
+                        _disenoArmadoGetPorcentajeEXT(newRow);
                         _disenoPlacaAddPlaca(codComponente, newRow);
                         _disenoProcesoIMPAddREG(newRow);
                     }
@@ -780,7 +780,7 @@ namespace Ordenes.Clases
         public void _disenoArmadoEliminaDEP(DataTable dtEliminar, DataRow rowArmado)
         {
             string strFiltro = "Componente=" + rowArmado["Componente"] +
-                "AND SecMaterial=" + rowArmado["SecMaterial"];
+                " AND SecMaterial=" + rowArmado["SecMaterial"];
             //BUSCA LOS REGISTROS QUE SE DEBEN ELIMINAR
             DataRow[] rowsEliminar = dtEliminar.Select(strFiltro);
             if (rowsEliminar != null)
@@ -1540,7 +1540,7 @@ namespace Ordenes.Clases
                         newRow["CodigoMAQ"] = rowMAQ["Código"];
                         newRow["Maquina"] = rowMAQ["Máquina"];
                         newRow["Costo"] = rowMAQ["Costo"];
-                        newRow["Cantidad"] = tiraje;
+                        newRow["Minutos"] = 0;
                         dtDisenoProcesoDET.Rows.Add(newRow);
                     }
                 }

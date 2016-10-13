@@ -56,8 +56,7 @@ namespace Ordenes.Modelos
         [Range(1, 9999, ErrorMessage = "No es un 'Subgrupo' válido")]
         public int Subgrupo { get; set; }
 
-        [Required(ErrorMessage = "ITEM es obligatorio")]
-        [Range(1, 9999999, ErrorMessage = "No es un 'ITEM' válido")]
+        //NO OBLIGA EL ITEM PORQUE NO SE CREA EN INVENTARIO HASTA APROBAR COTIZACION
         public int SecuencialITEM { get; set; }
 
         [Required(ErrorMessage = "Descripción del artículo es obligatorio")]
@@ -81,11 +80,6 @@ namespace Ordenes.Modelos
         [Required(ErrorMessage = "Fecha entrega es obligatorio")]
         public object FecEntrega { get; set; }
 
-        [Required(ErrorMessage = "Estado cotización es obligatorio")]
-        public int CodEstadoCOT { get; set; }
-
-        public string EstadoCOT { get; set; }
-
         [Required(ErrorMessage = "Cotizador es obligatorio")]
         [Range(1, 99999, ErrorMessage = "No es un 'Código de Cotizador' válido")]
         public int EplCotiza { get; set; }
@@ -97,6 +91,12 @@ namespace Ordenes.Modelos
         public int EplVendedor { get; set; }
 
         public string Vendedor { get; set; }
+
+        [Required(ErrorMessage = "Estado cotización es obligatorio")]
+        public string EstadoCOT { get; set; }
+
+        //NO OBLIGA PORQUE SI NO ESTA EN ORDEN NO TIENE Y VA CERO
+        public int NumOrden { get; set; }
 
         [Required(ErrorMessage = "Estado del Registro es obligatorio")]
         public bool Estado { get; set; }
@@ -174,29 +174,18 @@ namespace Ordenes.Modelos
 
         public void _guardaCOT()
         {
-            if (this._isValid())
-            {
-                /**/
-
-                string [] paramsName=new string[] {"@idCotiza","@CodEmpresa","@NumCotiza",
+            string[] paramsName = new string[] {"@idCotiza","@CodEmpresa","@NumCotiza",
                     "@CodCliente","@LinProduccion","@GrupoProduccion","@SubgrupoProduccion",
                     "@ItemSecuencial","@ItemDescripcion","@Tiraje","@Ancho","@Alto",
-                    "@FecCotiza","@FecEntrega","@EstadoCOT","@CodEplCotiza","@CodEplVendededor","@TotalCOT" };
+                    "@FecCotiza","@FecEntrega","@CodEplCotiza","@CodEplVendededor","@TotalCOT","@EstadoCOT" };
 
-                object [] paramsValue = new object[] {this.id,this.m_codEmpresa,this.Cotizacion,
+            object[] paramsValue = new object[] {this.id,this.m_codEmpresa,this.Cotizacion,
                     this.CodigoCLI,this.LineaPRD,this.Grupo,this.Subgrupo,this.SecuencialITEM,
                     this.Articulo,this.Tiraje,this.Ancho,this.Alto,this.FecCotiza,this.FecEntrega,
-                    this.EstadoCOT,this.EplCotiza,this.EplVendedor,this.TotalCOT};
+                    this.EplCotiza,this.EplVendedor,this.TotalCOT,this.EstadoCOT};
 
-                objSQLServer._Ejecutar(sqlCotizacion.cot_guardaCAB, paramsName, paramsValue);
+            objSQLServer._Ejecutar(sqlCotizacion.cot_guardaCAB, paramsName, paramsValue);
 
-                
-            }
-            else
-            {
-                clsMensaje._msjWarning("Se ha encontrado "+ pro_getTotalErrors.ToString()+" errores", 
-                    "Verificar datos", pro_getErrrors);
-            }
 
         }
     }

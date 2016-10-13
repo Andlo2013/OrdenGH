@@ -61,7 +61,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT TOP (50) dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl, &apos;&apos;) + &apos; &apos; + ISNULL(dbo.climae.CliNom, &apos;&apos;))) AS Cliente, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_GHOpcionesCMB.Descripcion AS EstadoCOT, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.TotalCotiza FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec INNER JOIN dbo.pr_GHOpcionesCMB ON  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SELECT TOP (50) dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl, &apos;&apos;) + &apos; &apos; + ISNULL(dbo.climae.CliNom, &apos;&apos;))) AS Cliente, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.EstadoCOT, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.TotalCotiza FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EstReg = &apos;True&apos;) AND (dbo.pr_Cotiza. [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string cotest_cargaDET {
             get {

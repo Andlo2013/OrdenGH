@@ -355,10 +355,15 @@ namespace Ordenes.Controles
             model_Cotiza.LineaPRD = Convert.ToInt32(lueLineaPRD.EditValue);
             model_Cotiza.Grupo = Convert.ToInt32(lueGrupo.EditValue);
             model_Cotiza.Subgrupo = Convert.ToInt32(lueSubgrupo.EditValue);
+            model_Cotiza.Articulo = beArticulo.Text.Trim();
+            model_Cotiza.Tiraje = seTiraje.Value.ToInt();
             model_Cotiza.Ancho = Convert.ToDecimal(seAncho.EditValue);
             model_Cotiza.Alto = Convert.ToDecimal(seAlto.EditValue);
             model_Cotiza.FecEntrega = deFechaENT.EditValue;
             model_Cotiza.EplCotiza = frmPrincipal.getSession.Usuario.Empleado.Codigo;
+            //SOLO PUEDE CREAR O MODIFICAR COTIZACIONES EN ESTADO CREADO, ACTIVO Y SIN ORDEN
+            model_Cotiza.EstadoCOT = "CREADO";
+            model_Cotiza.NumOrden = 0;
             model_Cotiza.Estado = true;
         }
         #endregion
@@ -619,11 +624,13 @@ namespace Ordenes.Controles
 
         private void barraStandar_onSave()
         {
+            
+            _asignaCotizaMOD();
+            _asignaBlockMOD();
             _totales();
             if (_Validar())
             {
-                _asignaCotizaMOD();
-                _asignaBlockMOD();
+                
                 if (objCotiza._Guardar(model_Cotiza, model_Block, m_accion))
                 {
                     m_accion = "";

@@ -1,4 +1,5 @@
-﻿using dllMensaje;
+﻿using AutomatizerSQL.Utilidades;
+using dllMensaje;
 using Ordenes.Properties;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,25 @@ namespace Ordenes.Clases
         private string m_CodEmpresa = frmPrincipal.getSession.Empresa.Codigo;
         DataTable dtEstadoCOT = null;
 
+        private int m_codCliente = 0;
+
         public clsEstadoCOT() { }
 
-        public DataTable _cargaDET()
+        public DataTable _cargaDET(DateTime dttFechaDesde,DateTime dttFechaHasta,object codEstado,bool porCliente,bool porEstado)
         {
             try
             {
-                dtEstadoCOT = objSQLServer._CargaDataTable(sqlEstadoCOT.cotest_cargaDET,
-                    new string[] { "@CodEmpresa" }, new object[] { m_CodEmpresa });
+                dttFechaDesde = Convert.ToDateTime(dttFechaDesde.ToShortDateString());
+                dttFechaHasta = Convert.ToDateTime(dttFechaHasta.ToShortDateString());
+                dttFechaHasta = dttFechaHasta.AddSeconds(86399);
+                string sqlQuery = sqlEstadoCOT.cotest_cargaDET;
+                sqlQuery += porCliente == true && m_codCliente>0 ? " AND dbo.pr_Cotiza.CliSec=@CodCliente" : "";
+                sqlQuery += porEstado == true && (codEstado!=null && codEstado.ToInt()>0) ? " AND dbo.pr_Cotiza.EstadoCOT=@CodEstado" : "";
+                sqlQuery += " ORDER BY dbo.pr_Cotiza.FecCotiza DESC";
+                dtEstadoCOT = objSQLServer._CargaDataTable(sqlQuery,
+                    new string[] { "@FechaDesde", "@FechaHasta","@CodCliente","@CodEstado" }, 
+                    new object[] { dttFechaDesde,dttFechaHasta,m_codCliente, codEstado });
+
                 dtEstadoCOT.Columns.Add("Seleccionar", Type.GetType("System.Boolean"));
                 return dtEstadoCOT;
             }
@@ -32,6 +44,28 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+
+        public string _buscaCLI()
+        {
+            clsCotizacion objCotiza = new clsCotizacion();
+            DataRow rowCliente=objCotiza._clienteBuscar();
+            if (rowCliente != null)
+            {
+                m_codCliente = rowCliente["Código"].ToInt();
+                return rowCliente["Cliente"].ToString().Trim();
+            }
+            m_codCliente = 0;
+            return "";
+        }
+
+
+        public int pro_CodCliente
+        {
+            get { return m_codCliente; }
+            set { m_codCliente = value; }
+        }
+
+       
 
     }
 }

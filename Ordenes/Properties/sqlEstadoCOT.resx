@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="cotest_cargaDET" xml:space="preserve">
-    <value>SELECT TOP (50) dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl, '') + ' ' + ISNULL(dbo.climae.CliNom, ''))) AS Cliente, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_GHOpcionesCMB.Descripcion AS EstadoCOT, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.TotalCotiza FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec INNER JOIN dbo.pr_GHOpcionesCMB ON dbo.pr_Cotiza.CmbEstadoCOT = dbo.pr_GHOpcionesCMB.id WHERE (dbo.pr_Cotiza.EstReg = 'True') ORDER BY dbo.pr_Cotiza.id DESC</value>
+    <value>SELECT TOP (50) dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.CliSec AS CodigoCLI, LTRIM(RTRIM(ISNULL(dbo.climae.CliApl, '') + ' ' + ISNULL(dbo.climae.CliNom, ''))) AS Cliente, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.EstadoCOT, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.TotalCotiza FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EstReg = 'True') AND (dbo.pr_Cotiza.FecCotiza BETWEEN @FechaDesde AND @FechaHasta)</value>
     <comment>Carga el detalle de cotizaciones</comment>
   </data>
 </root>
