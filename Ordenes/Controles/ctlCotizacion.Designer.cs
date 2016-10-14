@@ -390,6 +390,10 @@
             this.barraStandar.onEdit += new dllStandardTool.StandardTool.delegateEdit(this.barraStandar_onEdit);
             this.barraStandar.onDelete += new dllStandardTool.StandardTool.delegateDelete(this.barraStandar_onDelete);
             this.barraStandar.onUndo += new dllStandardTool.StandardTool.delegateUndo(this.barraStandar_onUndo);
+            this.barraStandar.onFirst += new dllStandardTool.StandardTool.delegateFirst(this.barraStandar_onFirst);
+            this.barraStandar.onPrevious += new dllStandardTool.StandardTool.delegatePrevious(this.barraStandar_onPrevious);
+            this.barraStandar.onNext += new dllStandardTool.StandardTool.delegateNext(this.barraStandar_onNext);
+            this.barraStandar.onLast += new dllStandardTool.StandardTool.delegateLast(this.barraStandar_onLast);
             // 
             // panel1
             // 

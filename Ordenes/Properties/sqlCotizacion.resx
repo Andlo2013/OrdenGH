@@ -146,7 +146,7 @@
     <comment>Carga los colores de las copias de los blocks</comment>
   </data>
   <data name="cot_buscaCOT" xml:space="preserve">
-    <value>SELECT dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza AS Cotizacion, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.CliSec AS CodigoCLI, dbo.climae.Clicedruc AS CIRUC, ISNULL(dbo.climae.CliApl, '') + ' ' + ISNULL(dbo.climae.CliNom, '') AS Cliente, dbo.pr_Cotiza.CmbLinPrd AS LineaPRD, dbo.pr_Cotiza.CmbGrupo AS Grupo, dbo.pr_Cotiza.CmbSubgrupo AS Subgrupo, dbo.pr_Cotiza.SecuencialItem AS SecuencialITEM, dbo.pr_Cotiza.Ancho, dbo.pr_Cotiza.Alto, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.FecEntrega, dbo.pr_Cotiza.EplSecCotizador AS EplCotiza, dbo.pr_Cotiza.EplSecVendedor AS EplVendedor,(SELECT RTRIM(LTRIM(ISNULL(EplApl, '') + ' ' + ISNULL(EplNom, ''))) FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND (EplSec = dbo.pr_Cotiza.EplSecCotizador)) AS Cotizador,(SELECT RTRIM(LTRIM(ISNULL(EplApl, '') + ' ' + ISNULL(EplNom, ''))) FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND (EplSec = dbo.pr_Cotiza.EplSecVendedor)) AS Vendedor, dbo.pr_Cotiza.EstadoCOT,dbo.pr_Cotiza.NumOrden, dbo.pr_Cotiza.EstReg AS Estado FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra AND (dbo.pr_Cotiza.EstReg = 'True')</value>
+    <value>SELECT TOP 20 dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza AS Cotizacion, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.CliSec AS CodigoCLI, dbo.climae.Clicedruc AS CIRUC, ISNULL(dbo.climae.CliApl, '') + ' ' + ISNULL(dbo.climae.CliNom, '') AS Cliente, dbo.pr_Cotiza.CmbLinPrd AS LineaPRD, dbo.pr_Cotiza.CmbGrupo AS Grupo, dbo.pr_Cotiza.CmbSubgrupo AS Subgrupo, dbo.pr_Cotiza.SecuencialItem AS SecuencialITEM, dbo.pr_Cotiza.Ancho, dbo.pr_Cotiza.Alto, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.FecEntrega, dbo.pr_Cotiza.EplSecCotizador AS EplCotiza, dbo.pr_Cotiza.EplSecVendedor AS EplVendedor,(SELECT RTRIM(LTRIM(ISNULL(EplApl, '') + ' ' + ISNULL(EplNom, ''))) FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND (EplSec = dbo.pr_Cotiza.EplSecCotizador)) AS Cotizador,(SELECT RTRIM(LTRIM(ISNULL(EplApl, '') + ' ' + ISNULL(EplNom, ''))) FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND (EplSec = dbo.pr_Cotiza.EplSecVendedor)) AS Vendedor, dbo.pr_Cotiza.EstadoCOT,dbo.pr_Cotiza.NumOrden, dbo.pr_Cotiza.EstReg AS Estado FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EmpCod = @CodEmpresa) AND {0} LIKE @paramExtra AND (dbo.pr_Cotiza.EstReg = 'True')</value>
     <comment>Busca cotizaciones</comment>
   </data>
   <data name="cot_cargaPlacas" xml:space="preserve">
@@ -304,5 +304,25 @@
   <data name="cot_cargaPorcentajePliegoEXT" xml:space="preserve">
     <value>SELECT CmbGrupo AS CodGrupo,CmbComponente AS Componente,SecMaterial,Porcentaje FROM dbo.pr_GHPorcentajePliegoEXT WHERE EstReg='True'</value>
     <comment>Carga el DataTable con los porcentajes de pliegos extras</comment>
+  </data>
+  <data name="cot_CargaCAB" xml:space="preserve">
+    <value>SELECT dbo.pr_Cotiza.id, dbo.pr_Cotiza.NumCotiza AS Cotizacion, dbo.pr_Cotiza.DesArticulo AS Articulo, dbo.pr_Cotiza.Tiraje, dbo.pr_Cotiza.CliSec AS CodigoCLI, dbo.climae.Clicedruc AS CIRUC, ISNULL(dbo.climae.CliApl, '') + ' ' + ISNULL(dbo.climae.CliNom, '') AS Cliente, dbo.pr_Cotiza.CmbLinPrd AS LineaPRD, dbo.pr_Cotiza.CmbGrupo AS Grupo, dbo.pr_Cotiza.CmbSubgrupo AS Subgrupo, dbo.pr_Cotiza.SecuencialItem AS SecuencialITEM, dbo.pr_Cotiza.Ancho, dbo.pr_Cotiza.Alto, dbo.pr_Cotiza.FecCotiza, dbo.pr_Cotiza.FecEntrega, dbo.pr_Cotiza.EplSecCotizador AS EplCotiza, dbo.pr_Cotiza.EplSecVendedor AS EplVendedor,(SELECT RTRIM(LTRIM(ISNULL(EplApl, '') + ' ' + ISNULL(EplNom, ''))) FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND (EplSec = dbo.pr_Cotiza.EplSecCotizador)) AS Cotizador,(SELECT RTRIM(LTRIM(ISNULL(EplApl, '') + ' ' + ISNULL(EplNom, ''))) FROM dbo.EplMae WHERE (EmpCod = @CodEmpresa) AND (EplSec = dbo.pr_Cotiza.EplSecVendedor)) AS Vendedor, dbo.pr_Cotiza.EstadoCOT,dbo.pr_Cotiza.NumOrden, dbo.pr_Cotiza.EstReg AS Estado FROM dbo.pr_Cotiza INNER JOIN dbo.climae ON dbo.pr_Cotiza.EmpCod = dbo.climae.EmpCod AND dbo.pr_Cotiza.CliSec = dbo.climae.Clisec WHERE (dbo.pr_Cotiza.EmpCod = @CodEmpresa) AND (pr_Cotiza.id=@idCotiza) AND (dbo.pr_Cotiza.EstReg = 'True')</value>
+    <comment>Carga la cabecera de una cotizacion especifica</comment>
+  </data>
+  <data name="cot_goFirst" xml:space="preserve">
+    <value>SELECT ISNULL(MIN(id),0) AS idCotiza FROM pr_Cotiza</value>
+    <comment>Primer registro</comment>
+  </data>
+  <data name="Cot_goLast" xml:space="preserve">
+    <value>SELECT ISNULL(MAX(id),0) AS idCotiza FROM pr_Cotiza</value>
+    <comment>Ultimo registro</comment>
+  </data>
+  <data name="cot_goNext" xml:space="preserve">
+    <value>SELECT ISNULL(MIN(id),0) AS idCotiza FROM pr_Cotiza WHERE id&gt;@idActual</value>
+    <comment>Siguiente registro</comment>
+  </data>
+  <data name="cot_goPrevious" xml:space="preserve">
+    <value>SELECT ISNULL(MAX(id),0) AS idCotiza FROM pr_Cotiza WHERE id&lt;@idActual</value>
+    <comment>Anterior registro</comment>
   </data>
 </root>

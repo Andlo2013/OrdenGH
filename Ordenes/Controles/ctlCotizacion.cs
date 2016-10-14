@@ -64,7 +64,7 @@ namespace Ordenes.Controles
         {
             //CABECERA
             barraStandar._OptionState(!estado, estado, !estado, estado, !estado, false);
-            barraStandar._navigationToolState(false);
+            barraStandar._navigationToolState(!estado);
 
             beNumeroCOT.Properties.Buttons[0].Enabled = !estado;
             beNombreCLI.Properties.Buttons[0].Enabled = estado;
@@ -345,7 +345,7 @@ namespace Ordenes.Controles
 
         #endregion
 
-        //Carga las propiedades de los modelos con los datos de los controles
+        //Carga las propiedades de los modelos a los controles y viceversa
         #region METODOS-PARA_MODELOS
 
         //asgina valores al modelo cotizacion
@@ -383,22 +383,9 @@ namespace Ordenes.Controles
         }
         #endregion
 
-        #endregion
-
-        #endregion
-
-        //Controles
-        #region EVENTOS-CONTROLES
-
-        //EVENTOS CONTROLES GENERALES
-        #region EVENTOS-CONTROLES-GENERALES
-
-        //Buscar cotizacion
-        #region beNumeroCOT_ButtonClick
-        private void beNumeroCOT_ButtonClick(object sender, ButtonPressedEventArgs e)
+        private void _modeloAcontroles()
         {
-            model_Cotiza = model_Cotiza._buscaCOT();
-            if (model_Cotiza!=null && model_Cotiza.id > 0)
+            if (model_Cotiza != null && model_Cotiza.id > 0)
             {
                 beNumeroCOT.EditValue = model_Cotiza.Cotizacion;
                 deFechaCOT.EditValue = model_Cotiza.FecCotiza;
@@ -418,6 +405,24 @@ namespace Ordenes.Controles
                 chkEstadoREG.Checked = model_Cotiza.Estado;
                 _CargaDetalle();
             }
+        }
+
+        #endregion
+
+        #endregion
+
+        //Controles
+        #region EVENTOS-CONTROLES
+
+        //EVENTOS CONTROLES GENERALES
+        #region EVENTOS-CONTROLES-GENERALES
+
+        //Buscar cotizacion
+        #region beNumeroCOT_ButtonClick
+        private void beNumeroCOT_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            model_Cotiza = model_Cotiza._buscaCOT();
+            _modeloAcontroles();
         }
         #endregion
 
@@ -915,10 +920,52 @@ namespace Ordenes.Controles
             objCotiza._disenoGeneralEliminaREG(optionsCMB.DisenoChkGH, _getDataRow(gen_gvGraficasH));
         }
 
-        #endregion
 
         #endregion
 
-        
+        #endregion
+
+        private void barraStandar_onFirst()
+        {
+            _desplazar(1);
+        }
+
+        private void barraStandar_onNext()
+        {
+            _desplazar(3);
+        }
+
+        private void barraStandar_onPrevious()
+        {
+            _desplazar(2);
+        }
+
+        private void barraStandar_onLast()
+        {
+            _desplazar(4);
+        }
+
+        private void _desplazar(int tipoDesplaza)
+        {
+            int idCotiza = 0;
+            model_Cotiza = model_Cotiza != null ? model_Cotiza : new cotizaMOD();
+            switch (tipoDesplaza)
+            {
+                case 1:
+                    idCotiza=model_Cotiza._moveFirst();
+                    break;
+                case 2:
+                    idCotiza = model_Cotiza._movePrevious(model_Cotiza.id);
+                    break;
+                case 3:
+                    idCotiza = model_Cotiza._moveNext(model_Cotiza.id);
+                    break;
+                case 4:
+                    idCotiza = model_Cotiza._moveLast();
+                    break;
+            }
+            model_Cotiza= model_Cotiza._cargaCOT(idCotiza);
+            _modeloAcontroles();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using dllMensaje;
+﻿using AutomatizerSQL.Utilidades;
+using dllMensaje;
 using Ordenes.Clases;
 using Ordenes.Properties;
 using System;
@@ -9,6 +10,7 @@ using System.Data;
 
 namespace Ordenes.Modelos
 {
+
     public class cotizaMOD:_modelo
     {
         //INSTANCIAS-VARIABLES
@@ -109,22 +111,35 @@ namespace Ordenes.Modelos
 
         #endregion
 
-        //Numero de cotizacion
-        #region numeroCOT
-        private void _numeroCOT()
+        //Buscar cotizacion
+        #region buscaCOT
+        public cotizaMOD _buscaCOT()
         {
             try
             {
-                int secuencialCOT = objSQLServer._CalculaCodigo("pr_Cotiza","NumCotiza","WHERE (EmpCod=@CodEmpresa)",
-                    new string[] {"@CodEmpresa" },new object[] {m_codEmpresa });
-                secuencialCOT = secuencialCOT < CotizaINI ? CotizaINI : secuencialCOT;
-                this.Cotizacion = secuencialCOT;
+                Dictionary<string, string> dicFiltro = new Dictionary<string, string>();
+                dicFiltro.Add("NumCotiza", "Cotizacion");
+                dicFiltro.Add("LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,'')))", "Cliente");
+
+                dllBuscar.frmBuscarITEM objFiltrar = new dllBuscar.frmBuscarITEM();
+                objFiltrar.pro_Configura._set01Connection(m_servidor, m_baseDatos)
+                    ._set02Find(sqlCotizacion.cot_buscaCOT,
+                    new string[] { "@CodEmpresa" },
+                    new object[] { m_codEmpresa })
+                    ._set03OptionsFilter(dicFiltro)
+                    ._setSeleccionSimple(true)
+                    ._setVisibleCOL(true, new string[] { "Cotizacion", "Cliente", "Articulo" });
+                objFiltrar.ShowDialog();
+                DataRow row = objFiltrar.pro_FilaSEL;
+
+                return row != null ? _toEntity._row2object<cotizaMOD>(row) : new cotizaMOD();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                clsMensaje._msjWarning("ERROR: Al intentar calcular el secuencial de cotización", "Cotización", ex.Message);
-                this.Cotizacion= - 1;
+                clsMensaje._msjWarning("ERROR: Al intentar buscar los registros", "Buscar", ex.Message);
+                return new cotizaMOD();
             }
+
         }
         #endregion
 
@@ -145,6 +160,26 @@ namespace Ordenes.Modelos
         }
         #endregion
 
+        //CARGA UNA COTIZACION ESPECIFICA
+        #region _cargaCOT
+        public cotizaMOD _cargaCOT(int idCotiza)
+        {
+            try
+            {
+                DataTable dtCotiza = objSQLServer._CargaDataTable(sqlCotizacion.cot_CargaCAB,
+                    new string[] { "@CodEmpresa", "@idCotiza" }, new object[] {m_codEmpresa,idCotiza });
+                
+                return (dtCotiza != null && dtCotiza.Rows.Count == 1)? 
+                        _toEntity._row2object<cotizaMOD>(dtCotiza.Rows[0]):new cotizaMOD();
+            }
+            catch(Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar recuperar el registro", "Recuperar registro", ex.InnerException.Message);
+                return new cotizaMOD();
+            }
+        }
+        #endregion
+
         //Nueva cotizacion
         #region nuevaCOT
         public void _nuevaCOT()
@@ -154,34 +189,22 @@ namespace Ordenes.Modelos
         }
         #endregion
 
-        //Buscar cotizacion
-        #region buscaCOT
-        public cotizaMOD _buscaCOT()
+        //Numero de cotizacion
+        #region numeroCOT
+        private void _numeroCOT()
         {
-            try {
-                Dictionary<string, string> dicFiltro = new Dictionary<string, string>();
-                dicFiltro.Add("NumCotiza", "Cotizacion");
-                dicFiltro.Add("LTRIM(RTRIM(ISNULL(dbo.climae.CliApl,'')+' '+ISNULL(dbo.climae.CliNom,'')))", "Cliente");
-
-                dllBuscar.frmBuscarITEM objFiltrar = new dllBuscar.frmBuscarITEM();
-                objFiltrar.pro_Configura._set01Connection(m_servidor, m_baseDatos)
-                    ._set02Find(sqlCotizacion.cot_buscaCOT, 
-                    new string[] { "@CodEmpresa"},
-                    new object[] { m_codEmpresa })
-                    ._set03OptionsFilter(dicFiltro)
-                    ._setSeleccionSimple(true)
-                    ._setVisibleCOL(true, new string[] { "Cotizacion", "Cliente", "Articulo" });
-                objFiltrar.ShowDialog();
-                DataRow row = objFiltrar.pro_FilaSEL;
-
-                return row != null ? _toEntity._row2object<cotizaMOD>(row) : new cotizaMOD();
-            }
-            catch(Exception ex)
+            try
             {
-                clsMensaje._msjWarning("ERROR: Al intentar buscar los registros", "Buscar", ex.Message);
-                return new cotizaMOD();
+                int secuencialCOT = objSQLServer._CalculaCodigo("pr_Cotiza", "NumCotiza", "WHERE (EmpCod=@CodEmpresa)",
+                    new string[] { "@CodEmpresa" }, new object[] { m_codEmpresa });
+                secuencialCOT = secuencialCOT < CotizaINI ? CotizaINI : secuencialCOT;
+                this.Cotizacion = secuencialCOT;
             }
-
+            catch (Exception ex)
+            {
+                clsMensaje._msjWarning("ERROR: Al intentar calcular el secuencial de cotización", "Cotización", ex.Message);
+                this.Cotizacion = -1;
+            }
         }
         #endregion
 
@@ -205,5 +228,57 @@ namespace Ordenes.Modelos
         }
         #endregion
 
+        #region DESPLAZAMIENTOS
+
+        //primero
+        #region moveFirst
+        public int _moveFirst()
+        {
+            return _moveRecord(sqlCotizacion.cot_goFirst,0);
+        }
+        #endregion
+
+        //anterior
+        #region movePrevious
+        public int _movePrevious(int idActual)
+        {
+            return _moveRecord(sqlCotizacion.cot_goPrevious, idActual);
+        }
+        #endregion
+
+        //siguiente
+        #region moveNext
+        public int _moveNext(int idActual)
+        {
+            return _moveRecord(sqlCotizacion.cot_goNext, idActual);
+        }
+        #endregion
+
+        //ultimo
+        #region moveLast
+        public int _moveLast()
+        {
+            return _moveRecord(sqlCotizacion.Cot_goLast, 0);
+        }
+        #endregion
+
+        //consulta el registro que toca cargar
+        #region moveRecord
+        private int _moveRecord(string sqlQuery,int idActual)
+        {
+            string []paramsName = new string[] { "@idActual" };
+            object []paramsValue = new object[] { idActual };
+            DataTable dtRecord= objSQLServer._CargaDataTable(sqlQuery, paramsName, paramsValue);
+            if(dtRecord!=null && dtRecord.Rows.Count == 1)
+            {
+                return dtRecord.Rows[0]["idCotiza"].ToInt();
+            }
+            return -1;
+        }
+        #endregion
+
+        #endregion
+
     }
+
 }
