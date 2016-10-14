@@ -237,6 +237,7 @@ namespace Ordenes.Controles
         #region Validar
         private bool _Validar()
         {
+            bool isValid = true;
             if (blo_seInicia.Value > blo_seTermina.Value)
             {
                 decimal aux = blo_seInicia.Value;
@@ -246,9 +247,10 @@ namespace Ordenes.Controles
             if (!model_Cotiza._isValid())
             {
                 clsMensaje._msjWarning(model_Cotiza.pro_getErrrors, "Verificar datos");
+                isValid = false;
             }
 
-            bool isValid = objCotiza._clienteDESTValida();
+            isValid = isValid && objCotiza._clienteDESTValida(model_Cotiza.Tiraje);
             isValid = isValid && objCotiza._disenoArmadoValida();
             isValid = isValid && objCotiza._disenoColorValida();
             isValid = isValid && objCotiza._disenoPlacaValida();
@@ -624,7 +626,7 @@ namespace Ordenes.Controles
 
         private void barraStandar_onSave()
         {
-            
+            _forceUpdate(cli_gvDestino);
             _asignaCotizaMOD();
             _asignaBlockMOD();
             _totales();
@@ -643,8 +645,15 @@ namespace Ordenes.Controles
         {
             if (model_Cotiza != null && beNumeroCOT.Text.Trim() != "" && beNombreCLI.Text.Trim() != "")
             {
-                m_accion = "EDITAR";
-                _estadoControles(true);
+                if (model_Cotiza.EstadoCOT == 1)
+                {
+                    m_accion = "EDITAR";
+                    _estadoControles(true);
+                }
+                else
+                {
+                    clsMensaje._msjWarning("Solo se permite modificar registros en estado creado", "Editar");
+                }
             }
             else
             {
@@ -654,7 +663,21 @@ namespace Ordenes.Controles
 
         private void barraStandar_onDelete()
         {
-
+            if (model_Cotiza != null && beNumeroCOT.Text.Trim() != "" && beNombreCLI.Text.Trim() != "")
+            {
+                if (model_Cotiza.EstadoCOT == 1)
+                {
+                    //_estadoControles(true);
+                }
+                else
+                {
+                    clsMensaje._msjWarning("Solo se permite anular registros en estado creado", "Anular");
+                }
+            }
+            else
+            {
+                clsMensaje._msjWarning("Por favor seleccione la cotización que desea anular", "Anular registro");
+            }
         }
 
         private void barraStandar_onUndo()

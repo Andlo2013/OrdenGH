@@ -175,7 +175,7 @@
             this.btnArpobar.Size = new System.Drawing.Size(119, 23);
             this.btnArpobar.TabIndex = 4;
             this.btnArpobar.Text = "&Aprobada";
-            this.btnArpobar.Click += new System.EventHandler(this.btnArpobar_Click);
+            this.btnArpobar.Click += new System.EventHandler(this.btnAprobar_Click);
             // 
             // lblTotalREG
             // 

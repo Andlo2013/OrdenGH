@@ -57,6 +57,9 @@ namespace Ordenes.Modelos
         [Range(1, maxRange, ErrorMessage = "El total de línea está fuera del rango")]
         public decimal TotalLinea { get; set; }
 
+        //PROPIEDADES UTILIZADAS SOLO PARA VALIDACIONES
+        public decimal NumPlacasMIN { get; set; }
+
         #endregion
 
         public void _Guardar(int idCotiza, int secDetalle)
@@ -79,8 +82,14 @@ namespace Ordenes.Modelos
 
         public bool _validar()
         {
-            return this._isValid();
-            //OTRAS VALIDACIONES 
+            bool isValid = this._isValid();
+            //OTRAS VALIDACIONES
+            if (this.NumPlacas < this.NumPlacasMIN)
+            {
+                this._addError("El número de placas no puede ser inferior al mínimo sugerido");
+                isValid = false;
+            }
+            return isValid; 
         }
 
     }

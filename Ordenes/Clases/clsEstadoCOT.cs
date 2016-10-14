@@ -2,28 +2,29 @@
 using dllMensaje;
 using Ordenes.Properties;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ordenes.Clases
 {
     public class clsEstadoCOT
     {
+        //instancias - variables de la clase
+        #region INSTANCIAS-VARIABLES
         _SQLServer objSQLServer = frmPrincipal.getSQLServer;
         _Comunes objComunes = new _Comunes();
         private string m_CodEmpresa = frmPrincipal.getSession.Empresa.Codigo;
         private int m_CodEmpleado = frmPrincipal.getSession.Usuario.Empleado.Codigo;
         DataTable dtEstadoCOT = null;
-
         private int m_codCliente = 0;
+        #endregion
 
         public clsEstadoCOT() { }
 
-        
+        //METODOS
+        #region METODOS
 
+        //Carga el detalle de cotizaciones
+        #region cargaDET
         public DataTable _cargaDET(DateTime dttFechaDesde,DateTime dttFechaHasta,
             object codEstado,bool porCliente,bool porEstado)
         {
@@ -51,7 +52,10 @@ namespace Ordenes.Clases
                 return null;
             }
         }
+        #endregion
 
+        //recupera el nombre del estado de la cotizacion para mostrar al usuario
+        #region nombreEstadoCOT
         private void _nombreEstadoCOT()
         {
             if (dtEstadoCOT != null)
@@ -62,7 +66,10 @@ namespace Ordenes.Clases
                 }
             }
         }
+        #endregion
 
+        //busca un cliente
+        #region buscaCLI
         public string _buscaCLI()
         {
             clsCotizacion objCotiza = new clsCotizacion();
@@ -75,41 +82,54 @@ namespace Ordenes.Clases
             m_codCliente = 0;
             return "";
         }
+        #endregion
 
+        //actualiza el estado
+        #region actualizar
         public void _actualizar(int CodEstado, int CodRechaza, string Observaciones)
         {
-            try { 
-            DataRow[] rowSEL = dtEstadoCOT.Select("Seleccionar=true");
-            if (rowSEL != null)
+            try
             {
-                objSQLServer._Open();
+                DataRow[] rowSEL = dtEstadoCOT.Select("Seleccionar=true");
+                if (rowSEL != null)
+                {
+                    objSQLServer._Open();
                     foreach (DataRow row in rowSEL)
                     {
-                        if (row["CodEstadoCOT"].ToInt() == 1)
+                        if (row["EstadoCOT"].ToInt() == 1)
                         {
                             objSQLServer._Ejecutar(sqlEstadoCOT.cotest_guardar,
                                 new string[] { "@idCotiza", "@CodigoEPL", "@CodEstado", "@CodRechaza", "@Observaciones" },
                                 new object[] { row["id"], m_CodEmpleado, CodEstado, CodRechaza, Observaciones });
                         }
                     }
-                objSQLServer._Close();
+                    objSQLServer._Close();
+                }
             }
-            }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 objSQLServer._Close();
                 clsMensaje._msjWarning("ERROR: Al intentar actualizar los registros", "Actualizar", ex.InnerException.Message);
             }
         }
+        #endregion
 
+        #endregion
+        
+        //PROPIEDADES
+        #region PROPIEDADES
 
+        //Codigo del cliente
+        #region pro_CodCliente
         public int pro_CodCliente
         {
             get { return m_codCliente; }
             set { m_codCliente = value; }
         }
+        #endregion
 
-       
+        #endregion
+
 
     }
 }

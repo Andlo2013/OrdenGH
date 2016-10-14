@@ -580,6 +580,8 @@
             // cli_gcColCantidad
             // 
             this.cli_gcColCantidad.Caption = "Cantidad";
+            this.cli_gcColCantidad.DisplayFormat.FormatString = "N0";
+            this.cli_gcColCantidad.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.cli_gcColCantidad.FieldName = "Cantidad";
             this.cli_gcColCantidad.Name = "cli_gcColCantidad";
             this.cli_gcColCantidad.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
@@ -2175,7 +2177,7 @@
             // col_gcColTotLinea
             // 
             this.col_gcColTotLinea.Caption = "Total $";
-            this.col_gcColTotLinea.DisplayFormat.FormatString = "N2";
+            this.col_gcColTotLinea.DisplayFormat.FormatString = "e3";
             this.col_gcColTotLinea.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.col_gcColTotLinea.FieldName = "TotalLinea";
             this.col_gcColTotLinea.Name = "col_gcColTotLinea";

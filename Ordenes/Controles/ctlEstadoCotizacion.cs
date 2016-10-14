@@ -32,6 +32,8 @@ namespace Ordenes.Controles
             _cargaDET();
         }
 
+        //Inicializa el formulario
+        #region inicializa
         private void _inicializa()
         {
             //COMBO MOTIVOS RECHAZO
@@ -41,7 +43,10 @@ namespace Ordenes.Controles
             DataTable dtEstadoCOT = objComun._GetDataTableCOT();
             objComun._cargaCtlCMB(lueEstado, dtEstadoCOT);
         }
+        #endregion
 
+        //Carga el detalle
+        #region cargaDET
         private void _cargaDET()
         {
             DataTable dtLista= objEstadoCOT._cargaDET(deFechaDesde.DateTime,deFechaHasta.DateTime,
@@ -50,23 +55,35 @@ namespace Ordenes.Controles
             lblTotalREG.Text = "Total Registros: ";
             lblTotalREG.Text += dtLista!=null? dtLista.Rows.Count.ToString():"0";
         }
+        #endregion
 
+        //boton cargar detalle
+        #region btnCargaDET
         private void btnCargaDET_Click(object sender, EventArgs e)
         {
             _cargaDET();
         }
+        #endregion
 
+        //buscar cliente
+        #region beCliente
         private void beCliente_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             beCliente.Text=objEstadoCOT._buscaCLI();
         }
+        #endregion
 
-        private void btnArpobar_Click(object sender, EventArgs e)
+        //boton aprobar
+        #region btnAprobar
+        private void btnAprobar_Click(object sender, EventArgs e)
         {
             objEstadoCOT._actualizar(2, 0, meObservaciones.Text.Trim());
             _cargaDET();
         }
+        #endregion
 
+        //boton rechazar
+        #region Rechazar
         private void btnRechazar_Click(object sender, EventArgs e)
         {
             if (lueMotivoRechaza.EditValue != null && lueMotivoRechaza.EditValue != DBNull.Value
@@ -80,5 +97,8 @@ namespace Ordenes.Controles
                 clsMensaje._msjWarning("Cuando rechaza una cotización es obligatorio seleccionar una razón e ingresar una descripción en observaciones", "Rechazar");
             }
         }
+        #endregion
+
+
     }
 }

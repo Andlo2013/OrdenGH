@@ -160,8 +160,6 @@ namespace Ordenes.Clases
         }
         #endregion
 
-        #endregion
-
         //PESTANA - CLIENTE
         #region PESTANA - CLIENTE
 
@@ -292,11 +290,11 @@ namespace Ordenes.Clases
 
         //VALIDA EL DETALLE DE MATERIALES DEL CLIENTE
         #region clienteDESTValida
-        public bool _clienteDESTValida()
+        public bool _clienteDESTValida(int Tiraje)
         {
             try
             {
-                if (dtClienteDEST != null)
+                if (dtClienteDEST != null && dtClienteDEST.Rows.Count>0)
                 {
                     int fila = 0;
                     foreach (DataRow row in dtClienteDEST.Rows)
@@ -317,8 +315,13 @@ namespace Ordenes.Clases
                             return false;
                         }
                     }
+                    return _clienteDESTValidaEXT(Tiraje);
                 }
-                return true;
+                else
+                {
+                    clsMensaje._msjWarning("Es obligatorio registrar al menos una dirección de entrega", "Cliente-Destino");
+                    return false;
+                }
             }
             catch (Exception ex)
             {
@@ -328,11 +331,28 @@ namespace Ordenes.Clases
         }
         #endregion
 
+        //VALIDACIONES EXTRAS DEL CLIENTE
+        #region clienteDESTValidaEXT
+        private bool _clienteDESTValidaEXT(int Tiraje)
+        {
+            //El tiraje debe ser igual a la suma de las cantidades a entregar en cada direccion
+            int sumaCANTENT = dtClienteDEST.Compute("SUM(Cantidad)", "").ToInt();
+            if (sumaCANTENT != Tiraje)
+            {
+                clsMensaje._msjWarning("En la pestaña cliente."+
+                    "\nLa sumatoria de cantidades de entrega debe ser igual al tiraje",
+                    "Cliente - Destino");
+                return false;
+            }
+            return true;
+        }
+        #endregion
+
         #endregion
 
         //PESTANA - RESUMEN
         #region PESTANA - RESUMEN
-        
+
         //CREA LA TABLA CON LOS TOTALES DE CADA COMPONENTE
         #region totales
         public DataTable _totales()
@@ -695,14 +715,14 @@ namespace Ordenes.Clases
             string msj = nombreTabla;
             try
             {
-                if (dtDisenoArmado != null)
+                if (dtDisenoArmado != null && dtDisenoArmado.Rows.Count > 0)
                 {
                     int fila = 0;
                     foreach (DataRow row in dtDisenoArmado.Rows)
                     {
                         fila++;
                         string msjFila = "\nEl registro de la fila Nro: " + fila.ToString();
-                        if (row.RowState!=DataRowState.Deleted && row.RowState != DataRowState.Detached)
+                        if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
                         {
                             armadoMOD objArmado = _toEntity._row2object<armadoMOD>(row);
                             if (objArmado._validar())
@@ -711,17 +731,22 @@ namespace Ordenes.Clases
                             }
                             else
                             {
-                                msj += msjFila+"\n"+objArmado.pro_getErrrors;
+                                msj += msjFila + "\n" + objArmado.pro_getErrrors;
                                 isValidTable = false;
                             }
                         }
                     }
+                    if (!isValidTable)
+                    {
+                        clsMensaje._msjWarning(msj, nombreTabla);
+                    }
+                    return isValidTable;
                 }
-                if (!isValidTable)
+                else
                 {
-                    clsMensaje._msjWarning(msj, nombreTabla);
-                }
-                return isValidTable;
+                    clsMensaje._msjWarning("Es obligatorio ingresar al menos un registro de armados", "DISEÑO-ARMADOS");
+                    return false;
+                }   
             }
             catch (Exception ex)
             {
@@ -966,7 +991,9 @@ namespace Ordenes.Clases
                 dtDisenoColor.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "TotalGramos*CostoGramo*Tiraje");
 
                 dtDisenoColor.Columns["Area"].DefaultValue = 0;
+                dtDisenoColor.Columns["Color"].DefaultValue = 0;
                 dtDisenoColor.Columns["GramosXcm2"].DefaultValue=0;
+                dtDisenoColor.Columns["LadoImpresion"].DefaultValue = 0;
                 dtDisenoColor.Columns["NumPaginas"].DefaultValue = 0;
                 dtDisenoColor.Columns["CostoGramo"].DefaultValue = 0;
                 dtDisenoColor.Columns["Cobertura"].DefaultValue = 0;
@@ -1053,7 +1080,7 @@ namespace Ordenes.Clases
             string msj = nombreTabla;
             try
             {
-                if (dtDisenoColor != null)
+                if (dtDisenoColor != null && dtDisenoColor.Rows.Count>0)
                 {
                     int fila = 0;
                     foreach (DataRow row in dtDisenoColor.Rows)
@@ -1074,12 +1101,17 @@ namespace Ordenes.Clases
                             }
                         }
                     }
+                    if (!isValidTable)
+                    {
+                        clsMensaje._msjWarning(msj, nombreTabla);
+                    }
+                    return isValidTable;
                 }
-                if (!isValidTable)
+                else
                 {
-                    clsMensaje._msjWarning(msj, nombreTabla);
+                    clsMensaje._msjWarning("Es obligatorio ingresar al menos un registro en colores", "DISEÑO-COLORES");
+                    return false;
                 }
-                return isValidTable;
             }
             catch(Exception ex)
             {
@@ -1172,6 +1204,7 @@ namespace Ordenes.Clases
 
                 dtDisenoPlaca.Columns.Add("TotalLinea", Type.GetType("System.Decimal"), "CostoPlaca*NumPlacas*NumColores");
 
+                dtDisenoPlaca.Columns["LadoPlaca"].DefaultValue = 0;
                 dtDisenoPlaca.Columns["NumPlacas"].DefaultValue = 0;
                 dtDisenoPlaca.Columns["NumColores"].DefaultValue = 1;
                 dtDisenoPlaca.Columns["CostoPlaca"].DefaultValue = 0;
@@ -1576,7 +1609,7 @@ namespace Ordenes.Clases
             string msj = nombreTabla;
             try
             {
-                if (dtDisenoProcesoDET != null)
+                if (dtDisenoProcesoDET != null && dtDisenoProcesoDET.Rows.Count>0)
                 {
                     int fila = 0;
                     foreach (DataRow row in dtDisenoProcesoDET.Rows)
@@ -1597,12 +1630,17 @@ namespace Ordenes.Clases
                             }
                         }
                     }
+                    if (!isValidTable)
+                    {
+                        clsMensaje._msjWarning(msj, nombreTabla);
+                    }
+                    return isValidTable;
                 }
-                if (!isValidTable)
+                else
                 {
-                    clsMensaje._msjWarning(msj, nombreTabla);
+                    clsMensaje._msjWarning("Es obligatorio ingresar al menos un registro en los procesos", "DISEÑO-PROCESOS");
+                    return false;
                 }
-                return isValidTable;
             }
             catch (Exception ex)
             {
@@ -2003,6 +2041,7 @@ namespace Ordenes.Clases
                         if (row.RowState != DataRowState.Deleted && row.RowState != DataRowState.Detached)
                         {
                             troquelMOD objTroquel = _toEntity._row2object<troquelMOD>(row);
+                            bool isValidModel = objTroquel._validar();
                             if (objTroquel._validar())
                             {
                                 lista_Troquel.Add(objTroquel);
@@ -2027,8 +2066,6 @@ namespace Ordenes.Clases
                 return false;
             }
         }
-        #endregion
-
         #endregion
 
         //MATERIALES-CLIENTE
@@ -2124,13 +2161,13 @@ namespace Ordenes.Clases
                             "\nEl registro de la fila Nro: " + fila.ToString();
                         if (row["SecMaterial"].ToInt() <= 0)
                         { 
-                            msj += "El secuencial de material es obligatorio";
+                            msj += "\nEl secuencial de material es obligatorio";
                             clsMensaje._msjWarning(msj, "Materiales cliente");
                             return false;
                         }
                         else if (row["Cantidad"].ToDecimal() <= 0)
                         {
-                            msj += "La cantidad debe ser mayor a cero";
+                            msj += "\nLa cantidad debe ser mayor a cero";
                             clsMensaje._msjWarning(msj, "Materiales cliente");
                             return false;
                         }
@@ -2144,6 +2181,8 @@ namespace Ordenes.Clases
                 return false;
             }
         }
+        #endregion
+
         #endregion
 
         #endregion
@@ -2187,6 +2226,8 @@ namespace Ordenes.Clases
                 clsMensaje._msjWarning("ERROR: Al intentar eliminar el registro", "Eliminar", ex.Message);
             }
         }
+        #endregion
+
         #endregion
 
         #endregion

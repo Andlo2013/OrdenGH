@@ -21,6 +21,7 @@ namespace Ordenes.Clases
         public _SQLServer()
         {
         }
+
         //OPEN-CLOSE CONEXION
         #region Conexion: Open-Close
 

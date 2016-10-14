@@ -5,15 +5,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace Ordenes.Modelos
 {
     public class cotizaMOD:_modelo
     {
+        //INSTANCIAS-VARIABLES
+        #region INSTANCIAS-VARIABLES
         _SQLServer objSQLServer = frmPrincipal.getSQLServer;
         //PEDIDO ING. VELEZ DEFINIR EL NÚMERO COTIZACIÓN INICIA Y DESPUÉS SEA AUTOMÁTICO
         private int CotizaINI = 1;
@@ -22,6 +21,8 @@ namespace Ordenes.Modelos
         private string m_baseDatos = frmPrincipal.getSession.Catalogo;
         const double maxRange = 999999999;
         const double minRange = 0.00000001;
+        #endregion
+
         //PROPIEDADES DEL MODELO
         #region PROPIEDADES
 
@@ -108,7 +109,8 @@ namespace Ordenes.Modelos
 
         #endregion
 
-
+        //Numero de cotizacion
+        #region numeroCOT
         private void _numeroCOT()
         {
             try
@@ -124,7 +126,10 @@ namespace Ordenes.Modelos
                 this.Cotizacion= - 1;
             }
         }
+        #endregion
 
+        //Calcula el ID
+        #region calculaID
         private void _calculaID()
         {
             try
@@ -138,13 +143,19 @@ namespace Ordenes.Modelos
                 this.id= -1;
             }
         }
+        #endregion
 
+        //Nueva cotizacion
+        #region nuevaCOT
         public void _nuevaCOT()
         {
             _numeroCOT();
             _calculaID();
         }
+        #endregion
 
+        //Buscar cotizacion
+        #region buscaCOT
         public cotizaMOD _buscaCOT()
         {
             try {
@@ -172,7 +183,10 @@ namespace Ordenes.Modelos
             }
 
         }
+        #endregion
 
+        //Guardar cotizacion
+        #region guardaCOT
         public void _guardaCOT()
         {
             string[] paramsName = new string[] {"@idCotiza","@CodEmpresa","@NumCotiza",
@@ -189,5 +203,7 @@ namespace Ordenes.Modelos
 
 
         }
+        #endregion
+
     }
 }
