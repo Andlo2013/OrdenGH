@@ -2515,7 +2515,6 @@ namespace Ordenes.Clases
 
         #endregion
 
-
         //PROPIEDADES DE LA CLASE
         #region PROPIEDADES
 

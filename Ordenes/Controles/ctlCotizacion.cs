@@ -14,11 +14,14 @@ namespace Ordenes.Controles
 {
     public partial class ctlCotizacion : UserControl
     {
+        //Instancias-variables del cotrol
+        #region Instancias-Variables
         clsCotizacion objCotiza = new clsCotizacion();
         _Comunes objComunes = new _Comunes();
         cotizaMOD model_Cotiza = new cotizaMOD();
         blockMOD model_Block = new blockMOD();
         private string m_accion = "";
+        #endregion
 
         public ctlCotizacion()
         {
@@ -55,6 +58,35 @@ namespace Ordenes.Controles
             {
                 objComunes._cargaCtlCMBGRID(lueCombo, dtCombo);
             }
+        }
+        #endregion
+
+        //Desplazamientos
+        #region desplazar
+        private void _desplazar(int tipoDesplaza)
+        {
+            int idCotiza = 0;
+            model_Cotiza = model_Cotiza != null ? model_Cotiza : new cotizaMOD();
+            switch (tipoDesplaza)
+            {
+                case 1:
+                    idCotiza = model_Cotiza._moveFirst();
+                    break;
+                case 2:
+                    idCotiza = model_Cotiza._movePrevious(model_Cotiza.id);
+                    break;
+                case 3:
+                    idCotiza = model_Cotiza._moveNext(model_Cotiza.id);
+                    break;
+                case 4:
+                    idCotiza = model_Cotiza._moveLast();
+                    break;
+                default:
+                    idCotiza = model_Cotiza.id;
+                    break;
+            }
+            model_Cotiza = model_Cotiza._cargaCOT(idCotiza);
+            _modeloAcontroles();
         }
         #endregion
 
@@ -209,6 +241,30 @@ namespace Ordenes.Controles
         }
         #endregion
 
+        //Verifica el estado de una cotizacion antes de editar o eliminar
+        #region puedeEditar
+        private bool _puedeEditar()
+        {
+            try
+            {
+                cotizaMOD mod_Editar = new cotizaMOD();
+                mod_Editar.id = model_Cotiza.id;
+                mod_Editar = mod_Editar._cargaCOT(mod_Editar.id);
+                if (mod_Editar != null
+                    && mod_Editar.EstadoCOT == 1 && mod_Editar.Estado == true)
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                clsMensaje._msjError("No se puede verificar el estado de cotización", "Puede editar");
+                return false;
+            }
+        }
+        #endregion
+
         //Valida que ingresen solo numeros en un textedit
         #region SoloNumeros
         private void _SoloNumeros(object sender, KeyPressEventArgs e)
@@ -238,18 +294,26 @@ namespace Ordenes.Controles
         private bool _Validar()
         {
             bool isValid = true;
+
             if (blo_seInicia.Value > blo_seTermina.Value)
             {
                 decimal aux = blo_seInicia.Value;
                 blo_seInicia.Value = blo_seTermina.Value;
                 blo_seTermina.Value = aux;
             }
+            //En caso estuvo cargado en memoria cuando se aprobo o rechazo cotizacion
+            if (m_accion != "NUEVO" && !_puedeEditar())
+            {
+                clsMensaje._msjWarning("El estado actual del registro no permite hacer modificaciones", "Verificar datos");
+                isValid = false;
+            }
+            //valida la cabecera
             if (!model_Cotiza._isValid())
             {
                 clsMensaje._msjWarning(model_Cotiza.pro_getErrrors, "Verificar datos");
                 isValid = false;
             }
-
+            //valida detalles
             isValid = isValid && objCotiza._clienteDESTValida(model_Cotiza.Tiraje);
             isValid = isValid && objCotiza._disenoArmadoValida();
             isValid = isValid && objCotiza._disenoColorValida();
@@ -383,6 +447,8 @@ namespace Ordenes.Controles
         }
         #endregion
 
+        //Pasa los datos del modelo a los controles
+        #region modeloAcontroles
         private void _modeloAcontroles()
         {
             if (model_Cotiza != null && model_Cotiza.id > 0)
@@ -406,6 +472,7 @@ namespace Ordenes.Controles
                 _CargaDetalle();
             }
         }
+        #endregion
 
         #endregion
 
@@ -619,6 +686,11 @@ namespace Ordenes.Controles
         //Barra-Estandar
         #region BARRA-STANDAR
 
+        //NUEVO-GUARDAR-EDITAR-ELIMINAR-DEHACER
+        #region NAGED
+
+        //nuevo
+        #region Nuevo
         private void barraStandar_onNew()
         {
             _LimpiarControles();
@@ -628,7 +700,10 @@ namespace Ordenes.Controles
             _CargaDetalle();
             _estadoControles(true);
         }
+        #endregion
 
+        //guardar
+        #region Guardar
         private void barraStandar_onSave()
         {
             _forceUpdate(cli_gvDestino);
@@ -645,19 +720,22 @@ namespace Ordenes.Controles
                 }
             }
         }
+        #endregion
 
+        //editar
+        #region Editar
         private void barraStandar_onEdit()
         {
             if (model_Cotiza != null && beNumeroCOT.Text.Trim() != "" && beNombreCLI.Text.Trim() != "")
             {
-                if (model_Cotiza.EstadoCOT == 1)
+                if (_puedeEditar() == true)
                 {
                     m_accion = "EDITAR";
                     _estadoControles(true);
                 }
                 else
                 {
-                    clsMensaje._msjWarning("Solo se permite modificar registros en estado creado", "Editar");
+                    clsMensaje._msjWarning("El estado actual del registro no permite modificaciones", "Editar");
                 }
             }
             else
@@ -665,18 +743,21 @@ namespace Ordenes.Controles
                 clsMensaje._msjWarning("Por favor seleccione la cotización que desea modificar", "Editar registro");
             }
         }
+        #endregion
 
+        //eliminar
+        #region Eliminar
         private void barraStandar_onDelete()
         {
             if (model_Cotiza != null && beNumeroCOT.Text.Trim() != "" && beNombreCLI.Text.Trim() != "")
             {
-                if (model_Cotiza.EstadoCOT == 1)
+                if (_puedeEditar())
                 {
                     //_estadoControles(true);
                 }
                 else
                 {
-                    clsMensaje._msjWarning("Solo se permite anular registros en estado creado", "Anular");
+                    clsMensaje._msjWarning("El estado actual del registro no permite anular", "Anular");
                 }
             }
             else
@@ -684,12 +765,55 @@ namespace Ordenes.Controles
                 clsMensaje._msjWarning("Por favor seleccione la cotización que desea anular", "Anular registro");
             }
         }
+        #endregion
 
+        //deshacer
+        #region Deshacer
         private void barraStandar_onUndo()
         {
             m_accion = "";
             _estadoControles(false);
         }
+        #endregion
+
+        #endregion
+
+        //DESPLAZAMIENTOS
+        #region Desplazmientos
+
+        //Primero
+        #region PRIMERO
+        private void barraStandar_onFirst()
+        {
+            _desplazar(1);
+        }
+        #endregion
+
+        //Anterior
+        #region ANTERIOR
+        private void barraStandar_onPrevious()
+        {
+            _desplazar(2);
+        }
+        #endregion
+
+        //Siguiente
+        #region SIGUIENTE
+        private void barraStandar_onNext()
+        {
+            _desplazar(3);
+        }
+        #endregion
+
+        //Ultimo
+        #region ULTIMO
+        private void barraStandar_onLast()
+        {
+            _desplazar(4);
+        }
+        #endregion
+
+        #endregion
 
         #endregion
 
@@ -925,47 +1049,5 @@ namespace Ordenes.Controles
 
         #endregion
 
-        private void barraStandar_onFirst()
-        {
-            _desplazar(1);
-        }
-
-        private void barraStandar_onNext()
-        {
-            _desplazar(3);
-        }
-
-        private void barraStandar_onPrevious()
-        {
-            _desplazar(2);
-        }
-
-        private void barraStandar_onLast()
-        {
-            _desplazar(4);
-        }
-
-        private void _desplazar(int tipoDesplaza)
-        {
-            int idCotiza = 0;
-            model_Cotiza = model_Cotiza != null ? model_Cotiza : new cotizaMOD();
-            switch (tipoDesplaza)
-            {
-                case 1:
-                    idCotiza=model_Cotiza._moveFirst();
-                    break;
-                case 2:
-                    idCotiza = model_Cotiza._movePrevious(model_Cotiza.id);
-                    break;
-                case 3:
-                    idCotiza = model_Cotiza._moveNext(model_Cotiza.id);
-                    break;
-                case 4:
-                    idCotiza = model_Cotiza._moveLast();
-                    break;
-            }
-            model_Cotiza= model_Cotiza._cargaCOT(idCotiza);
-            _modeloAcontroles();
-        }
     }
 }
