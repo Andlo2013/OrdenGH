@@ -55,6 +55,9 @@ namespace Ordenes
             AgregarVentana(new Controles.ctlEstadoCotizacion(), "Procesar Cotizaciones", global::Ordenes.Properties.sqlQuery.iconAPP);
         }
 
-        
+        private void bbiTablasREF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            AgregarVentana(new Controles.ctlTablasREF(), "Tablas de referencia", global::Ordenes.Properties.sqlQuery.iconAPP);
+        }
     }
 }

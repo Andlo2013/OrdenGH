@@ -117,10 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="aca_cmOpciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="cob_cmOpciones.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>159, 17</value>
-  </metadata>
+  <data name="acabados_CargaDET" xml:space="preserve">
+    <value>SELECT idAcabado,Descripcion,AplicaA,idTalla AS CodTalla,Costo,EstReg AS Estado,'' AS Accion FROM dbo.pr_GHAcabados</value>
+    <comment>Carga el listado de acabados disponibles</comment>
+  </data>
+  <data name="acabados_CargaTallas" xml:space="preserve">
+    <value>SELECT IdTalla AS CodTalla,Talla AS Descripcion FROM dbo.ItmTallas WHERE EmpCod=@CodEmpresa</value>
+    <comment>Carga las tallas disponibles</comment>
+  </data>
+  <data name="acabados_Codigo" xml:space="preserve">
+    <value>SELECT ISNULL(MAX(idAcabado),0) AS idAcabado FROM pr_GHAcabados</value>
+    <comment>Calcula el codigo de los acabados</comment>
+  </data>
+  <data name="acabados_Guardar" xml:space="preserve">
+    <value>DELETE FROM pr_GHAcabados WHERE idAcabado=@idAcabado;INSERT INTO pr_GHAcabados VALUES (@idAcabado,@Descripcion,@AplicaA,@CodTalla,@Costo,@Estado)</value>
+    <comment>Guarda los acabados</comment>
+  </data>
+  <data name="coberturas_CargaDET" xml:space="preserve">
+    <value>SELECT idCobertura,Descripcion,Gramos,EstReg AS Estado,'' AS Accion FROM dbo.pr_GHCoberturas</value>
+    <comment>Carga el listado de coberturas</comment>
+  </data>
+  <data name="coberturas_Codigo" xml:space="preserve">
+    <value>SELECT ISNULL(MAX(idCobertura),0) FROM pr_GHCoberturas</value>
+    <comment>Calcula el codigo de la cobertura</comment>
+  </data>
+  <data name="coberturas_Guardar" xml:space="preserve">
+    <value>DELETE FROM pr_GHCoberturas WHERE idCobertura=@idCobertura;INSERT INTO pr_GHCoberturas VALUES (@idCobertura,@Descripcion,@Gramos,@Estado);</value>
+    <comment>Guarda las coberturas</comment>
+  </data>
 </root>

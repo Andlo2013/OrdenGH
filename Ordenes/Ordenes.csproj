@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="Clases\clsCalculaCorte.cs" />
     <Compile Include="Clases\clsEstadoCOT.cs" />
+    <Compile Include="Clases\clsRefAcabado.cs" />
+    <Compile Include="Clases\clsRefCobertura.cs" />
     <Compile Include="Clases\_Comunes.cs" />
     <Compile Include="Clases\clsCotizacion.cs" />
     <Compile Include="Controles\ctlCotizacion.cs">
@@ -95,6 +97,12 @@
     </Compile>
     <Compile Include="Controles\ctlEstadoCotizacion.Designer.cs">
       <DependentUpon>ctlEstadoCotizacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ctlTablasREF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ctlTablasREF.Designer.cs">
+      <DependentUpon>ctlTablasREF.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frmCortes.cs">
       <SubType>Form</SubType>
@@ -139,11 +147,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sqlEstadoCOT.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\sqlTablasREF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sqlTablasREF.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controles\ctlCotizacion.resx">
       <DependentUpon>ctlCotizacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ctlEstadoCotizacion.resx">
       <DependentUpon>ctlEstadoCotizacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ctlTablasREF.resx">
+      <DependentUpon>ctlTablasREF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frmCortes.resx">
       <DependentUpon>frmCortes.cs</DependentUpon>
@@ -173,6 +189,10 @@
     <EmbeddedResource Include="Properties\sqlEstadoCOT.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>sqlEstadoCOT.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\sqlTablasREF.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>sqlTablasREF.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

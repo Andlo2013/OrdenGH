@@ -294,3 +294,5 @@ C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe.licenses
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.exe
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.pdb
 C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.csprojResolveAssemblyReference.cache
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Controles.ctlTablasREF.resources
+C:\Andres\MP3\Ordenes\Ordenes\obj\Debug\Ordenes.Properties.sqlTablasREF.resources
