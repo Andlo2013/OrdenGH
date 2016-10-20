@@ -8,15 +8,14 @@ using System.Data.SqlClient;
 using AutomatizerSQL.Core;
 using AutomatizerSQL.Core.HelperClass;
 using Ordenes.Properties;
+using AutomatizerSQL.Data;
 
 namespace Ordenes.Clases
 {
     public class _SQLServer
     {
 
-        AutomatizerDataAccesSqlClient bd =
-            new AutomatizerDataAccesSqlClient(frmPrincipal.getSession.Servidor, frmPrincipal.getSession.Catalogo);
-        //IAutomatizerDataAcces bd = Form1.getSession.Data;
+        IAutomatizerDataAcces bd = frmPrincipal.getSession.Data.GetNewDataAcces();
 
         public _SQLServer()
         {
@@ -147,5 +146,6 @@ namespace Ordenes.Clases
 
         #endregion
     }
+
 }
 

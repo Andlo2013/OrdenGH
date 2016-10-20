@@ -33,12 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Automatizer.Core.Win32.Gui">
-      <HintPath>..\..\..\CFBase\Automatizer.Core.Win32.Gui\Automatizer.Core.Win32.Gui\bin\Release\Automatizer.Core.Win32.Gui.dll</HintPath>
-    </Reference>
     <Reference Include="AutomatizerSQL.Core, Version=0.1.0.0, Culture=neutral, PublicKeyToken=e832e09eee5347f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\CFBase\AutomatizerSQL.Core\AutomatizerSQL.Core\bin\Release\AutomatizerSQL.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AutomatizerSQL.Data">
+      <HintPath>..\..\..\CFBASE\AutomatizerSQL.Data\AutomatizerSQL.Data\bin\Debug\AutomatizerSQL.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="AutomatizerSQL.Data.SqlServer">
+      <HintPath>..\..\..\CFBase\AutomatizerSQL.Data\AutomatizerSQL.Data.SqlServer\bin\Release\AutomatizerSQL.Data.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="AutomatizerSQL.Utilidades, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e832e09eee5347f4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -64,6 +67,10 @@
     </Reference>
     <Reference Include="dllStandardTool">
       <HintPath>..\..\..\dllStandardTool\dllStandardTool\bin\Debug\dllStandardTool.dll</HintPath>
+    </Reference>
+    <Reference Include="SesionStarter, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e832e09eee5347f4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\CFBase\AutomatizerSQL.Core\SesionStarterGui\bin\Release\SesionStarter.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -216,6 +223,19 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CFBASE\Automatizer.Core.Win32.Gui\Automatizer.Core.Win32.Gui\Automatizer.Core.Win32.Gui.csproj">
+      <Project>{075d9bdc-072a-42cc-aa66-7424f0c84c30}</Project>
+      <Name>Automatizer.Core.Win32.Gui</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\CFBASE\AutomatizerSQL.Core\SesionStarterGui\SesionStarterGui.csproj">
+      <Project>{3efbf241-75c5-4dd4-a370-54a828988262}</Project>
+      <Name>SesionStarterGui</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

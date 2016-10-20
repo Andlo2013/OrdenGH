@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordenes", "Ordenes\Ordenes.csproj", "{30000E43-DEE6-453F-9C98-8E83B14725C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Automatizer.Core.Win32.Gui", "..\..\CFBASE\Automatizer.Core.Win32.Gui\Automatizer.Core.Win32.Gui\Automatizer.Core.Win32.Gui.csproj", "{075D9BDC-072A-42CC-AA66-7424F0C84C30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SesionStarterGui", "..\..\CFBASE\AutomatizerSQL.Core\SesionStarterGui\SesionStarterGui.csproj", "{3EFBF241-75C5-4DD4-A370-54A828988262}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{30000E43-DEE6-453F-9C98-8E83B14725C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30000E43-DEE6-453F-9C98-8E83B14725C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30000E43-DEE6-453F-9C98-8E83B14725C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{075D9BDC-072A-42CC-AA66-7424F0C84C30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{075D9BDC-072A-42CC-AA66-7424F0C84C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{075D9BDC-072A-42CC-AA66-7424F0C84C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{075D9BDC-072A-42CC-AA66-7424F0C84C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EFBF241-75C5-4DD4-A370-54A828988262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EFBF241-75C5-4DD4-A370-54A828988262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EFBF241-75C5-4DD4-A370-54A828988262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EFBF241-75C5-4DD4-A370-54A828988262}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
