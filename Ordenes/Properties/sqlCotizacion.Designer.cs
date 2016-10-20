@@ -142,7 +142,7 @@ namespace Ordenes.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT idProcesoIMP, idPlaca, NumColores, idTalla, CostoImpMin, NumPliegosXmin, CostoMinPP, NumMinPP FROM dbo.pr_GHCostoProcesoIMP WHERE (EstReg = &apos;True&apos;).
+        ///   Looks up a localized string similar to SELECT idPlaca, NumColores, idTalla, CostoImpMin, NumPliegosXmin, CostoMinPP, NumMinPP FROM dbo.pr_GHCostoProcesoIMP WHERE (EstReg = &apos;True&apos;).
         /// </summary>
         internal static string cot_cargaCostosProcesoIMP {
             get {

@@ -698,6 +698,7 @@ namespace Ordenes.Controles
             model_Cotiza._nuevaCOT();            
             beNumeroCOT.EditValue = model_Cotiza.Cotizacion;
             _CargaDetalle();
+            m_accion = "NUEVO";
             _estadoControles(true);
         }
         #endregion

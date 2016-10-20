@@ -90,7 +90,7 @@
             this.ClientSize = new System.Drawing.Size(896, 493);
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmPrincipal";
+            this.Text = "Gráficas Hernández - Cotizador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlMenu)).EndInit();

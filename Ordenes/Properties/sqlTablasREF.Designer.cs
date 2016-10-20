@@ -122,5 +122,113 @@ namespace Ordenes.Properties {
                 return ResourceManager.GetString("coberturas_Guardar", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT dbo.pr_GHPorcentajePliegoEXT.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_GHPorcentajePliegoEXT.Porcentaje FROM dbo.pr_GHPorcentajePliegoEXT INNER JOIN dbo.ItmMae ON dbo.pr_GHPorcentajePliegoEXT.SecMaterial = dbo.ItmMae.Secuencial WHERE        (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_GHPorcentajePliegoEXT.CmbGrupo = @CodGrupo) AND (dbo.pr_GHPorcentajePliegoEXT.CmbComponente = @CodComponente) AND (dbo.pr_GHPorcentajePliegoEXT.EstReg = &apos;True&apos;).
+        /// </summary>
+        internal static string pext_cargaDET {
+            get {
+                return ResourceManager.GetString("pext_cargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM dbo.pr_GHPorcentajePliegoEXT WHERE CmbGrupo=@CodGrupo AND CmbComponente=@CodComponente.
+        /// </summary>
+        internal static string pext_EliminaG {
+            get {
+                return ResourceManager.GetString("pext_EliminaG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO dbo.pr_GHPorcentajePliegoEXT VALUES (@CodGrupo,@CodComponente,@SecMaterial,@Porcentaje,&apos;True&apos;).
+        /// </summary>
+        internal static string pext_Guarda {
+            get {
+                return ResourceManager.GetString("pext_Guarda", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT pr_GHCostoProcesoIMP.idTalla AS CodTalla, ItmTallas.Talla, pr_GHCostoProcesoIMP.NumColores, pr_GHCostoProcesoIMP.CostoImpMin AS CostoMIN, pr_GHCostoProcesoIMP.NumPliegosXmin AS PliegosMIN, pr_GHCostoProcesoIMP.CostoMinPP AS CostoPP, pr_GHCostoProcesoIMP.NumMinPP AS MinutosPP FROM pr_GHCostoProcesoIMP INNER JOIN ItmTallas ON pr_GHCostoProcesoIMP.idTalla = ItmTallas.IdTalla WHERE (pr_GHCostoProcesoIMP.idPlaca = @CodMaquina).
+        /// </summary>
+        internal static string pimp_CargaDET {
+            get {
+                return ResourceManager.GetString("pimp_CargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM dbo.pr_GHCostoProcesoIMP WHERE idPlaca=@CodPlaca.
+        /// </summary>
+        internal static string pimp_EliminaG {
+            get {
+                return ResourceManager.GetString("pimp_EliminaG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INSERT INTO pr_GHCostoProcesoIMP VALUES (@idTalla,@idPlaca,@NumColores,@CostoIMPMIN,@NumPliegosMIN,@CostoMINPP,@NumMinutosPP,&apos;True&apos;).
+        /// </summary>
+        internal static string pimp_GuardaPIMP {
+            get {
+                return ResourceManager.GetString("pimp_GuardaPIMP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT idPlaca,Descripcion,Ancho,Alto,CostoPlaca AS Costo,EstReg AS Estado,&apos;&apos; AS Accion FROM pr_GHPlacas.
+        /// </summary>
+        internal static string placas_CargaDET {
+            get {
+                return ResourceManager.GetString("placas_CargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT ISNULL(MAX(idPlaca),0) AS Codigo FROM pr_GHPlacas.
+        /// </summary>
+        internal static string placas_Codigo {
+            get {
+                return ResourceManager.GetString("placas_Codigo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM pr_GHPlacas WHERE idPlaca=@idPlaca;INSERT INTO pr_GHPlacas VALUES (@idPlaca,@Descripcion,@Ancho,@Alto,@CostoPlaca,@Estado).
+        /// </summary>
+        internal static string placas_Guardar {
+            get {
+                return ResourceManager.GetString("placas_Guardar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT idColor,Descripcion,CostoGramo AS Costo,EstReg AS Estado,&apos;&apos; AS Accion FROM dbo.pr_GHTipoColor.
+        /// </summary>
+        internal static string tipocolor_CargaDET {
+            get {
+                return ResourceManager.GetString("tipocolor_CargaDET", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT ISNULL(MAX(idColor),0) AS Codigo FROM pr_GHTipoColor.
+        /// </summary>
+        internal static string tipocolor_Codigo {
+            get {
+                return ResourceManager.GetString("tipocolor_Codigo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DELETE FROM pr_GHTipoColor WHERE idColor=@idColor;INSERT INTO pr_GHTipoColor VALUES (@idColor,@Descripcion,@Costo,@Estado).
+        /// </summary>
+        internal static string tipocolor_Guarda {
+            get {
+                return ResourceManager.GetString("tipocolor_Guarda", resourceCulture);
+            }
+        }
     }
 }

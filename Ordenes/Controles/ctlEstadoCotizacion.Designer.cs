@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.barraStandar = new dllStandardTool.StandardTool();
             this.paGeneral = new System.Windows.Forms.Panel();
             this.gbObservaciones = new System.Windows.Forms.GroupBox();
             this.meObservaciones = new DevExpress.XtraEditors.MemoEdit();
@@ -85,14 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.rice_chkSeleccionar)).BeginInit();
             this.SuspendLayout();
             // 
-            // barraStandar
-            // 
-            this.barraStandar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.barraStandar.Location = new System.Drawing.Point(0, 0);
-            this.barraStandar.Name = "barraStandar";
-            this.barraStandar.Size = new System.Drawing.Size(840, 24);
-            this.barraStandar.TabIndex = 3;
-            // 
             // paGeneral
             // 
             this.paGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -101,7 +92,7 @@
             this.paGeneral.Controls.Add(this.lblTotalREG);
             this.paGeneral.Controls.Add(this.gbFiltros);
             this.paGeneral.Controls.Add(this.gc_ListaCotizaciones);
-            this.paGeneral.Location = new System.Drawing.Point(3, 30);
+            this.paGeneral.Location = new System.Drawing.Point(3, 7);
             this.paGeneral.Name = "paGeneral";
             this.paGeneral.Size = new System.Drawing.Size(834, 416);
             this.paGeneral.TabIndex = 4;
@@ -527,9 +518,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.paGeneral);
-            this.Controls.Add(this.barraStandar);
             this.Name = "ctlEstadoCotizacion";
-            this.Size = new System.Drawing.Size(840, 449);
+            this.Size = new System.Drawing.Size(840, 429);
             this.Load += new System.EventHandler(this.ctlEstadoCotizacion_Load);
             this.paGeneral.ResumeLayout(false);
             this.gbObservaciones.ResumeLayout(false);
@@ -556,8 +546,6 @@
         }
 
         #endregion
-
-        private dllStandardTool.StandardTool barraStandar;
         private System.Windows.Forms.Panel paGeneral;
         private DevExpress.XtraGrid.GridControl gc_ListaCotizaciones;
         private DevExpress.XtraGrid.Views.Grid.GridView gv_ListaCotizaciones;

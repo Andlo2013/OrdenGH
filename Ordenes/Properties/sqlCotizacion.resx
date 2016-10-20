@@ -218,7 +218,7 @@
     <comment>Carga el detalle de materiales para seleccionar el que menos desperdicio genere</comment>
   </data>
   <data name="cot_cargaCostosProcesoIMP" xml:space="preserve">
-    <value>SELECT idProcesoIMP, idPlaca, NumColores, idTalla, CostoImpMin, NumPliegosXmin, CostoMinPP, NumMinPP FROM dbo.pr_GHCostoProcesoIMP WHERE (EstReg = 'True')</value>
+    <value>SELECT idPlaca, NumColores, idTalla, CostoImpMin, NumPliegosXmin, CostoMinPP, NumMinPP FROM dbo.pr_GHCostoProcesoIMP WHERE (EstReg = 'True')</value>
     <comment>Carga los aproximados de costos de impresio</comment>
   </data>
   <data name="cot_disProcesoIMPDET" xml:space="preserve">

@@ -84,6 +84,10 @@
     <Compile Include="Clases\clsEstadoCOT.cs" />
     <Compile Include="Clases\clsRefAcabado.cs" />
     <Compile Include="Clases\clsRefCobertura.cs" />
+    <Compile Include="Clases\clsRefPlacas.cs" />
+    <Compile Include="Clases\clsRefPliegoEXT.cs" />
+    <Compile Include="Clases\clsRefProcesoIMP.cs" />
+    <Compile Include="Clases\clsRefTipoColor.cs" />
     <Compile Include="Clases\_Comunes.cs" />
     <Compile Include="Clases\clsCotizacion.cs" />
     <Compile Include="Controles\ctlCotizacion.cs">

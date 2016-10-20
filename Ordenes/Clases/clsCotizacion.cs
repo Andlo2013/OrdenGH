@@ -304,13 +304,13 @@ namespace Ordenes.Clases
                             "\nEl registro de la fila Nro: " + fila.ToString();
                         if (row["Direccion"].ToString().Trim() =="")
                         {
-                            msj += "La dirección de envío es obligatorio";
+                            msj += "\nLa dirección de envío es obligatorio";
                             clsMensaje._msjWarning(msj, "Lugares de envío");
                             return false;
                         }
                         else if (row["Cantidad"].ToDecimal() <= 0)
                         {
-                            msj += "La cantidad debe ser mayor a cero";
+                            msj += "\nLa cantidad debe ser mayor a cero";
                             clsMensaje._msjWarning(msj, "Lugares de envío");
                             return false;
                         }
@@ -900,6 +900,7 @@ namespace Ordenes.Clases
                     rowColor["TrabajoAncho"] = rowFila["TrabajoAncho"];
                     rowColor["TrabajoAlto"] = rowFila["TrabajoAlto"];
                     rowColor["NumPaginas"] = rowFila["NumPaginas"];
+                    rowColor["Tiraje"] = rowFila["Tiraje"];
                     dtDisenoColor.Rows.Add(rowColor);
                 }
             }

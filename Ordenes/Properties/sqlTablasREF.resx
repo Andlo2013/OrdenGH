@@ -145,4 +145,52 @@
     <value>DELETE FROM pr_GHCoberturas WHERE idCobertura=@idCobertura;INSERT INTO pr_GHCoberturas VALUES (@idCobertura,@Descripcion,@Gramos,@Estado);</value>
     <comment>Guarda las coberturas</comment>
   </data>
+  <data name="pext_cargaDET" xml:space="preserve">
+    <value>SELECT dbo.pr_GHPorcentajePliegoEXT.SecMaterial, dbo.ItmMae.ItmDsc AS Material, dbo.pr_GHPorcentajePliegoEXT.Porcentaje FROM dbo.pr_GHPorcentajePliegoEXT INNER JOIN dbo.ItmMae ON dbo.pr_GHPorcentajePliegoEXT.SecMaterial = dbo.ItmMae.Secuencial WHERE        (dbo.ItmMae.EmpCod = @CodEmpresa) AND (dbo.pr_GHPorcentajePliegoEXT.CmbGrupo = @CodGrupo) AND (dbo.pr_GHPorcentajePliegoEXT.CmbComponente = @CodComponente) AND (dbo.pr_GHPorcentajePliegoEXT.EstReg = 'True')</value>
+    <comment>Carga el detalle de pliegos extras</comment>
+  </data>
+  <data name="pext_EliminaG" xml:space="preserve">
+    <value>DELETE FROM dbo.pr_GHPorcentajePliegoEXT WHERE CmbGrupo=@CodGrupo AND CmbComponente=@CodComponente</value>
+    <comment>Elimina los registros para volver a ingresar</comment>
+  </data>
+  <data name="pext_Guarda" xml:space="preserve">
+    <value>INSERT INTO dbo.pr_GHPorcentajePliegoEXT VALUES (@CodGrupo,@CodComponente,@SecMaterial,@Porcentaje,'True')</value>
+    <comment>Inserta un registro de pliego extra</comment>
+  </data>
+  <data name="pimp_CargaDET" xml:space="preserve">
+    <value>SELECT pr_GHCostoProcesoIMP.idTalla AS CodTalla, ItmTallas.Talla, pr_GHCostoProcesoIMP.NumColores, pr_GHCostoProcesoIMP.CostoImpMin AS CostoMIN, pr_GHCostoProcesoIMP.NumPliegosXmin AS PliegosMIN, pr_GHCostoProcesoIMP.CostoMinPP AS CostoPP, pr_GHCostoProcesoIMP.NumMinPP AS MinutosPP FROM pr_GHCostoProcesoIMP INNER JOIN ItmTallas ON pr_GHCostoProcesoIMP.idTalla = ItmTallas.IdTalla WHERE (pr_GHCostoProcesoIMP.idPlaca = @CodMaquina)</value>
+    <comment>Carga el detalle de los procesos de impresión</comment>
+  </data>
+  <data name="pimp_EliminaG" xml:space="preserve">
+    <value>DELETE FROM dbo.pr_GHCostoProcesoIMP WHERE idPlaca=@CodPlaca</value>
+    <comment>Elimina los registros de proceso de impresion para volver a guardar</comment>
+  </data>
+  <data name="pimp_GuardaPIMP" xml:space="preserve">
+    <value>INSERT INTO pr_GHCostoProcesoIMP VALUES (@idTalla,@idPlaca,@NumColores,@CostoIMPMIN,@NumPliegosMIN,@CostoMINPP,@NumMinutosPP,'True')</value>
+    <comment>Guarda un registro de proceso de impresion</comment>
+  </data>
+  <data name="placas_CargaDET" xml:space="preserve">
+    <value>SELECT idPlaca,Descripcion,Ancho,Alto,CostoPlaca AS Costo,EstReg AS Estado,'' AS Accion FROM pr_GHPlacas</value>
+    <comment>Carga el detalle de placas</comment>
+  </data>
+  <data name="placas_Codigo" xml:space="preserve">
+    <value>SELECT ISNULL(MAX(idPlaca),0) AS Codigo FROM pr_GHPlacas</value>
+    <comment>Calcula el codigo de la placa</comment>
+  </data>
+  <data name="placas_Guardar" xml:space="preserve">
+    <value>DELETE FROM pr_GHPlacas WHERE idPlaca=@idPlaca;INSERT INTO pr_GHPlacas VALUES (@idPlaca,@Descripcion,@Ancho,@Alto,@CostoPlaca,@Estado)</value>
+    <comment>Guarda las placas</comment>
+  </data>
+  <data name="tipocolor_CargaDET" xml:space="preserve">
+    <value>SELECT idColor,Descripcion,CostoGramo AS Costo,EstReg AS Estado,'' AS Accion FROM dbo.pr_GHTipoColor</value>
+    <comment>Carga el detalle de los tipos de colores</comment>
+  </data>
+  <data name="tipocolor_Codigo" xml:space="preserve">
+    <value>SELECT ISNULL(MAX(idColor),0) AS Codigo FROM pr_GHTipoColor</value>
+    <comment>Calcula el codigo del tipo de color</comment>
+  </data>
+  <data name="tipocolor_Guarda" xml:space="preserve">
+    <value>DELETE FROM pr_GHTipoColor WHERE idColor=@idColor;INSERT INTO pr_GHTipoColor VALUES (@idColor,@Descripcion,@Costo,@Estado)</value>
+    <comment>Guarda el tipo de color</comment>
+  </data>
 </root>
